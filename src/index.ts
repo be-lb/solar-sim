@@ -8,7 +8,8 @@
  *  License in LICENSE file at the root of the repository.
  */
 
-import {Building, Roof, computeRoofUsableArea} from './building';
+import {Building} from './building';
+import {Roof, computeRoofUsableArea} from './roof';
 
 // load geojson of roof shape & properties
 
