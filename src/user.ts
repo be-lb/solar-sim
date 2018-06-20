@@ -15,9 +15,9 @@ class User {
     computeAnnualElecConsumption () {
         return this.annualElectricityConsumption =
         ANNUAL_CONSUMPTION_BASE +
-        WASHING_MACHINE_FACTOR * <any>this.hasWashingMachine +
-        ELECTRIC_WATER_HEATER_FACTOR * <any>this.hasElectricWaterHeater +
-        ELECTRIC_HEATING_FACTOR * <any>this.hasElectricHeating
+        WASHING_MACHINE_FACTOR * Number(this.hasWashingMachine) +
+        ELECTRIC_WATER_HEATER_FACTOR * Number(this.hasElectricWaterHeater) +
+        ELECTRIC_HEATING_FACTOR * Number(this.hasElectricHeating)
         ;
     };
 };
