@@ -16,9 +16,15 @@ class Roof {
         }
     };
     computePeakPower (pv:PV) {
+        /**
+        * @param usableArea - Suitable area for photovoltaic installation (m²)
+        * @param pv.setupFactor - Type of mounting of the photovoltaic installation
+        * @param pv.yield - Yield of the photovoltaic installation
+        * Returns the peak power of the roof (kWc)
+        */
         this.computeRoofUsableArea();
         return this.peakPower =
-        this.usableArea / (1000 / (1000 * pv.yield) * 1)
+        this.usableArea / (1000 / (1000 * pv.yield) * pv.setupFactor)
         ;
     };
 };

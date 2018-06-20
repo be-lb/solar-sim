@@ -15,7 +15,7 @@ import {PV} from './pv';
 
 // load geojson of roof shape & properties
 
-// These objects should be constructed by parsing some geojson from lot-1
+// TODO: These objects Building and Roofs should be constructed by parsing some geojson from lot-1
 let b = new Building();
 b.typology = 'residential';
 
@@ -38,11 +38,11 @@ for (let roof of b.roofs) {
 // Compute PV production
 let pv = new PV();
 pv.building = b;
+pv.setup = 'default';
 pv.computeProduction();
 b.pv = pv;
 
-
-
+// User information
 let u = new User();
 u.hasWashingMachine = true;
 u.hasElectricWaterHeater = true;

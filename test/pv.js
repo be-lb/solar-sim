@@ -26,6 +26,7 @@ describe('PV', function() {
       b.roofs = [r];
       var p = new pv.PV();
       p.building = b;
+      p.setup = 'default';
       expect(p.computeProduction()).to.be.equal(3705);
     });
     it('should return true', function() {
@@ -37,6 +38,7 @@ describe('PV', function() {
       b.roofs = [r];
       var p = new pv.PV();
       p.building = b;
+      p.setup = 'default';
       expect(p.computeProduction()).to.be.equal(3705);
     });
   });

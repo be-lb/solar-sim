@@ -6,7 +6,7 @@ interface TypologyRateObject {
     [key: string]: number;
 };
 
-let TypologyRate : TypologyRateObject = {
+const TYPOLOGY_RATE : TypologyRateObject = {
     'residential': 0.2,
     'detached': 0.35,
     'industrial': 0.1
@@ -21,7 +21,7 @@ class Building {
     user: User;
     getObstacleRatePerTypology () {
         if (this.obstacleRate === undefined) {
-            return this.obstacleRate = TypologyRate[this.typology];
+            return this.obstacleRate = TYPOLOGY_RATE[this.typology];
         } else {
             return this.obstacleRate;
         }
