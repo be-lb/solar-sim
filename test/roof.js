@@ -19,7 +19,7 @@ describe('Roof', function() {
       var b = new building.Building();
       b.typology = 'residential';
       var r = new roof.Roof();
-      r.rawArea = 120;
+      r.rawArea = 30;
       r.building = b;
       expect(r.computeRoofUsableArea()).to.be.lessThan(r.rawArea);
     });
