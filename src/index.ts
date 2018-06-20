@@ -2,19 +2,13 @@
  * src/index.ts
  *
  *
- * Copyright (C) 2015-2017 Pierre Marchand <pierremarc07@gmail.com>
- * Copyright (C) 2017 Pacôme Béru <pacome.beru@gmail.com>
+ * Copyright (C) 2018 Marc Ducobu <marc.ducobu@champs-libres.coop>
+ * Copyright (C) 2018 Julien Minet <julien.minet@champs-libres.coop>
  *
  *  License in LICENSE file at the root of the repository.
  */
 
 import {Building, Roof, computeRoofUsableArea} from './building';
-
-//export type Name = string;
-
-
-// export const helloWorld =
-//     (n: Name) => `Hello ${n}!`;
 
 // load geojson of roof shape & properties
 
