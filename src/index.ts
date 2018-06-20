@@ -9,7 +9,8 @@
  */
 
 import {Building} from './building';
-import {Roof, computeRoofUsableArea} from './roof';
+import {Roof} from './roof';
+import {User} from './user';
 
 // load geojson of roof shape & properties
 
@@ -27,7 +28,13 @@ r2.building = b;
 
 let roofs: Roof[] = [r1, r2];
 for (let roof of roofs) {
-   roof.usableArea = computeRoofUsableArea(roof);
+   roof.computeRoofUsableArea();
 }
 
 console.log(roofs);
+
+let u = new User();
+u.hasWashingMachine = true;
+u.hasElectricWaterHeater = true;
+u.hasElectricHeating = false;
+console.log(u.computeAnnualElecConsumption());

@@ -8,15 +8,16 @@ describe('Building', function() {
       var b = new building.Building();
       expect(b).to.be.a('object');
     });
-  });
-  describe('getObstacleRatePerTypology()', function() {
     it('should expose a function', function () {
-      expect(building.getObstacleRatePerTypology).to.be.a('function');
+      var b = new building.Building();
+      expect(b.getObstacleRatePerTypology).to.be.a('function');
     });
+  });
+  describe('b.getObstacleRatePerTypology() == [0, 1]', function() {
     it('should return true', function() {
       var b = new building.Building();
       b.typology = 'residential';
-      expect(building.getObstacleRatePerTypology(b)).to.be.within(0,1);
+      expect(b.getObstacleRatePerTypology()).to.be.within(0,1);
     });
   });
 });

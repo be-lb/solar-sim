@@ -1,7 +1,3 @@
-class Building {
-    typology: string;
-};
-
 interface TypologyRateObject {
     [key: string]: number;
 };
@@ -12,10 +8,12 @@ let TypologyRate : TypologyRateObject = {
     'industrial': 0.1
 };
 
-const getObstacleRatePerTypology = (building:Building) => {
-    let rate : number = TypologyRate[building.typology];
-    return rate;
+class Building {
+    typology: string;
+    obstacleRate: number;
+    getObstacleRatePerTypology () {
+        return this.obstacleRate = TypologyRate[this.typology];
+    };
 };
 
 export { Building };
-export { getObstacleRatePerTypology };

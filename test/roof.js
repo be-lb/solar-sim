@@ -9,18 +9,19 @@ describe('Roof', function() {
       var r = new roof.Roof();
       expect(r).to.be.a('object');
     });
-  });
-  describe('computeRoofUsableArea()', function() {
     it('should expose a function', function () {
-      expect(roof.computeRoofUsableArea).to.be.a('function');
+      var r = new roof.Roof();
+      expect(r.computeRoofUsableArea).to.be.a('function');
     });
+  });
+  describe('computeRoofUsableArea() < rawArea', function() {
     it('should return true', function() {
       var b = new building.Building();
       b.typology = 'residential';
       var r = new roof.Roof();
       r.rawArea = 120;
       r.building = b;
-      expect(roof.computeRoofUsableArea(r)).to.be.lessThan(r.rawArea);
+      expect(r.computeRoofUsableArea()).to.be.lessThan(r.rawArea);
     });
   });
 });
