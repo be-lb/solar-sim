@@ -1,6 +1,7 @@
 import {Building} from './building';
 
 const PV_YIELD = 0.13;
+const PRODUCTION_YEARLY_LOSS_INDEX = 0.0005;
 
 interface PVSetupObject {
     [key: string]: number;
@@ -18,9 +19,11 @@ class PV {
     setupFactor: number;
     yield: number;
     annualProduction: number;
+    productionYearlyLossIndex: number;
     building: Building;
     constructor() {
         this.yield = PV_YIELD;
+        this.productionYearlyLossIndex = PRODUCTION_YEARLY_LOSS_INDEX;
     }
     getSetupFactor () {
         if (this.setupFactor === undefined) {

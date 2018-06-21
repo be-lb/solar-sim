@@ -12,6 +12,7 @@ import {Building} from './building';
 import {Roof} from './roof';
 import {User} from './user';
 import {PV} from './pv';
+import {Financial, computeFinancialAmortization} from './financial';
 
 // load geojson of roof shape & properties
 
@@ -20,17 +21,12 @@ let b = new Building();
 b.typology = 'residential';
 
 let r1 = new Roof();
-r1.rawArea = 120;
+r1.usableArea = 30;
 r1.productivity = 950;
 r1.building = b;
 
-let r2 = new Roof();
-r2.rawArea = 60;
-r2.productivity = 1250;
-r2.building = b;
-
 // Compute roof usable areas
-b.roofs = [r1, r2];
+b.roofs = [r1];
 for (let roof of b.roofs) {
    roof.computeRoofUsableArea();
 }
@@ -47,6 +43,16 @@ let u = new User();
 u.hasWashingMachine = true;
 u.hasElectricWaterHeater = true;
 u.hasElectricHeating = false;
+u.computeAnnualElecConsumption();
 b.user = u;
 
+// Financial information
+let f = new Financial();
+f.computeElecBuyingPrice();
+
 console.log(b);
+
+// Compute results
+let year_start: number = 2018;
+let year_end: number = 2018+25;
+computeFinancialAmortization(b, f, year_start, year_end);
