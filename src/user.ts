@@ -1,4 +1,5 @@
 
+const SELF_PRODUCTION_RATE = 0.3;
 const ANNUAL_CONSUMPTION_BASE = 600;
 const WASHING_MACHINE_FACTOR = 600;
 const ELECTRIC_WATER_HEATER_FACTOR = 2300;
@@ -11,7 +12,7 @@ class User {
     hasElectricWaterHeater: boolean;
     hasElectricHeating: boolean;
     annualElectricityConsumption: number;
-    selfProductionRate: number;
+    selfProductionRate: number = SELF_PRODUCTION_RATE;
     computeAnnualElecConsumption () {
         return this.annualElectricityConsumption =
         ANNUAL_CONSUMPTION_BASE +
@@ -25,4 +26,4 @@ class User {
 export { User };
 
 
-// TODO: selfProductionRate compute? 
+// TODO: selfProductionRate compute?

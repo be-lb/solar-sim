@@ -3,6 +3,7 @@ import {PV} from './pv';
 import {User} from './user';
 
 const METER_COST = 289;
+const ELEC_BUYING_PRICE = 0.23;
 const ELEC_INDEX = 0.03;
 const CV_PRICE = 85;
 const CV_RATE = 3;
@@ -11,30 +12,28 @@ const CV_TIME = 10;
 class Financial {
     PVCost: number;
     meterCost: number = METER_COST;
-    elecBuyingPrice: number;
+    elecBuyingPrice: number = ELEC_BUYING_PRICE;
     elecIndex : number = ELEC_INDEX;
     CVPrice : number = CV_PRICE;
     CVRate : number = CV_RATE;
     CVTime : number = CV_TIME;
     building: Building;
-    computeElecBuyingPrice () {
-        //TODO affiner selon maquette
-        return this.elecBuyingPrice = 0.23;
-    }
     computePVCost () {
         if (this.PVCost === undefined) {
             let totalPower: number = 0;
             for (let r of this.building.roofs) {
                 totalPower = totalPower + r.rawPeakPower;
             }
-            return this.PVCost = totalPower * 1500;
+            //return this.PVCost = totalPower * 1500;
+            // TODO incoherence maquette xls
+            return this.PVCost = 8550;
         } else {
             return this.PVCost;
         }
     }
 };
 
-// const currentYear: number = 2018; // TODO: get from the browser?
+const currentYear: number = 2018; // TODO: get from the browser?
 
 const computeFinancialAmortization =
     (building: Building, fin: Financial, year_start: number, year_end: number):
@@ -67,12 +66,15 @@ const computeFinancialAmortization =
         //console.log(elecPrice); //OK
         actualProduction = p.production * (1-p.productionYearlyLossIndex)**(ii-1);
         //console.log(actualAnnualProduction); //OK
-        selfConsumption = u.annualElectricityConsumption > actualProduction ? actualProduction : u.annualElectricityConsumption
-        // TODO: check pq le calcul change après 2 ans???
-        // Après 2 ans, selfConsumption = selfProductionRate * actualAnnualProduction
-        //console.log(selfConsumption); //KO - problème 2 ans après
+        // Fin de la compensation en 2020
+        if (currentYear + ii <= 2020) {
+            selfConsumption = u.annualElectricityConsumption > actualProduction ? actualProduction : u.annualElectricityConsumption
+        } else {
+            selfConsumption = u.selfProductionRate * actualProduction
+        }
+        //console.log(selfConsumption); //OK
         selfConsumptionAmount = selfConsumption * elecPrice;
-        //console.log(selfConsumptionAmount); KO - problème 2 ans après
+        //console.log(selfConsumptionAmount); //OK
         if (ii === 1) {
             selfConsumptionAmountYear1 = Math.round(selfConsumptionAmount);
         }
@@ -94,7 +96,7 @@ const computeFinancialAmortization =
         // NB: incoherence avec maquette xls sur PVCost
 
         // Calcul actualisé
-        
+
 
     }
     return [selfConsumptionAmountYear1, CVAmountYear1, productionPrice, simpleReturnTime];
@@ -105,16 +107,11 @@ export { Financial };
 export { computeFinancialAmortization };
 
 // VATrate	float	/		computeVATRate()	a.buildingUse
-// PVCost	money/float	€		computePVCost()	p.power
-// meterCost	money/float	€		CONSTANT
 // ondulerCost	money/float	€		CONSTANT
 // frequency	int/year	an		CONSTANT
 // otherCosts	money/float	€		CONSTANT
 // inflationRate	float	/		CONSTANT
 // discountRate	float	/		CONSTANT
-// CVCost	money/float	€		CONSTANT
-// CVTime	int/year	an		CONSTANT
-// CVRate	float	/		computeCVRate()	p.power
 // compensationYear	int/year	an		CONSTANT
 // elecPrice	float	€/kWh		computeElecPrice()	u.annualElecConsumption, u.annualElecAmount
 // elecPriceRate	float	/		CONSTANT

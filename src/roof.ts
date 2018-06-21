@@ -24,7 +24,6 @@ class Roof {
         * @param pv.yield - Yield of the photovoltaic installation
         * Returns the raw peak power of the roof (kWc)
         */
-        console.log(this.rawArea);
         return this.rawPeakPower =
         this.rawArea / (1000 / (1000 * pv.yield) * pv.setupFactor)
         ;
