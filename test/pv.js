@@ -18,21 +18,28 @@ describe('PV', function() {
   describe('p.computeProduction() == 3705', function() {
     it('should return true', function() {
       var b = new building.Building();
-      b.obstacleRate = 0;
+      b.typology = 'urban';
+
+      var p = new pv.PV();
+      p.building = b;
+      p.setup = 'default';
+      p.getSetupFactor();
+
       var r = new roof.Roof();
       r.rawArea = 30;
       r.productivity = 950;
       r.building = b;
+      //r.computeRoofUsableArea();
+      r.computeRawPeakPower(p);
       b.roofs = [r];
-      var p = new pv.PV();
-      p.building = b;
-      p.setup = 'default';
+
+      console.log(b);
       expect(p.computeProduction()).to.be.equal(3705);
     });
     it('should return true', function() {
       var b = new building.Building();
       var r = new roof.Roof();
-      r.usableArea = 30;
+      r.rawArea = 30;
       r.productivity = 950;
       r.building = b;
       b.roofs = [r];

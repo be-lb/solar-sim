@@ -13,18 +13,13 @@ const PV_SETUP : PVSetupObject = {
 };
 
 class PV {
-    peakPower: number;
     technology: string;
     setup: string;
     setupFactor: number;
-    yield: number;
-    annualProduction: number;
-    productionYearlyLossIndex: number;
+    yield: number = PV_YIELD;
+    production: number;
+    productionYearlyLossIndex: number = PRODUCTION_YEARLY_LOSS_INDEX;
     building: Building;
-    constructor() {
-        this.yield = PV_YIELD;
-        this.productionYearlyLossIndex = PRODUCTION_YEARLY_LOSS_INDEX;
-    }
     getSetupFactor () {
         if (this.setupFactor === undefined) {
             return this.setupFactor = PV_SETUP[this.setup];
@@ -36,10 +31,11 @@ class PV {
         let production: number = 0;
         for (let r of this.building.roofs) {
             this.setupFactor = this.getSetupFactor();
-            let power = r.computePeakPower(this);
+            let power = r.computeRawPeakPower(this);
+            // TODO: check with APERE why use the raw peak power here. 
             production = production + power * r.productivity;
         }
-        return this.annualProduction = production;
+        return this.production = production;
     }
 };
 

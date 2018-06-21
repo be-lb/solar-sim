@@ -20,21 +20,25 @@ import {Financial, computeFinancialAmortization} from './financial';
 let b = new Building();
 b.typology = 'residential';
 
-let r1 = new Roof();
-r1.usableArea = 30;
-r1.productivity = 950;
-r1.building = b;
-
-// Compute roof usable areas
-b.roofs = [r1];
-for (let roof of b.roofs) {
-   roof.computeRoofUsableArea();
-}
-
 // Compute PV production
 let pv = new PV();
 pv.building = b;
 pv.setup = 'default';
+pv.getSetupFactor();
+
+// Compute roof usable areas
+let r1 = new Roof();
+r1.rawArea = 30;
+r1.productivity = 950;
+r1.building = b;
+
+b.roofs = [r1];
+for (let roof of b.roofs) {
+   roof.computeRoofUsableArea();
+   roof.computeRawPeakPower(pv);
+   roof.computeUsablePeakPower(pv);
+}
+
 pv.computeProduction();
 b.pv = pv;
 
@@ -48,11 +52,15 @@ b.user = u;
 
 // Financial information
 let f = new Financial();
+f.building = b;
 f.computeElecBuyingPrice();
-
-console.log(b);
+f.computePVCost();
 
 // Compute results
 let year_start: number = 2018;
 let year_end: number = 2018+25;
 computeFinancialAmortization(b, f, year_start, year_end);
+
+// Log object
+console.log(b);
+console.log(f);

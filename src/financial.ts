@@ -2,19 +2,39 @@ import {Building} from './building';
 import {PV} from './pv';
 import {User} from './user';
 
+const METER_COST = 289;
 const ELEC_INDEX = 0.03;
+const CV_PRICE = 85;
+const CV_RATE = 3;
+const CV_TIME = 10;
 
 class Financial {
     PVCost: number;
-    meterCost: number;
+    meterCost: number = METER_COST;
     elecBuyingPrice: number;
     elecIndex : number = ELEC_INDEX;
+    CVPrice : number = CV_PRICE;
+    CVRate : number = CV_RATE;
+    CVTime : number = CV_TIME;
+    building: Building;
     computeElecBuyingPrice () {
-        //TODO
+        //TODO affiner selon maquette
         return this.elecBuyingPrice = 0.23;
+    }
+    computePVCost () {
+        if (this.PVCost === undefined) {
+            let totalPower: number = 0;
+            for (let r of this.building.roofs) {
+                totalPower = totalPower + r.rawPeakPower;
+            }
+            return this.PVCost = totalPower * 1500;
+        } else {
+            return this.PVCost;
+        }
     }
 };
 
+// const currentYear: number = 2018; // TODO: get from the browser?
 
 const computeFinancialAmortization =
     (building: Building, fin: Financial, year_start: number, year_end: number):
@@ -22,11 +42,14 @@ const computeFinancialAmortization =
 
     // Instantiate variables
     let elecPrice : number = 0;
-    let actualAnnualProduction : number = 0;
+    let actualProduction : number = 0;
     let selfConsumption : number = 0;
     let selfConsumptionAmount: number = 0;
     let selfConsumptionAmountYear1: number = 0;
-    let trim: number = 0;
+    let CVAmount: number = 0;
+    let CVAmountYear1: number = 0;
+    let productionPrice: number = 0;
+    let simpleReturnTime: number = 0;
 
     // Get objects
     let p : PV = building.pv;
@@ -37,29 +60,44 @@ const computeFinancialAmortization =
        years.push(i);
     }
 
-    for (let year of years){
+    for (let ii of years){
 
-        // compute electricity buying price
-        elecPrice = fin.elecBuyingPrice * (1 + fin.elecIndex)**year;
+        /// Compute electricity balance
+        elecPrice = fin.elecBuyingPrice * (1 + fin.elecIndex)**ii;
         //console.log(elecPrice); //OK
-        // compute selfConsumption
-        actualAnnualProduction = p.annualProduction * (1-p.productionYearlyLossIndex)**(year-1);
+        actualProduction = p.production * (1-p.productionYearlyLossIndex)**(ii-1);
         //console.log(actualAnnualProduction); //OK
-        selfConsumption = u.annualElectricityConsumption > actualAnnualProduction ? actualAnnualProduction : u.annualElectricityConsumption
+        selfConsumption = u.annualElectricityConsumption > actualProduction ? actualProduction : u.annualElectricityConsumption
         // TODO: check pq le calcul change après 2 ans???
         // Après 2 ans, selfConsumption = selfProductionRate * actualAnnualProduction
-        //console.log(selfConsumption); //KO
-        // Compute selfConsumptionAmount
+        //console.log(selfConsumption); //KO - problème 2 ans après
         selfConsumptionAmount = selfConsumption * elecPrice;
-        console.log(selfConsumptionAmount);
-        if (year === 1) {
+        //console.log(selfConsumptionAmount); KO - problème 2 ans après
+        if (ii === 1) {
             selfConsumptionAmountYear1 = Math.round(selfConsumptionAmount);
         }
 
+        // Certificats verts (only < 2028 or year_start + 10? )
+        if (ii < fin.CVTime) {
+            CVAmount = fin.CVPrice * (fin.CVRate * actualProduction / 1000);
+            if (ii === 1) {
+                CVAmountYear1 = Math.round(CVAmount);
+            }
+        } else {
+            CVAmount = 0;
+        }
+        //console.log(CVAmount); // OK
 
+        // Calcul simplifié
+        productionPrice = Math.round(((fin.PVCost + fin.meterCost)/25/p.production)*10)/10;
+        simpleReturnTime = Math.round((fin.PVCost + fin.meterCost)/(selfConsumptionAmountYear1+CVAmountYear1));
+        // NB: incoherence avec maquette xls sur PVCost
+
+        // Calcul actualisé
+        
 
     }
-    return [selfConsumptionAmountYear1, trim];
+    return [selfConsumptionAmountYear1, CVAmountYear1, productionPrice, simpleReturnTime];
 }
 
 
