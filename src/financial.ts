@@ -96,7 +96,7 @@ const computeFinancialAmortization =
 
         // Calcul actualisé
         let truc : number[] = [1, 2];
-        netActualValue = NPV(fin.discountRate,truc);
+        netActualValue = NetPresentValue(fin.discountRate,truc);
         actualReturnTime = 1;
         returnInternalRate = 1;
         modifiedReturnInternalRate = 1;
@@ -133,21 +133,27 @@ const computeSimplifiedFinancialAmortization =
     // NB: incoherence avec maquette xls sur PVCost
 
     return [
-      productionPrice,
-      simpleReturnTime
+        productionPrice,
+        simpleReturnTime
     ]
 
 }
 
 
-const NPV = (discountRate: number, values: number[]): number => {
-    return discountRate + values[0];
+const NetPresentValue = (discountRate: number, values: number[]): number => {
+    let ii: number = 1;
+    let npv: number = 0;
+    for (let v of values) {
+        npv = npv + v/(1+discountRate)**ii
+        ii++;
+    }
+    return npv;
 };
 
 
 
 export { Financial };
-export { computeFinancialAmortization, computeSimplifiedFinancialAmortization };
+export { computeFinancialAmortization, computeSimplifiedFinancialAmortization, NetPresentValue };
 
 // VATrate	float	/		computeVATRate()	a.buildingUse
 // ondulerCost	money/float	€		CONSTANT

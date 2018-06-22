@@ -20,6 +20,9 @@ describe('Financial', function() {
     it('should expose a function', function () {
       expect(financial.computeSimplifiedFinancialAmortization).to.be.a('function');
     });
+    it('should expose a function', function () {
+      expect(financial.NetPresentValue).to.be.a('function');
+    });
     it('should return true', function() {
       var b = new building.Building();
       b.typology = 'residential';
@@ -94,6 +97,11 @@ describe('Financial', function() {
       var results = financial.computeFinancialAmortization(b, f, year_start, year_end);
 
       expect(financial.computeSimplifiedFinancialAmortization(p, f, results[0], results[1])).to.eql([0.10, 5]);
+    });
+    it('should return true', function() {
+      var discountRate = 0.04;
+      var values = [1774, 1798, 1308, 1318, 1329, 1340, 1351, 1362, 1374, 1387, 459, 473, 487, 501, -1503, 531, 547, 563, 579, 597, 614, 632, 651, 670, 690];
+      expect(Math.round(financial.NetPresentValue(discountRate, values))).to.eql(14784);
     });
   });
 });
