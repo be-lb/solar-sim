@@ -12,7 +12,7 @@ class Roof {
     computeRoofUsableArea () {
         if (this.usableArea === undefined) {
             return this.usableArea =
-            this.rawArea * (1 - this.building.getObstacleRatePerTypology());
+            this.rawArea * (1 - this.building.obstacleRate);
         } else {
             return this.usableArea;
         }

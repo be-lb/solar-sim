@@ -5,6 +5,7 @@ import {User} from './user';
 const METER_COST = 289;
 const ELEC_BUYING_PRICE = 0.23;
 const ELEC_INDEX = 0.03;
+const DISCOUNT_RATE = 0.04;
 const CV_PRICE = 85;
 const CV_RATE = 3;
 const CV_TIME = 10;
@@ -14,6 +15,7 @@ class Financial {
     meterCost: number = METER_COST;
     elecBuyingPrice: number = ELEC_BUYING_PRICE;
     elecIndex : number = ELEC_INDEX;
+    discountRate : number = DISCOUNT_RATE
     CVPrice : number = CV_PRICE;
     CVRate : number = CV_RATE;
     CVTime : number = CV_TIME;
@@ -47,8 +49,10 @@ const computeFinancialAmortization =
     let selfConsumptionAmountYear1: number = 0;
     let CVAmount: number = 0;
     let CVAmountYear1: number = 0;
-    let productionPrice: number = 0;
-    let simpleReturnTime: number = 0;
+    let actualReturnTime: number = 0;
+    let netActualValue: number = 0;
+    let returnInternalRate: number = 0;
+    let modifiedReturnInternalRate: number = 0;
 
     // Get objects
     let p : PV = building.pv;
@@ -90,21 +94,60 @@ const computeFinancialAmortization =
         }
         //console.log(CVAmount); // OK
 
-        // Calcul simplifié
-        productionPrice = Math.round(((fin.PVCost + fin.meterCost)/25/p.production)*10)/10;
-        simpleReturnTime = Math.round((fin.PVCost + fin.meterCost)/(selfConsumptionAmountYear1+CVAmountYear1));
-        // NB: incoherence avec maquette xls sur PVCost
-
         // Calcul actualisé
-
+        let truc : number[] = [1, 2];
+        netActualValue = NPV(fin.discountRate,truc);
+        actualReturnTime = 1;
+        returnInternalRate = 1;
+        modifiedReturnInternalRate = 1;
 
     }
-    return [selfConsumptionAmountYear1, CVAmountYear1, productionPrice, simpleReturnTime];
+
+    let netActualValueFinal: number = netActualValue; //[year_end-year_start]; // VAN
+
+
+    return [
+      selfConsumptionAmountYear1,
+      CVAmountYear1,
+      actualReturnTime,
+      netActualValueFinal,
+      returnInternalRate,
+      modifiedReturnInternalRate
+    ];
+};
+
+
+const computeSimplifiedFinancialAmortization =
+    (pv: PV, fin: Financial, selfConsumptionAmountYear1: number, CVAmountYear1:number):
+    number[] => {
+    /**
+    * @param PV
+    * @param Financial
+    * @param selfConsumptionAmountYear1
+    * @param CVAmountYear1
+    * Returns the production price in €/kWh and the simple return time in years
+    */
+
+    const productionPrice: number = Math.round(((fin.PVCost + fin.meterCost)/25/pv.production)*10)/10;
+    const simpleReturnTime: number = Math.round((fin.PVCost + fin.meterCost)/(selfConsumptionAmountYear1+CVAmountYear1));
+    // NB: incoherence avec maquette xls sur PVCost
+
+    return [
+      productionPrice,
+      simpleReturnTime
+    ]
+
 }
 
 
+const NPV = (discountRate: number, values: number[]): number => {
+    return discountRate + values[0];
+};
+
+
+
 export { Financial };
-export { computeFinancialAmortization };
+export { computeFinancialAmortization, computeSimplifiedFinancialAmortization };
 
 // VATrate	float	/		computeVATRate()	a.buildingUse
 // ondulerCost	money/float	€		CONSTANT

@@ -18,6 +18,7 @@ describe('Roof', function() {
     it('should return true', function() {
       var b = new building.Building();
       b.typology = 'residential';
+      b.getObstacleRatePerTypology();
       var r = new roof.Roof();
       r.rawArea = 30;
       r.building = b;

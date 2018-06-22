@@ -19,6 +19,7 @@ import {Financial, computeFinancialAmortization} from './financial';
 // TODO: These objects Building and Roofs should be constructed by parsing some geojson from lot-1
 let b = new Building();
 b.typology = 'residential';
+b.getObstacleRatePerTypology();
 
 // Compute PV production
 let pv = new PV();
@@ -53,7 +54,6 @@ b.user = u;
 // Financial information
 let f = new Financial();
 f.building = b;
-f.computeElecBuyingPrice();
 f.computePVCost();
 
 // Compute results

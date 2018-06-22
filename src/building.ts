@@ -19,6 +19,10 @@ class Building {
     roofs: Roof[];
     pv: PV;
     user: User;
+    constructor() {
+      //this.typology = typology; //ERREUR duplicate identifier
+        this.obstacleRate = this.getObstacleRatePerTypology();
+    }
     getObstacleRatePerTypology () {
         if (this.obstacleRate === undefined) {
             return this.obstacleRate = TYPOLOGY_RATE[this.typology];
@@ -27,5 +31,6 @@ class Building {
         }
     };
 };
+
 
 export { Building };
