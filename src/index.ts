@@ -57,9 +57,8 @@ f.building = b;
 f.computePVCost();
 
 // Compute results
-let year_start: number = 2018;
-let year_end: number = 2018+25;
-computeFinancialAmortization(b, f, year_start, year_end);
+let nYears: number = 25;
+computeFinancialAmortization(b, f, nYears);
 
 // Log object
 console.log(b);
