@@ -21,9 +21,7 @@ describe('PV', function() {
       var p = new pv.PV('default');
       p.building = b;
 
-      var r = new roof.Roof();
-      r.rawArea = 30;
-      r.productivity = 950;
+      var r = new roof.Roof(30,950);
       r.building = b;
       //r.computeRoofUsableArea();
       r.computeRawPeakPower(p);
@@ -34,7 +32,7 @@ describe('PV', function() {
     });
     it('should return true', function() {
       var b = new building.Building();
-      var r = new roof.Roof();
+      var r = new roof.Roof(30,950);
       r.rawArea = 30;
       r.productivity = 950;
       r.building = b;

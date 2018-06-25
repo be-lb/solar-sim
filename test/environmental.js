@@ -31,9 +31,7 @@ describe('environmental', function() {
       var p = new pv.PV('default');
       p.building = b;
 
-      var r = new roof.Roof();
-      r.rawArea = 30;
-      r.productivity = 950;
+      var r = new roof.Roof(30,950);
       r.building = b;
       r.computeRoofUsableArea();
       r.computeRawPeakPower(p);
@@ -52,9 +50,7 @@ describe('environmental', function() {
       var p = new pv.PV('default');
       p.building = b;
 
-      var r = new roof.Roof();
-      r.rawArea = 30;
-      r.productivity = 950;
+      var r = new roof.Roof(30,950);
       r.building = b;
       r.computeRoofUsableArea();
       r.computeRawPeakPower(p);
@@ -69,12 +65,14 @@ describe('environmental', function() {
     it('should return true - energeticReturnFactor', function() {
       var energeticCost = 14250;
       var production = 3705;
-      expect(environmental.computeEnergeticReturn(energeticCost, production).energeticReturnFactor).to.be.equal(6.5);
+      var actualProduction = [3705, 3703, 3701, 3699, 3698, 3696, 3694, 3692, 3690, 3688, 3687, 3685, 3683, 3681, 3679, 3677, 3675, 3674, 3672, 3670, 3668, 3666, 3664, 3663, 3661];
+      expect(Math.round(environmental.computeEnergeticReturn(energeticCost, production, actualProduction).energeticReturnFactor*10)/10).to.be.equal(6.5);
     });
     it('should return true - energeticReturnTime', function() {
       var energeticCost = 14250;
       var production = 3705;
-      expect(Math.round(environmental.computeEnergeticReturn(energeticCost, production).energeticReturnTime*10)/10).to.be.equal(3.8);
+      var actualProduction = [3705, 3703, 3701, 3699, 3698, 3696, 3694, 3692, 3690, 3688, 3687, 3685, 3683, 3681, 3679, 3677, 3675, 3674, 3672, 3670, 3668, 3666, 3664, 3663, 3661];
+      expect(Math.round(environmental.computeEnergeticReturn(energeticCost, production, actualProduction).energeticReturnTime*10)/10).to.be.equal(3.8);
     });
     it('should return true - computeCO2Emissions', function() {
       var actualProduction = [3705, 3703, 3701, 3699, 3698, 3696, 3694, 3692, 3690, 3688, 3687, 3685, 3683, 3681, 3679, 3677, 3675, 3674, 3672, 3670, 3668, 3666, 3664, 3663, 3661];

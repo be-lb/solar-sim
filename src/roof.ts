@@ -8,7 +8,11 @@ class Roof {
     building: Building;
     rawPeakPower: number;
     usablePeakPower: number;
-    // roofProduction: number;
+    //roofProduction: number;
+    constructor(the_raw_area: number, the_productivity: number) {
+        this.rawArea = the_raw_area;
+        this.productivity = the_productivity;
+    }
     computeRoofUsableArea () {
         if (this.usableArea === undefined) {
             return this.usableArea =

@@ -87,14 +87,14 @@ interface energeticReturn {
 };
 
 const computeEnergeticReturn =
-    (energeticCost: number, production: number): energeticReturn => {
+    (energeticCost: number, production: number, actualProduction: number[]): energeticReturn => {
     /**
     * @param energeticCost Energetic cost of the photovoltaic installation, in kWh
     * @param production Annual photovoltaic production, in kWh/year
     * @param actualProduction Actual annual photovoltaic production, in kWh/year
     * Compute the energetic factor and return time of the photovoltaic installation.
     */
-    let energeticReturnFactor: number = 1/energeticCost; //TODO: line 10/energeticCost
+    let energeticReturnFactor: number = sum(actualProduction)/energeticCost; //TODO: line 10/energeticCost
     let energeticReturnTime: number = energeticCost/production;
 
 
