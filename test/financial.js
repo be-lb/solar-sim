@@ -45,11 +45,8 @@ describe('Financial', function() {
     });
     it('should return true - selfConsumptionAmount', function() {
       var b = new building.Building('residential');
-
-      var p = new pv.PV();
+      var p = new pv.PV('default');
       p.building = b;
-      p.setup = 'default';
-      p.getSetupFactor();
 
       var r = new roof.Roof();
       r.rawArea = 30;
@@ -80,11 +77,8 @@ describe('Financial', function() {
     });
     it('should return true - CVAmount', function() {
       var b = new building.Building('residential');
-
-      var p = new pv.PV();
+      var p = new pv.PV('default');
       p.building = b;
-      p.setup = 'default';
-      p.getSetupFactor();
 
       var r = new roof.Roof();
       r.rawArea = 30;
@@ -115,11 +109,8 @@ describe('Financial', function() {
     });
     it('should return true - balance', function() {
       var b = new building.Building('residential');
-
-      var p = new pv.PV();
+      var p = new pv.PV('default');
       p.building = b;
-      p.setup = 'default';
-      p.getSetupFactor();
 
       var r = new roof.Roof();
       r.rawArea = 30;
@@ -158,7 +149,7 @@ describe('Financial', function() {
       var f = new financial.Financial();
       f.PVCost = 8550;
       var balance = [1774, 1798, 1308, 1318, 1329, 1340, 1351, 1362, 1374, 1387, 459, 473, 487, 501, -1503, 531, 547, 563, 579, 597, 614, 632, 651, 670, 690];
-      expect(Math.round(financial.computeActualFinancialAmortization(f, balance).netActualValue)).to.be.equal(5944);
+      expect(Math.round(financial.computeActualFinancialAmortization(f, balance).netActualValue)).to.be.equal(5945);
     });
     it('should return true - returnInternalRate', function() {
       var f = new financial.Financial();

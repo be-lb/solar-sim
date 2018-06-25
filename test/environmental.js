@@ -28,10 +28,8 @@ describe('environmental', function() {
     it('should return true - energeticCost', function() {
       var b = new building.Building('residential');
 
-      var p = new pv.PV();
+      var p = new pv.PV('default');
       p.building = b;
-      p.setup = 'default';
-      p.getSetupFactor();
 
       var r = new roof.Roof();
       r.rawArea = 30;
@@ -51,10 +49,8 @@ describe('environmental', function() {
     it('should return true - panels costs', function() {
       var b = new building.Building('residential');
 
-      var p = new pv.PV();
+      var p = new pv.PV('default');
       p.building = b;
-      p.setup = 'default';
-      p.getSetupFactor();
 
       var r = new roof.Roof();
       r.rawArea = 30;

@@ -17,13 +17,9 @@ describe('PV', function() {
   });
   describe('p.computeProduction() == 3705', function() {
     it('should return true', function() {
-      var b = new building.Building();
-      b.typology = 'urban';
-
-      var p = new pv.PV();
+      var b = new building.Building('urban');
+      var p = new pv.PV('default');
       p.building = b;
-      p.setup = 'default';
-      p.getSetupFactor();
 
       var r = new roof.Roof();
       r.rawArea = 30;
@@ -43,9 +39,8 @@ describe('PV', function() {
       r.productivity = 950;
       r.building = b;
       b.roofs = [r];
-      var p = new pv.PV();
+      var p = new pv.PV('default');
       p.building = b;
-      p.setup = 'default';
       expect(p.computeProduction()).to.be.equal(3705);
     });
   });

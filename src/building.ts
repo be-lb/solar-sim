@@ -14,7 +14,6 @@ const TYPOLOGY_RATE : TypologyRateObject = {
 
 class Building {
     typology: string;
-    //productivity: number;
     obstacleRate: number;
     roofs: Roof[];
     pv: PV;

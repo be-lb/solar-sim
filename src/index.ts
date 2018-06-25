@@ -25,10 +25,8 @@ const currentYear: number = 2018; // TODO: get from the browser?
 let b = new Building('residential');
 
 // Compute PV production
-let pv = new PV();
+let pv = new PV('default');
 pv.building = b;
-pv.setup = 'default';
-pv.getSetupFactor();
 
 // Compute roof usable areas
 let r1 = new Roof();
@@ -60,7 +58,7 @@ f.building = b;
 f.computePVCost();
 
 // Log object
-console.log(b);
+//console.log(b);
 
 // 1) Financial results
 //computeFinancialAmortization(b, f, nYears);

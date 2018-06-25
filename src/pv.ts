@@ -20,6 +20,10 @@ class PV {
     production: number;
     productionYearlyLossIndex: number = PRODUCTION_YEARLY_LOSS_INDEX;
     building: Building;
+    constructor(the_setup: string) {
+        this.setup = the_setup;
+        this.setupFactor = this.getSetupFactor();
+    }
     getSetupFactor () {
         if (this.setupFactor === undefined) {
             return this.setupFactor = PV_SETUP[this.setup];
@@ -30,9 +34,8 @@ class PV {
     computeProduction () {
         let production: number = 0;
         for (let r of this.building.roofs) {
-            this.setupFactor = this.getSetupFactor();
             let power = r.computeRawPeakPower(this);
-            // TODO: check with APERE why use the raw peak power here. 
+            // TODO: check with APERE why use the raw peak power here.
             production = production + power * r.productivity;
         }
         return this.production = production;
