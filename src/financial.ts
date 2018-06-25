@@ -45,81 +45,93 @@ class Financial {
     }
 };
 
+interface financialAmortization {
+    [key: string]: number[];
+};
+
 interface simplifiedFinancialAmortization {
     'productionPrice': number;
     'simpleReturnTime': number;
 };
 
+interface actualFinancialAmortization {
+    'netActualValue': number;
+}
 
-const currentYear: number = 2018; // TODO: get from the browser?
+interface financialYear1 {
+    'selfConsumptionAmountYear1': number;
+    'CVAmountYear1': number;
+};
+
+
+const computeActualAnnualProduction =
+    (production: number, productionYearlyLossIndex: number, nYears: number):
+    number[] => {
+    /**
+    * @param production - annual photovoltaic production in kWh/year
+    * @param productionYearlyLossIndex - annual loss in photovoltaic production due to solar panels degradation
+    * @param nYears - number n of years
+    * Return a vector of n years of the actual annual photovoltaic production given a yearly loss of productivity and actual prices.
+    * Match the line 10 of the Calculs sheet.
+    */
+    let actualProduction: number[] = [];
+
+    for (let i = 1; i <= nYears; i++) {
+        actualProduction.push(production * (1-productionYearlyLossIndex)**(i-1));
+    }
+
+    return actualProduction;
+};
+
 
 const computeFinancialAmortization =
-    (building: Building, fin: Financial, nYears: number):
-    number[] => {
+    (building: Building, fin: Financial, nYears: number, currentYear: number):
+    financialAmortization => {
+    /**
+    * @param building - Building
+    * @param fin - Financial
+    * @param nYears - number of years
+    * @param currentYear - current year, e.g., 2018
+    * Make the main yearly computation.
+    */
 
-    // Instantiate variables
-    let actualProduction : number = 0;
-    let selfConsumption : number = 0;
-    let selfConsumptionAmount: number = 0;
-    let selfConsumptionAmountYear1: number = 0;
-    let CVAmount: number = 0;
-    let CVAmountYear1: number = 0;
-    let actualReturnTime: number = 0;
-    let elecBuying: number = 0;
-    let elecSelling: number = 0;
-    let totalCost: number = 0;
+    // Instantiate vectors
+    let selfConsumptionAmount: number[] = [];
+    let CVAmount: number[] = [];
     let balance: number[] = [];
-    let returnInternalRate: number = 0;
-    let modifiedReturnInternalRate: number = 0;
 
     // Get objects
     let p : PV = building.pv;
     let u : User = building.user;
 
-    const years: number[] = [];
     for (let i = 1; i <= nYears; i++) {
-       years.push(i);
-    }
-
-    // TODO put this year loop in a dedicated function
-    for (let i of years){
-
-        /// Compute actual electricity balance
         let actualElecBuyingPrice: number = computeActualPrice(fin.elecBuyingPrice, fin.elecIndex, i);
         let actualElecSellingPrice: number = computeActualPrice(fin.elecSellingPrice, fin.elecIndex, i);
         //console.log(actualElecBuyingPrice); //OK line 3
         //console.log(actualElecSellingPrice); //OK line 4
-        actualProduction = p.production * (1-p.productionYearlyLossIndex)**(i-1);
-        //console.log(actualAnnualProduction); //OK
-        // Fin de la compensation en 2020
+        let actualProduction: number = p.production * (1-p.productionYearlyLossIndex)**(i-1);
+        //console.log(actualProduction); //OK line 10
+        let selfConsumption: number = 0;
         if (currentYear + i <= 2020) {
             selfConsumption = u.annualElectricityConsumption > actualProduction ? actualProduction : u.annualElectricityConsumption
         } else {
             selfConsumption = u.selfProductionRate * actualProduction
         }
-        //console.log(selfConsumption); //OK
-        selfConsumptionAmount = selfConsumption * actualElecBuyingPrice;
-        //console.log(selfConsumptionAmount); //OK
-        if (i === 1) {
-            selfConsumptionAmountYear1 = Math.round(selfConsumptionAmount);
-        }
-
+        //console.log(selfConsumption); //OK line 12
+        selfConsumptionAmount.push(selfConsumption * actualElecBuyingPrice);
+        //console.log(selfConsumptionAmount); //OK line 27
         // Certificats verts (only < 2028 or year_start + 10? )
         if (i <= fin.CVTime) {
-            CVAmount = fin.CVPrice * (fin.CVRate * actualProduction / 1000);
-            if (i === 1) {
-                CVAmountYear1 = Math.round(CVAmount);
-            }
+            CVAmount.push(fin.CVPrice * (fin.CVRate * actualProduction / 1000));
         } else {
-            CVAmount = 0;
+            CVAmount.push(0);
         }
         //console.log(CVAmount); // line 30 OK
 
-
-
         // Electricity buying and selling
-        elecBuying = -(u.annualElectricityConsumption - selfConsumption) * actualElecBuyingPrice - fin.redevanceCost;
+        let elecBuying: number = -(u.annualElectricityConsumption - selfConsumption) * actualElecBuyingPrice - fin.redevanceCost;
         //console.log(elecBuying); // line 31 OK
+        let elecSelling: number = 0
         if (currentYear + i <= 2020) {
             elecSelling = 0;
         } else {
@@ -128,61 +140,81 @@ const computeFinancialAmortization =
         //console.log(elecSelling); // line 32 OK
 
         // Total PV cost
+        let totalCost: number = 0;
         if (i === fin.onduleurReplacementRate) {
             let actualOnduleurCost = computeActualPrice(fin.onduleurCost, fin.inflationRate, i);
-            totalCost = CVAmount + elecBuying + elecSelling - actualOnduleurCost;
+            totalCost = CVAmount[i-1] + elecBuying + elecSelling - actualOnduleurCost;
         } else {
-            totalCost = CVAmount + elecBuying + elecSelling;
+            totalCost = CVAmount[i-1] + elecBuying + elecSelling;
         }
-        console.log(totalCost); // line 33 OK
+        //console.log(totalCost); // line 33 OK
 
         // Without PV
         let baseCost: number = -u.annualElectricityConsumption * actualElecBuyingPrice - fin.redevanceCost;
         //console.log(baseCost); // line 23 OK
 
         balance.push(totalCost-baseCost);
-        actualReturnTime = 1;
-        returnInternalRate = 1;
-        modifiedReturnInternalRate = 1;
-
     }
     //console.log(balance); // line 37 OK
-    let netActualValue: number = computeNetPresentValue(fin.discountRate, balance) - (fin.PVCost + fin.meterCost);  // VAN
-    // netActualValue OK
-
-
-    return [
-      selfConsumptionAmountYear1,
-      CVAmountYear1,
-      actualReturnTime,
-      netActualValue,
-      returnInternalRate,
-      modifiedReturnInternalRate
-    ]; //TODO: return an array instead of object
+    return {
+        'selfConsumptionAmount': selfConsumptionAmount,
+        'CVAmount': CVAmount,
+        'balance': balance,
+    }
 };
 
 
+const getFinancialYear1 =
+    (selfConsumptionAmount: number[], CVAmount: number[]): financialYear1 => {
+    /**
+    * @param selfConsumptionAmount €
+    * @param CVAmount €
+    * Return the self consumption amount and the "Certificat vert" selling amount in €
+    */
+
+    return {
+        'selfConsumptionAmountYear1': selfConsumptionAmount[0],
+        'CVAmountYear1': CVAmount[0]
+    }
+}
+
 const computeSimplifiedFinancialAmortization =
-    (pv: PV, fin: Financial, selfConsumptionAmountYear1: number, CVAmountYear1:number, nYears: number):
+    (fin: Financial, production: number, selfConsumptionAmountYear1: number, CVAmountYear1:number, nYears: number):
     simplifiedFinancialAmortization => {
     /**
-    * @param PV
     * @param Financial
-    * @param selfConsumptionAmountYear1
-    * @param CVAmountYear1
+    * @param production kWh/an
+    * @param selfConsumptionAmountYear1 €
+    * @param CVAmountYear1 €
     * Returns the production price in €/kWh and the simple return time in years
     */
 
-    const productionPrice: number = Math.round(((fin.PVCost + fin.meterCost)/nYears/pv.production)*10)/10;
-    const simpleReturnTime: number = Math.round((fin.PVCost + fin.meterCost)/(selfConsumptionAmountYear1+CVAmountYear1));
+    const productionPrice: number = Math.round(((fin.PVCost + fin.meterCost)/nYears/production)*10)/10;
+    const simpleReturnTime: number = (fin.PVCost + fin.meterCost)/(selfConsumptionAmountYear1+CVAmountYear1);
     // NB: incoherence avec maquette xls sur PVCost
 
     return {
         'productionPrice': productionPrice,
         'simpleReturnTime': simpleReturnTime
     }
+};
 
-}
+const computeActualFinancialAmortization =
+    (fin: Financial, balance: number[]): actualFinancialAmortization => {
+    /**
+    * @param fin - Financial
+    * @param balance TODO describe
+    * TODO description
+    */
+    let netActualValue: number = computeNetPresentValue(fin.discountRate, balance) - (fin.PVCost + fin.meterCost);  // VAN
+    // TODO more
+    // TODO tests
+    return {
+        'netActualValue' : netActualValue
+        //     //   returnInternalRate,
+            //   modifiedReturnInternalRate
+    }
+};
 
 const computeActualPrice = (price: number, index: number, time: number): number => {
     return price * (1 + index)**time;
@@ -201,7 +233,7 @@ const computeNetPresentValue = (discountRate: number, values: number[]): number 
 
 
 export { Financial };
-export { computeFinancialAmortization, computeSimplifiedFinancialAmortization, computeActualPrice, computeNetPresentValue };
+export { computeActualAnnualProduction, getFinancialYear1, computeFinancialAmortization, computeSimplifiedFinancialAmortization, computeActualFinancialAmortization, computeActualPrice, computeNetPresentValue };
 
 // VATrate	float	/		computeVATRate()	a.buildingUse
 // otherCosts	money/float	€		CONSTANT

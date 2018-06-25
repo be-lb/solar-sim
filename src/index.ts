@@ -12,7 +12,12 @@ import {Building} from './building';
 import {Roof} from './roof';
 import {User} from './user';
 import {PV} from './pv';
-import {Financial, computeFinancialAmortization} from './financial';
+import {Financial, computeActualAnnualProduction, computeFinancialAmortization, getFinancialYear1} from './financial';
+import {Environmental, computeCO2Emissions, getEnvironmentalCosts, computeEnergeticReturn} from './environmental';
+
+// Set number of years for computation
+let nYears: number = 25;
+const currentYear: number = 2018; // TODO: get from the browser?
 
 // load geojson of roof shape & properties
 
@@ -56,10 +61,28 @@ let f = new Financial();
 f.building = b;
 f.computePVCost();
 
-// Compute results
-let nYears: number = 25;
-computeFinancialAmortization(b, f, nYears);
-
 // Log object
 console.log(b);
-console.log(f);
+
+// 1) Financial results
+//computeFinancialAmortization(b, f, nYears);
+let financialAmortization = computeFinancialAmortization(b, f, nYears, currentYear);
+let selfConsumptionAmount = financialAmortization.selfConsumptionAmount;
+let CVAmount = financialAmortization.CVAmount;
+let financialYear1 = getFinancialYear1(selfConsumptionAmount, CVAmount);
+console.log('selfConsumption Year 1 (€): ' + financialYear1.selfConsumptionAmountYear1);
+console.log('CV selling Year 1 (€): ' + financialYear1.CVAmountYear1);
+
+// 2) Environmental results
+// 2.1) CO2 emissions
+let actualProduction = computeActualAnnualProduction(pv.production, pv.productionYearlyLossIndex, nYears);
+let CO2emissions = computeCO2Emissions(actualProduction);
+console.log('CO2 emissions : ' + CO2emissions);
+// 2.2) Energetic costs
+let e = new Environmental('Belgium');
+let environmentalCosts = getEnvironmentalCosts(e, r1);
+console.log('energetic cost : ' + environmentalCosts.energeticCost);  // because inconsistence dans maquette xls sur la puissance utilisée
+// 2.3) Environmental return
+let energeticReturn = computeEnergeticReturn(environmentalCosts.energeticCost, pv.production);
+console.log('Energetic return time : ' + energeticReturn.energeticReturnTime);
+console.log('Energetic return factor : ' + energeticReturn.energeticReturnFactor);

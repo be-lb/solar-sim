@@ -7,11 +7,18 @@ class Environmental {
     }
 }
 
+/**
+* CO2 emissions by kWh of electric energy, in kg/kWh
+*/
+const CO2_EMISSIONS_BY_KWH = 0.456;
 
 interface EnergeticCostFactor {
     [key: string]: number;
 };
 
+/**
+* Energetic cost for a photovoltaic installation, by origin of the technology, in kWh/kWc
+*/
 const ENERGETIC_COST_FACTOR : EnergeticCostFactor = {
     'Belgium': 2500,
     'Europe': 2600,
@@ -26,9 +33,12 @@ interface BreakdownCostFactorByOrigin {
     [key: string]: BreakdownCostFactor;
 };
 
+/**
+* Breaddown of the energetic cost for a photovoltaic installation, by origin of the technology.
+*/
 const BREAKDOWN_COST_FACTOR : BreakdownCostFactorByOrigin = {
     'Belgium': {'panels': 0.85, 'setup': 0.04, 'inverter': 0.09, 'transportBE': 0.02, 'transportEU': 0, 'transportBoat': 0},
-    'Europe': {'panels': 0.81, 'setup': 0.03, 'inverter': 0.08, 'transportBE': 0.07, 'transportEU': 0.05, 'transportBoat': 0},
+    'Europe': {'panels': 0.81, 'setup': 0.03, 'inverter': 0.08, 'transportBE': 0.02, 'transportEU': 0.05, 'transportBoat': 0},
     'China': {'panels': 0.77, 'setup': 0.03, 'inverter': 0.08, 'transportBE': 0.02, 'transportEU': 0.02, 'transportBoat': 0.08},
 };
 
@@ -43,8 +53,13 @@ interface environmentalCosts {
 };
 
 const getEnvironmentalCosts =
-    (environmental:Environmental, roof: Roof):
-    environmentalCosts => {
+    (environmental:Environmental, roof: Roof): environmentalCosts => {
+
+    /**
+    * @param Environmental
+    * @param Roof
+    * Return some environmental costs imputed to the construction of the photovoltaic installation
+    */
 
     let origin : string = environmental.origin;
     let energeticCost: number = roof.rawPeakPower * ENERGETIC_COST_FACTOR[origin]; // TODO; should be defined at the building/user level
@@ -66,24 +81,44 @@ const getEnvironmentalCosts =
     }
 }
 
-interface environmentalROI {
-    'returnFactor': number;
-    'returnTime': number;
+interface energeticReturn {
+    'energeticReturnFactor': number;
+    'energeticReturnTime': number;
 };
 
-const computeEnvironmentalROI =
-    ():
-    environmentalROI => {
+const computeEnergeticReturn =
+    (energeticCost: number, production: number): energeticReturn => {
+    /**
+    * @param energeticCost Energetic cost of the photovoltaic installation, in kWh
+    * @param production Annual photovoltaic production, in kWh/year
+    * @param actualProduction Actual annual photovoltaic production, in kWh/year
+    * Compute the energetic factor and return time of the photovoltaic installation.
+    */
+    let energeticReturnFactor: number = 1/energeticCost; //TODO: line 10/energeticCost
+    let energeticReturnTime: number = energeticCost/production;
 
-    let returnTime: number = 1; //TODO
-    let returnFactor: number = 1; //TODO
 
     return {
-        'returnFactor': returnFactor,
-        'returnTime': returnTime
+        'energeticReturnFactor': energeticReturnFactor,
+        'energeticReturnTime': energeticReturnTime
     }
 }
 
+const computeCO2Emissions = (actualProduction: number[]): number => {
+    /**
+    * @param actualProduction Actual annual photovoltaic production, in kWh/year
+    * Compute the C02 emissions that are saved on the total life of the photovoltaic installation.
+    */
+    return sum(actualProduction)*CO2_EMISSIONS_BY_KWH;
+}
+
+const sum = (arr: number[]): number => {
+    /**
+    * @param theArray Array of numeric values
+    * Sum the elements of a numeric array.
+    */
+    return arr.reduce((a, b) => a + b, 0)
+}
 
 export{ Environmental };
-export{ getEnvironmentalCosts, computeEnvironmentalROI };
+export{ getEnvironmentalCosts, computeEnergeticReturn, computeCO2Emissions, sum };
