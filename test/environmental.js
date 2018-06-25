@@ -27,40 +27,26 @@ describe('environmental', function() {
     });
     it('should return true - energeticCost', function() {
       var b = new building.Building('residential');
-
-      var p = new pv.PV('default');
-      p.building = b;
-
-      var r = new roof.Roof(30,950);
-      r.building = b;
-      r.computeRoofUsableArea();
-      r.computeRawPeakPower(p);
-      r.computeUsablePeakPower(p);
+      var r = new roof.Roof(30,950, 'default', b);
       b.roofs = [r];
+      b.computeProduction();
       r.rawPeakPower = 5.7; // HACK because inconsistence dans maquette xls sur la puissance utilisée
 
       var e = new environmental.Environmental('Belgium');
 
-      expect(environmental.getEnvironmentalCosts(e, r).energeticCost).to.be.equal(14250);
+      expect(environmental.getEnvironmentalCosts(e, b).energeticCost).to.be.equal(14250);
 
     });
     it('should return true - panels costs', function() {
       var b = new building.Building('residential');
-
-      var p = new pv.PV('default');
-      p.building = b;
-
-      var r = new roof.Roof(30,950);
-      r.building = b;
-      r.computeRoofUsableArea();
-      r.computeRawPeakPower(p);
-      r.computeUsablePeakPower(p);
+      var r = new roof.Roof(30,950, 'default', b);
       b.roofs = [r];
+      b.computeProduction();
       r.rawPeakPower = 5.7; // HACK because inconsistence dans maquette xls sur la puissance utilisée
 
       var e = new environmental.Environmental('Belgium');
 
-      expect(environmental.getEnvironmentalCosts(e, r).panels).to.be.equal(0.85);
+      expect(environmental.getEnvironmentalCosts(e, b).panels).to.be.equal(0.85);
     });
     it('should return true - energeticReturnFactor', function() {
       var energeticCost = 14250;

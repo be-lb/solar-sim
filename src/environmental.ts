@@ -1,4 +1,4 @@
-import {Roof} from './roof';
+import {Building} from './building';
 
 class Environmental {
     origin: string;
@@ -53,7 +53,7 @@ interface environmentalCosts {
 };
 
 const getEnvironmentalCosts =
-    (environmental:Environmental, roof: Roof): environmentalCosts => {
+    (environmental:Environmental, building: Building): environmentalCosts => {
 
     /**
     * @param Environmental
@@ -62,7 +62,10 @@ const getEnvironmentalCosts =
     */
 
     let origin : string = environmental.origin;
-    let energeticCost: number = roof.rawPeakPower * ENERGETIC_COST_FACTOR[origin]; // TODO; should be defined at the building/user level
+    let energeticCost: number = 0;
+    for (let r of building.roofs) {
+        energeticCost = energeticCost + r.rawPeakPower * ENERGETIC_COST_FACTOR[origin];
+    };
     let panels: number = BREAKDOWN_COST_FACTOR[origin].panels;
     let setup: number = BREAKDOWN_COST_FACTOR[origin].setup;
     let inverter: number = BREAKDOWN_COST_FACTOR[origin].inverter;

@@ -45,18 +45,9 @@ describe('Financial', function() {
     });
     it('should return true - selfConsumptionAmount', function() {
       var b = new building.Building('residential');
-      var p = new pv.PV('default');
-      p.building = b;
-
-      var r = new roof.Roof(30,950);
-      r.building = b;
-      r.computeRoofUsableArea();
-      r.computeRawPeakPower(p);
-      r.computeUsablePeakPower(p);
+      var r = new roof.Roof(30,950, 'default', b);
       b.roofs = [r];
-
-      p.computeProduction();
-      b.pv = p;
+      b.computeProduction();
 
       var u = new user.User();
       u.hasWashingMachine = true;
@@ -75,18 +66,9 @@ describe('Financial', function() {
     });
     it('should return true - CVAmount', function() {
       var b = new building.Building('residential');
-      var p = new pv.PV('default');
-      p.building = b;
-
-      var r = new roof.Roof(30,950);
-      r.building = b;
-      r.computeRoofUsableArea();
-      r.computeRawPeakPower(p);
-      r.computeUsablePeakPower(p);
+      var r = new roof.Roof(30,950, 'default', b);
       b.roofs = [r];
-
-      p.computeProduction();
-      b.pv = p;
+      b.computeProduction();
 
       var u = new user.User();
       u.hasWashingMachine = true;
@@ -105,18 +87,9 @@ describe('Financial', function() {
     });
     it('should return true - balance', function() {
       var b = new building.Building('residential');
-      var p = new pv.PV('default');
-      p.building = b;
-
-      var r = new roof.Roof(30,950);
-      r.building = b;
-      r.computeRoofUsableArea();
-      r.computeRawPeakPower(p);
-      r.computeUsablePeakPower(p);
+      var r = new roof.Roof(30,950, 'default', b);
       b.roofs = [r];
-
-      p.computeProduction();
-      b.pv = p;
+      b.computeProduction();
 
       var u = new user.User();
       u.hasWashingMachine = true;

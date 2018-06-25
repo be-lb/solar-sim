@@ -1,5 +1,4 @@
 import {Building} from './building';
-import {PV} from './pv';
 import {User} from './user';
 
 const METER_COST = 289;
@@ -104,7 +103,6 @@ const computeFinancialAmortization =
     let balance: number[] = [];
 
     // Get objects
-    let p : PV = building.pv;
     let u : User = building.user;
 
     for (let i = 1; i <= nYears; i++) {
@@ -112,7 +110,7 @@ const computeFinancialAmortization =
         let actualElecSellingPrice: number = computeActualPrice(fin.elecSellingPrice, fin.elecIndex, i);
         //console.log(actualElecBuyingPrice); //OK line 3
         //console.log(actualElecSellingPrice); //OK line 4
-        let actualProduction: number = p.production * (1-p.productionYearlyLossIndex)**(i-1);
+        let actualProduction: number = building.production * (1-building.roofs[0].productionYearlyLossIndex)**(i-1);
         //console.log(actualProduction); //OK line 10
         let selfConsumption: number = 0;
         if (currentYear + i <= 2020) {

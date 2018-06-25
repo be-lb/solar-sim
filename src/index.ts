@@ -11,7 +11,6 @@
 import {Building} from './building';
 import {Roof} from './roof';
 import {User} from './user';
-import {PV} from './pv';
 import {Financial, computeActualAnnualProduction, computeFinancialAmortization, getFinancialYear1, computeActualFinancialAmortization} from './financial';
 import {Environmental, computeCO2Emissions, getEnvironmentalCosts, computeEnergeticReturn} from './environmental';
 
@@ -24,20 +23,10 @@ const currentYear: number = 2018; // TODO: get from the browser?
 // TODO: These objects Building and Roofs should be constructed by parsing some geojson from lot-1
 let b = new Building('residential');
 
-// Compute PV production
-let pv = new PV('default');
-pv.building = b;
-
-// Compute roof usable areas the_raw_area: number, the_productivity: number, pv:PV
-let r1 = new Roof(30, 950);
-r1.building = b;
-r1.computeRoofUsableArea();
-r1.computeRawPeakPower(pv);
-r1.computeUsablePeakPower(pv);
+let r1 = new Roof(30, 950, 'default', b);
 b.roofs = [r1];
 
-pv.computeProduction();
-b.pv = pv;
+b.computeProduction();
 
 // User information
 let u = new User();
@@ -73,14 +62,14 @@ console.log('modifiedReturnInternalRate (): ' +  actualFinancialAmortization.mod
 
 // 2) Environmental results
 // 2.1) CO2 emissions
-let actualProduction = computeActualAnnualProduction(pv.production, pv.productionYearlyLossIndex, nYears);
+let actualProduction = computeActualAnnualProduction(b.production, r1.productionYearlyLossIndex, nYears);
 let CO2emissions = computeCO2Emissions(actualProduction);
 console.log('CO2 emissions (kg CO2) : ' + CO2emissions);
 // 2.2) Energetic costs
 let e = new Environmental('Belgium');
-let environmentalCosts = getEnvironmentalCosts(e, r1);
+let environmentalCosts = getEnvironmentalCosts(e, b);
 console.log('energetic cost (kWh): ' + environmentalCosts.energeticCost);  // wrong result because inconsistence dans maquette xls sur la puissance utilisée
 // 2.3) Environmental return
-let energeticReturn = computeEnergeticReturn(environmentalCosts.energeticCost, pv.production, actualProduction);
+let energeticReturn = computeEnergeticReturn(environmentalCosts.energeticCost, b.production, actualProduction);
 console.log('Energetic return time (year): ' + energeticReturn.energeticReturnTime);
 console.log('Energetic return factor (year): ' + energeticReturn.energeticReturnFactor);
