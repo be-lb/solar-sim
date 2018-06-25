@@ -209,12 +209,10 @@ const computeActualFinancialAmortization =
     * Compute 4 indicators of the financial amortization of the photovoltaic installation.
     */
     let finance = new Finance();
-    let actualReturnTime: number = 1;
+    let actualReturnTime: number = 1;     // TODO more
     let netActualValue: number = computeNetPresentValue(fin.discountRate, balance) - (fin.PVCost + fin.meterCost);  // VAN
-    // TODO more
     let returnInternalRate: number = finance.IRR(-(fin.PVCost + fin.meterCost), ...balance)/100;
-    console.log(returnInternalRate);
-    let modifiedReturnInternalRate: number = 1;
+    let modifiedReturnInternalRate: number = MIRR([-(fin.PVCost + fin.meterCost), ...balance], 0.1, fin.discountRate);
     return {
         'actualReturnTime': actualReturnTime,
         'netActualValue' : netActualValue,
@@ -237,13 +235,33 @@ const computeNetPresentValue = (discountRate: number, values: number[]): number 
     let ii: number = 1;
     let npv: number = 0;
     for (let v of values) {
-        npv = npv + v/(1+discountRate)**ii
+        npv = npv + v/(1 + discountRate)**ii
         ii++;
     }
     return npv;
 };
 
+const MIRR = (values:number[], financeRate:number, discountRate:number): number => {
+    // Copyright (c) 2012 Sutoiku, Inc. (MIT License)
+    // From https://gist.github.com/ghalimi/4599848
+    let n: number = values.length;
 
+    // Lookup payments (negative values) and incomes (positive values)
+    let payments: number[] = [];
+    let incomes: number[] = [];
+    for (let i = 0; i < n; i++) {
+        if (values[i] < 0) {
+            payments.push(values[i]);
+        } else {
+            incomes.push(values[i]);
+        }
+    }
+
+    // Return modified internal rate of return
+    var num = -computeNetPresentValue(discountRate, incomes) * Math.pow(1 + discountRate, n - 1);
+    var den = computeNetPresentValue(financeRate, payments) * (1 + financeRate);
+    return Math.pow(num / den, 1 / (n - 1)) - 1;
+};
 
 export { Financial };
 export { computeActualAnnualProduction, getFinancialYear1, computeFinancialAmortization, computeSimplifiedFinancialAmortization, computeActualFinancialAmortization, computeActualPrice, computeNetPresentValue };
