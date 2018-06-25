@@ -1,6 +1,11 @@
 import {Roof} from './roof';
 import {User} from './user';
 
+/**
+* Maximum production allowed for a building (12 kWc)
+*/
+const MAX_PRODUCTION = 12;
+
 interface TypologyRateObject {
     [key: string]: number;
 };
@@ -33,7 +38,9 @@ class Building {
         for (let r of this.roofs) {
             production = production + r.roofProduction;
         }
+        production = production > MAX_PRODUCTION ? production: MAX_PRODUCTION;
         return this.production = production;
+
     };
 };
 

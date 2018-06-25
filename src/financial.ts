@@ -1,5 +1,6 @@
 import {Building} from './building';
 import {User} from './user';
+import { Finance } from 'financejs'
 
 const METER_COST = 289;
 const ONDULEUR_COST = 1500;
@@ -204,13 +205,15 @@ const computeActualFinancialAmortization =
     (fin: Financial, balance: number[]): actualFinancialAmortization => {
     /**
     * @param fin - Financial
-    * @param balance TODO describe
-    * TODO description
+    * @param balance Difference between electricity cost without and with the photovoltaic installation, in €
+    * Compute 4 indicators of the financial amortization of the photovoltaic installation.
     */
+    let finance = new Finance();
     let actualReturnTime: number = 1;
     let netActualValue: number = computeNetPresentValue(fin.discountRate, balance) - (fin.PVCost + fin.meterCost);  // VAN
     // TODO more
-    let returnInternalRate: number = 1;
+    let returnInternalRate: number = finance.IRR(-(fin.PVCost + fin.meterCost), ...balance)/100;
+    console.log(returnInternalRate);
     let modifiedReturnInternalRate: number = 1;
     return {
         'actualReturnTime': actualReturnTime,
@@ -221,10 +224,16 @@ const computeActualFinancialAmortization =
 };
 
 const computeActualPrice = (price: number, index: number, time: number): number => {
+    /**
+    *
+    */
     return price * (1 + index)**time;
 };
 
 const computeNetPresentValue = (discountRate: number, values: number[]): number => {
+    /**
+    *
+    */
     let ii: number = 1;
     let npv: number = 0;
     for (let v of values) {

@@ -122,7 +122,7 @@ describe('Financial', function() {
       var f = new financial.Financial();
       f.PVCost = 8550;
       var balance = [1774, 1798, 1308, 1318, 1329, 1340, 1351, 1362, 1374, 1387, 459, 473, 487, 501, -1503, 531, 547, 563, 579, 597, 614, 632, 651, 670, 690];
-      expect(Math.round(financial.computeActualFinancialAmortization(f, balance).returnInternalRate)).to.be.equal(0.127);
+      expect(Math.round(financial.computeActualFinancialAmortization(f, balance).returnInternalRate*1000)/1000).to.be.equal(0.127);
     });
     it('should return true - modifiedReturnInternalRate', function() {
       var f = new financial.Financial();
