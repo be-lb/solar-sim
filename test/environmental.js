@@ -26,8 +26,7 @@ describe('environmental', function() {
       expect(environmental.sum).to.be.a('function');
     });
     it('should return true - energeticCost', function() {
-      var b = new building.Building();
-      b.typology = 'residential';
+      var b = new building.Building('residential');
 
       var p = new pv.PV();
       p.building = b;
@@ -50,8 +49,7 @@ describe('environmental', function() {
 
     });
     it('should return true - panels costs', function() {
-      var b = new building.Building();
-      b.typology = 'residential';
+      var b = new building.Building('residential');
 
       var p = new pv.PV();
       p.building = b;

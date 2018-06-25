@@ -22,9 +22,7 @@ const currentYear: number = 2018; // TODO: get from the browser?
 // load geojson of roof shape & properties
 
 // TODO: These objects Building and Roofs should be constructed by parsing some geojson from lot-1
-let b = new Building();
-b.typology = 'residential';
-b.getObstacleRatePerTypology();
+let b = new Building('residential');
 
 // Compute PV production
 let pv = new PV();

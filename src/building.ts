@@ -14,13 +14,13 @@ const TYPOLOGY_RATE : TypologyRateObject = {
 
 class Building {
     typology: string;
-    productivity: number;
+    //productivity: number;
     obstacleRate: number;
     roofs: Roof[];
     pv: PV;
     user: User;
-    constructor() {
-      //this.typology = typology; //ERREUR duplicate identifier
+    constructor(the_typology: string) {
+        this.typology = the_typology;
         this.obstacleRate = this.getObstacleRatePerTypology();
     }
     getObstacleRatePerTypology () {

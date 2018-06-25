@@ -15,8 +15,7 @@ describe('Building', function() {
   });
   describe('b.getObstacleRatePerTypology() == [0, 1]', function() {
     it('should return true', function() {
-      var b = new building.Building();
-      b.typology = 'residential';
+      var b = new building.Building('residential');
       expect(b.getObstacleRatePerTypology()).to.be.within(0,1);
     });
   });

@@ -16,8 +16,7 @@ describe('Roof', function() {
   });
   describe('computeRoofUsableArea() < rawArea', function() {
     it('should return true', function() {
-      var b = new building.Building();
-      b.typology = 'residential';
+      var b = new building.Building('residential');
       b.getObstacleRatePerTypology();
       var r = new roof.Roof();
       r.rawArea = 30;

@@ -55,7 +55,10 @@ interface simplifiedFinancialAmortization {
 };
 
 interface actualFinancialAmortization {
+    'actualReturnTime': number;
     'netActualValue': number;
+    'returnInternalRate': number;
+    'modifiedReturnInternalRate': number;
 }
 
 interface financialYear1 {
@@ -206,13 +209,16 @@ const computeActualFinancialAmortization =
     * @param balance TODO describe
     * TODO description
     */
+    let actualReturnTime: number = 1;
     let netActualValue: number = computeNetPresentValue(fin.discountRate, balance) - (fin.PVCost + fin.meterCost);  // VAN
     // TODO more
-    // TODO tests
+    let returnInternalRate: number = 1;
+    let modifiedReturnInternalRate: number = 1;
     return {
-        'netActualValue' : netActualValue
-        //     //   returnInternalRate,
-            //   modifiedReturnInternalRate
+        'actualReturnTime': actualReturnTime,
+        'netActualValue' : netActualValue,
+        'returnInternalRate': returnInternalRate,
+        'modifiedReturnInternalRate': modifiedReturnInternalRate
     }
 };
 
