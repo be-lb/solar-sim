@@ -14,6 +14,12 @@ class User {
     annualElectricityConsumption: number;
     selfProductionRate: number = SELF_PRODUCTION_RATE;
     computeAnnualElecConsumption () {
+        /**
+        * @param hasWashingMachine
+        * @param hasElectricWaterHeater
+        * @param hasElectricHeating
+        * Compute the annual electric consumption, in kWh/year
+        */
         return this.annualElectricityConsumption =
         ANNUAL_CONSUMPTION_BASE +
         WASHING_MACHINE_FACTOR * Number(this.hasWashingMachine) +

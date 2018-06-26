@@ -54,7 +54,9 @@ console.log('selfConsumption Year 1 (€): ' + financialYear1.selfConsumptionAmo
 console.log('CV selling Year 1 (€): ' + financialYear1.CVAmountYear1);
 // 1.2) Compute actualized results
 let balance = financialAmortization.balance;
-let actualFinancialAmortization = computeActualFinancialAmortization(f, balance);
+let actualReturnTimeByYear = financialAmortization.actualReturnTimeByYear;
+let marginalActualReturnTimeByYear = financialAmortization.marginalActualReturnTimeByYear;
+let actualFinancialAmortization = computeActualFinancialAmortization(f, balance, actualReturnTimeByYear, marginalActualReturnTimeByYear);
 console.log('actualReturnTime (year): ' +  actualFinancialAmortization.actualReturnTime);
 console.log('netActualValue (€): ' +  actualFinancialAmortization.netActualValue);
 console.log('returnInternalRate (): ' +  actualFinancialAmortization.returnInternalRate);

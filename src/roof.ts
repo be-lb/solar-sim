@@ -7,6 +7,9 @@ interface PVSetupObject {
     [key: string]: number;
 };
 
+/**
+* Mapping of the setup factor given the photovoltaic setup.
+*/
 const PV_SETUP : PVSetupObject = {
     'default': 1,
     'flat_roof': 0.5
@@ -36,6 +39,10 @@ class Roof {
         this.roofProduction = this.computeRoofProduction();
     }
     getSetupFactor () {
+        /**
+        * @param setup - configuration of the photovoltaic installation
+        * Look-up function for selecting the setup factor given some setup
+        */
         if (this.setupFactor === undefined) {
             return this.setupFactor = PV_SETUP[this.setup];
         } else {
@@ -43,6 +50,11 @@ class Roof {
         }
     };
     computeRoofUsableArea () {
+        /**
+        * @param rawArea - raw area of the roof (m²)
+        * @param obstacleRate - percentage of obstacle where solar panels cannot be installed
+        * Compute a usable area based on the obstacle rate of the building
+        */
         if (this.usableArea === undefined) {
             return this.usableArea =
             this.rawArea * (1 - this.building.obstacleRate);
@@ -52,9 +64,9 @@ class Roof {
     };
     computeRawPeakPower () {
         /**
-        * @param rawArea - Raw area for photovoltaic installation (m²)
-        * @param setupFactor - Type of mounting of the photovoltaic installation
-        * @param yield - Yield of the photovoltaic installation
+        * @param rawArea - raw area of the roof (m²)
+        * @param setupFactor - type of mounting of the photovoltaic installation
+        * @param yield - yield of the photovoltaic installation
         * Returns the raw peak power of the roof (kWc)
         */
         return this.rawPeakPower =
@@ -63,9 +75,9 @@ class Roof {
     };
     computeUsablePeakPower () {
         /**
-        * @param usableArea - Usable area for photovoltaic installation (m²)
-        * @param setupFactor - Type of mounting of the photovoltaic installation
-        * @param yield - Yield of the photovoltaic installation
+        * @param usableArea - usable area for photovoltaic installation (m²)
+        * @param setupFactor - type of mounting of the photovoltaic installation
+        * @param yield - yield of the photovoltaic installation
         * Returns the usable peak power of the roof (kWc)
         */
         this.computeRoofUsableArea();
@@ -74,6 +86,11 @@ class Roof {
         ;
     };
     computeRoofProduction () {
+        /**
+        * @param productivity - solar productivity (kWh/kWc)
+        * @param PeakPower - peak power of the potential installation (kWc)
+        * Compute the production (kWh) of the roof given the peak power and the roof productivity
+        */
         if (this.roofProduction === undefined) {
           // TODO: check with APERE why use the raw peak power here.
             return this.roofProduction = this.rawPeakPower * this.productivity;

@@ -1,6 +1,8 @@
-import {Building} from './building';
-import {User} from './user';
-import { Finance } from 'financejs'
+import { Building } from './building';
+import { User } from './user';
+import { sum } from './environmental';
+import { Finance } from 'financejs';
+
 
 const METER_COST = 289;
 const ONDULEUR_COST = 1500;
@@ -102,6 +104,9 @@ const computeFinancialAmortization =
     let selfConsumptionAmount: number[] = [];
     let CVAmount: number[] = [];
     let balance: number[] = [];
+    let actualReturnTimeByYear: number[] = [];
+    let netActualValueByYear: number[] = [];
+    let marginalActualReturnTimeByYear: number[] = [];
 
     // Get objects
     let u : User = building.user;
@@ -151,17 +156,33 @@ const computeFinancialAmortization =
         }
         //console.log(totalCost); // line 33 OK
 
-        // Without PV
         let baseCost: number = -u.annualElectricityConsumption * actualElecBuyingPrice - fin.redevanceCost;
         //console.log(baseCost); // line 23 OK
 
         balance.push(totalCost-baseCost);
+
+        netActualValueByYear.push(computeNetPresentValue(fin.discountRate, balance) - (fin.PVCost + fin.meterCost));
+        actualReturnTimeByYear.push(netActualValueByYear[i-1] < 0 ? 1 : 0);
+
+        if (i === 1) {
+            marginalActualReturnTimeByYear.push(Math.abs(- (fin.PVCost + fin.meterCost)/(netActualValueByYear[i-1] + (fin.PVCost + fin.meterCost))));
+        } else {
+            marginalActualReturnTimeByYear.push(Math.abs(netActualValueByYear[i-2]/(netActualValueByYear[i-1]-netActualValueByYear[i-2])));
+        }
+
     }
     //console.log(balance); // line 37 OK
+    //console.log(netActualValueByYear); //line 38
+    //console.log(actualReturnTimeByYear); //line 42 OK
+    //console.log(marginalActualReturnTimeByYear); //line 44
+
     return {
         'selfConsumptionAmount': selfConsumptionAmount,
         'CVAmount': CVAmount,
         'balance': balance,
+        'netActualValueByYear': netActualValueByYear,
+        'actualReturnTimeByYear': actualReturnTimeByYear,
+        'marginalActualReturnTimeByYear': marginalActualReturnTimeByYear
     }
 };
 
@@ -202,15 +223,18 @@ const computeSimplifiedFinancialAmortization =
 };
 
 const computeActualFinancialAmortization =
-    (fin: Financial, balance: number[]): actualFinancialAmortization => {
+    (fin: Financial, balance: number[], actualReturnTimeByYear: number[], marginalActualReturnTimeByYear: number[]):
+    actualFinancialAmortization => {
     /**
     * @param fin - Financial
     * @param balance Difference between electricity cost without and with the photovoltaic installation, in €
+    * @param actualReturnTimeByYear Actual return time computed for each year, in years.
+    * @param marginalActualReturnTimeByYear marginal actualized return time computed by year, in years.
     * Compute 4 indicators of the financial amortization of the photovoltaic installation.
     */
     let finance = new Finance();
-    let actualReturnTime: number = 1;     // TODO more
-    let netActualValue: number = computeNetPresentValue(fin.discountRate, balance) - (fin.PVCost + fin.meterCost);  // VAN
+    let actualReturnTime: number = sum(actualReturnTimeByYear) + marginalActualReturnTimeByYear[sum(actualReturnTimeByYear)];
+    let netActualValue: number = computeNetPresentValue(fin.discountRate, balance) - (fin.PVCost + fin.meterCost);
     let returnInternalRate: number = finance.IRR(-(fin.PVCost + fin.meterCost), ...balance)/100;
     let modifiedReturnInternalRate: number = MIRR([-(fin.PVCost + fin.meterCost), ...balance], 0.1, fin.discountRate);
     return {
@@ -223,14 +247,19 @@ const computeActualFinancialAmortization =
 
 const computeActualPrice = (price: number, index: number, time: number): number => {
     /**
-    *
+    * @param price - current amount, in €
+    * @param index - indexation of price (or inflation rate), in year-1
+    * @param time - period for computing the actual price, in year.
+    * Compute an actualized price (in €) for a given time in the future, given an index
     */
     return price * (1 + index)**time;
 };
 
 const computeNetPresentValue = (discountRate: number, values: number[]): number => {
     /**
-    *
+    * @param discountRate - or actualisation rate, in year-1
+    * @param values - vector of paiement values, in €
+    * Compute the net present value, in €
     */
     let ii: number = 1;
     let npv: number = 0;
@@ -265,16 +294,3 @@ const MIRR = (values:number[], financeRate:number, discountRate:number): number 
 
 export { Financial };
 export { computeActualAnnualProduction, getFinancialYear1, computeFinancialAmortization, computeSimplifiedFinancialAmortization, computeActualFinancialAmortization, computeActualPrice, computeNetPresentValue };
-
-// VATrate	float	/		computeVATRate()	a.buildingUse
-// otherCosts	money/float	€		CONSTANT
-// inflationRate	float	/		CONSTANT
-// compensationYear	int/year	an		CONSTANT
-// elecPrice	float	€/kWh		computeElecPrice()	u.annualElecConsumption, u.annualElecAmount
-// elecPriceRate	float	/		CONSTANT
-// elecInjectionPrice	float	€/kWh		CONSTANT
-//
-// computeVATRate()
-// computePVCost()
-// computeCVRate()
-// computeElecPrice()

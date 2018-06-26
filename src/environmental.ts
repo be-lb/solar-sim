@@ -34,7 +34,7 @@ interface BreakdownCostFactorByOrigin {
 };
 
 /**
-* Breaddown of the energetic cost for a photovoltaic installation, by origin of the technology.
+* Breakdown of the energetic cost for a photovoltaic installation, by origin of the technology.
 */
 const BREAKDOWN_COST_FACTOR : BreakdownCostFactorByOrigin = {
     'Belgium': {'panels': 0.85, 'setup': 0.04, 'inverter': 0.09, 'transportBE': 0.02, 'transportEU': 0, 'transportBoat': 0},
@@ -95,9 +95,9 @@ const computeEnergeticReturn =
     * @param energeticCost Energetic cost of the photovoltaic installation, in kWh
     * @param production Annual photovoltaic production, in kWh/year
     * @param actualProduction Actual annual photovoltaic production, in kWh/year
-    * Compute the energetic factor and return time of the photovoltaic installation.
+    * Compute the energetic factor and return time (year) of the photovoltaic installation.
     */
-    let energeticReturnFactor: number = sum(actualProduction)/energeticCost; //TODO: line 10/energeticCost
+    let energeticReturnFactor: number = sum(actualProduction)/energeticCost;
     let energeticReturnTime: number = energeticCost/production;
 
 
@@ -110,14 +110,14 @@ const computeEnergeticReturn =
 const computeCO2Emissions = (actualProduction: number[]): number => {
     /**
     * @param actualProduction Actual annual photovoltaic production, in kWh/year
-    * Compute the C02 emissions that are saved on the total life of the photovoltaic installation.
+    * Compute the C02 emissions (kg C02) that are saved on the total life of the photovoltaic installation.
     */
-    return sum(actualProduction)*CO2_EMISSIONS_BY_KWH;
+    return sum(actualProduction) * CO2_EMISSIONS_BY_KWH;
 }
 
 const sum = (arr: number[]): number => {
     /**
-    * @param theArray Array of numeric values
+    * @param arr Array of numeric values
     * Sum the elements of a numeric array.
     */
     return arr.reduce((a, b) => a + b, 0)

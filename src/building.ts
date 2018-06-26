@@ -27,6 +27,10 @@ class Building {
         this.obstacleRate = this.getObstacleRatePerTypology();
     };
     getObstacleRatePerTypology () {
+        /**
+        * @param typology - building typology
+        * Look-up function for selecting the obstacle rate based on the building typology.
+        */
         if (this.obstacleRate === undefined) {
             return this.obstacleRate = TYPOLOGY_RATE[this.typology];
         } else {
@@ -34,6 +38,9 @@ class Building {
         }
     };
     computeProduction () {
+        /**
+        * Compute the total potential production of the building (kWh). Cannot exceed MAX_PRODUCTION.
+        */
         let production: number = 0;
         for (let r of this.roofs) {
             production = production + r.roofProduction;
