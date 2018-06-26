@@ -18,7 +18,6 @@ const CV_RATE = 3;
 const CV_TIME = 10;
 
 class Financial {
-    PVCost: number;
     meterCost: number = METER_COST;
     onduleurCost: number = ONDULEUR_COST;
     onduleurReplacementRate: number = ONDULEUR_REPLACEMENT_RATE;
@@ -31,16 +30,17 @@ class Financial {
     CVPrice : number = CV_PRICE;
     CVRate : number = CV_RATE;
     CVTime : number = CV_TIME;
+    PVCost: number;
     building: Building;
     computePVCost () {
         if (this.PVCost === undefined) {
             let totalPower: number = 0;
             for (let r of this.building.roofs) {
-                totalPower = totalPower + r.rawPeakPower;
+                totalPower = totalPower + r.usablePeakPower;
             }
-            //return this.PVCost = totalPower * 1500;
+            return this.PVCost = totalPower * 1500;
             // TODO incoherence maquette xls
-            return this.PVCost = 8550;
+            //return this.PVCost = 8550;
         } else {
             return this.PVCost;
         }

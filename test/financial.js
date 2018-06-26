@@ -62,7 +62,9 @@ describe('Financial', function() {
 
       var nYears = 25;
       var currentYear = 2018;
-      expect(financial.computeFinancialAmortization(b, f, nYears, currentYear).selfConsumptionAmount.map(x => Math.round(x))).to.eql([829, 854, 279, 287, 296, 304, 313, 323, 332, 342, 352, 362, 373, 384, 396, 407, 419, 432, 444, 457, 471, 485, 499, 514, 529]);
+      var expected = [702, 723, 223, 230, 237, 244, 251, 258, 266, 274, 282, 290, 299, 307, 316, 326, 335, 345, 355, 366, 377, 388, 399, 411, 423];
+
+      expect(financial.computeFinancialAmortization(b, f, nYears, currentYear).selfConsumptionAmount.map(x => Math.round(x))).to.eql(expected);
     });
     it('should return true - CVAmount', function() {
       var b = new building.Building('residential');
@@ -83,7 +85,8 @@ describe('Financial', function() {
 
       var nYears = 25;
       var currentYear = 2018;
-      expect(financial.computeFinancialAmortization(b, f, nYears, currentYear).CVAmount.map(x => Math.round(x))).to.eql([945, 944, 944, 943, 943, 942, 942, 941, 941, 941, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+      var expected = [756, 755, 755, 755, 754, 754, 754, 753, 753, 752, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      expect(financial.computeFinancialAmortization(b, f, nYears, currentYear).CVAmount.map(x => Math.round(x))).to.eql(expected);
     });
     it('should return true - balance', function() {
       var b = new building.Building('residential');
@@ -104,7 +107,8 @@ describe('Financial', function() {
 
       var nYears = 25;
       var currentYear = 2018;
-      expect(financial.computeFinancialAmortization(b, f, nYears, currentYear).balance.map(x => Math.round(x))).to.eql([1774, 1798, 1308, 1318, 1329, 1340, 1351, 1362, 1374, 1387, 459, 473, 487, 501, -1503, 531, 547, 563, 579, 597, 614, 632, 651, 670, 690]);
+      var expected = [1458, 1478, 1046, 1054, 1063, 1072, 1081, 1090, 1099, 1109, 367, 378, 389, 401, -1606, 425, 437, 450, 464, 477, 491, 506, 521, 536, 552];
+      expect(financial.computeFinancialAmortization(b, f, nYears, currentYear).balance.map(x => Math.round(x))).to.eql(expected);
     });
     it('should return true - netActualValueByYear', function() {
       var b = new building.Building('residential');
@@ -125,8 +129,8 @@ describe('Financial', function() {
 
       var nYears = 25;
       var currentYear = 2018;
-      var expected = [-7133, -5471, -4308, -3181, -2089, -1031, -4, 991, 1957, 2894, 3192, 3487, 3780, 4069, 3235, 3518, 3799, 4077, 4352, 4624, 4893, 5160, 5424, 5686, 5944];
-      expect(financial.computeFinancialAmortization(b, f, nYears, currentYear).netActualValueByYear.map(x => Math.round(x))).to.eql(expected);
+      var expected = [-3567, -2200, -1270, -369, 504, 1352, 2173, 2969, 3742, 4491, 4730, 4966, 5200, 5431, 4540, 4766, 4991, 5213, 5433, 5651, 5867, 6080, 6291, 6501, 6708];
+      expect(financial.computeFinancialAmortization(b, f, nYears, currentYear).netActualValueByYear.map(x => Math.round(x/10)*10)).to.eql(expected.map(x => Math.round(x/10)*10));
     });
     it('should return true - actualReturnTimeByYear', function() {
       var b = new building.Building('residential');
@@ -147,7 +151,7 @@ describe('Financial', function() {
 
       var nYears = 25;
       var currentYear = 2018;
-      var expected = [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      var expected = [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       expect(financial.computeFinancialAmortization(b, f, nYears, currentYear).actualReturnTimeByYear.map(x => Math.round(x))).to.eql(expected);
     });
     it('should return true - marginalActualReturnTimeByYear', function() {
@@ -169,7 +173,7 @@ describe('Financial', function() {
 
       var nYears = 25;
       var currentYear = 2018;
-      var expected = [5.18, 4.29, 4.71, 3.82, 2.91, 1.97, 1.00, 0.00, 1.03, 2.09, 9.70, 10.81, 11.93, 13.06, 4.88, 11.41, 12.53, 13.67, 14.82, 15.98, 17.16, 18.34, 19.54, 20.75, 21.97];
+      var expected = [3.54, 2.61, 2.37, 1.41, 0.42, 0.60, 1.65, 2.73, 3.84, 4.99, 18.82, 20.02, 21.24, 22.46, 6.09, 20.01, 21.23, 22.45, 23.69, 24.95, 26.21, 27.49, 28.78, 30.08, 31.40];
       expect(financial.computeFinancialAmortization(b, f, nYears, currentYear).marginalActualReturnTimeByYear.map(x => Math.round(x*100)/100)).to.eql(expected);
     });
     it('should return true - actualReturnTime', function() {

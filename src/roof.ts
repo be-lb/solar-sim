@@ -93,7 +93,7 @@ class Roof {
         */
         if (this.roofProduction === undefined) {
           // TODO: check with APERE why use the raw peak power here.
-            return this.roofProduction = this.rawPeakPower * this.productivity;
+            return this.roofProduction = this.usablePeakPower * this.productivity;
         } else {
             return this.roofProduction;
         }

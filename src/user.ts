@@ -6,13 +6,12 @@ const ELECTRIC_WATER_HEATER_FACTOR = 2300;
 const ELECTRIC_HEATING_FACTOR = 16500;
 
 class User {
-    category: string;
+    selfProductionRate: number = SELF_PRODUCTION_RATE;
     consumptionProfile: number;
     hasWashingMachine: boolean;
     hasElectricWaterHeater: boolean;
     hasElectricHeating: boolean;
     annualElectricityConsumption: number;
-    selfProductionRate: number = SELF_PRODUCTION_RATE;
     computeAnnualElecConsumption () {
         /**
         * @param hasWashingMachine

@@ -49,20 +49,20 @@ describe('environmental', function() {
       expect(environmental.getEnvironmentalCosts(e, b).panels).to.be.equal(0.85);
     });
     it('should return true - energeticReturnFactor', function() {
-      var energeticCost = 14250;
-      var production = 3705;
-      var actualProduction = [3705, 3703, 3701, 3699, 3698, 3696, 3694, 3692, 3690, 3688, 3687, 3685, 3683, 3681, 3679, 3677, 3675, 3674, 3672, 3670, 3668, 3666, 3664, 3663, 3661];
-      expect(Math.round(environmental.computeEnergeticReturn(energeticCost, production, actualProduction).energeticReturnFactor*10)/10).to.be.equal(6.5);
+      var energeticCost = 7800;
+      var production = 2964;
+      var actualProduction = [2964, 2963, 2961, 2960, 2958, 2957, 2955, 2954, 2952, 2951, 2949, 2948, 2946, 2945, 2943, 2942, 2940, 2939, 2937, 2936, 2935, 2933, 2932, 2930, 2929];
+      expect(Math.round(environmental.computeEnergeticReturn(energeticCost, production, actualProduction).energeticReturnFactor*10)/10).to.be.equal(9.4);
     });
     it('should return true - energeticReturnTime', function() {
-      var energeticCost = 14250;
-      var production = 3705;
-      var actualProduction = [3705, 3703, 3701, 3699, 3698, 3696, 3694, 3692, 3690, 3688, 3687, 3685, 3683, 3681, 3679, 3677, 3675, 3674, 3672, 3670, 3668, 3666, 3664, 3663, 3661];
-      expect(Math.round(environmental.computeEnergeticReturn(energeticCost, production, actualProduction).energeticReturnTime*10)/10).to.be.equal(3.8);
+      var energeticCost = 7800;
+      var production = 2964;
+      var actualProduction = [2964, 2963, 2961, 2960, 2958, 2957, 2955, 2954, 2952, 2951, 2949, 2948, 2946, 2945, 2943, 2942, 2940, 2939, 2937, 2936, 2935, 2933, 2932, 2930, 2929];
+      expect(Math.round(environmental.computeEnergeticReturn(energeticCost, production, actualProduction).energeticReturnTime*10)/10).to.be.equal(2.6);
     });
     it('should return true - computeCO2Emissions', function() {
-      var actualProduction = [3705, 3703, 3701, 3699, 3698, 3696, 3694, 3692, 3690, 3688, 3687, 3685, 3683, 3681, 3679, 3677, 3675, 3674, 3672, 3670, 3668, 3666, 3664, 3663, 3661];
-      expect(Math.round(environmental.computeCO2Emissions(actualProduction))).to.be.equal(29000);
+      var actualProduction = [2964, 2963, 2961, 2960, 2958, 2957, 2955, 2954, 2952, 2951, 2949, 2948, 2946, 2945, 2943, 2942, 2940, 2939, 2937, 2936, 2935, 2933, 2932, 2930, 2929];
+      expect(Math.round(environmental.computeCO2Emissions(actualProduction))).to.be.equal(33589);
     });
     it('should return true - sum', function() {
       expect(environmental.sum([1,2,3,-1])).to.be.equal(5);

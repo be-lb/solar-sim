@@ -24,12 +24,12 @@ describe('Building', function() {
       expect(b.getObstacleRatePerTypology()).to.be.within(0,1);
     });
   });
-  describe('b.computeProduction() == 3705', function() {
+  describe('b.computeProduction() == 2964', function() {
     it('should return true', function() {
       var b = new building.Building('residential');
       var r = new roof.Roof(30, 950, 'default', b);
       b.roofs = [r];
-      expect(b.computeProduction()).to.be.equal(3705);
+      expect(b.computeProduction()).to.be.equal(2964);
     });
   });
 });
