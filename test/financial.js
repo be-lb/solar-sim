@@ -5,7 +5,6 @@ var expect = require('expect.js');
 var financial = require('../lib/financial');
 var building = require('../lib/building');
 var roof = require('../lib/roof');
-var pv = require('../lib/pv');
 var user = require('../lib/user');
 
 describe('Financial', function() {

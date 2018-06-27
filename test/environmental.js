@@ -3,7 +3,6 @@ var expect = require('expect.js');
 var environmental = require('../lib/environmental');
 var building = require('../lib/building');
 var roof = require('../lib/roof');
-var pv = require('../lib/pv');
 
 describe('environmental', function() {
   describe('Environmental()', function() {
