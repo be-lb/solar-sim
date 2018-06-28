@@ -8,7 +8,7 @@
  *  License in LICENSE file at the root of the repository.
  */
 
-import {solarFinSim} from './run';
+import {solarSim} from './run';
 
 
 // TODO: These objects Building and Roofs should be constructed by parsing some geojson from lot-1
@@ -35,7 +35,7 @@ const inputsFactory = (
     ): inputs => {
     /**
     * @param roofs - Array of roof objects
-    * Build the inputs for solarFinSim with default and required values
+    * Build the inputs for solarSim with default and required values
     */
     return {
         nYears: nYears,
@@ -61,7 +61,7 @@ console.log(roofs);
 let inputs_test = inputsFactory(roofs, undefined, currentYear);
 console.log(inputs_test);
 
-let results = solarFinSim(inputs_test);
+let results = solarSim(inputs_test);
 console.log(results);
 
 export {inputs, outputs};

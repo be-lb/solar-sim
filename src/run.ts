@@ -15,7 +15,7 @@ import {Financial, computeActualAnnualProduction, computeFinancialAmortization, 
 import {Environmental, computeCO2Emissions, getEnvironmentalCosts, computeEnergeticReturn} from './environmental';
 import {inputs, outputs} from './index';
 
-const solarFinSim =
+const solarSim =
     (inputs: inputs):
     outputs => {
     /**
@@ -84,4 +84,4 @@ const solarFinSim =
     }
 }
 
-export { solarFinSim };
+export { solarSim };
