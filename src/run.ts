@@ -18,9 +18,16 @@ import {inputs, outputs} from './index';
 const solarFinSim =
     (inputs: inputs):
     outputs => {
-
+    /**
+    * @param inputs
+    * @return outputs
+    * Main function
+    */
     let b = new Building(inputs.typology);
 
+    // for (let r of roofs) {
+    //
+    // }
     let r1 = new Roof(30, 950, 'default', b);
     b.roofs = [r1];
 
@@ -73,6 +80,7 @@ const solarFinSim =
 
     return {
         'energeticCost': environmentalCosts.energeticCost,
+        // more outputs as defined in the output interface can come here
     }
 }
 

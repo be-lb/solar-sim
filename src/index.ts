@@ -10,31 +10,56 @@
 
 import {solarFinSim} from './run';
 
-// Set number of years for computation
-let nYears: number = 25;
-let currentYear: number = 2018; // TODO: get from (new Date()).getFullYear()?
-// load geojson of roof shape & properties
-
-let typology: string = 'residential';
 
 // TODO: These objects Building and Roofs should be constructed by parsing some geojson from lot-1
+
+
+// interface roof {
+//     'area': number;
+//     'productivity': number;
+// }
 
 interface inputs {
     'nYears': number;
     'currentYear': number;
     'typology': string;
+    //'roofs':  roof;
+}
+
+
+const inputsFactory = (
+        nYears=25, /* default */
+        currentYear=2018, /* default */
+        typology='residential' /* default */
+      //  roofs: roof[] /* required */
+    ): inputs => {
+    /**
+    * Build the inputs for solarFinSim with default values
+    */
+    return {
+        nYears: nYears,
+        currentYear: currentYear,
+        typology: typology,
+        //roofs: roofs
+    }
 };
 
 interface outputs {
     'energeticCost': number;
 };
 
+// Set parameters
+let nYears: number = 20;
+//let currentYear: number = 2018; // TODO: get from (new Date()).getFullYear()?
+//let typology: string = 'residential';
+// let roofs: roof[] = [
+//     {'area': 60, 'productivity': 1200},
+// ];
 
-let inputs_test : inputs = {
-   'nYears': nYears,
-   'currentYear': currentYear,
-   'typology': typology
-}
+
+let inputs_test = inputsFactory(nYears);
+console.log(inputs_test);
+
 let results = solarFinSim(inputs_test);
 console.log(results);
 
