@@ -6,22 +6,38 @@ Commencer par un ```npm install``` pour recuperer typescript, puis commencer a b
 
 ## Example typescript & test via mocha
 
-### Compiler `src/example.ts` -> `lib/example.js`
+### Compiler `src/index.ts` -> `lib/index.js`
 
 ```
 $ npm run build
 ```
 
-### Exécuter `lib/example.js`
+### Exécuter `lib/index.js`
 
 ```
-$ node lib/example.js
+$ node lib/index.js
 ```
 
 ### Tester
 
-Le test se trouve dans `test\example.js`
+Les tests se trouvent dans `test/`
 
 ```
 $ ./node_modules/mocha/bin/mocha
 ```
+
+## Documentation
+
+We use `typedoc` to compile a documentation based on jsdoc annotations.
+
+### Installation
+```
+$ npm install typedoc –save
+```
+
+### Make the doc
+```
+$ typedoc --out docs --mode modules src
+```
+
+The documentation is available as HTML pages in /docs/.
