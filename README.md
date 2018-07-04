@@ -80,6 +80,19 @@ $ npm run build
 
 ### Générer le js via webpack
 
+Afin de créer le fichier `ẁeb/main.js` généré à partir de `lib/index.js`, aller
+dans `web` et taper la commande suivante :
+
 ```
 web$ npx webpack --config webpack.config.js
 ```
+
+### Faire tourner le serveur web
+
+Lancer le serveur (à la racine) :
+
+```
+$ python3 -m http.server
+```
+
+et le site est visible sur `http://localhost:8000/web`
