@@ -26,7 +26,6 @@ Les tests se trouvent dans `test/`
 $ ./node_modules/mocha/bin/mocha
 ```
 
-
 ## Usage
 
 Run the computation by running the `solarSim` function:
@@ -70,3 +69,17 @@ $ typedoc --out docs --mode modules src
 ```
 
 The documentation is available as HTML pages in /docs/.
+
+## Web
+
+### Compiler le module `src/index.ts` -> `lib/index.js`
+
+```
+$ npm run build
+```
+
+### Générer le js via webpack
+
+```
+web$ npx webpack --config webpack.config.js
+```
