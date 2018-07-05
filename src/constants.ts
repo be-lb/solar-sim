@@ -1,6 +1,6 @@
 import {TypologyRateObject} from './building';
 import {EnergeticCostFactor, BreakdownCostFactorByOrigin} from './environmental';
-import {PVSetupObject} from './roof';
+import {PVSetupObject, PVYieldObject} from './roof';
 
 /**
 *
@@ -74,7 +74,6 @@ export const CV_TIME = 10;
 * roof
 *
 */
-export const PV_YIELD = 0.13;
 export const PRODUCTION_YEARLY_LOSS_INDEX = 0.0005;
 
 /**
@@ -83,6 +82,15 @@ export const PRODUCTION_YEARLY_LOSS_INDEX = 0.0005;
 export const PV_SETUP : PVSetupObject = {
     'default': 1,
     'flat_roof': 0.5
+};
+
+/**
+* Mapping of the PV yield given the photovoltaic technology (Polycristallin, Monocristallin, Monocristallin high performance).
+*/
+export const PV_YIELD : PVYieldObject = {
+    'poly': 0.13,
+    'mono': 0.155,
+    'mono_high' : 0.22
 };
 
 /**

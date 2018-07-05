@@ -27,7 +27,7 @@ describe('Building', function() {
   describe('b.computeProduction() == 2964', function() {
     it('should return true', function() {
       var b = new building.Building('residential');
-      var r = new roof.Roof(30, 950, 'default', b);
+      var r = new roof.Roof(30, 950, 'default', 'poly', b);
       b.roofs = [r];
       expect(b.computeProduction()).to.be.equal(2964);
     });

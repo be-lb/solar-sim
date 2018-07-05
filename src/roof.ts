@@ -5,21 +5,28 @@ export interface PVSetupObject {
     [key: string]: number;
 };
 
+export interface PVYieldObject {
+    [key: string]: number;
+};
+
 class Roof {
     rawArea: number;
     usableArea: number;
     productivity: number;
     rawPeakPower: number;
     usablePeakPower: number;
+    technology: string;
     setup: string;
     setupFactor: number;
-    yield: number = constants.PV_YIELD;
+    yield: number;
     productionYearlyLossIndex: number = constants.PRODUCTION_YEARLY_LOSS_INDEX;
     building: Building;
     roofProduction: number;
-    constructor(the_raw_area: number, the_productivity: number, the_setup: string, b: Building) {
+    constructor(the_raw_area: number, the_productivity: number, the_setup: string, the_technology:string, b: Building) {
         this.rawArea = the_raw_area;
         this.productivity = the_productivity;
+        this.technology = the_technology;
+        this.yield = this.getPVYield();
         this.setup = the_setup;
         this.setupFactor = this.getSetupFactor();
         this.building = b;
@@ -37,6 +44,16 @@ class Roof {
             return this.setupFactor = constants.PV_SETUP[this.setup];
         } else {
             return this.setupFactor;
+        }
+    };
+    getPVYield () {
+        /**
+        * Look-up function for selecting the PV yield depending on the technology
+        */
+        if (this.yield === undefined) {
+            return this.yield = constants.PV_YIELD[this.technology];
+        } else {
+            return this.yield;
         }
     };
     computeRoofUsableArea () {

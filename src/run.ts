@@ -28,7 +28,7 @@ const solarSim =
     // for (let r of roofs) {
     //
     // }
-    let r1 = new Roof(30, 950, 'default', b);
+    let r1 = new Roof(30, 950, 'default', 'poly', b);
     b.roofs = [r1];
 
     b.computeProduction();
