@@ -1,18 +1,8 @@
 import {Building} from './building';
+import * as constants from './constants';
 
-const PV_YIELD = 0.13;
-const PRODUCTION_YEARLY_LOSS_INDEX = 0.0005;
-
-interface PVSetupObject {
+export interface PVSetupObject {
     [key: string]: number;
-};
-
-/**
-* Mapping of the setup factor given the photovoltaic setup.
-*/
-const PV_SETUP : PVSetupObject = {
-    'default': 1,
-    'flat_roof': 0.5
 };
 
 class Roof {
@@ -23,8 +13,8 @@ class Roof {
     usablePeakPower: number;
     setup: string;
     setupFactor: number;
-    yield: number = PV_YIELD;
-    productionYearlyLossIndex: number = PRODUCTION_YEARLY_LOSS_INDEX;
+    yield: number = constants.PV_YIELD;
+    productionYearlyLossIndex: number = constants.PRODUCTION_YEARLY_LOSS_INDEX;
     building: Building;
     roofProduction: number;
     constructor(the_raw_area: number, the_productivity: number, the_setup: string, b: Building) {
@@ -44,7 +34,7 @@ class Roof {
         * Look-up function for selecting the setup factor given some setup
         */
         if (this.setupFactor === undefined) {
-            return this.setupFactor = PV_SETUP[this.setup];
+            return this.setupFactor = constants.PV_SETUP[this.setup];
         } else {
             return this.setupFactor;
         }

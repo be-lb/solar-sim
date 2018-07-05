@@ -1,19 +1,9 @@
 import {Roof} from './roof';
 import {User} from './user';
+import * as constants from './constants';
 
-/**
-* Maximum production allowed for a building (12 kWc)
-*/
-const MAX_PRODUCTION = 12;
-
-interface TypologyRateObject {
+export interface TypologyRateObject {
     [key: string]: number;
-};
-
-const TYPOLOGY_RATE : TypologyRateObject = {
-    'residential': 0.2,
-    'detached': 0.35,
-    'industrial': 0.1
 };
 
 class Building {
@@ -32,7 +22,7 @@ class Building {
         * Look-up function for selecting the obstacle rate based on the building typology.
         */
         if (this.obstacleRate === undefined) {
-            return this.obstacleRate = TYPOLOGY_RATE[this.typology];
+            return this.obstacleRate = constants.TYPOLOGY_RATE[this.typology];
         } else {
             return this.obstacleRate;
         }
@@ -45,7 +35,7 @@ class Building {
         for (let r of this.roofs) {
             production = production + r.roofProduction;
         }
-        production = production > MAX_PRODUCTION ? production: MAX_PRODUCTION;
+        production = production > constants.MAX_PRODUCTION ? production: constants.MAX_PRODUCTION;
         return this.production = production;
 
     };

@@ -2,34 +2,21 @@ import { Building } from './building';
 import { User } from './user';
 import { sum } from './environmental';
 import { Finance } from 'financejs';
-
-
-const METER_COST = 289;
-const ONDULEUR_COST = 1500;
-const ONDULEUR_REPLACEMENT_RATE = 15; // year
-const REDEVANCE_COST = 65; // €
-const INFLATION_RATE = 0.02 // %
-const ELEC_BUYING_PRICE = 0.23;
-const ELEC_SELLING_PRICE = 0.03;
-const ELEC_INDEX = 0.03;
-const DISCOUNT_RATE = 0.04;
-const CV_PRICE = 85;
-const CV_RATE = 3;
-const CV_TIME = 10;
+import * as constants from './constants';
 
 class Financial {
-    meterCost: number = METER_COST;
-    onduleurCost: number = ONDULEUR_COST;
-    onduleurReplacementRate: number = ONDULEUR_REPLACEMENT_RATE;
-    redevanceCost: number = REDEVANCE_COST;
-    inflationRate: number = INFLATION_RATE;
-    elecBuyingPrice: number = ELEC_BUYING_PRICE;
-    elecSellingPrice: number = ELEC_SELLING_PRICE;
-    elecIndex : number = ELEC_INDEX;
-    discountRate : number = DISCOUNT_RATE
-    CVPrice : number = CV_PRICE;
-    CVRate : number = CV_RATE;
-    CVTime : number = CV_TIME;
+    meterCost: number = constants.METER_COST;
+    onduleurCost: number = constants.ONDULEUR_COST;
+    onduleurReplacementRate: number = constants.ONDULEUR_REPLACEMENT_RATE;
+    redevanceCost: number = constants.REDEVANCE_COST;
+    inflationRate: number = constants.INFLATION_RATE;
+    elecBuyingPrice: number = constants.ELEC_BUYING_PRICE;
+    elecSellingPrice: number = constants.ELEC_SELLING_PRICE;
+    elecIndex : number = constants.ELEC_INDEX;
+    discountRate : number = constants.DISCOUNT_RATE
+    CVPrice : number = constants.CV_PRICE;
+    CVRate : number = constants.CV_RATE;
+    CVTime : number = constants.CV_TIME;
     PVCost: number;
     building: Building;
     computePVCost () {
