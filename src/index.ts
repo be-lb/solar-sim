@@ -9,23 +9,7 @@
  */
 
 import {solarSim} from './run';
-
-
-// TODO: These objects Building and Roofs should be constructed by parsing some geojson from lot-1
-
-
-interface roof {
-    'area': number;
-    'productivity': number;
-}
-
-interface inputs {
-    'nYears': number;
-    'currentYear': number;
-    'typology': string;
-    'roofs':  roof[];
-}
-
+import {inputs, outputs, roof} from './io';
 
 const inputsFactory = (
         roofs: roof[], /* required */
@@ -45,12 +29,7 @@ const inputsFactory = (
     }
 };
 
-interface outputs {
-    'installationCost' : number,
-    'CVAmountYearN' : number,
-    'selfConsumptionAmountYearN' : number,
-    'savedCO2emissions': number;
-};
+
 
 // Set parameters
 //let nYears: number = 20;

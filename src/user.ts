@@ -24,6 +24,3 @@ class User {
 };
 
 export { User };
-
-
-// TODO: selfProductionRate compute?

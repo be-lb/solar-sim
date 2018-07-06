@@ -99,7 +99,6 @@ class Roof {
         * Compute the production (kWh) of the roof given the peak power and the roof productivity
         */
         if (this.roofProduction === undefined) {
-          // TODO: check with APERE why use the raw peak power here.
             return this.roofProduction = this.usablePeakPower * this.productivity;
         } else {
             return this.roofProduction;

@@ -26,8 +26,6 @@ class Financial {
                 totalPower = totalPower + r.usablePeakPower;
             }
             return this.PVCost = totalPower * 1500;
-            // TODO incoherence maquette xls
-            //return this.PVCost = 8550;
         } else {
             return this.PVCost;
         }

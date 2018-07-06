@@ -82,12 +82,26 @@ const solarSim =
     console.log('Energetic return factor (year): ' + energeticReturn.energeticReturnFactor);
 
     return {
-        'installationCost' : installationCost,
-        'CVAmountYearN' : financialYear10.CVAmountYearN,
-        'selfConsumptionAmountYearN' : financialYear10.selfConsumptionAmountYearN,
-        'savedCO2emissions' : savedCO2emissions
-
-        // more outputs as defined in the output interface can come here
+        'main' : {
+            'installationCost' : installationCost,
+            'CVAmountYearN' : financialYear10.CVAmountYearN,
+            'selfConsumptionAmountYearN' : financialYear10.selfConsumptionAmountYearN,
+            'savedCO2emissions' : savedCO2emissions
+        },
+        'setup': {
+            'area': 9999,
+            'power': 9999,
+            'obstacleRate': 9999
+        },
+        'energy': {
+            'annualProduction': 9999,
+            'annualConsumption': 9999,
+            'autonomy': 9999
+        },
+        'finance': {
+            'totalGain25Y': 9999,
+            'returnTime': 9999
+        }
     }
 }
 

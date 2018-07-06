@@ -16,9 +16,9 @@ axios.get('../src/data.json')
         console.log(results);
 
         let res_energeticCost = document.getElementById("res_energeticCost");
-        console.log(results.savedCO2emissions);
+        console.log(results.main.savedCO2emissions);
 
         if(res_energeticCost) {
-            res_energeticCost.innerHTML = results.savedCO2emissions.toString();
+            res_energeticCost.innerHTML = results.main.savedCO2emissions.toString();
         }
     });
