@@ -205,7 +205,7 @@ describe('Financial', function() {
       var balance = [1774, 1798, 1308, 1318, 1329, 1340, 1351, 1362, 1374, 1387, 459, 473, 487, 501, -1503, 531, 547, 563, 579, 597, 614, 632, 651, 670, 690];
       var actualReturnTimeByYear = [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       var marginalActualReturnTimeByYear = [5.18, 4.29, 4.71, 3.82, 2.91, 1.97, 1.00, 0.00, 1.03, 2.09, 9.70, 10.81, 11.93, 13.06, 4.88, 11.41, 12.53, 13.67, 14.82, 15.98, 17.16, 18.34, 19.54, 20.75, 21.97];
-      expect(Math.round(financial.computeActualFinancialAmortization(f, balance, actualReturnTimeByYear, marginalActualReturnTimeByYear).modifiedReturnInternalRate*1000)/1000).to.be.equal(0.062);
+      expect(Math.round(financial.computeActualFinancialAmortization(f, balance, actualReturnTimeByYear, marginalActualReturnTimeByYear).modifiedReturnInternalRate*100)/100).to.be.equal(0.06);
     });
     it('should return true - productionPrice', function() {
       var f = new financial.Financial();

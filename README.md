@@ -80,7 +80,7 @@ $ npm run build
 
 ### Générer le js via webpack
 
-Afin de créer le fichier `ẁeb/main.js` généré à partir de `lib/index.js`, aller
+Afin de créer le fichier `web/main.js` généré à partir de `lib/index.js`, aller
 dans `web` et taper la commande suivante :
 
 ```
