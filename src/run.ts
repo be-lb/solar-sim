@@ -28,12 +28,13 @@ const solarSim =
     // for (let r of roofs) {
     //
     // }
-    let r1 = new Roof(30, 950, inputs.pvSetup, inputs.pvTechnology, b);
+    let r1 = new Roof(30, 950, 30, inputs.pvSetup, inputs.pvTechnology, b);
     b.roofs = [r1];
-
+    b.computePVArea();
+    
     b.computeProduction();
     b.computePower();
-    b.computePVArea();
+
 
     // User information
     let u = new User();
@@ -44,7 +45,7 @@ const solarSim =
     b.user = u;
 
     // Financial information
-    let f = new Financial();
+    let f = new Financial(inputs.elecSellingPrice, inputs.CVPrice);
     f.building = b;
     f.computePVCost();
 

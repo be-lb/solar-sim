@@ -35,7 +35,7 @@ describe('Building', function() {
   describe('b.computeProduction() == 2964', function() {
     it('should return true', function() {
       var b = new building.Building('closed');
-      var r = new roof.Roof(30, 950, 'default', 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 'default', 'poly', b);
       b.roofs = [r];
       expect(b.computeProduction()).to.be.equal(2964);
     });
@@ -43,7 +43,7 @@ describe('Building', function() {
   describe('b.computePower() == 2964', function() {
     it('should return true', function() {
       var b = new building.Building('closed');
-      var r = new roof.Roof(30, 950, 'default', 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 'default', 'poly', b);
       b.roofs = [r];
       expect(b.computePower()).to.be.equal(3.12);
     });
@@ -51,7 +51,7 @@ describe('Building', function() {
   describe('b.computePVArea() == 2964', function() {
     it('should return true', function() {
       var b = new building.Building('closed');
-      var r = new roof.Roof(30, 950, 'default', 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 'default', 'poly', b);
       b.roofs = [r];
       expect(b.computePVArea()).to.be.equal(24);
     });

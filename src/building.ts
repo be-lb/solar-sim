@@ -58,9 +58,26 @@ class Building {
         for (let r of this.roofs) {
             pvArea = pvArea + r.usableArea;
         }
-        return this.pvArea = pvArea;
+        if (this.pvArea === undefined) {
+            return this.pvArea = pvArea;
+        } else {
+            if (this.pvArea < pvArea){
+                adaptRoofAreas();
+            }
+            return this.pvArea;
+        }
     };
 };
 
+
+const adaptRoofAreas = () => {
+    // TODO: adapt roof areas as a function of their productivity: d'abord decroitre les roofs de plus faible productivité
+    // Faut-il vraiment refaire tourner ces fcts? NON/SI slt celles de roof. Les autres sont appelées de toute façon
+    // r.computeRoofUsablePeakPower();
+    // r.computeRoofProduction();
+    // b.computePower();
+    // b.computeProduction();
+    // f.computePVCost();
+}
 
 export { Building };

@@ -11,7 +11,9 @@ axios.get('../src/data.json')
             typology: 'closed',
             roofs: roofs,
             pvSetup: 'default',
-            pvTechnology: 'poly'
+            pvTechnology: 'poly',
+            elecSellingPrice: 0.03,
+            CVPrice: 85
         }
 
         let results = solarSim(input);

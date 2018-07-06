@@ -13,6 +13,7 @@ class Roof {
     rawArea: number;
     usableArea: number;
     productivity: number;
+    tilt: number;
     rawPeakPower: number;
     usablePeakPower: number;
     technology: string;
@@ -22,9 +23,10 @@ class Roof {
     productionYearlyLossIndex: number = constants.PRODUCTION_YEARLY_LOSS_INDEX;
     building: Building;
     roofProduction: number;
-    constructor(the_raw_area: number, the_productivity: number, the_setup: string, the_technology:string, b: Building) {
+    constructor(the_raw_area: number, the_productivity: number, the_tilt: number, the_setup: string, the_technology:string, b: Building) {
         this.rawArea = the_raw_area;
         this.productivity = the_productivity;
+        this.tilt = the_tilt;
         this.technology = the_technology;
         this.yield = this.getPVYield();
         this.setup = the_setup;
@@ -59,12 +61,18 @@ class Roof {
     computeRoofUsableArea () {
         /**
         * @param rawArea - raw area of the roof (m²)
+        * @param tilt - tilt of the roof (°)
         * @param obstacleRate - percentage of obstacle where solar panels cannot be installed
         * Compute a usable area based on the obstacle rate of the building
         */
         if (this.usableArea === undefined) {
-            return this.usableArea =
-            this.rawArea * (1 - this.building.obstacleRate);
+            if (this.tilt < 0.05) { // flat roof
+              return this.usableArea =
+              0.57 * this.rawArea * (1 - this.building.obstacleRate);
+          } else {
+              return this.usableArea =
+              this.rawArea * (1 - this.building.obstacleRate);
+          }
         } else {
             return this.usableArea;
         }

@@ -10,7 +10,7 @@ var user = require('../lib/user');
 describe('Financial', function() {
   describe('Financial()', function() {
     it('should expose an object', function () {
-      var f = new financial.Financial();
+      var f = new financial.Financial(0.03, 85);
       expect(f).to.be.a('object');
     });
     it('should expose a function', function () {
@@ -47,7 +47,7 @@ describe('Financial', function() {
     });
     it('should return true - selfConsumptionAmount', function() {
       var b = new building.Building('closed');
-      var r = new roof.Roof(30,950, 'default', 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
       b.computePower();
@@ -59,7 +59,7 @@ describe('Financial', function() {
       u.computeAnnualElecConsumption();
       b.user = u;
 
-      var f = new financial.Financial();
+      var f = new financial.Financial(0.03, 85);
       f.building = b;
       f.computePVCost();
 
@@ -71,7 +71,7 @@ describe('Financial', function() {
     });
     it('should return true - CVAmount', function() {
       var b = new building.Building('closed');
-      var r = new roof.Roof(30,950, 'default', 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
       b.computePower();
@@ -83,7 +83,7 @@ describe('Financial', function() {
       u.computeAnnualElecConsumption();
       b.user = u;
 
-      var f = new financial.Financial();
+      var f = new financial.Financial(0.03, 85);
       f.building = b;
       f.computePVCost();
 
@@ -94,7 +94,7 @@ describe('Financial', function() {
     });
     it('should return true - balance', function() {
       var b = new building.Building('closed');
-      var r = new roof.Roof(30,950, 'default', 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
       b.computePower();
@@ -106,7 +106,7 @@ describe('Financial', function() {
       u.computeAnnualElecConsumption();
       b.user = u;
 
-      var f = new financial.Financial();
+      var f = new financial.Financial(0.03, 85);
       f.building = b;
       f.computePVCost();
 
@@ -117,7 +117,7 @@ describe('Financial', function() {
     });
     it('should return true - netActualValueByYear', function() {
       var b = new building.Building('closed');
-      var r = new roof.Roof(30,950, 'default', 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
       b.computePower();
@@ -129,7 +129,7 @@ describe('Financial', function() {
       u.computeAnnualElecConsumption();
       b.user = u;
 
-      var f = new financial.Financial();
+      var f = new financial.Financial(0.03, 85);
       f.building = b;
       f.computePVCost();
 
@@ -140,7 +140,7 @@ describe('Financial', function() {
     });
     it('should return true - actualReturnTimeByYear', function() {
       var b = new building.Building('closed');
-      var r = new roof.Roof(30,950, 'default', 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
       b.computePower();
@@ -152,7 +152,7 @@ describe('Financial', function() {
       u.computeAnnualElecConsumption();
       b.user = u;
 
-      var f = new financial.Financial();
+      var f = new financial.Financial(0.03, 85);
       f.building = b;
       f.computePVCost();
 
@@ -163,7 +163,7 @@ describe('Financial', function() {
     });
     it('should return true - marginalActualReturnTimeByYear', function() {
       var b = new building.Building('closed');
-      var r = new roof.Roof(30,950, 'default', 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
       b.computePower();
@@ -175,7 +175,7 @@ describe('Financial', function() {
       u.computeAnnualElecConsumption();
       b.user = u;
 
-      var f = new financial.Financial();
+      var f = new financial.Financial(0.03, 85);
       f.building = b;
       f.computePVCost();
 
@@ -185,7 +185,7 @@ describe('Financial', function() {
       expect(financial.computeFinancialAmortization(b, f, nYears, currentYear).marginalActualReturnTimeByYear.map(x => Math.round(x*100)/100)).to.eql(expected);
     });
     it('should return true - actualReturnTime', function() {
-      var f = new financial.Financial();
+      var f = new financial.Financial(0.03, 85);
       f.PVCost = 8550;
       var balance = [1774, 1798, 1308, 1318, 1329, 1340, 1351, 1362, 1374, 1387, 459, 473, 487, 501, -1503, 531, 547, 563, 579, 597, 614, 632, 651, 670, 690];
       var actualReturnTimeByYear = [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -193,7 +193,7 @@ describe('Financial', function() {
       expect(Math.round(financial.computeActualFinancialAmortization(f, balance, actualReturnTimeByYear, marginalActualReturnTimeByYear).actualReturnTime)).to.be.equal(7);
     });
     it('should return true - netActualValue', function() {
-      var f = new financial.Financial();
+      var f = new financial.Financial(0.03, 85);
       f.PVCost = 8550;
       var balance = [1774, 1798, 1308, 1318, 1329, 1340, 1351, 1362, 1374, 1387, 459, 473, 487, 501, -1503, 531, 547, 563, 579, 597, 614, 632, 651, 670, 690];
       var actualReturnTimeByYear = [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -201,7 +201,7 @@ describe('Financial', function() {
       expect(Math.round(financial.computeActualFinancialAmortization(f, balance, actualReturnTimeByYear, marginalActualReturnTimeByYear).netActualValue)).to.be.equal(5945);
     });
     it('should return true - returnInternalRate', function() {
-      var f = new financial.Financial();
+      var f = new financial.Financial(0.03, 85);
       f.PVCost = 8550;
       var balance = [1774, 1798, 1308, 1318, 1329, 1340, 1351, 1362, 1374, 1387, 459, 473, 487, 501, -1503, 531, 547, 563, 579, 597, 614, 632, 651, 670, 690];
       var actualReturnTimeByYear = [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -209,7 +209,7 @@ describe('Financial', function() {
       expect(Math.round(financial.computeActualFinancialAmortization(f, balance, actualReturnTimeByYear, marginalActualReturnTimeByYear).returnInternalRate*1000)/1000).to.be.equal(0.127);
     });
     it('should return true - modifiedReturnInternalRate', function() {
-      var f = new financial.Financial();
+      var f = new financial.Financial(0.03, 85);
       f.PVCost = 8550;
       var balance = [1774, 1798, 1308, 1318, 1329, 1340, 1351, 1362, 1374, 1387, 459, 473, 487, 501, -1503, 531, 547, 563, 579, 597, 614, 632, 651, 670, 690];
       var actualReturnTimeByYear = [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -217,7 +217,7 @@ describe('Financial', function() {
       expect(Math.round(financial.computeActualFinancialAmortization(f, balance, actualReturnTimeByYear, marginalActualReturnTimeByYear).modifiedReturnInternalRate*100)/100).to.be.equal(0.06);
     });
     it('should return true - productionPrice', function() {
-      var f = new financial.Financial();
+      var f = new financial.Financial(0.03, 85);
       f.PVCost = 8550;
       var nYears = 25;
       var production = 3705;
@@ -226,7 +226,7 @@ describe('Financial', function() {
       expect(Math.round(financial.computeSimplifiedFinancialAmortization(f, production, selfConsumptionAmountYear1, CVAmountYear1, nYears).productionPrice*10)/10).to.be.equal(0.10);
     });
     it('should return true - simpleReturnTime', function() {
-      var f = new financial.Financial();
+      var f = new financial.Financial(0.03, 85);
       f.PVCost = 8550;
       var nYears = 25;
       var production = 3705;
@@ -240,7 +240,7 @@ describe('Financial', function() {
       expect(Math.round(financial.computeNetPresentValue(discountRate, values))).to.eql(14784);
     });
     it('should return true - getInstallationCost', function() {
-      var f = new financial.Financial();
+      var f = new financial.Financial(0.03, 85);
       f.PVCost = 4680;
       expect(financial.getInstallationCost(f)).to.eql(4969);
     });

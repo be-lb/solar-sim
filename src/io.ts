@@ -2,6 +2,7 @@
 interface roof {
     'area': number;
     'productivity': number;
+    'tilt': number;
 }
 
 interface inputs {
@@ -11,6 +12,8 @@ interface inputs {
     'currentYear': number;
     'pvSetup': string; // enum
     'pvTechnology': string; // enum
+    'elecSellingPrice': number;
+    'CVPrice': number;
     //...TODO
 }
 
@@ -53,6 +56,8 @@ const inputsFactory = (
         currentYear = 2018, /* default */
         pvSetup = 'default',  /* default */
         pvTechnology = 'poly',  /* default */
+        elecSellingPrice = 0.03, /* default */
+        CVPrice = 85, /* default */
         //...TODO
     ): inputs => {
     /**
@@ -65,7 +70,9 @@ const inputsFactory = (
         nYears: nYears,
         currentYear: currentYear,
         pvSetup: pvSetup,
-        pvTechnology: pvTechnology
+        pvTechnology: pvTechnology,
+        elecSellingPrice: elecSellingPrice,
+        CVPrice: CVPrice,
         // ...TODO
     }
 };

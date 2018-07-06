@@ -26,7 +26,7 @@ describe('environmental', function() {
     });
     it('should return true - energeticCost', function() {
       var b = new building.Building('closed');
-      var r = new roof.Roof(30,950, 'default', 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
       r.rawPeakPower = 5.7; // HACK because inconsistence dans maquette xls sur la puissance utilisée
@@ -38,7 +38,7 @@ describe('environmental', function() {
     });
     it('should return true - panels costs', function() {
       var b = new building.Building('closed');
-      var r = new roof.Roof(30,950, 'default', 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
       r.rawPeakPower = 5.7; // HACK because inconsistence dans maquette xls sur la puissance utilisée

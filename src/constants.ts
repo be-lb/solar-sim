@@ -67,10 +67,8 @@ export const ONDULEUR_REPLACEMENT_RATE = 15; // year
 export const REDEVANCE_COST = 65; // €
 export const INFLATION_RATE = 0.02 // %
 export const ELEC_BUYING_PRICE = 0.23;
-export const ELEC_SELLING_PRICE = 0.03;
 export const ELEC_INDEX = 0.03;
 export const DISCOUNT_RATE = 0.04;
-export const CV_PRICE = 85;
 export const CV_RATE = 3;
 export const CV_TIME = 10;
 

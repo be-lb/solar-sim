@@ -11,14 +11,18 @@ class Financial {
     redevanceCost: number = constants.REDEVANCE_COST;
     inflationRate: number = constants.INFLATION_RATE;
     elecBuyingPrice: number = constants.ELEC_BUYING_PRICE;
-    elecSellingPrice: number = constants.ELEC_SELLING_PRICE;
+    elecSellingPrice: number;
     elecIndex : number = constants.ELEC_INDEX;
     discountRate : number = constants.DISCOUNT_RATE
-    CVPrice : number = constants.CV_PRICE;
+    CVPrice : number;
     CVRate : number = constants.CV_RATE;
     CVTime : number = constants.CV_TIME;
     PVCost: number;
     building: Building;
+    constructor(the_elec_selling_price: number, the_CV_price: number) {
+        this.elecSellingPrice = the_elec_selling_price;
+        this.CVPrice = the_CV_price;
+    }
     computePVCost () {
         if (this.PVCost === undefined) {
             return this.PVCost = this.building.power * 1500;
