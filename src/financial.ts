@@ -50,9 +50,9 @@ interface actualFinancialAmortization {
     'modifiedReturnInternalRate': number;
 }
 
-interface financialYear1 {
-    'selfConsumptionAmountYear1': number;
-    'CVAmountYear1': number;
+interface financialYearN {
+    'selfConsumptionAmountYearN': number;
+    'CVAmountYearN': number;
 };
 
 
@@ -174,17 +174,26 @@ const computeFinancialAmortization =
 };
 
 
-const getFinancialYear1 =
-    (selfConsumptionAmount: number[], CVAmount: number[]): financialYear1 => {
+const getFinancialYearN =
+    (selfConsumptionAmount: number[], CVAmount: number[], nYears:number): financialYearN => {
     /**
     * @param selfConsumptionAmount €
     * @param CVAmount €
+    * @param nYears number of years to be considered
     * Return the self consumption amount and the "Certificat vert" selling amount in €
     */
 
+    let selfConsumptionAmountYearN: number = 0;
+    let CVAmountYearN: number = 0;
+
+    for (let i = 1; i <= nYears; i++) {
+        selfConsumptionAmountYearN = selfConsumptionAmountYearN + selfConsumptionAmount[i-1];
+        CVAmountYearN = CVAmountYearN + CVAmount[i-1];
+    }
+
     return {
-        'selfConsumptionAmountYear1': selfConsumptionAmount[0],
-        'CVAmountYear1': CVAmount[0]
+        'selfConsumptionAmountYearN': selfConsumptionAmountYearN,
+        'CVAmountYearN': CVAmountYearN
     }
 }
 
@@ -201,7 +210,6 @@ const computeSimplifiedFinancialAmortization =
 
     const productionPrice: number = Math.round(((fin.PVCost + fin.meterCost)/nYears/production)*10)/10;
     const simpleReturnTime: number = (fin.PVCost + fin.meterCost)/(selfConsumptionAmountYear1+CVAmountYear1);
-    // NB: incoherence avec maquette xls sur PVCost
 
     return {
         'productionPrice': productionPrice,
@@ -230,6 +238,14 @@ const computeActualFinancialAmortization =
         'returnInternalRate': returnInternalRate,
         'modifiedReturnInternalRate': modifiedReturnInternalRate
     }
+};
+
+const getInstallationCost = (fin: Financial): number => {
+    /**
+    * @param fin - Financial
+    * Compute the installation cost of the photovoltaic installation.
+    */
+    return fin.PVCost + fin.meterCost
 };
 
 const computeActualPrice = (price: number, index: number, time: number): number => {
@@ -280,4 +296,4 @@ const MIRR = (values:number[], financeRate:number, discountRate:number): number 
 };
 
 export { Financial };
-export { computeActualAnnualProduction, getFinancialYear1, computeFinancialAmortization, computeSimplifiedFinancialAmortization, computeActualFinancialAmortization, computeActualPrice, computeNetPresentValue };
+export { computeActualAnnualProduction, getFinancialYearN, computeFinancialAmortization, computeSimplifiedFinancialAmortization, computeActualFinancialAmortization, computeActualPrice, computeNetPresentValue, getInstallationCost };

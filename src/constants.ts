@@ -17,10 +17,15 @@ export const MAX_PRODUCTION = 12;
 * Obstacle rate depending on the typology
 */
 export const TYPOLOGY_RATE : TypologyRateObject = {
-    'residential': 0.2,
-    'detached': 0.35,
-    'industrial': 0.1
+    'closed': 0.2,
+    'detached': 0.2,
+    'half-open': 0.2,
+    'apartments': 0.2,
+    'administrative': 0.2,
+    'collective': 0.2,
+    'industrial': 0.2,
 };
+
 
 /**
 *

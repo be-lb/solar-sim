@@ -11,8 +11,8 @@
 import {Building} from './building';
 import {Roof} from './roof';
 import {User} from './user';
-import {Financial, computeActualAnnualProduction, computeFinancialAmortization, getFinancialYear1, computeActualFinancialAmortization} from './financial';
-import {Environmental, computeCO2Emissions, getEnvironmentalCosts, computeEnergeticReturn} from './environmental';
+import {Financial, computeActualAnnualProduction, computeFinancialAmortization, getFinancialYearN, computeActualFinancialAmortization, getInstallationCost} from './financial';
+import {Environmental, computeSavedCO2Emissions, getEnvironmentalCosts, computeEnergeticReturn} from './environmental';
 import {inputs, outputs} from './index';
 
 const solarSim =
@@ -51,9 +51,10 @@ const solarSim =
     let financialAmortization = computeFinancialAmortization(b, f, inputs.nYears, inputs.currentYear);
     let selfConsumptionAmount = financialAmortization.selfConsumptionAmount;
     let CVAmount = financialAmortization.CVAmount;
-    let financialYear1 = getFinancialYear1(selfConsumptionAmount, CVAmount);
-    console.log('selfConsumption Year 1 (€): ' + financialYear1.selfConsumptionAmountYear1);
-    console.log('CV selling Year 1 (€): ' + financialYear1.CVAmountYear1);
+    let financialYear1 = getFinancialYearN(selfConsumptionAmount, CVAmount, 1);
+    console.log('selfConsumption Year 1 (€): ' + financialYear1.selfConsumptionAmountYearN);
+    console.log('CV selling Year 1 (€): ' + financialYear1.CVAmountYearN);
+    let financialYear10 = getFinancialYearN(selfConsumptionAmount, CVAmount, 10);
     // 1.2) Compute actualized results
     let balance = financialAmortization.balance;
     let actualReturnTimeByYear = financialAmortization.actualReturnTimeByYear;
@@ -63,23 +64,29 @@ const solarSim =
     console.log('netActualValue (€): ' +  actualFinancialAmortization.netActualValue);
     console.log('returnInternalRate (): ' +  actualFinancialAmortization.returnInternalRate);
     console.log('modifiedReturnInternalRate (): ' +  actualFinancialAmortization.modifiedReturnInternalRate);
+    // 1.3) installation costs
+    let installationCost = getInstallationCost(f);
 
     // 2) Environmental results
     // 2.1) CO2 emissions
     let actualProduction = computeActualAnnualProduction(b.production, r1.productionYearlyLossIndex, inputs.nYears);
-    let CO2emissions = computeCO2Emissions(actualProduction);
-    console.log('CO2 emissions (kg CO2) : ' + CO2emissions);
+    let savedCO2emissions = computeSavedCO2Emissions(actualProduction);
+    console.log('Saved CO2 emissions (kg CO2) : ' + savedCO2emissions);
     // 2.2) Energetic costs
     let e = new Environmental('Belgium');
     let environmentalCosts = getEnvironmentalCosts(e, b);
-    console.log('energetic cost (kWh): ' + environmentalCosts.energeticCost);  // wrong result because inconsistence dans maquette xls sur la puissance utilisée
+    console.log('energetic cost (kWh): ' + environmentalCosts.energeticCost);
     // 2.3) Environmental return
     let energeticReturn = computeEnergeticReturn(environmentalCosts.energeticCost, b.production, actualProduction);
     console.log('Energetic return time (year): ' + energeticReturn.energeticReturnTime);
     console.log('Energetic return factor (year): ' + energeticReturn.energeticReturnFactor);
 
     return {
-        'energeticCost': environmentalCosts.energeticCost,
+        'installationCost' : installationCost,
+        'CVAmountYearN' : financialYear10.CVAmountYearN,
+        'selfConsumptionAmountYearN' : financialYear10.selfConsumptionAmountYearN,
+        'savedCO2emissions' : savedCO2emissions
+
         // more outputs as defined in the output interface can come here
     }
 }

@@ -29,9 +29,9 @@ interface inputs {
 
 const inputsFactory = (
         roofs: roof[], /* required */
-        nYears = 25, /* default */
+        nYears = 10, /* default */
         currentYear = 2018, /* default */
-        typology = 'residential' /* default */
+        typology = 'closed' /* default */
     ): inputs => {
     /**
     * @param roofs - Array of roof objects
@@ -46,13 +46,16 @@ const inputsFactory = (
 };
 
 interface outputs {
-    'energeticCost': number;
+    'installationCost' : number,
+    'CVAmountYearN' : number,
+    'selfConsumptionAmountYearN' : number,
+    'savedCO2emissions': number;
 };
 
 // Set parameters
 //let nYears: number = 20;
-let currentYear: number = 2016; // TODO: get from (new Date()).getFullYear()?
-//let typology: string = 'residential';
+let currentYear: number = 2018; // TODO: get from (new Date()).getFullYear()?
+//let typology: string = 'closed';
 let roofs: roof[] = [
     {'area': 60, 'productivity': 1200},
 ];

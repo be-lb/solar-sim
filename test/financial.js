@@ -17,7 +17,7 @@ describe('Financial', function() {
       expect(financial.computeActualAnnualProduction).to.be.a('function');
     });
     it('should expose a function', function () {
-      expect(financial.getFinancialYear1).to.be.a('function');
+      expect(financial.getFinancialYearN).to.be.a('function');
     });
     it('should expose a function', function () {
       expect(financial.computeFinancialAmortization).to.be.a('function');
@@ -34,6 +34,9 @@ describe('Financial', function() {
     it('should expose a function', function () {
       expect(financial.computeNetPresentValue).to.be.a('function');
     });
+    it('should expose a function', function () {
+      expect(financial.getInstallationCost).to.be.a('function');
+    });
   });
   describe('Computation by year', function() {
     it('should return true - annualProduction', function() {
@@ -43,7 +46,7 @@ describe('Financial', function() {
       expect(financial.computeActualAnnualProduction(production, productionYearlyLossIndex, nYears).map(x => Math.round(x))).to.eql([3705, 3703, 3701, 3699, 3698, 3696, 3694, 3692, 3690, 3688, 3687, 3685, 3683, 3681, 3679, 3677, 3675, 3674, 3672, 3670, 3668, 3666, 3664, 3663, 3661]);
     });
     it('should return true - selfConsumptionAmount', function() {
-      var b = new building.Building('residential');
+      var b = new building.Building('closed');
       var r = new roof.Roof(30,950, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
@@ -66,7 +69,7 @@ describe('Financial', function() {
       expect(financial.computeFinancialAmortization(b, f, nYears, currentYear).selfConsumptionAmount.map(x => Math.round(x))).to.eql(expected);
     });
     it('should return true - CVAmount', function() {
-      var b = new building.Building('residential');
+      var b = new building.Building('closed');
       var r = new roof.Roof(30,950, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
@@ -88,7 +91,7 @@ describe('Financial', function() {
       expect(financial.computeFinancialAmortization(b, f, nYears, currentYear).CVAmount.map(x => Math.round(x))).to.eql(expected);
     });
     it('should return true - balance', function() {
-      var b = new building.Building('residential');
+      var b = new building.Building('closed');
       var r = new roof.Roof(30,950, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
@@ -110,7 +113,7 @@ describe('Financial', function() {
       expect(financial.computeFinancialAmortization(b, f, nYears, currentYear).balance.map(x => Math.round(x))).to.eql(expected);
     });
     it('should return true - netActualValueByYear', function() {
-      var b = new building.Building('residential');
+      var b = new building.Building('closed');
       var r = new roof.Roof(30,950, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
@@ -132,7 +135,7 @@ describe('Financial', function() {
       expect(financial.computeFinancialAmortization(b, f, nYears, currentYear).netActualValueByYear.map(x => Math.round(x/10)*10)).to.eql(expected.map(x => Math.round(x/10)*10));
     });
     it('should return true - actualReturnTimeByYear', function() {
-      var b = new building.Building('residential');
+      var b = new building.Building('closed');
       var r = new roof.Roof(30,950, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
@@ -154,7 +157,7 @@ describe('Financial', function() {
       expect(financial.computeFinancialAmortization(b, f, nYears, currentYear).actualReturnTimeByYear.map(x => Math.round(x))).to.eql(expected);
     });
     it('should return true - marginalActualReturnTimeByYear', function() {
-      var b = new building.Building('residential');
+      var b = new building.Building('closed');
       var r = new roof.Roof(30,950, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
@@ -229,6 +232,11 @@ describe('Financial', function() {
       var discountRate = 0.04;
       var values = [1774, 1798, 1308, 1318, 1329, 1340, 1351, 1362, 1374, 1387, 459, 473, 487, 501, -1503, 531, 547, 563, 579, 597, 614, 632, 651, 670, 690];
       expect(Math.round(financial.computeNetPresentValue(discountRate, values))).to.eql(14784);
+    });
+    it('should return true - getInstallationCost', function() {
+      var f = new financial.Financial();
+      f.PVCost = 4680;
+      expect(financial.getInstallationCost(f)).to.eql(4969);
     });
   });
 });

@@ -8,7 +8,7 @@ axios.get('../src/data.json')
         let input = {
             nYears: 25,
             currentYear: 2018,
-            typology: 'residential',
+            typology: 'closed',
             roofs: roofs,
         }
 
@@ -16,9 +16,9 @@ axios.get('../src/data.json')
         console.log(results);
 
         let res_energeticCost = document.getElementById("res_energeticCost");
-        console.log(results.energeticCost);
+        console.log(results.savedCO2emissions);
 
         if(res_energeticCost) {
-            res_energeticCost.innerHTML = results.energeticCost.toString();
+            res_energeticCost.innerHTML = results.savedCO2emissions.toString();
         }
     });

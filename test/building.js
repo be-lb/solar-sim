@@ -20,13 +20,13 @@ describe('Building', function() {
   });
   describe('b.getObstacleRatePerTypology() == [0, 1]', function() {
     it('should return true', function() {
-      var b = new building.Building('residential');
+      var b = new building.Building('closed');
       expect(b.getObstacleRatePerTypology()).to.be.within(0,1);
     });
   });
   describe('b.computeProduction() == 2964', function() {
     it('should return true', function() {
-      var b = new building.Building('residential');
+      var b = new building.Building('closed');
       var r = new roof.Roof(30, 950, 'default', 'poly', b);
       b.roofs = [r];
       expect(b.computeProduction()).to.be.equal(2964);

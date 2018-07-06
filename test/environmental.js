@@ -19,13 +19,13 @@ describe('environmental', function() {
       expect(environmental.computeEnergeticReturn).to.be.a('function');
     });
     it('should expose a function', function () {
-      expect(environmental.computeCO2Emissions).to.be.a('function');
+      expect(environmental.computeSavedCO2Emissions).to.be.a('function');
     });
     it('should expose a function', function () {
       expect(environmental.sum).to.be.a('function');
     });
     it('should return true - energeticCost', function() {
-      var b = new building.Building('residential');
+      var b = new building.Building('closed');
       var r = new roof.Roof(30,950, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
@@ -37,7 +37,7 @@ describe('environmental', function() {
 
     });
     it('should return true - panels costs', function() {
-      var b = new building.Building('residential');
+      var b = new building.Building('closed');
       var r = new roof.Roof(30,950, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
@@ -59,9 +59,9 @@ describe('environmental', function() {
       var actualProduction = [2964, 2963, 2961, 2960, 2958, 2957, 2955, 2954, 2952, 2951, 2949, 2948, 2946, 2945, 2943, 2942, 2940, 2939, 2937, 2936, 2935, 2933, 2932, 2930, 2929];
       expect(Math.round(environmental.computeEnergeticReturn(energeticCost, production, actualProduction).energeticReturnTime*10)/10).to.be.equal(2.6);
     });
-    it('should return true - computeCO2Emissions', function() {
+    it('should return true - computeSavedCO2Emissions', function() {
       var actualProduction = [2964, 2963, 2961, 2960, 2958, 2957, 2955, 2954, 2952, 2951, 2949, 2948, 2946, 2945, 2943, 2942, 2940, 2939, 2937, 2936, 2935, 2933, 2932, 2930, 2929];
-      expect(Math.round(environmental.computeCO2Emissions(actualProduction))).to.be.equal(33589);
+      expect(Math.round(environmental.computeSavedCO2Emissions(actualProduction))).to.be.equal(33589);
     });
     it('should return true - sum', function() {
       expect(environmental.sum([1,2,3,-1])).to.be.equal(5);

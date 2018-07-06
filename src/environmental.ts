@@ -85,7 +85,7 @@ const computeEnergeticReturn =
     }
 }
 
-const computeCO2Emissions = (actualProduction: number[]): number => {
+const computeSavedCO2Emissions = (actualProduction: number[]): number => {
     /**
     * @param actualProduction Actual annual photovoltaic production, in kWh/year
     * Compute the C02 emissions (kg C02) that are saved on the total life of the photovoltaic installation.
@@ -102,4 +102,4 @@ const sum = (arr: number[]): number => {
 }
 
 export{ Environmental };
-export{ getEnvironmentalCosts, computeEnergeticReturn, computeCO2Emissions, sum };
+export{ getEnvironmentalCosts, computeEnergeticReturn, computeSavedCO2Emissions, sum };
