@@ -10,6 +10,8 @@ axios.get('../src/data.json')
             currentYear: 2018,
             typology: 'closed',
             roofs: roofs,
+            pvSetup: 'default',
+            pvTechnology: 'poly'
         }
 
         let results = solarSim(input);
@@ -21,4 +23,7 @@ axios.get('../src/data.json')
         if(res_energeticCost) {
             res_energeticCost.innerHTML = results.main.savedCO2emissions.toString();
         }
+    })
+    .catch((error) => {
+        console.log(error);
     });

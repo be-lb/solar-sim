@@ -87,7 +87,6 @@ class Roof {
         * @param yield - yield of the photovoltaic installation
         * Returns the usable peak power of the roof (kWc)
         */
-        this.computeRoofUsableArea();
         return this.usablePeakPower =
         this.usableArea / (1000 / (1000 * this.yield) * this.setupFactor)
         ;

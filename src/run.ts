@@ -13,7 +13,7 @@ import {Roof} from './roof';
 import {User} from './user';
 import {Financial, computeActualAnnualProduction, computeFinancialAmortization, getFinancialYearN, computeActualFinancialAmortization, getInstallationCost} from './financial';
 import {Environmental, computeSavedCO2Emissions, getEnvironmentalCosts, computeEnergeticReturn} from './environmental';
-import {inputs, outputs} from './index';
+import {inputs, outputs} from './io';
 
 const solarSim =
     (inputs: inputs):
@@ -28,7 +28,7 @@ const solarSim =
     // for (let r of roofs) {
     //
     // }
-    let r1 = new Roof(30, 950, 'default', 'poly', b);
+    let r1 = new Roof(30, 950, inputs.pvSetup, inputs.pvTechnology, b);
     b.roofs = [r1];
 
     b.computeProduction();
