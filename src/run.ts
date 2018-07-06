@@ -32,6 +32,8 @@ const solarSim =
     b.roofs = [r1];
 
     b.computeProduction();
+    b.computePower();
+    b.computePVArea();
 
     // User information
     let u = new User();
@@ -55,6 +57,7 @@ const solarSim =
     console.log('selfConsumption Year 1 (€): ' + financialYear1.selfConsumptionAmountYearN);
     console.log('CV selling Year 1 (€): ' + financialYear1.CVAmountYearN);
     let financialYear10 = getFinancialYearN(selfConsumptionAmount, CVAmount, 10);
+    let financialYear25 = getFinancialYearN(selfConsumptionAmount, CVAmount, 25);
     // 1.2) Compute actualized results
     let balance = financialAmortization.balance;
     let actualReturnTimeByYear = financialAmortization.actualReturnTimeByYear;
@@ -89,18 +92,18 @@ const solarSim =
             'savedCO2emissions' : savedCO2emissions
         },
         'setup': {
-            'area': 9999,
-            'power': 9999,
-            'obstacleRate': 9999
+            'area': b.pvArea,
+            'power': b.power,
+            'obstacleRate': b.obstacleRate
         },
         'energy': {
-            'annualProduction': 9999,
-            'annualConsumption': 9999,
-            'autonomy': 9999
+            'annualProduction': b.production,
+            'annualConsumption': u.annualElectricityConsumption,
+            'autonomy': 9999 //TODO, u.annualElectricityConsumption/b.production ?
         },
         'finance': {
-            'totalGain25Y': 9999,
-            'returnTime': 9999
+            'totalGain25Y': financialYear25.CVAmountYearN + financialYear25.selfConsumptionAmountYearN,
+            'returnTime': actualFinancialAmortization.actualReturnTime
         }
     }
 }

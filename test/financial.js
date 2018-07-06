@@ -50,6 +50,7 @@ describe('Financial', function() {
       var r = new roof.Roof(30,950, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
+      b.computePower();
 
       var u = new user.User();
       u.hasWashingMachine = true;
@@ -73,6 +74,7 @@ describe('Financial', function() {
       var r = new roof.Roof(30,950, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
+      b.computePower();
 
       var u = new user.User();
       u.hasWashingMachine = true;
@@ -95,6 +97,7 @@ describe('Financial', function() {
       var r = new roof.Roof(30,950, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
+      b.computePower();
 
       var u = new user.User();
       u.hasWashingMachine = true;
@@ -117,6 +120,7 @@ describe('Financial', function() {
       var r = new roof.Roof(30,950, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
+      b.computePower();
 
       var u = new user.User();
       u.hasWashingMachine = true;
@@ -139,6 +143,7 @@ describe('Financial', function() {
       var r = new roof.Roof(30,950, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
+      b.computePower();
 
       var u = new user.User();
       u.hasWashingMachine = true;
@@ -161,6 +166,7 @@ describe('Financial', function() {
       var r = new roof.Roof(30,950, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
+      b.computePower();
 
       var u = new user.User();
       u.hasWashingMachine = true;

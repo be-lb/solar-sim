@@ -21,11 +21,7 @@ class Financial {
     building: Building;
     computePVCost () {
         if (this.PVCost === undefined) {
-            let totalPower: number = 0;
-            for (let r of this.building.roofs) {
-                totalPower = totalPower + r.usablePeakPower;
-            }
-            return this.PVCost = totalPower * 1500;
+            return this.PVCost = this.building.power * 1500;
         } else {
             return this.PVCost;
         }

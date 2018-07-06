@@ -13,26 +13,27 @@ import {inputs, outputs, roof} from './io';
 
 const inputsFactory = (
         roofs: roof[], /* required */
+        typology = 'closed', /* default */
         nYears = 10, /* default */
-        currentYear = 2018, /* default */
-        typology = 'closed' /* default */
+        currentYear = 2018 /* default */
+
     ): inputs => {
     /**
     * @param roofs - Array of roof objects
     * Build the inputs for solarSim with default and required values
     */
     return {
-        nYears: nYears,
-        currentYear: currentYear,
+        roofs: roofs,
         typology: typology,
-        roofs: roofs
+        nYears: nYears,
+        currentYear: currentYear
     }
 };
 
 
 
 // Set parameters
-//let nYears: number = 20;
+let nYears: number = 40;
 let currentYear: number = 2018; // TODO: get from (new Date()).getFullYear()?
 //let typology: string = 'closed';
 let roofs: roof[] = [
@@ -40,7 +41,7 @@ let roofs: roof[] = [
 ];
 console.log(roofs);
 
-let inputs_test = inputsFactory(roofs, undefined, currentYear);
+let inputs_test = inputsFactory(roofs, undefined, nYears, currentYear);
 console.log(inputs_test);
 
 let results = solarSim(inputs_test);

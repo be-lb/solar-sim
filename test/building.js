@@ -17,6 +17,14 @@ describe('Building', function() {
       var b = new building.Building();
       expect(b.computeProduction).to.be.a('function');
     });
+    it('should expose a function', function () {
+      var b = new building.Building();
+      expect(b.computePower).to.be.a('function');
+    });
+    it('should expose a function', function () {
+      var b = new building.Building();
+      expect(b.computePVArea).to.be.a('function');
+    });
   });
   describe('b.getObstacleRatePerTypology() == [0, 1]', function() {
     it('should return true', function() {
@@ -30,6 +38,22 @@ describe('Building', function() {
       var r = new roof.Roof(30, 950, 'default', 'poly', b);
       b.roofs = [r];
       expect(b.computeProduction()).to.be.equal(2964);
+    });
+  });
+  describe('b.computePower() == 2964', function() {
+    it('should return true', function() {
+      var b = new building.Building('closed');
+      var r = new roof.Roof(30, 950, 'default', 'poly', b);
+      b.roofs = [r];
+      expect(b.computePower()).to.be.equal(3.12);
+    });
+  });
+  describe('b.computePVArea() == 2964', function() {
+    it('should return true', function() {
+      var b = new building.Building('closed');
+      var r = new roof.Roof(30, 950, 'default', 'poly', b);
+      b.roofs = [r];
+      expect(b.computePVArea()).to.be.equal(24);
     });
   });
 });

@@ -5,10 +5,15 @@ interface roof {
 }
 
 interface inputs {
+    'roofs':  roof[];
+    'typology': string; // enum
     'nYears': number;
     'currentYear': number;
-    'typology': string;
-    'roofs':  roof[];
+    // 'pvTechnology': string; // enum
+    // 'pvSetup': string; // enum
+
+
+
 }
 
 interface mainOutputs {
@@ -41,6 +46,5 @@ interface outputs {
     'energy': energyOutputs,
     'finance': financeOutputs
 };
-
 
 export {roof, inputs, outputs};
