@@ -30,11 +30,14 @@ const solarSim =
         b.roofs.push(roof);
     }
     b.pvArea = inputs.pvArea;
+    console.log('  b.computePVArea();');
     b.computePVArea();
+    console.log('  b.computeProduction();');
     b.computeProduction();
+      console.log('  b.computePower();');
     b.computePower();
 
-    console.log(b.power);
+    console.log(b);
 
     // User information
     let u = new User();

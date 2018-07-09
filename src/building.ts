@@ -48,7 +48,7 @@ class Building {
         for (let r of this.roofs) {
             power = power + r.usablePeakPower;
         }
-        power = power > constants.MAX_POWER ? power: constants.MAX_POWER;
+        power = power < constants.MAX_POWER ? power: constants.MAX_POWER;
         return this.power = power;
     };
     computePVArea () {
@@ -62,7 +62,6 @@ class Building {
         if (this.pvArea === -9999) {
             return this.pvArea = computedPvArea;
         } else { // this.pvArea was modified by the user
-            console.log(this.pvArea);
             if (this.pvArea < computedPvArea){
                 let area: number = optimizeRoofAreas(this, computedPvArea);
                 return this.pvArea = area;
@@ -73,7 +72,7 @@ class Building {
     };
 };
 
-
+const MAX_ITERATION_WHILE: number = 200;
 const optimizeRoofAreas = (b: Building, actualPvArea: number) => {
     /**
     * Optimize roof area as a function of their productivity:
@@ -85,29 +84,26 @@ const optimizeRoofAreas = (b: Building, actualPvArea: number) => {
     for (let r of b.roofs) {
         roofProductivities.push(r.productivity);
     }
-    console.log(roofProductivities);
+    let sortRoofProductivities: number[] = roofProductivities.sort((a, b) => a - b);
 
     let cpt: number = 0;
-    while (inputArea < computedPvArea) {
-        console.log(cpt);
-        // decrease roof usableAreas
+    while (inputArea < computedPvArea && cpt < b.roofs.length && cpt < MAX_ITERATION_WHILE) {
+
         let deltaArea: number = computedPvArea - inputArea;
-        // select the roof with the lowest productivity
+        // select the roof by increasing productivity
         for (let r of b.roofs) {
-            if (r.productivity === Math.min(...roofProductivities)) {
+            if (r.productivity === sortRoofProductivities[cpt]) {
                 r.usableArea = Math.max((r.usableArea - deltaArea),0);
             }
         }
-        // lower the roof area
-        //b.roofs[roofIndex[cpt]].usableArea = Math.max(r.usableArea,0);
-
-        // update computedPvArea
         computedPvArea = 0;
         for (let r of b.roofs) {
             computedPvArea = computedPvArea + r.usableArea;
         }
         cpt++;
     }
+
+    console.log(b);
 
     // Update power and production of all roofs
     for (let r of b.roofs) {
@@ -116,13 +112,6 @@ const optimizeRoofAreas = (b: Building, actualPvArea: number) => {
     }
 
     return computedPvArea;
-
-    // TODO: adapt roof areas as a function of their productivity: d'abord decroitre les roofs de plus faible productivité
-    // Faut-il vraiment refaire tourner ces fcts? NON/SI slt celles de roof. Les autres sont appelées de toute façon
-
-    // b.computePower();
-    // b.computeProduction();
-    // f.computePVCost();
 }
 
 export { Building };

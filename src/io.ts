@@ -5,8 +5,12 @@ interface roof {
     'tilt': number;
 }
 
+// enum typologyEnum {closed, detached, apartments, administrative, collective, industrial};
+// enum pvSetupEnum {default, flat_roof};
+// enum pvTechnologyEnum {poly, mono, mono_high};
+
 interface inputs {
-    'roofs':  roof[];
+    'roofs': roof[];
     'typology': string; // enum
     'nYears': number;
     'currentYear': number;

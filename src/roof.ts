@@ -104,11 +104,8 @@ class Roof {
         * @param PeakPower - peak power of the potential installation (kWc)
         * Compute the production (kWh) of the roof given the peak power and the roof productivity
         */
-        if (this.roofProduction === undefined) {
-            return this.roofProduction = this.usablePeakPower * this.productivity;
-        } else {
-            return this.roofProduction;
-        }
+
+        return this.roofProduction = this.usablePeakPower * this.productivity;
     };
 };
 

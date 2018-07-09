@@ -13,9 +13,9 @@ import {roof, inputs} from './io';
 
 // Example with required parameters only
 let roofs: roof[] = [
-    {'area': 30, 'productivity': 1800, 'tilt': 30},
-    {'area': 30, 'productivity': 800, 'tilt': 30},
-    {'area': 20, 'productivity': 1200, 'tilt': 30}
+    {'area': 60, 'productivity': 1800, 'tilt': 30},
+    {'area': 60, 'productivity': 800, 'tilt': 30},
+    {'area': 40, 'productivity': 1200, 'tilt': 30}
 ];
 //
 // let inputs = inputsFactory(roofs);
@@ -33,7 +33,7 @@ let fullInputs: inputs = {
     pvTechnology: 'poly',
     elecSellingPrice: 0.03,
     CVPrice: 85,
-    pvArea: -9999,
+    pvArea: 1000,
 }
 let outputs2 = solarSim(fullInputs);
 console.log(outputs2);
