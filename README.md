@@ -6,16 +6,16 @@ Commencer par un ```npm install``` pour recuperer typescript, puis commencer a b
 
 ## Example typescript & test via mocha
 
-### Compiler `src/index.ts` -> `lib/index.js`
+### Compiler `src/example.ts` -> `lib/example.js`
 
 ```
 $ npm run build
 ```
 
-### Exécuter `lib/index.js`
+### Exécuter `lib/example.js`
 
 ```
-$ node lib/index.js
+$ node lib/example.js
 ```
 
 ### Tester
@@ -28,31 +28,34 @@ $ ./node_modules/mocha/bin/mocha
 
 ## Usage
 
-Run the computation by running the `solarSim` function:
+See an example in `example.ts` Run the computation by running the `solarSim` function:
 
 ```
 let my_outputs = solarSim(my_inputs);
 ```
 
-where `my_inputs` are defined by the interface `input` and can be generated using the `inputsFactory` function. This function set some parameters with default values.  
+where `my_inputs` are defined by the interface `input` and *can* be generated using the `inputsFactory` function. This function set the parameters with default values.  
 
 ```
 const inputsFactory = (
         roofs: roof[], /* required */
-        nYears = 25, /* default */
+        typology = 'closed', /* default */
+        nYears = 10, /* default */
         currentYear = 2018, /* default */
-        typology = 'residential' /* default */
-        ...
+        pvSetup = 'default',  /* default */
+        pvTechnology = 'poly',  /* default */
+        elecSellingPrice = 0.03, /* default */
+        CVPrice = 85, /* default */
     ): inputs => { ... }
 ```
 
-Let's generate inputs with required `roofs` and optional `currentYear` parameters:
+Let's generate inputs with required `roofs` and optional `currentYear` parameters (which is at the third position):
 
 ```
 let my_inputs = inputsFactory(roofs, undefined, currentYear);
 ```
 
-Note that putting the last optional argument (`typology`) as `undefined` is not mandatory.  
+Note that putting the last optional arguments as `undefined` in the `inputsFactory` function is not mandatory.  
 
 ## Documentation
 
