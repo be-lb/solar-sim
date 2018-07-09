@@ -51,6 +51,7 @@ describe('Building', function() {
   describe('b.computePVArea() == 2964', function() {
     it('should return true', function() {
       var b = new building.Building('closed');
+      b.pvArea = -9999;
       var r = new roof.Roof(30, 950, 30, 'default', 'poly', b);
       b.roofs = [r];
       expect(b.computePVArea()).to.be.equal(24);
