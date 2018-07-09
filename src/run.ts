@@ -54,15 +54,13 @@ const solarSim =
     f.computePVCost();
 
     // 1) Financial results
-    // 1.1) Compute results Year 1
+    // 1.1) Compute results Year 1, 10 and 25
     let financialAmortization = computeFinancialAmortization(b, f, inputs.nYears, inputs.currentYear);
-    let selfConsumptionAmount = financialAmortization.selfConsumptionAmount;
-    let CVAmount = financialAmortization.CVAmount;
-    let financialYear1 = getFinancialYearN(selfConsumptionAmount, CVAmount, 1);
+    let financialYear1 = getFinancialYearN(b, f, 1, inputs.currentYear);
     console.log('selfConsumption Year 1 (€): ' + financialYear1.selfConsumptionAmountYearN);
     console.log('CV selling Year 1 (€): ' + financialYear1.CVAmountYearN);
-    let financialYear10 = getFinancialYearN(selfConsumptionAmount, CVAmount, 10);
-    let financialYear25 = getFinancialYearN(selfConsumptionAmount, CVAmount, 25);
+    let financialYearN = getFinancialYearN(b, f, inputs.nYears, inputs.currentYear);
+    let financialYear25 = getFinancialYearN(b, f, 25, inputs.currentYear);
     // 1.2) Compute actualized results
     let balance = financialAmortization.balance;
     let actualReturnTimeByYear = financialAmortization.actualReturnTimeByYear;
@@ -92,8 +90,8 @@ const solarSim =
     return {
         'main' : {
             'installationCost' : installationCost,
-            'CVAmountYearN' : financialYear10.CVAmountYearN,
-            'selfConsumptionAmountYearN' : financialYear10.selfConsumptionAmountYearN,
+            'CVAmountYearN' : financialYearN.CVAmountYearN,
+            'selfConsumptionAmountYearN' : financialYearN.selfConsumptionAmountYearN,
             'savedCO2emissions' : savedCO2emissions
         },
         'setup': {

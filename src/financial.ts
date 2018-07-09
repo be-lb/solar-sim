@@ -33,6 +33,10 @@ class Financial {
     }
 };
 
+interface financialBenefit {
+    [key: string]: number[];
+}
+
 interface financialAmortization {
     [key: string]: number[];
 };
@@ -72,6 +76,47 @@ const computeActualAnnualProduction =
     }
 
     return actualProduction;
+};
+
+const computeFinancialBenefit =
+    (building: Building, fin: Financial, nYears: number, currentYear: number):
+    financialBenefit => {
+    /**
+    * @param building - Building
+    * @param fin - Financial
+    * @param nYears - number of years
+    * @param currentYear - current year, e.g., 2018
+    * Make the main yearly computation.
+    */
+
+    // Instantiate vectors
+    let selfConsumptionAmount: number[] = [];
+    let CVAmount: number[] = [];
+
+    // Get objects
+    let u : User = building.user;
+
+    for (let i = 1; i <= nYears; i++) {
+        let actualElecBuyingPrice: number = computeActualPrice(fin.elecBuyingPrice, fin.elecIndex, i);
+        let actualProduction: number = building.production * (1-fin.productionYearlyLossIndex)**(i-1);
+        let selfConsumption: number = 0;
+        if (currentYear + i <= 2020) {
+            selfConsumption = u.annualElectricityConsumption > actualProduction ? actualProduction : u.annualElectricityConsumption
+        } else {
+            selfConsumption = u.selfProductionRate * actualProduction
+        }
+        selfConsumptionAmount.push(selfConsumption * actualElecBuyingPrice);
+        if (i <= fin.CVTime) {
+            CVAmount.push(fin.CVPrice * (fin.CVRate * actualProduction / 1000));
+        } else {
+            CVAmount.push(0);
+        }
+    }
+
+    return {
+        'selfConsumptionAmount': selfConsumptionAmount,
+        'CVAmount': CVAmount
+    }
 };
 
 
@@ -174,20 +219,23 @@ const computeFinancialAmortization =
 
 
 const getFinancialYearN =
-    (selfConsumptionAmount: number[], CVAmount: number[], nYears:number): financialYearN => {
+    (building: Building, fin: Financial, nYears: number, currentYear: number): financialYearN => {
     /**
-    * @param selfConsumptionAmount €
-    * @param CVAmount €
+    * @param building Building
+    * @param fin Financial
     * @param nYears number of years to be considered
+    * @param currentYear
     * Return the self consumption amount and the "Certificat vert" selling amount in €
     */
 
     let selfConsumptionAmountYearN: number = 0;
     let CVAmountYearN: number = 0;
 
+    let financialBenefit = computeFinancialBenefit(building, fin, nYears, currentYear)
+
     for (let i = 1; i <= nYears; i++) {
-        selfConsumptionAmountYearN = selfConsumptionAmountYearN + selfConsumptionAmount[i-1];
-        CVAmountYearN = CVAmountYearN + CVAmount[i-1];
+        selfConsumptionAmountYearN = selfConsumptionAmountYearN + financialBenefit.selfConsumptionAmount[i-1];
+        CVAmountYearN = CVAmountYearN + financialBenefit.CVAmount[i-1];
     }
 
     return {
@@ -295,4 +343,4 @@ const MIRR = (values:number[], financeRate:number, discountRate:number): number 
 };
 
 export { Financial };
-export { computeActualAnnualProduction, getFinancialYearN, computeFinancialAmortization, computeSimplifiedFinancialAmortization, computeActualFinancialAmortization, computeActualPrice, computeNetPresentValue, getInstallationCost };
+export { computeActualAnnualProduction, getFinancialYearN, computeFinancialBenefit, computeFinancialAmortization, computeSimplifiedFinancialAmortization, computeActualFinancialAmortization, computeActualPrice, computeNetPresentValue, getInstallationCost };

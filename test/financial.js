@@ -20,6 +20,9 @@ describe('Financial', function() {
       expect(financial.getFinancialYearN).to.be.a('function');
     });
     it('should expose a function', function () {
+      expect(financial.computeFinancialBenefit).to.be.a('function');
+    });
+    it('should expose a function', function () {
       expect(financial.computeFinancialAmortization).to.be.a('function');
     });
     it('should expose a function', function () {
