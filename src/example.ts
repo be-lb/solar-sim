@@ -9,9 +9,9 @@
  */
 
 import {solarSim} from './run';
-import {inputsFactory, roof} from './io';
+import {inputsFactory, roof, inputs} from './io';
 
-// Set required parameters
+// Example with required parameters only
 let roofs: roof[] = [
     {'area': 30, 'productivity': 1800, 'tilt': 30},
     {'area': 30, 'productivity': 800, 'tilt': 30},
@@ -22,3 +22,17 @@ let inputs = inputsFactory(roofs);
 
 let outputs = solarSim(inputs);
 console.log(outputs);
+
+// Example with all input parameters with the same roof collection
+let fullInputs: inputs = {
+    roofs: roofs,
+    typology: 'closed',
+    nYears: 10,
+    currentYear: 2018,
+    pvSetup: 'default',
+    pvTechnology: 'poly',
+    elecSellingPrice: 0.03,
+    CVPrice: 85,
+}
+let outputs2 = solarSim(fullInputs);
+console.log(outputs2);
