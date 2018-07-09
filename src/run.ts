@@ -29,9 +29,12 @@ const solarSim =
         let roof = new Roof(r.area, r.productivity, r.tilt, inputs.pvSetup, inputs.pvTechnology, b);
         b.roofs.push(roof);
     }
+    b.pvArea = inputs.pvArea;
     b.computePVArea();
     b.computeProduction();
     b.computePower();
+
+    console.log(b.power);
 
     // User information
     let u = new User();

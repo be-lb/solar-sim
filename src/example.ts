@@ -9,7 +9,7 @@
  */
 
 import {solarSim} from './run';
-import {inputsFactory, roof, inputs} from './io';
+import {roof, inputs} from './io';
 
 // Example with required parameters only
 let roofs: roof[] = [
@@ -17,11 +17,11 @@ let roofs: roof[] = [
     {'area': 30, 'productivity': 800, 'tilt': 30},
     {'area': 20, 'productivity': 1200, 'tilt': 30}
 ];
-
-let inputs = inputsFactory(roofs);
-
-let outputs = solarSim(inputs);
-console.log(outputs);
+//
+// let inputs = inputsFactory(roofs);
+//
+// let outputs = solarSim(inputs);
+// console.log(outputs);
 
 // Example with all input parameters with the same roof collection
 let fullInputs: inputs = {
@@ -33,6 +33,7 @@ let fullInputs: inputs = {
     pvTechnology: 'poly',
     elecSellingPrice: 0.03,
     CVPrice: 85,
+    pvArea: 10,
 }
 let outputs2 = solarSim(fullInputs);
 console.log(outputs2);

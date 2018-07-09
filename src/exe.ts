@@ -13,7 +13,8 @@ axios.get('../src/data.json')
             pvSetup: 'default',
             pvTechnology: 'poly',
             elecSellingPrice: 0.03,
-            CVPrice: 85
+            CVPrice: 85,
+            pvArea: -9999
         }
 
         let results = solarSim(input);

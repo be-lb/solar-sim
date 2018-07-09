@@ -38,7 +38,6 @@ class Building {
         for (let r of this.roofs) {
             production = production + r.roofProduction;
         }
-        production = production > constants.MAX_PRODUCTION ? production: constants.MAX_PRODUCTION;
         return this.production = production;
     };
     computePower () {
@@ -49,6 +48,7 @@ class Building {
         for (let r of this.roofs) {
             power = power + r.usablePeakPower;
         }
+        power = power > constants.MAX_POWER ? power: constants.MAX_POWER;
         return this.power = power;
     };
     computePVArea () {
@@ -59,9 +59,10 @@ class Building {
         for (let r of this.roofs) {
             computedPvArea = computedPvArea + r.usableArea;
         }
-        if (this.pvArea === undefined) {
+        if (this.pvArea === -9999) {
             return this.pvArea = computedPvArea;
         } else { // this.pvArea was modified by the user
+            console.log(this.pvArea);
             if (this.pvArea < computedPvArea){
                 let area: number = optimizeRoofAreas(this, computedPvArea);
                 return this.pvArea = area;

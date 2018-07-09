@@ -11,7 +11,7 @@ import {PVSetupObject, PVYieldObject} from './roof';
 /**
 * Maximum production allowed for a building (12 kWc)
 */
-export const MAX_PRODUCTION = 12;
+export const MAX_POWER = 12;
 
 /**
 * Obstacle rate depending on the typology
