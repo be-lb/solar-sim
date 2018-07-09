@@ -71,13 +71,13 @@ export const ELEC_INDEX = 0.03;
 export const DISCOUNT_RATE = 0.04;
 export const CV_RATE = 3;
 export const CV_TIME = 10;
+export const PRODUCTION_YEARLY_LOSS_INDEX = 0.0005;
 
 /**
 *
 * roof
 *
 */
-export const PRODUCTION_YEARLY_LOSS_INDEX = 0.0005;
 
 /**
 * Mapping of the setup factor given the photovoltaic setup.

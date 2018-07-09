@@ -25,16 +25,13 @@ const solarSim =
     */
     let b = new Building(inputs.typology);
 
-    // for (let r of roofs) {
-    //
-    // }
-    let r1 = new Roof(30, 950, 30, inputs.pvSetup, inputs.pvTechnology, b);
-    b.roofs = [r1];
+    for (let r of inputs.roofs) {
+        let roof = new Roof(r.area, r.productivity, r.tilt, inputs.pvSetup, inputs.pvTechnology, b);
+        b.roofs.push(roof);
+    }
     b.computePVArea();
-    
     b.computeProduction();
     b.computePower();
-
 
     // User information
     let u = new User();
@@ -73,7 +70,7 @@ const solarSim =
 
     // 2) Environmental results
     // 2.1) CO2 emissions
-    let actualProduction = computeActualAnnualProduction(b.production, r1.productionYearlyLossIndex, inputs.nYears);
+    let actualProduction = computeActualAnnualProduction(b.production, f, inputs.nYears);
     let savedCO2emissions = computeSavedCO2Emissions(actualProduction);
     console.log('Saved CO2 emissions (kg CO2) : ' + savedCO2emissions);
     // 2.2) Energetic costs

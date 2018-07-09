@@ -14,7 +14,6 @@ interface inputs {
     'pvTechnology': string; // enum
     'elecSellingPrice': number;
     'CVPrice': number;
-    //...TODO
 }
 
 interface mainOutputs {
@@ -58,7 +57,6 @@ const inputsFactory = (
         pvTechnology = 'poly',  /* default */
         elecSellingPrice = 0.03, /* default */
         CVPrice = 85, /* default */
-        //...TODO
     ): inputs => {
     /**
     * @param roofs - Array of roof objects
@@ -73,7 +71,6 @@ const inputsFactory = (
         pvTechnology: pvTechnology,
         elecSellingPrice: elecSellingPrice,
         CVPrice: CVPrice,
-        // ...TODO
     }
 };
 

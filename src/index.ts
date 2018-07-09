@@ -13,11 +13,12 @@ import {inputsFactory, roof} from './io';
 
 // Set parameters
 let roofs: roof[] = [
-    {'area': 60, 'productivity': 1200, 'tilt': 30},
+    {'area': 30, 'productivity': 1800, 'tilt': 30},
+    {'area': 30, 'productivity': 800, 'tilt': 30},
+    {'area': 20, 'productivity': 1200, 'tilt': 30}
 ];
-let nYears: number = 40;
+let nYears: number = 10;
 let currentYear: number = 2018; // TODO: get from (new Date()).getFullYear()?
-//let typology: string = 'closed';
 
 let inputs_test = inputsFactory(roofs, undefined, nYears, currentYear);
 

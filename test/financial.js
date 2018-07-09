@@ -41,9 +41,9 @@ describe('Financial', function() {
   describe('Computation by year', function() {
     it('should return true - annualProduction', function() {
       var production = 3705;
-      var productionYearlyLossIndex = 0.0005;
+      var f = new financial.Financial(0.03, 85);
       var nYears = 25;
-      expect(financial.computeActualAnnualProduction(production, productionYearlyLossIndex, nYears).map(x => Math.round(x))).to.eql([3705, 3703, 3701, 3699, 3698, 3696, 3694, 3692, 3690, 3688, 3687, 3685, 3683, 3681, 3679, 3677, 3675, 3674, 3672, 3670, 3668, 3666, 3664, 3663, 3661]);
+      expect(financial.computeActualAnnualProduction(production, f, nYears).map(x => Math.round(x))).to.eql([3705, 3703, 3701, 3699, 3698, 3696, 3694, 3692, 3690, 3688, 3687, 3685, 3683, 3681, 3679, 3677, 3675, 3674, 3672, 3670, 3668, 3666, 3664, 3663, 3661]);
     });
     it('should return true - selfConsumptionAmount', function() {
       var b = new building.Building('closed');

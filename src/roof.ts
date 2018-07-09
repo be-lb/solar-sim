@@ -20,7 +20,6 @@ class Roof {
     setup: string;
     setupFactor: number;
     yield: number;
-    productionYearlyLossIndex: number = constants.PRODUCTION_YEARLY_LOSS_INDEX;
     building: Building;
     roofProduction: number;
     constructor(the_raw_area: number, the_productivity: number, the_tilt: number, the_setup: string, the_technology:string, b: Building) {

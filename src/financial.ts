@@ -13,7 +13,8 @@ class Financial {
     elecBuyingPrice: number = constants.ELEC_BUYING_PRICE;
     elecSellingPrice: number;
     elecIndex : number = constants.ELEC_INDEX;
-    discountRate : number = constants.DISCOUNT_RATE
+    discountRate : number = constants.DISCOUNT_RATE;
+    productionYearlyLossIndex: number = constants.PRODUCTION_YEARLY_LOSS_INDEX;
     CVPrice : number;
     CVRate : number = constants.CV_RATE;
     CVTime : number = constants.CV_TIME;
@@ -55,11 +56,11 @@ interface financialYearN {
 
 
 const computeActualAnnualProduction =
-    (production: number, productionYearlyLossIndex: number, nYears: number):
+    (production: number, fin: Financial, nYears: number):
     number[] => {
     /**
     * @param production - annual photovoltaic production in kWh/year
-    * @param productionYearlyLossIndex - annual loss in photovoltaic production due to solar panels degradation
+    * @param fin - Financial
     * @param nYears - number n of years
     * Return a vector of n years of the actual annual photovoltaic production given a yearly loss of productivity and actual prices.
     * Match the line 10 of the Calculs sheet.
@@ -67,7 +68,7 @@ const computeActualAnnualProduction =
     let actualProduction: number[] = [];
 
     for (let i = 1; i <= nYears; i++) {
-        actualProduction.push(production * (1-productionYearlyLossIndex)**(i-1));
+        actualProduction.push(production * (1-fin.productionYearlyLossIndex)**(i-1));
     }
 
     return actualProduction;
@@ -101,7 +102,7 @@ const computeFinancialAmortization =
         let actualElecSellingPrice: number = computeActualPrice(fin.elecSellingPrice, fin.elecIndex, i);
         //console.log(actualElecBuyingPrice); //OK line 3
         //console.log(actualElecSellingPrice); //OK line 4
-        let actualProduction: number = building.production * (1-building.roofs[0].productionYearlyLossIndex)**(i-1);
+        let actualProduction: number = building.production * (1-fin.productionYearlyLossIndex)**(i-1);
         //console.log(actualProduction); //OK line 10
         let selfConsumption: number = 0;
         if (currentYear + i <= 2020) {
