@@ -48,8 +48,12 @@ class Building {
         for (let r of this.roofs) {
             power = power + r.usablePeakPower;
         }
-        power = power < constants.MAX_POWER ? power: constants.MAX_POWER;
-        return this.power = power;
+        if (power > constants.MAX_POWER) {
+            optimizeRoofPowers(this, power);
+            return this.power = constants.MAX_POWER;
+        } else {
+            return this.power = power;
+        }
     };
     computePVArea () {
         /**
@@ -73,9 +77,10 @@ class Building {
 };
 
 const MAX_ITERATION_WHILE: number = 200;
-const optimizeRoofAreas = (b: Building, actualPvArea: number) => {
+const optimizeRoofAreas = (b: Building, actualPvArea: number): number  => {
     /**
-    * Optimize roof area as a function of their productivity:
+    * Optimize roof area as a function of their productivity. This function is called
+    * whenever the user enter a custom area value.
     */
     let inputArea: number = b.pvArea;
     let computedPvArea: number = actualPvArea;
@@ -103,8 +108,6 @@ const optimizeRoofAreas = (b: Building, actualPvArea: number) => {
         cpt++;
     }
 
-    console.log(b);
-
     // Update power and production of all roofs
     for (let r of b.roofs) {
         r.computeUsablePeakPower();
@@ -113,5 +116,45 @@ const optimizeRoofAreas = (b: Building, actualPvArea: number) => {
 
     return computedPvArea;
 }
+
+
+const optimizeRoofPowers = (b: Building, actualPower: number): void => {
+    /**
+    * Optimize roof power as a function of their productivity. This function is called
+    * when the MAX_POWER is reached.
+    */
+
+    let computedPower: number = actualPower;
+
+    let roofProductivities: number[] = [];
+    for (let r of b.roofs) {
+        roofProductivities.push(r.productivity);
+    }
+    let sortRoofProductivities: number[] = roofProductivities.sort((a, b) => a - b);
+
+    let cpt: number = 0;
+    while (constants.MAX_POWER < computedPower && cpt < b.roofs.length && cpt < MAX_ITERATION_WHILE) {
+
+        let deltaPower: number = computedPower - constants.MAX_POWER ;
+        // select the roof by increasing productivity
+        for (let r of b.roofs) {
+            if (r.productivity === sortRoofProductivities[cpt]) {
+                r.usablePeakPower = Math.max((r.usablePeakPower - deltaPower),0);
+            }
+        }
+        computedPower = 0;
+        for (let r of b.roofs) {
+            computedPower = computedPower + r.usablePeakPower;
+        }
+        cpt++;
+    }
+
+    // Update production of all roofs
+    for (let r of b.roofs) {
+        r.computeRoofProduction();
+    }
+
+};
+
 
 export { Building };

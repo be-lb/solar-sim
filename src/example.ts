@@ -33,7 +33,7 @@ let fullInputs: inputs = {
     pvTechnology: 'poly',
     elecSellingPrice: 0.03,
     CVPrice: 85,
-    pvArea: 1000,
+    pvArea: -9999,
 }
 let outputs2 = solarSim(fullInputs);
 console.log(outputs2);

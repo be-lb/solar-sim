@@ -30,12 +30,13 @@ const solarSim =
         b.roofs.push(roof);
     }
     b.pvArea = inputs.pvArea;
-    console.log('  b.computePVArea();');
+    // Compute the total pv area and optimize roof areas if needed
     b.computePVArea();
-    console.log('  b.computeProduction();');
-    b.computeProduction();
-      console.log('  b.computePower();');
+    // Compute the total power and optimize roof power if needed
     b.computePower();
+    // Compute the total production
+    b.computeProduction();
+
 
     console.log(b);
 
