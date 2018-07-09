@@ -75,7 +75,7 @@ The documentation is available as HTML pages in /docs/.
 
 ## Web
 
-### Compiler le module `src/index.ts` -> `lib/index.js`
+### Compiler le module `src/exe.ts` -> `lib/exe.js`
 
 ```
 $ npm run build
@@ -83,7 +83,7 @@ $ npm run build
 
 ### Générer le js via webpack
 
-Afin de créer le fichier `web/main.js` généré à partir de `lib/index.js`, aller
+Afin de créer le fichier `web/main.js` généré à partir de `lib/exe.js`, aller
 dans `web` et taper la commande suivante :
 
 ```

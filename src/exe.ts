@@ -6,15 +6,15 @@ axios.get('../src/data.json')
         let roofs = response.data;
 
         let input = {
+            roofs: roofs,
+            typology: 'closed',
             nYears: 25,
             currentYear: 2018,
-            typology: 'closed',
-            roofs: roofs,
             pvSetup: 'default',
             pvTechnology: 'poly',
             elecSellingPrice: 0.03,
             CVPrice: 85,
-            pvArea: -9999
+            pvArea: -9999,
         }
 
         let results = solarSim(input);

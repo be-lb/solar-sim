@@ -12,7 +12,7 @@ import {Building} from './building';
 import {Roof} from './roof';
 import {User} from './user';
 import {Financial, computeActualAnnualProduction, computeFinancialAmortization, getFinancialYearN, computeActualFinancialAmortization, getInstallationCost} from './financial';
-import {Environmental, computeSavedCO2Emissions, getEnvironmentalCosts, computeEnergeticReturn} from './environmental';
+import {computeSavedCO2Emissions} from './environmental';
 import {inputs, outputs} from './io';
 
 const solarSim =
@@ -38,8 +38,6 @@ const solarSim =
     b.computeProduction();
 
 
-    console.log(b);
-
     // User information
     let u = new User();
     u.hasWashingMachine = true;
@@ -56,9 +54,9 @@ const solarSim =
     // 1) Financial results
     // 1.1) Compute results Year 1, 10 and 25
     let financialAmortization = computeFinancialAmortization(b, f, inputs.nYears, inputs.currentYear);
-    let financialYear1 = getFinancialYearN(b, f, 1, inputs.currentYear);
-    console.log('selfConsumption Year 1 (€): ' + financialYear1.selfConsumptionAmountYearN);
-    console.log('CV selling Year 1 (€): ' + financialYear1.CVAmountYearN);
+    //let financialYear1 = getFinancialYearN(b, f, 1, inputs.currentYear);
+    //console.log('selfConsumption Year 1 (€): ' + financialYear1.selfConsumptionAmountYearN);
+    //console.log('CV selling Year 1 (€): ' + financialYear1.CVAmountYearN);
     let financialYearN = getFinancialYearN(b, f, inputs.nYears, inputs.currentYear);
     let financialYear25 = getFinancialYearN(b, f, 25, inputs.currentYear);
     // 1.2) Compute actualized results
@@ -66,10 +64,10 @@ const solarSim =
     let actualReturnTimeByYear = financialAmortization.actualReturnTimeByYear;
     let marginalActualReturnTimeByYear = financialAmortization.marginalActualReturnTimeByYear;
     let actualFinancialAmortization = computeActualFinancialAmortization(f, balance, actualReturnTimeByYear, marginalActualReturnTimeByYear);
-    console.log('actualReturnTime (year): ' +  actualFinancialAmortization.actualReturnTime);
-    console.log('netActualValue (€): ' +  actualFinancialAmortization.netActualValue);
-    console.log('returnInternalRate (): ' +  actualFinancialAmortization.returnInternalRate);
-    console.log('modifiedReturnInternalRate (): ' +  actualFinancialAmortization.modifiedReturnInternalRate);
+    //console.log('actualReturnTime (year): ' +  actualFinancialAmortization.actualReturnTime);
+    //console.log('netActualValue (€): ' +  actualFinancialAmortization.netActualValue);
+    //console.log('returnInternalRate (): ' +  actualFinancialAmortization.returnInternalRate);
+    //console.log('modifiedReturnInternalRate (): ' +  actualFinancialAmortization.modifiedReturnInternalRate);
     // 1.3) installation costs
     let installationCost = getInstallationCost(f);
 
@@ -77,15 +75,15 @@ const solarSim =
     // 2.1) CO2 emissions
     let actualProduction = computeActualAnnualProduction(b.production, f, inputs.nYears);
     let savedCO2emissions = computeSavedCO2Emissions(actualProduction);
-    console.log('Saved CO2 emissions (kg CO2) : ' + savedCO2emissions);
+    //console.log('Saved CO2 emissions (kg CO2) : ' + savedCO2emissions);
     // 2.2) Energetic costs
-    let e = new Environmental('Belgium');
-    let environmentalCosts = getEnvironmentalCosts(e, b);
-    console.log('energetic cost (kWh): ' + environmentalCosts.energeticCost);
+    //let e = new Environmental('Belgium');
+    //let environmentalCosts = getEnvironmentalCosts(e, b);
+    //console.log('energetic cost (kWh): ' + environmentalCosts.energeticCost);
     // 2.3) Environmental return
-    let energeticReturn = computeEnergeticReturn(environmentalCosts.energeticCost, b.production, actualProduction);
-    console.log('Energetic return time (year): ' + energeticReturn.energeticReturnTime);
-    console.log('Energetic return factor (year): ' + energeticReturn.energeticReturnFactor);
+    //let energeticReturn = computeEnergeticReturn(environmentalCosts.energeticCost, b.production, actualProduction);
+    //console.log('Energetic return time (year): ' + energeticReturn.energeticReturnTime);
+    //console.log('Energetic return factor (year): ' + energeticReturn.energeticReturnFactor);
 
     return {
         'main' : {
