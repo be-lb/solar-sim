@@ -3,6 +3,7 @@ interface roof {
     'area': number;
     'productivity': number;
     'tilt': number;
+    [key: string]: any;
 }
 
 // enum typologyEnum {closed, detached, apartments, administrative, collective, industrial};
