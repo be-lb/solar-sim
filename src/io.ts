@@ -59,7 +59,7 @@ interface outputs {
 
 const inputsFactory = (
     roofs: roof[], /* required */
-    pvTechnology: PVTechnologyEnum,  /* required */ //TODO set default as 'poly'
+    pvTechnology: PVTechnologyEnum = 'poly',  /* required */ //TODO set default as 'poly'
     nYears = 10, /* default */
     currentYear = 2018, /* default */
     elecSellingPrice = 0.03, /* default */
