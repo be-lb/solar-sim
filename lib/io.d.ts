@@ -4,16 +4,18 @@ interface roof {
     'tilt': number;
     [key: string]: any;
 }
+export declare type PVTechnologyEnum = 'poly' | 'mono' | 'mono_high';
 interface inputs {
     'roofs': roof[];
-    'typology': string;
+    'pvTechnology': PVTechnologyEnum;
     'nYears': number;
     'currentYear': number;
-    'pvSetup': string;
-    'pvTechnology': string;
     'elecSellingPrice': number;
     'CVPrice': number;
     'pvArea': number;
+    'annualConsumptionKWh': number;
+    'installationPrice': number;
+    'obstacleRate': number;
 }
 interface mainOutputs {
     'installationCost': number;

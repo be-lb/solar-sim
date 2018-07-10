@@ -6,20 +6,24 @@ interface roof {
     [key: string]: any;
 }
 
-// enum typologyEnum {closed, detached, apartments, administrative, collective, industrial};
-// enum pvSetupEnum {default, flat_roof};
-// enum pvTechnologyEnum {poly, mono, mono_high};
+
+export type PVTechnologyEnum =
+    | 'poly'
+    | 'mono'
+    | 'mono_high'
+    ;
 
 interface inputs {
     'roofs': roof[];
-    'typology': string; // enum
+    'pvTechnology': PVTechnologyEnum;
     'nYears': number;
     'currentYear': number;
-    'pvSetup': string; // enum
-    'pvTechnology': string; // enum
     'elecSellingPrice': number;
     'CVPrice': number;
     'pvArea': number;
+    'annualConsumptionKWh': number;
+    'installationPrice': number;
+    'obstacleRate': number;
 }
 
 interface mainOutputs {
@@ -55,16 +59,16 @@ interface outputs {
 
 
 const inputsFactory = (
-        roofs: roof[], /* required */
-        typology = 'closed', /* default */
-        nYears = 10, /* default */
-        currentYear = 2018, /* default */
-        pvSetup = 'default',  /* default */
-        pvTechnology = 'poly',  /* default */
-        elecSellingPrice = 0.03, /* default */
-        CVPrice = 85, /* default */
-        pvArea = -9999, /* default */
-    ): inputs => {
+    roofs: roof[], /* required */
+    typology = 'closed', /* default */
+    nYears = 10, /* default */
+    currentYear = 2018, /* default */
+    pvSetup = 'default',  /* default */
+    pvTechnology = 'poly',  /* default */
+    elecSellingPrice = 0.03, /* default */
+    CVPrice = 85, /* default */
+    pvArea = -9999, /* default */
+): inputs => {
     /**
     * @param roofs - Array of roof objects
     * Build the inputs for solarSim with default and required values
@@ -82,4 +86,4 @@ const inputsFactory = (
     }
 };
 
-export {inputs, outputs, inputsFactory, roof};
+export { inputs, outputs, inputsFactory, roof };
