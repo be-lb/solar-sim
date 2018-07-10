@@ -26,7 +26,7 @@ for (var ii = 1; ii <= N; ii++) {
     };
     var outputs = run.solarSim(input);
     //console.log('area = ' + outputs.setup.area + ' m²');
-    console.log('production = ' + outputs.energy.annualProduction + ' kWh/year');
-    console.log('total gain on 25 years = ' + outputs.finance.totalGain25Y + ' €');
+    //console.log('production = ' + outputs.energy.annualProduction + ' kWh/year');
+    //console.log('total gain on 25 years = ' + outputs.finance.totalGain25Y + ' €');
     console.log('return time = ' + outputs.finance.returnTime + ' year');
 };

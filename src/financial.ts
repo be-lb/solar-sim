@@ -255,7 +255,7 @@ const computeSimplifiedFinancialAmortization =
     * Returns the production price in €/kWh and the simple return time in years
     */
 
-    const productionPrice: number = Math.round(((fin.PVCost + fin.meterCost)/nYears/production)*10)/10;
+    const productionPrice: number = (fin.PVCost + fin.meterCost)/nYears/production;
     const simpleReturnTime: number = (fin.PVCost + fin.meterCost)/(selfConsumptionAmountYear1+CVAmountYear1);
 
     return {

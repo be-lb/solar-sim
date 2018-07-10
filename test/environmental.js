@@ -29,11 +29,10 @@ describe('environmental', function() {
       var r = new roof.Roof(30, 950, 30, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
-      r.rawPeakPower = 5.7; // HACK because inconsistence dans maquette xls sur la puissance utilisée
-
+      b.computePower();
       var e = new environmental.Environmental('Belgium');
 
-      expect(environmental.getEnvironmentalCosts(e, b).energeticCost).to.be.equal(14250);
+      expect(environmental.getEnvironmentalCosts(e, b).energeticCost).to.be.equal(7800);
 
     });
     it('should return true - panels costs', function() {
@@ -41,8 +40,7 @@ describe('environmental', function() {
       var r = new roof.Roof(30, 950, 30, 'default', 'poly', b);
       b.roofs = [r];
       b.computeProduction();
-      r.rawPeakPower = 5.7; // HACK because inconsistence dans maquette xls sur la puissance utilisée
-
+      b.computePower();
       var e = new environmental.Environmental('Belgium');
 
       expect(environmental.getEnvironmentalCosts(e, b).panels).to.be.equal(0.85);
