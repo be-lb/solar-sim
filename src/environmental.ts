@@ -40,10 +40,7 @@ const getEnvironmentalCosts =
     */
 
     let origin : string = environmental.origin;
-    let energeticCost: number = 0;
-    for (let r of building.roofs) {
-        energeticCost = energeticCost + r.rawPeakPower * constants.ENERGETIC_COST_FACTOR[origin];
-    };
+    let energeticCost: number = building.power * constants.ENERGETIC_COST_FACTOR[origin];
     let panels: number = constants.BREAKDOWN_COST_FACTOR[origin].panels;
     let setup: number = constants.BREAKDOWN_COST_FACTOR[origin].setup;
     let inverter: number = constants.BREAKDOWN_COST_FACTOR[origin].inverter;
