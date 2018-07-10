@@ -1,26 +1,26 @@
 # solar-sim
 
-## Installer & compiler
+## Installation & compilation
 
-Commencer par un ```npm install``` pour recuperer typescript, puis commencer a bosser dans src/index.ts, puis lancer ```npm run build``` pour compiler sous lib/index.js.
+Install typescript and all dependencies (listed in `package.json`):
 
-## Example typescript & test via mocha
+```
+$ npm run install
+```
 
-### Compiler `src/example.ts` -> `lib/example.js`
+Compile the typescript files into `lib/*.js`:
 
 ```
 $ npm run build
 ```
 
-### Exécuter `lib/example.js`
+Execute compiled file by running, e.g.,
 
 ```
 $ node lib/example.js
 ```
 
-### Tester
-
-Les tests se trouvent dans `test/`
+Tests are written in `/test`. Run them using:
 
 ```
 $ ./node_modules/mocha/bin/mocha
@@ -34,7 +34,7 @@ See an example in `example.ts` Run the computation by running the `solarSim` fun
 let my_outputs = solarSim(my_inputs);
 ```
 
-where `my_inputs` are defined by the interface `input` and *can* be generated using the `inputsFactory` function. This function set the parameters with default values.  
+where `my_inputs` are defined by the interface `input` and **can** be generated using the `inputsFactory` function. This function set the parameters with default values.  
 
 ```
 const inputsFactory = (
@@ -55,7 +55,11 @@ Let's generate inputs with required `roofs` and optional `currentYear` parameter
 let my_inputs = inputsFactory(roofs, undefined, currentYear);
 ```
 
-Note that putting the last optional arguments as `undefined` in the `inputsFactory` function is not mandatory.  
+Note that putting the last optional arguments as `undefined` in the `inputsFactory` function are not mandatory.  
+
+## Settings
+
+This simulator uses a lot of constant values to make the computations, such as the electricity price, the inflation rate or an average obstacle rate per building typology. Whenever needed, any constant values can be changed in `constants.ts`.
 
 ## Documentation
 
@@ -75,27 +79,28 @@ The documentation is available as HTML pages in /docs/.
 
 ## Web
 
-### Compiler le module `src/exe.ts` -> `lib/exe.js`
+We set up a small web page to see the simulator in action.
+
+### Compile the module `src/exe.ts` -> `lib/exe.js`
 
 ```
 $ npm run build
 ```
 
-### Générer le js via webpack
+### Generate js via webpack
 
-Afin de créer le fichier `web/main.js` généré à partir de `lib/exe.js`, aller
-dans `web` et taper la commande suivante :
+In order to generate the file `web/main.js` from `lib/exe.js`, go in `web` and type the following command:
 
 ```
 web$ npx webpack --config webpack.config.js
 ```
 
-### Faire tourner le serveur web
+### Make a light-weight webserver running
 
-Lancer le serveur (à la racine) :
+Launch the webserver at the root of the project :
 
 ```
 $ python3 -m http.server
 ```
 
-et le site est visible sur `http://localhost:8000/web`
+and the website is visible on  `http://localhost:8000/web`
