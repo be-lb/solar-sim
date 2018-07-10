@@ -71,6 +71,7 @@ export const ELEC_INDEX = 0.03;
 export const DISCOUNT_RATE = 0.04;
 export const CV_RATE = 3;
 export const CV_TIME = 10;
+export const CV_END_OF_COMPENSATION_YEAR = 2020;
 export const PRODUCTION_YEARLY_LOSS_INDEX = 0.0005;
 
 /**

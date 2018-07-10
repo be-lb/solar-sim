@@ -100,7 +100,7 @@ const computeFinancialBenefit =
         let actualElecBuyingPrice: number = computeActualPrice(fin.elecBuyingPrice, fin.elecIndex, i);
         let actualProduction: number = building.production * (1-fin.productionYearlyLossIndex)**(i-1);
         let selfConsumption: number = 0;
-        if (currentYear + i <= 2020) {
+        if (currentYear + i <= constants.CV_END_OF_COMPENSATION_YEAR) {
             selfConsumption = u.annualElectricityConsumption > actualProduction ? actualProduction : u.annualElectricityConsumption
         } else {
             selfConsumption = u.selfProductionRate * actualProduction
@@ -150,7 +150,7 @@ const computeFinancialAmortization =
         let actualProduction: number = building.production * (1-fin.productionYearlyLossIndex)**(i-1);
         //console.log(actualProduction); //OK line 10
         let selfConsumption: number = 0;
-        if (currentYear + i <= 2020) {
+        if (currentYear + i <= constants.CV_END_OF_COMPENSATION_YEAR) {
             selfConsumption = u.annualElectricityConsumption > actualProduction ? actualProduction : u.annualElectricityConsumption
         } else {
             selfConsumption = u.selfProductionRate * actualProduction
@@ -170,7 +170,7 @@ const computeFinancialAmortization =
         let elecBuying: number = -(u.annualElectricityConsumption - selfConsumption) * actualElecBuyingPrice - fin.redevanceCost;
         //console.log(elecBuying); // line 31 OK
         let elecSelling: number = 0
-        if (currentYear + i <= 2020) {
+        if (currentYear + i <= constants.CV_END_OF_COMPENSATION_YEAR) {
             elecSelling = 0;
         } else {
             elecSelling = (actualProduction - selfConsumption) * actualElecSellingPrice;
