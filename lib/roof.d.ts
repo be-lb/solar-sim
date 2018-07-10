@@ -1,7 +1,4 @@
 import { Building } from './building';
-export interface PVSetupObject {
-    [key: string]: number;
-}
 export interface PVYieldObject {
     [key: string]: number;
 }
@@ -18,7 +15,7 @@ declare class Roof {
     yield: number;
     building: Building;
     roofProduction: number;
-    constructor(the_raw_area: number, the_productivity: number, the_tilt: number, the_setup: string, the_technology: string, b: Building);
+    constructor(the_raw_area: number, the_productivity: number, the_tilt: number, the_technology: string, b: Building);
     getSetupFactor(): number;
     getPVYield(): number;
     computeRoofUsableArea(): number;

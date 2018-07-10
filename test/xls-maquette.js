@@ -17,20 +17,21 @@ var roofs = [
 ];
 var inputs = {
     roofs: roofs,
-    typology: 'closed',
+    pvTechnology: 'poly',
     nYears: 25,
     currentYear: 2018,
-    pvSetup: 'default',
-    pvTechnology: 'poly',
     elecSellingPrice: 0.03,
     CVPrice: 85,
     pvArea: -9999,
+    annualConsumptionKWh: -9999,
+    installationPrice: -9999,
+    obstacleRate: 0.2
 };
 
-var b = new building.Building(inputs.typology);
+var b = new building.Building(inputs.obstacleRate);
 
 for (var r of inputs.roofs) {
-    var roof = new roof.Roof(r.area, r.productivity, r.tilt, inputs.pvSetup, inputs.pvTechnology, b);
+    var roof = new roof.Roof(r.area, r.productivity, r.tilt, inputs.pvTechnology, b);
     b.roofs.push(roof);
 }
 b.pvArea = inputs.pvArea;
@@ -55,7 +56,7 @@ var f = new financial.Financial(inputs.elecSellingPrice, inputs.CVPrice);
 f.building = b;
 f.computePVCost();
 
-console.log(b)
+//console.log(b)
 
 // 1) Financial results
 // 1.1) Compute results Year 1, 10 and 25

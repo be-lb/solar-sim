@@ -23,10 +23,10 @@ const solarSim =
     * @return outputs
     * Main function
     */
-    let b = new Building(inputs.typology);
+    let b = new Building(inputs.obstacleRate);
 
     for (let r of inputs.roofs) {
-        let roof = new Roof(r.area, r.productivity, r.tilt, inputs.pvSetup, inputs.pvTechnology, b);
+        let roof = new Roof(r.area, r.productivity, r.tilt, inputs.pvTechnology, b);
         b.roofs.push(roof);
     }
     b.pvArea = inputs.pvArea;
@@ -50,6 +50,8 @@ const solarSim =
     let f = new Financial(inputs.elecSellingPrice, inputs.CVPrice);
     f.building = b;
     f.computePVCost();
+
+console.log(b)
 
     // 1) Financial results
     // 1.1) Compute results Year N and 25

@@ -1,6 +1,5 @@
-import {TypologyRateObject} from './building';
 import {EnergeticCostFactor, BreakdownCostFactorByOrigin} from './environmental';
-import {PVSetupObject, PVYieldObject} from './roof';
+import {PVYieldObject} from './roof';
 
 /**
 *
@@ -16,15 +15,15 @@ export const MAX_POWER = 12;
 /**
 * Obstacle rate depending on the typology
 */
-export const TYPOLOGY_RATE : TypologyRateObject = {
-    'closed': 0.2,
-    'detached': 0.2,
-    'half-open': 0.2,
-    'apartments': 0.2,
-    'administrative': 0.2,
-    'collective': 0.2,
-    'industrial': 0.2,
-};
+// export const TYPOLOGY_RATE : TypologyRateObject = {
+//     'closed': 0.2,
+//     'detached': 0.2,
+//     'half-open': 0.2,
+//     'apartments': 0.2,
+//     'administrative': 0.2,
+//     'collective': 0.2,
+//     'industrial': 0.2,
+// };
 
 
 /**
@@ -81,12 +80,10 @@ export const PRODUCTION_YEARLY_LOSS_INDEX = 0.0005;
 */
 
 /**
-* Mapping of the setup factor given the photovoltaic setup.
+* Inclination (tilt) threshold for flat roof
 */
-export const PV_SETUP : PVSetupObject = {
-    'default': 1,
-    'flat_roof': 0.5
-};
+export const FLAT_ROOF_TILT : number = 0.05;
+
 
 /**
 * Mapping of the PV yield given the photovoltaic technology (Polycristallin, Monocristallin, Monocristallin high performance).

@@ -26,14 +26,15 @@ let roofs: roof[] = [
 // Example with all input parameters with the same roof collection
 let fullInputs: inputs = {
     roofs: roofs,
-    typology: 'closed',
+    pvTechnology: 'poly',
     nYears: 10,
     currentYear: 2018,
-    pvSetup: 'default',
-    pvTechnology: 'poly',
     elecSellingPrice: 0.03,
     CVPrice: 85,
     pvArea: -9999,
+    annualConsumptionKWh: -9999,
+    installationPrice: -9999,
+    obstacleRate: 0.2
 }
 let outputs2 = solarSim(fullInputs);
 console.log(outputs2);

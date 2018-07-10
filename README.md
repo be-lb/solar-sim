@@ -44,11 +44,9 @@ where `my_inputs` are defined by the interface `input` and **can** be generated 
 ```
 const inputsFactory = (
         roofs: roof[], /* required */
-        typology = 'closed', /* default */
+        pvTechnology = 'poly',  /* default */
         nYears = 10, /* default */
         currentYear = 2018, /* default */
-        pvSetup = 'default',  /* default */
-        pvTechnology = 'poly',  /* default */
         elecSellingPrice = 0.03, /* default */
         CVPrice = 85, /* default */
     ): inputs => { ... }

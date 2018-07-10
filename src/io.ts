@@ -57,17 +57,17 @@ interface outputs {
     'finance': financeOutputs
 };
 
-
 const inputsFactory = (
     roofs: roof[], /* required */
-    typology = 'closed', /* default */
+    pvTechnology: PVTechnologyEnum,  /* required */ //TODO set default as 'poly'
     nYears = 10, /* default */
     currentYear = 2018, /* default */
-    pvSetup = 'default',  /* default */
-    pvTechnology = 'poly',  /* default */
     elecSellingPrice = 0.03, /* default */
     CVPrice = 85, /* default */
     pvArea = -9999, /* default */
+    annualConsumptionKWh = -9999, /*default */
+    installationPrice = -9999, /*default */
+    obstacleRate = 0.2 /*default */
 ): inputs => {
     /**
     * @param roofs - Array of roof objects
@@ -75,14 +75,15 @@ const inputsFactory = (
     */
     return {
         roofs: roofs,
-        typology: typology,
+        pvTechnology: pvTechnology,
         nYears: nYears,
         currentYear: currentYear,
-        pvSetup: pvSetup,
-        pvTechnology: pvTechnology,
         elecSellingPrice: elecSellingPrice,
         CVPrice: CVPrice,
         pvArea: pvArea,
+        annualConsumptionKWh: annualConsumptionKWh,
+        installationPrice: installationPrice,
+        obstacleRate: obstacleRate
     }
 };
 

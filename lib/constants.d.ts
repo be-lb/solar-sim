@@ -1,8 +1,6 @@
-import { TypologyRateObject } from './building';
 import { EnergeticCostFactor, BreakdownCostFactorByOrigin } from './environmental';
-import { PVSetupObject, PVYieldObject } from './roof';
+import { PVYieldObject } from './roof';
 export declare const MAX_POWER = 12;
-export declare const TYPOLOGY_RATE: TypologyRateObject;
 export declare const CO2_EMISSIONS_BY_KWH = 0.456;
 export declare const ENERGETIC_COST_FACTOR: EnergeticCostFactor;
 export declare const BREAKDOWN_COST_FACTOR: BreakdownCostFactorByOrigin;
@@ -18,7 +16,7 @@ export declare const CV_RATE = 3;
 export declare const CV_TIME = 10;
 export declare const CV_END_OF_COMPENSATION_YEAR = 2020;
 export declare const PRODUCTION_YEARLY_LOSS_INDEX = 0.0005;
-export declare const PV_SETUP: PVSetupObject;
+export declare const FLAT_ROOF_TILT: number;
 export declare const PV_YIELD: PVYieldObject;
 export declare const SELF_PRODUCTION_RATE = 0.3;
 export declare const ANNUAL_CONSUMPTION_BASE = 600;

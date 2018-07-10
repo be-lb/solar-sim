@@ -1,10 +1,6 @@
 import {Building} from './building';
 import * as constants from './constants';
 
-export interface PVSetupObject {
-    [key: string]: number;
-};
-
 export interface PVYieldObject {
     [key: string]: number;
 };
@@ -22,13 +18,12 @@ class Roof {
     yield: number;
     building: Building;
     roofProduction: number;
-    constructor(the_raw_area: number, the_productivity: number, the_tilt: number, the_setup: string, the_technology:string, b: Building) {
+    constructor(the_raw_area: number, the_productivity: number, the_tilt: number, the_technology:string, b: Building) {
         this.rawArea = the_raw_area;
         this.productivity = the_productivity;
         this.tilt = the_tilt;
         this.technology = the_technology;
         this.yield = this.getPVYield();
-        this.setup = the_setup;
         this.setupFactor = this.getSetupFactor();
         this.building = b;
         this.usableArea = this.computeRoofUsableArea();
@@ -38,11 +33,11 @@ class Roof {
     }
     getSetupFactor () {
         /**
-        * @param setup - configuration of the photovoltaic installation
-        * Look-up function for selecting the setup factor given some setup
+        * @param tilt - roof inclination (°)
+        * Function for selecting the setup factor given the roof inclination (tilt)
         */
         if (this.setupFactor === undefined) {
-            return this.setupFactor = constants.PV_SETUP[this.setup];
+            return this.setupFactor = this.tilt < constants.FLAT_ROOF_TILT ? 0.5 : 1
         } else {
             return this.setupFactor;
         }
@@ -65,7 +60,7 @@ class Roof {
         * Compute a usable area based on the obstacle rate of the building
         */
         if (this.usableArea === undefined) {
-            if (this.tilt < 0.05) { // flat roof
+            if (this.tilt < constants.FLAT_ROOF_TILT) { // flat roof
               return this.usableArea =
               0.57 * this.rawArea * (1 - this.building.obstacleRate);
           } else {

@@ -6,53 +6,43 @@ var roof = require('../lib/roof');
 describe('Building', function() {
   describe('Building()', function() {
     it('should expose an object', function () {
-      var b = new building.Building();
+      var b = new building.Building(0.2);
       expect(b).to.be.a('object');
     });
     it('should expose a function', function () {
-      var b = new building.Building();
-      expect(b.getObstacleRatePerTypology).to.be.a('function');
-    });
-    it('should expose a function', function () {
-      var b = new building.Building();
+      var b = new building.Building(0.2);
       expect(b.computeProduction).to.be.a('function');
     });
     it('should expose a function', function () {
-      var b = new building.Building();
+      var b = new building.Building(0.2);
       expect(b.computePower).to.be.a('function');
     });
     it('should expose a function', function () {
-      var b = new building.Building();
+      var b = new building.Building(0.2);
       expect(b.computePVArea).to.be.a('function');
-    });
-  });
-  describe('b.getObstacleRatePerTypology() == [0, 1]', function() {
-    it('should return true', function() {
-      var b = new building.Building('closed');
-      expect(b.getObstacleRatePerTypology()).to.be.within(0,1);
     });
   });
   describe('b.computeProduction() == 2964', function() {
     it('should return true', function() {
-      var b = new building.Building('closed');
-      var r = new roof.Roof(30, 950, 30, 'default', 'poly', b);
+      var b = new building.Building(0.2);
+      var r = new roof.Roof(30, 950, 30, 'poly', b);
       b.roofs = [r];
       expect(b.computeProduction()).to.be.equal(2964);
     });
   });
   describe('b.computePower() == 2964', function() {
     it('should return true', function() {
-      var b = new building.Building('closed');
-      var r = new roof.Roof(30, 950, 30, 'default', 'poly', b);
+      var b = new building.Building(0.2);
+      var r = new roof.Roof(30, 950, 30, 'poly', b);
       b.roofs = [r];
       expect(b.computePower()).to.be.equal(3.12);
     });
   });
   describe('b.computePVArea() == 2964', function() {
     it('should return true', function() {
-      var b = new building.Building('closed');
+      var b = new building.Building(0.2);
       b.pvArea = -9999;
-      var r = new roof.Roof(30, 950, 30, 'default', 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 'poly', b);
       b.roofs = [r];
       expect(b.computePVArea()).to.be.equal(24);
     });

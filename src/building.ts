@@ -2,33 +2,16 @@ import {Roof} from './roof';
 import {User} from './user';
 import * as constants from './constants';
 
-export interface TypologyRateObject {
-    [key: string]: number;
-};
-
 class Building {
-    typology: string;
     obstacleRate: number;
     production: number;
     power: number;
     pvArea: number;
     roofs: Roof[];
     user: User;
-    constructor(the_typology: string) {
-        this.typology = the_typology;
-        this.obstacleRate = this.getObstacleRatePerTypology();
+    constructor(the_obstacle_rate: number) {
+        this.obstacleRate = the_obstacle_rate;
         this.roofs = [];
-    };
-    getObstacleRatePerTypology () {
-        /**
-        * @param typology - building typology
-        * Look-up function for selecting the obstacle rate based on the building typology.
-        */
-        if (this.obstacleRate === undefined) {
-            return this.obstacleRate = constants.TYPOLOGY_RATE[this.typology];
-        } else {
-            return this.obstacleRate;
-        }
     };
     computeProduction () {
         /**
