@@ -17,7 +17,8 @@ let roofs: roof[] = [
     {'area': 20, 'productivity': 800, 'tilt': 30},
     {'area': 40, 'productivity': 1200, 'tilt': 30}
 ];
-//
+
+
 // let inputs = inputsFactory(roofs);
 //
 // let outputs = solarSim(inputs);
@@ -34,7 +35,9 @@ let fullInputs: inputs = {
     pvArea: -9999,
     annualConsumptionKWh: -9999,
     installationPrice: -9999,
-    obstacleRate: 0.2
+    obstacleRate: 0.2,
+    VATrate: 0.21,
+    annualMaintenanceCost: -9999
 }
 let outputs2 = solarSim(fullInputs);
 console.log(outputs2);

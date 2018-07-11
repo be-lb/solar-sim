@@ -16,7 +16,9 @@ axios.get('../src/data.json')
             pvArea: -9999,
             annualConsumptionKWh: -9999,
             installationPrice: -9999,
-            obstacleRate: 0.2
+            obstacleRate: 0.2,
+            VATrate: 0.21,
+            annualMaintenanceCost: -9999
         }
 
         let results = solarSim(input);

@@ -24,6 +24,8 @@ interface inputs {
     'annualConsumptionKWh': number;
     'installationPrice': number;
     'obstacleRate': number;
+    'VATrate': number;
+    'annualMaintenanceCost': number;
 }
 
 interface mainOutputs {
@@ -67,7 +69,9 @@ const inputsFactory = (
     pvArea = -9999, /* default */
     annualConsumptionKWh = -9999, /*default */
     installationPrice = -9999, /*default */
-    obstacleRate = 0.2 /*default */
+    obstacleRate = 0.2, /*default */
+    VATrate = 0.21, /*default */
+    annualMaintenanceCost = -9999 /*default */
 ): inputs => {
     /**
     * @param roofs - Array of roof objects
@@ -83,7 +87,9 @@ const inputsFactory = (
         pvArea: pvArea,
         annualConsumptionKWh: annualConsumptionKWh,
         installationPrice: installationPrice,
-        obstacleRate: obstacleRate
+        obstacleRate: obstacleRate,
+        VATrate: VATrate,
+        annualMaintenanceCost: annualMaintenanceCost
     }
 };
 
