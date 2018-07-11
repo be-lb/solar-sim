@@ -1,6 +1,6 @@
 import axios from 'axios';
-import {solarSim} from './run';
-import {inputs} from './io';
+import { solarSim } from './run';
+import { inputs } from './io';
 
 axios.get('../src/data.json')
     .then(function (response) {
@@ -25,10 +25,10 @@ axios.get('../src/data.json')
         console.log(results);
 
         let res_energeticCost = document.getElementById("res_energeticCost");
-        console.log(results.main.savedCO2emissions);
+        console.log(results.savedCO2emissions);
 
-        if(res_energeticCost) {
-            res_energeticCost.innerHTML = results.main.savedCO2emissions.toString();
+        if (res_energeticCost) {
+            res_energeticCost.innerHTML = results.savedCO2emissions.toString();
         }
     })
     .catch((error) => {

@@ -52,12 +52,14 @@ interface financeOutputs {
     'returnTime': number
 }
 
-interface outputs {
-    'main': mainOutputs,
-    'setup': setupOutputs,
-    'energy': energyOutputs,
-    'finance': financeOutputs
-};
+// interface outputs {
+//     'main': mainOutputs,
+//     'setup': setupOutputs,
+//     'energy': energyOutputs,
+//     'finance': financeOutputs
+// };
+
+type outputs = mainOutputs & setupOutputs & energyOutputs & financeOutputs;
 
 const inputsFactory = (
     roofs: roof[], /* required */

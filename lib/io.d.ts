@@ -39,11 +39,6 @@ interface financeOutputs {
     'totalGain25Y': number;
     'returnTime': number;
 }
-interface outputs {
-    'main': mainOutputs;
-    'setup': setupOutputs;
-    'energy': energyOutputs;
-    'finance': financeOutputs;
-}
+declare type outputs = mainOutputs & setupOutputs & energyOutputs & financeOutputs;
 declare const inputsFactory: (roofs: roof[], pvTechnology?: PVTechnologyEnum, nYears?: number, currentYear?: number, elecSellingPrice?: number, CVPrice?: number, pvArea?: number, annualConsumptionKWh?: number, installationPrice?: number, obstacleRate?: number, VATrate?: number, annualMaintenanceCost?: number) => inputs;
 export { inputs, outputs, inputsFactory, roof };
