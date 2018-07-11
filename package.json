@@ -1,6 +1,6 @@
 {
   "name": "solar-sim",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "simulateur",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -16,7 +16,7 @@
     "mocha": "^5.2.0",
     "typedoc": "^0.11.1",
     "typescript": "^2.9.2",
-    "webpack": "^4.15.1",
+    "webpack": "^4.16.0",
     "webpack-cli": "^3.0.8"
   },
   "dependencies": {
