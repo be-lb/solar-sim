@@ -4,7 +4,7 @@
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var run = require("../lib/run");
+var run = require("../../lib/run");
 
 var N = 50;
 for (var ii = 1; ii <= N; ii++) {

@@ -5,12 +5,12 @@
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var run = require("../lib/run");
-var building = require("../lib/building");
-var roof = require("../lib/roof");
-var user = require("../lib/user");
-var financial = require("../lib/financial");
-var environmental = require("../lib/environmental");
+var run = require("../../lib/run");
+var building = require("../../lib/building");
+var roof = require("../../lib/roof");
+var user = require("../../lib/user");
+var financial = require("../../lib/financial");
+var environmental = require("../../lib/environmental");
 
 var roofs = [
     {'area': 30, 'productivity': 950, 'tilt': 35}

@@ -16,6 +16,7 @@ export declare const CV_RATE = 3;
 export declare const CV_TIME = 10;
 export declare const CV_END_OF_COMPENSATION_YEAR = 2020;
 export declare const PRODUCTION_YEARLY_LOSS_INDEX = 0.0005;
+export declare const MAINTENANCE_YEARLY_COST_INDEX = 0.0075;
 export declare const FLAT_ROOF_TILT: number;
 export declare const PV_YIELD: PVYieldObject;
 export declare const SELF_PRODUCTION_RATE = 0.3;

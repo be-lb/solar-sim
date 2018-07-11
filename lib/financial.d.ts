@@ -14,9 +14,12 @@ declare class Financial {
     CVRate: number;
     CVTime: number;
     PVCost: number;
+    VATrate: number;
+    annualMaintenanceCost: number;
     building: Building;
-    constructor(the_elec_selling_price: number, the_CV_price: number);
+    constructor(the_elec_selling_price: number, the_CV_price: number, the_VAT_rate: number, the_annual_maintenance_cost: number);
     computePVCost(): number;
+    computeAnnualMaintenanceCost(): number;
 }
 interface financialBenefit {
     [key: string]: number[];

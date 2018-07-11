@@ -19,16 +19,27 @@ class Financial {
     CVRate : number = constants.CV_RATE;
     CVTime : number = constants.CV_TIME;
     PVCost: number;
+    VATrate: number;
+    annualMaintenanceCost: number;
     building: Building;
-    constructor(the_elec_selling_price: number, the_CV_price: number) {
+    constructor(the_elec_selling_price: number, the_CV_price: number, the_VAT_rate: number, the_annual_maintenance_cost: number) {
         this.elecSellingPrice = the_elec_selling_price;
         this.CVPrice = the_CV_price;
+        this.VATrate = the_VAT_rate;
+        this.annualMaintenanceCost = the_annual_maintenance_cost;
     }
     computePVCost () {
         if (this.PVCost === undefined) {
-            return this.PVCost = this.building.power * 1500;
+            return this.PVCost = this.building.power * 1500 * (1 + this.VATrate)/(1.06);
         } else {
             return this.PVCost;
+        }
+    }
+    computeAnnualMaintenanceCost () {
+        if (this.annualMaintenanceCost === -9999) {
+            return this.annualMaintenanceCost = this.PVCost * constants.MAINTENANCE_YEARLY_COST_INDEX;
+        } else {
+            return this.annualMaintenanceCost;
         }
     }
 };

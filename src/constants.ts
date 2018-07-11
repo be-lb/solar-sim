@@ -72,6 +72,7 @@ export const CV_RATE = 3;
 export const CV_TIME = 10;
 export const CV_END_OF_COMPENSATION_YEAR = 2020;
 export const PRODUCTION_YEARLY_LOSS_INDEX = 0.0005;
+export const MAINTENANCE_YEARLY_COST_INDEX = 0.0075;
 
 /**
 *

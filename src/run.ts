@@ -47,9 +47,10 @@ const solarSim =
     b.user = u;
 
     // Financial information
-    let f = new Financial(inputs.elecSellingPrice, inputs.CVPrice);
+    let f = new Financial(inputs.elecSellingPrice, inputs.CVPrice, inputs.VATrate, inputs.annualMaintenanceCost);
     f.building = b;
     f.computePVCost();
+    f.computeAnnualMaintenanceCost();
 
     // 1) Financial results
     // 1.1) Compute results Year N and 25

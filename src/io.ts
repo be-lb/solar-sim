@@ -70,7 +70,7 @@ const inputsFactory = (
     annualConsumptionKWh = -9999, /*default */
     installationPrice = -9999, /*default */
     obstacleRate = 0.2, /*default */
-    VATrate = 0.21, /*default */
+    VATrate = 0.06, /*default */
     annualMaintenanceCost = -9999 /*default */
 ): inputs => {
     /**
