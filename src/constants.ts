@@ -1,5 +1,6 @@
 import {EnergeticCostFactor, BreakdownCostFactorByOrigin} from './environmental';
 import {PVYieldObject} from './roof';
+import {selfProduction} from './user';
 
 /**
 *
@@ -100,8 +101,56 @@ export const PV_YIELD : PVYieldObject = {
 * user
 *
 */
-export const SELF_PRODUCTION_RATE = 0.3;
+
 export const ANNUAL_CONSUMPTION_BASE = 600;
 export const WASHING_MACHINE_FACTOR = 600;
 export const ELECTRIC_WATER_HEATER_FACTOR = 2300;
 export const ELECTRIC_HEATING_FACTOR = 16500;
+
+export const SELF_PRODUCTION : selfProduction = {
+    "initial": {
+        "0.6": 0.25,
+        "1": 0.3,
+        "1.4": 0.34,
+        "1.8": 0.36,
+        "2.2": 0.38,
+        "2.6": 0.39,
+        "3": 0.4,
+    },
+    "energeticSobriety": {
+        "0.6": 0.28,
+        "1": 0.32,
+        "1.4": 0.35,
+        "1.8": 0.37,
+        "2.2": 0.38,
+        "2.6": 0.39,
+        "3": 0.4,
+    },
+    "chargeShift": {
+        "0.6": 0.3,
+        "1": 0.34,
+        "1.4": 0.36,
+        "1.8": 0.38,
+        "2.2": 0.39,
+        "2.6": 0.4,
+        "3": 0.41,
+    },
+    "pvHeater": {
+        "0.6": 0.43,
+        "1": 0.49,
+        "1.4": 0.54,
+        "1.8": 0.55,
+        "2.2": 0.57,
+        "2.6": 0.58,
+        "3": 0.6,
+    },
+    "battery": {
+        "0.6": 0.48,
+        "1": 0.54,
+        "1.4": 0.59,
+        "1.8": 0.62,
+        "2.2": 0.64,
+        "2.6": 0.66,
+        "3": 0.69,
+    }
+}

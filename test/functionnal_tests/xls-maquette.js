@@ -49,6 +49,7 @@ u.hasWashingMachine = true;
 u.hasElectricWaterHeater = true;
 u.hasElectricHeating = false;
 u.computeAnnualElecConsumption();
+u.computeSelfConsumptionRate();
 b.user = u;
 
 // Financial information

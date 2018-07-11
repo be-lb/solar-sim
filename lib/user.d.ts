@@ -1,3 +1,6 @@
+export interface selfProduction {
+    [key: string]: any;
+}
 declare class User {
     selfProductionRate: number;
     consumptionProfile: number;
@@ -6,5 +9,6 @@ declare class User {
     hasElectricHeating: boolean;
     annualElectricityConsumption: number;
     computeAnnualElecConsumption(): number;
+    computeSelfConsumptionRate(): number;
 }
 export { User };

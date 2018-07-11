@@ -1,5 +1,6 @@
 import { EnergeticCostFactor, BreakdownCostFactorByOrigin } from './environmental';
 import { PVYieldObject } from './roof';
+import { selfProduction } from './user';
 export declare const MAX_POWER = 12;
 export declare const CO2_EMISSIONS_BY_KWH = 0.456;
 export declare const ENERGETIC_COST_FACTOR: EnergeticCostFactor;
@@ -19,8 +20,8 @@ export declare const PRODUCTION_YEARLY_LOSS_INDEX = 0.0005;
 export declare const MAINTENANCE_YEARLY_COST_INDEX = 0.0075;
 export declare const FLAT_ROOF_TILT: number;
 export declare const PV_YIELD: PVYieldObject;
-export declare const SELF_PRODUCTION_RATE = 0.3;
 export declare const ANNUAL_CONSUMPTION_BASE = 600;
 export declare const WASHING_MACHINE_FACTOR = 600;
 export declare const ELECTRIC_WATER_HEATER_FACTOR = 2300;
 export declare const ELECTRIC_HEATING_FACTOR = 16500;
+export declare const SELF_PRODUCTION: selfProduction;

@@ -1,7 +1,11 @@
 import * as constants from './constants';
 
+export interface selfProduction {
+    [key: string]: any;
+};
+
 class User {
-    selfProductionRate: number = constants.SELF_PRODUCTION_RATE;
+    selfProductionRate: number;
     consumptionProfile: number;
     hasWashingMachine: boolean;
     hasElectricWaterHeater: boolean;
@@ -20,6 +24,13 @@ class User {
         constants.ELECTRIC_WATER_HEATER_FACTOR * Number(this.hasElectricWaterHeater) +
         constants.ELECTRIC_HEATING_FACTOR * Number(this.hasElectricHeating)
         ;
+    };
+    computeSelfConsumptionRate () {
+        /**
+        * Compute the self consumption rate
+        */
+        // TODO
+        return this.selfProductionRate = 0.30;
     };
 };
 

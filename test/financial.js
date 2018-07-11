@@ -63,6 +63,7 @@ describe('Financial', function() {
       u.hasElectricWaterHeater = true;
       u.hasElectricHeating = false;
       u.computeAnnualElecConsumption();
+      u.computeSelfConsumptionRate();
       b.user = u;
 
       var f = new financial.Financial(0.03, 85, 0.06, -9999);
@@ -87,6 +88,7 @@ describe('Financial', function() {
       u.hasElectricWaterHeater = true;
       u.hasElectricHeating = false;
       u.computeAnnualElecConsumption();
+      u.computeSelfConsumptionRate();
       b.user = u;
 
       var f = new financial.Financial(0.03, 85, 0.06, -9999);
@@ -110,6 +112,7 @@ describe('Financial', function() {
       u.hasElectricWaterHeater = true;
       u.hasElectricHeating = false;
       u.computeAnnualElecConsumption();
+      u.computeSelfConsumptionRate();
       b.user = u;
 
       var f = new financial.Financial(0.03, 85, 0.06, -9999);
@@ -133,6 +136,7 @@ describe('Financial', function() {
       u.hasElectricWaterHeater = true;
       u.hasElectricHeating = false;
       u.computeAnnualElecConsumption();
+      u.computeSelfConsumptionRate();
       b.user = u;
 
       var f = new financial.Financial(0.03, 85, 0.06, -9999);
@@ -156,6 +160,7 @@ describe('Financial', function() {
       u.hasElectricWaterHeater = true;
       u.hasElectricHeating = false;
       u.computeAnnualElecConsumption();
+      u.computeSelfConsumptionRate();
       b.user = u;
 
       var f = new financial.Financial(0.03, 85, 0.06, -9999);
@@ -179,6 +184,7 @@ describe('Financial', function() {
       u.hasElectricWaterHeater = true;
       u.hasElectricHeating = false;
       u.computeAnnualElecConsumption();
+      u.computeSelfConsumptionRate();
       b.user = u;
 
       var f = new financial.Financial(0.03, 85, 0.06, -9999);
