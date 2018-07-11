@@ -37,7 +37,14 @@ let fullInputs: inputs = {
     installationPrice: -9999,
     obstacleRate: 0.2,
     VATrate: 0.21,
-    annualMaintenanceCost: -9999
+    annualMaintenanceCost: -9999,
+    loanPeriod: 5,
+    loanRate: 0.01,
+    loan: false,
+    energySobriety: false,
+    chargeShift: false,
+    pvHeater: false,
+    battery: false,
 }
 let outputs2 = solarSim(fullInputs);
 console.log(outputs2);
