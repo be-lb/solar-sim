@@ -274,17 +274,35 @@ const computeActualFinancialAmortization =
     * @param marginalActualReturnTimeByYear marginal actualized return time computed by year, in years.
     * Compute 4 indicators of the financial amortization of the photovoltaic installation.
     */
+
     let finance = new Finance();
     let actualReturnTime: number = sum(actualReturnTimeByYear) + marginalActualReturnTimeByYear[sum(actualReturnTimeByYear)];
     let netActualValue: number = computeNetPresentValue(fin.discountRate, balance) - (fin.PVCost + fin.meterCost);
     let returnInternalRate: number = finance.IRR(-(fin.PVCost + fin.meterCost), ...balance)/100;
     let modifiedReturnInternalRate: number = MIRR([-(fin.PVCost + fin.meterCost), ...balance], 0.1, fin.discountRate);
+
+    console.log((fin.PVCost + fin.meterCost));
+
     return {
         'actualReturnTime': actualReturnTime,
         'netActualValue' : netActualValue,
         'returnInternalRate': returnInternalRate,
         'modifiedReturnInternalRate': modifiedReturnInternalRate
     }
+};
+
+const computeActualReturnTime =
+    (actualReturnTimeByYear: number[], marginalActualReturnTimeByYear: number[]):
+    number => {
+    /**
+    * @param actualReturnTimeByYear Actual return time computed for each year, in years.
+    * @param marginalActualReturnTimeByYear marginal actualized return time computed by year, in years.
+    * Compute the actualized return time of the photovoltaic installation.
+    */
+
+    let actualReturnTime: number = sum(actualReturnTimeByYear) + marginalActualReturnTimeByYear[sum(actualReturnTimeByYear)];
+
+    return actualReturnTime;
 };
 
 const getInstallationCost = (fin: Financial): number => {
@@ -343,4 +361,4 @@ const MIRR = (values:number[], financeRate:number, discountRate:number): number 
 };
 
 export { Financial };
-export { computeActualAnnualProduction, getFinancialYearN, computeFinancialBenefit, computeFinancialAmortization, computeSimplifiedFinancialAmortization, computeActualFinancialAmortization, computeActualPrice, computeNetPresentValue, getInstallationCost };
+export { computeActualAnnualProduction, getFinancialYearN, computeFinancialBenefit, computeFinancialAmortization, computeSimplifiedFinancialAmortization, computeActualFinancialAmortization, computeActualReturnTime, computeActualPrice, computeNetPresentValue, getInstallationCost };

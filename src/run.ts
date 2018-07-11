@@ -11,7 +11,7 @@
 import {Building} from './building';
 import {Roof} from './roof';
 import {User} from './user';
-import {Financial, computeActualAnnualProduction, computeFinancialAmortization, getFinancialYearN, computeActualFinancialAmortization, getInstallationCost} from './financial';
+import {Financial, computeActualAnnualProduction, computeFinancialAmortization, getFinancialYearN, computeActualReturnTime, getInstallationCost} from './financial';
 import {computeSavedCO2Emissions} from './environmental';
 import {inputs, outputs} from './io';
 
@@ -51,18 +51,15 @@ const solarSim =
     f.building = b;
     f.computePVCost();
 
-console.log(b)
-
     // 1) Financial results
     // 1.1) Compute results Year N and 25
     let financialYearN = getFinancialYearN(b, f, inputs.nYears, inputs.currentYear);
     let financialYear25 = getFinancialYearN(b, f, 25, inputs.currentYear);
     // 1.2) Compute actualized results
     let financialAmortization = computeFinancialAmortization(b, f, inputs.nYears, inputs.currentYear);
-    let balance = financialAmortization.balance;
     let actualReturnTimeByYear = financialAmortization.actualReturnTimeByYear;
     let marginalActualReturnTimeByYear = financialAmortization.marginalActualReturnTimeByYear;
-    let actualFinancialAmortization = computeActualFinancialAmortization(f, balance, actualReturnTimeByYear, marginalActualReturnTimeByYear);
+    let actualReturnTime = computeActualReturnTime(actualReturnTimeByYear, marginalActualReturnTimeByYear);
 
     // 1.3) installation costs
     let installationCost = getInstallationCost(f);
@@ -90,7 +87,7 @@ console.log(b)
         },
         'finance': {
             'totalGain25Y': financialYear25.CVAmountYearN + financialYear25.selfConsumptionAmountYearN,
-            'returnTime': actualFinancialAmortization.actualReturnTime
+            'returnTime': actualReturnTime
         }
     }
 }
