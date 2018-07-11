@@ -18,6 +18,13 @@ interface inputs {
     'obstacleRate': number;
     'VATrate': number;
     'annualMaintenanceCost': number;
+    'loanPeriod': number;
+    'loanRate': number;
+    'loan': boolean;
+    'energySobriety': boolean;
+    'chargeShift': boolean;
+    'pvHeater': boolean;
+    'battery': boolean;
 }
 interface mainOutputs {
     'installationCost': number;
@@ -45,5 +52,5 @@ interface outputs {
     'energy': energyOutputs;
     'finance': financeOutputs;
 }
-declare const inputsFactory: (roofs: roof[], pvTechnology?: PVTechnologyEnum, nYears?: number, currentYear?: number, elecSellingPrice?: number, CVPrice?: number, pvArea?: number, annualConsumptionKWh?: number, installationPrice?: number, obstacleRate?: number, VATrate?: number, annualMaintenanceCost?: number) => inputs;
+declare const inputsFactory: (roofs: roof[], pvTechnology?: PVTechnologyEnum, nYears?: number, currentYear?: number, elecSellingPrice?: number, CVPrice?: number, pvArea?: number, annualConsumptionKWh?: number, installationPrice?: number, obstacleRate?: number, VATrate?: number, annualMaintenanceCost?: number, loanPeriod?: number, loanRate?: number, loan?: boolean, energySobriety?: boolean, chargeShift?: boolean, pvHeater?: boolean, battery?: boolean) => inputs;
 export { inputs, outputs, inputsFactory, roof };

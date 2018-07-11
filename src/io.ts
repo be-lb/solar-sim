@@ -26,6 +26,13 @@ interface inputs {
     'obstacleRate': number;
     'VATrate': number;
     'annualMaintenanceCost': number;
+    'loanPeriod': number;
+    'loanRate': number;
+    'loan': boolean;
+    'energySobriety': boolean;
+    'chargeShift': boolean;
+    'pvHeater': boolean;
+    'battery': boolean;
 }
 
 interface mainOutputs {
@@ -71,7 +78,14 @@ const inputsFactory = (
     installationPrice = -9999, /*default */
     obstacleRate = 0.2, /*default */
     VATrate = 0.06, /*default */
-    annualMaintenanceCost = -9999 /*default */
+    annualMaintenanceCost = -9999, /*default */
+    loanPeriod = 5, /*default */
+    loanRate = 0.01, /*default */
+    loan = false, /*default */
+    energySobriety = false, /*default */
+    chargeShift = false, /*default */
+    pvHeater = false, /*default */
+    battery = false, /*default */
 ): inputs => {
     /**
     * @param roofs - Array of roof objects
@@ -89,7 +103,14 @@ const inputsFactory = (
         installationPrice: installationPrice,
         obstacleRate: obstacleRate,
         VATrate: VATrate,
-        annualMaintenanceCost: annualMaintenanceCost
+        annualMaintenanceCost: annualMaintenanceCost,
+        loanPeriod: loanPeriod,
+        loanRate: loanRate,
+        loan: loan,
+        energySobriety: energySobriety,
+        chargeShift: chargeShift,
+        pvHeater: pvHeater,
+        battery: battery,
     }
 };
 
