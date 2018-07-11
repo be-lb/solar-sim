@@ -108,7 +108,7 @@ export const ELECTRIC_WATER_HEATER_FACTOR = 2300;
 export const ELECTRIC_HEATING_FACTOR = 16500;
 
 export const SELF_PRODUCTION : selfProduction = {
-    "initial": {
+    "default": {
         "0.6": 0.25,
         "1": 0.3,
         "1.4": 0.34,

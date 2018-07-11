@@ -58,7 +58,7 @@ describe('Financial', function() {
       b.computeProduction();
       b.computePower();
 
-      var u = new user.User();
+      var u = new user.User(true, true, true, true, b);
       u.hasWashingMachine = true;
       u.hasElectricWaterHeater = true;
       u.hasElectricHeating = false;
@@ -83,7 +83,7 @@ describe('Financial', function() {
       b.computeProduction();
       b.computePower();
 
-      var u = new user.User();
+      var u = new user.User(true, true, true, true, b);
       u.hasWashingMachine = true;
       u.hasElectricWaterHeater = true;
       u.hasElectricHeating = false;
@@ -107,7 +107,7 @@ describe('Financial', function() {
       b.computeProduction();
       b.computePower();
 
-      var u = new user.User();
+      var u = new user.User(true, true, true, true, b);
       u.hasWashingMachine = true;
       u.hasElectricWaterHeater = true;
       u.hasElectricHeating = false;
@@ -131,7 +131,7 @@ describe('Financial', function() {
       b.computeProduction();
       b.computePower();
 
-      var u = new user.User();
+      var u = new user.User(true, true, true, true, b);
       u.hasWashingMachine = true;
       u.hasElectricWaterHeater = true;
       u.hasElectricHeating = false;

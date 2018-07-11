@@ -37,12 +37,8 @@ const solarSim =
         // Compute the total production
         b.computeProduction();
 
-
         // User information
-        let u = new User();
-        u.hasWashingMachine = true;
-        u.hasElectricWaterHeater = true;
-        u.hasElectricHeating = false;
+        let u = new User(inputs.energySobriety, inputs.chargeShift, inputs.pvHeater, inputs.battery, b);
         u.computeAnnualElecConsumption();
         u.computeSelfConsumptionRate();
         b.user = u;
