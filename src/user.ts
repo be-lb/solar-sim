@@ -1,4 +1,4 @@
-//import * as constants from './constants';
+import * as constants from './constants';
 import {Building} from './building';
 
 export interface selfProduction {
@@ -38,35 +38,41 @@ class User {
         * @param hasBattery
         * Compute the self consumption rate
         */
-        //
-        // let userChoice: string;
-        // if (this.hasBattery){
-        //     userChoice = 'battery';
-        // } else {
-        //     if (this.hasPvHeater) {
-        //         userChoice = 'pvHeater';
-        //     } else {
-        //         if (this.hasChargeSwift) {
-        //             userChoice = 'chargeShift';
-        //         } else {
-        //             if (this.hasEnergySobriety) {
-        //                 userChoice = 'energySobriety';
-        //             } else {
-        //                 userChoice = 'default';
-        //             }
-        //         }
-        //     }
-        // }
 
-        // let keys : number[] = Object.keys(constants.SELF_PRODUCTION['default']).map(x => Number(x));
-        // let ratio: number = this.building.production/this.annualElectricityConsumption;
-        //
-        // let diff: number[] = keys.map(x => Math.abs(x - ratio));
-        // //let autonomy: number = diff.findIndex(x => diff.map(x => x === Math.min(...diff)))
+        let userChoiceKey: string;
+        if (this.hasBattery){
+            userChoiceKey = 'battery';
+        } else {
+            if (this.hasPvHeater) {
+                userChoiceKey = 'pvHeater';
+            } else {
+                if (this.hasChargeSwift) {
+                    userChoiceKey = 'chargeShift';
+                } else {
+                    if (this.hasEnergySobriety) {
+                        userChoiceKey = 'energySobriety';
+                    } else {
+                        userChoiceKey = 'default';
+                    }
+                }
+            }
+        }
 
-        //let selfProductionRate = constants.SELF_PRODUCTION[userChoice][autonomy];
-        //console.log(selfProductionRate);
-        return this.selfProductionRate = 0.3;
+        let keys : number[] = Object.keys(constants.SELF_PRODUCTION['default']).map(x => Number(x));
+        let ratio: number = this.building.production/this.annualElectricityConsumption;
+        let diff: number[] = keys.map(x => Math.abs(x - ratio));
+        let ratioKey: number = -1;
+        for (let d of diff) {
+            if (d === Math.min(...diff)) {
+                ratioKey = keys[diff.indexOf(d)];
+            }
+        }
+
+        let selfProductionRate = constants.SELF_PRODUCTION[userChoiceKey][ratioKey];
+        selfProductionRate = selfProductionRate === undefined ? 0.35 : selfProductionRate; // in case there is a problem
+
+        console.log(selfProductionRate);
+        return this.selfProductionRate = selfProductionRate;
     };
 };
 

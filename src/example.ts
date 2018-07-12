@@ -13,9 +13,9 @@ import {roof, inputs} from './io';
 
 // Example with required parameters only
 let roofs: roof[] = [
-    {'area': 30, 'productivity': 1800, 'tilt': 30, 'truc': 'whatever'},
+    {'area': 100, 'productivity': 1800, 'tilt': 30, 'truc': 'whatever'},
     {'area': 20, 'productivity': 800, 'tilt': 30},
-    {'area': 40, 'productivity': 1200, 'tilt': 30}
+    {'area': 10, 'productivity': 1200, 'tilt': 30}
 ];
 
 
@@ -41,10 +41,10 @@ let fullInputs: inputs = {
     loanPeriod: 5,
     loanRate: 0.01,
     loan: false,
-    energySobriety: false,
+    energySobriety: true,
     chargeShift: false,
-    pvHeater: false,
-    battery: false,
+    pvHeater: true,
+    battery: true,
 }
 let outputs2 = solarSim(fullInputs);
 console.log(outputs2);

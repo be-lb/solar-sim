@@ -41,6 +41,7 @@ const solarSim =
         let u = new User(inputs.energySobriety, inputs.chargeShift, inputs.pvHeater, inputs.battery, b);
         u.computeAnnualElecConsumption();
         u.computeSelfConsumptionRate();
+        console.log(u);
         b.user = u;
 
         // Financial information
@@ -49,6 +50,7 @@ const solarSim =
         f.computePVCost();
         f.computeAnnualMaintenanceCost();
         f.computeCVRate();
+
 
         // 1) Financial results
         // 1.1) Compute results Year N and 25
@@ -80,7 +82,7 @@ const solarSim =
             // 'energy': {
             'annualProduction': b.production,
             'annualConsumption': u.annualElectricityConsumption,
-            'autonomy': 9999,//TODO, u.annualElectricityConsumption/b.production ?
+            'autonomy': u.selfProductionRate,
             // 'finance': {
             'totalGain25Y': financialYear25.CVAmountYearN + financialYear25.selfConsumptionAmountYearN,
             'returnTime': actualReturnTime,

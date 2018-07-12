@@ -70,7 +70,7 @@ type outputs = mainOutputs & setupOutputs & energyOutputs & financeOutputs;
 
 const inputsFactory = (
     roofs: roof[], /* required */
-    pvTechnology: PVTechnologyEnum = 'poly',  /* required */ //TODO set default as 'poly'
+    pvTechnology: PVTechnologyEnum = 'poly',  /* required */
     nYears = 10, /* default */
     currentYear = 2018, /* default */
     elecSellingPrice = 0.03, /* default */

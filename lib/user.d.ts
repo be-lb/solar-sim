@@ -14,6 +14,6 @@ declare class User {
     building: Building;
     constructor(energy_sobriety: boolean, charge_swift: boolean, pv_heater: boolean, battery: boolean, b: Building);
     computeAnnualElecConsumption(): number;
-    computeSelfConsumptionRate(): number;
+    computeSelfConsumptionRate(): any;
 }
 export { User };

@@ -6,14 +6,19 @@ var building = require('../lib/building');
 describe('User', function() {
   describe('User()', function() {
     it('should expose an object', function () {
-      var b = new building.Building(0.2);
-      var u = new user.User(true, true, true, true, b);
-      expect(u).to.be.a('object');
+        var b = new building.Building(0.2);
+        var u = new user.User(true, true, true, true, b);
+        expect(u).to.be.a('object');
     });
     it('should expose a function', function () {
         var b = new building.Building(0.2);
         var u = new user.User(true, true, true, true, b);
-      expect(u.computeAnnualElecConsumption).to.be.a('function');
+        expect(u.computeAnnualElecConsumption).to.be.a('function');
+    });
+    it('should expose a function', function () {
+        var b = new building.Building(0.2);
+        var u = new user.User(true, true, true, true, b);
+        expect(u.computeSelfConsumptionRate).to.be.a('function');
     });
   });
   describe('u.computeAnnualElecConsumption() == 3500', function() {

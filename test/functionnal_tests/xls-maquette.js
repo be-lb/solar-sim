@@ -56,6 +56,8 @@ b.user = u;
 var f = new financial.Financial(inputs.elecSellingPrice, inputs.CVPrice);
 f.building = b;
 f.computePVCost();
+f.computeAnnualMaintenanceCost();
+f.computeCVRate();
 
 //console.log(b)
 
