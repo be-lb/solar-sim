@@ -12,7 +12,7 @@ declare class User {
     hasBattery: boolean;
     annualElectricityConsumption: number;
     building: Building;
-    constructor(energy_sobriety: boolean, charge_swift: boolean, pv_heater: boolean, battery: boolean, b: Building);
+    constructor(annual_consumption: number, energy_sobriety: boolean, charge_swift: boolean, pv_heater: boolean, battery: boolean, b: Building);
     computeAnnualElecConsumption(): number;
     computeSelfConsumptionRate(): any;
 }

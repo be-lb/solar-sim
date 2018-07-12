@@ -33,7 +33,7 @@ let fullInputs: inputs = {
     elecSellingPrice: 0.03,
     CVPrice: 85,
     pvArea: -9999,
-    annualConsumptionKWh: -9999,
+    annualConsumptionKWh: 2036,
     installationPrice: -9999,
     obstacleRate: 0.2,
     VATrate: 0.21,

@@ -299,8 +299,6 @@ const computeActualFinancialAmortization =
     let returnInternalRate: number = finance.IRR(-(fin.PVCost + fin.meterCost), ...balance)/100;
     let modifiedReturnInternalRate: number = MIRR([-(fin.PVCost + fin.meterCost), ...balance], 0.1, fin.discountRate);
 
-    console.log((fin.PVCost + fin.meterCost));
-
     return {
         'actualReturnTime': actualReturnTime,
         'netActualValue' : netActualValue,

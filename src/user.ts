@@ -15,7 +15,8 @@ class User {
     hasBattery: boolean;
     annualElectricityConsumption: number;
     building: Building;
-    constructor(energy_sobriety: boolean, charge_swift: boolean, pv_heater: boolean, battery: boolean, b: Building) {
+    constructor(annual_consumption: number, energy_sobriety: boolean, charge_swift: boolean, pv_heater: boolean, battery: boolean, b: Building) {
+        this.annualElectricityConsumption = annual_consumption;
         this.hasEnergySobriety = energy_sobriety;
         this.hasChargeSwift = charge_swift;
         this.hasPvHeater = pv_heater;
@@ -27,7 +28,7 @@ class User {
         * Compute the annual electric consumption, in kWh/year
         */
         return this.annualElectricityConsumption =
-        3500 // TODO
+        2036 // TODO Is it still needed to compute the consumption based on hasPvHeater and hasBattery?
         ;
     };
     computeSelfConsumptionRate () {
@@ -71,7 +72,6 @@ class User {
         let selfProductionRate = constants.SELF_PRODUCTION[userChoiceKey][ratioKey];
         selfProductionRate = selfProductionRate === undefined ? 0.35 : selfProductionRate; // in case there is a problem
 
-        console.log(selfProductionRate);
         return this.selfProductionRate = selfProductionRate;
     };
 };

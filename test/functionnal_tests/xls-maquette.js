@@ -44,11 +44,8 @@ b.computeProduction();
 
 
 // User information
-var u = new user.User();
-u.hasWashingMachine = true;
-u.hasElectricWaterHeater = true;
-u.hasElectricHeating = false;
-u.computeAnnualElecConsumption();
+var u = new user.User(3500, true, true, true, true, b);
+//u.computeAnnualElecConsumption();
 u.computeSelfConsumptionRate();
 b.user = u;
 
