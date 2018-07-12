@@ -16,7 +16,7 @@ class Financial {
     discountRate : number = constants.DISCOUNT_RATE;
     productionYearlyLossIndex: number = constants.PRODUCTION_YEARLY_LOSS_INDEX;
     CVPrice : number;
-    CVRate : number = constants.CV_RATE;
+    CVRate : number;
     CVTime : number = constants.CV_TIME;
     PVCost: number;
     VATrate: number;
@@ -40,6 +40,13 @@ class Financial {
             return this.annualMaintenanceCost = this.PVCost * constants.MAINTENANCE_YEARLY_COST_INDEX;
         } else {
             return this.annualMaintenanceCost;
+        }
+    }
+    computeCVRate () {
+        if (this.building.power > constants.CV_RATE_SWITCH_POWER) {
+            return this.CVRate = constants.CV_RATE_HIGH_POWER;
+        } else {
+            return this.CVRate = constants.CV_RATE_LOW_POWER;
         }
     }
 };

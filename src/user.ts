@@ -1,4 +1,4 @@
-import * as constants from './constants';
+//import * as constants from './constants';
 import {Building} from './building';
 
 export interface selfProduction {
@@ -27,7 +27,7 @@ class User {
         * Compute the annual electric consumption, in kWh/year
         */
         return this.annualElectricityConsumption =
-        constants.ANNUAL_CONSUMPTION_BASE
+        3500 // TODO
         ;
     };
     computeSelfConsumptionRate () {

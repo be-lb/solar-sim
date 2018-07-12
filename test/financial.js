@@ -69,6 +69,8 @@ describe('Financial', function() {
       var f = new financial.Financial(0.03, 85, 0.06, -9999);
       f.building = b;
       f.computePVCost();
+      f.computeAnnualMaintenanceCost();
+      f.computeCVRate();
 
       var nYears = 25;
       var currentYear = 2018;
@@ -94,6 +96,8 @@ describe('Financial', function() {
       var f = new financial.Financial(0.03, 85, 0.06, -9999);
       f.building = b;
       f.computePVCost();
+      f.computeAnnualMaintenanceCost();
+      f.computeCVRate();
 
       var nYears = 25;
       var currentYear = 2018;
@@ -118,6 +122,8 @@ describe('Financial', function() {
       var f = new financial.Financial(0.03, 85, 0.06, -9999);
       f.building = b;
       f.computePVCost();
+      f.computeAnnualMaintenanceCost();
+      f.computeCVRate();
 
       var nYears = 25;
       var currentYear = 2018;
@@ -142,6 +148,8 @@ describe('Financial', function() {
       var f = new financial.Financial(0.03, 85, 0.06, -9999);
       f.building = b;
       f.computePVCost();
+      f.computeAnnualMaintenanceCost();
+      f.computeCVRate();
 
       var nYears = 25;
       var currentYear = 2018;
@@ -166,6 +174,8 @@ describe('Financial', function() {
       var f = new financial.Financial(0.03, 85, 0.06, -9999);
       f.building = b;
       f.computePVCost();
+      f.computeAnnualMaintenanceCost();
+      f.computeCVRate();
 
       var nYears = 25;
       var currentYear = 2018;
@@ -190,6 +200,8 @@ describe('Financial', function() {
       var f = new financial.Financial(0.03, 85, 0.06, -9999);
       f.building = b;
       f.computePVCost();
+      f.computeAnnualMaintenanceCost();
+      f.computeCVRate();
 
       var nYears = 25;
       var currentYear = 2018;
