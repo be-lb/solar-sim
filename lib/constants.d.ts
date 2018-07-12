@@ -9,6 +9,7 @@ export declare const METER_COST = 289;
 export declare const ONDULEUR_COST = 1500;
 export declare const ONDULEUR_REPLACEMENT_RATE = 15;
 export declare const REDEVANCE_COST = 65;
+export declare const OM_COST = 47;
 export declare const INFLATION_RATE = 0.02;
 export declare const ELEC_BUYING_PRICE = 0.23;
 export declare const ELEC_INDEX = 0.03;

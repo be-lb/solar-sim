@@ -4,6 +4,7 @@ declare class Financial {
     onduleurCost: number;
     onduleurReplacementRate: number;
     redevanceCost: number;
+    OMCost: number;
     inflationRate: number;
     elecBuyingPrice: number;
     elecSellingPrice: number;

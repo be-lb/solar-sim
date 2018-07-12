@@ -65,6 +65,7 @@ export const METER_COST = 289;
 export const ONDULEUR_COST = 1500;
 export const ONDULEUR_REPLACEMENT_RATE = 15; // year
 export const REDEVANCE_COST = 65; // €
+export const OM_COST = 47; // €
 export const INFLATION_RATE = 0.02 // %
 export const ELEC_BUYING_PRICE = 0.23;
 export const ELEC_INDEX = 0.03;

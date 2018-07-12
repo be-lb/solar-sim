@@ -9,6 +9,7 @@ class Financial {
     onduleurCost: number = constants.ONDULEUR_COST;
     onduleurReplacementRate: number = constants.ONDULEUR_REPLACEMENT_RATE;
     redevanceCost: number = constants.REDEVANCE_COST;
+    OMCost: number = constants.OM_COST;
     inflationRate: number = constants.INFLATION_RATE;
     elecBuyingPrice: number = constants.ELEC_BUYING_PRICE;
     elecSellingPrice: number;
@@ -195,20 +196,24 @@ const computeFinancialAmortization =
         }
         //console.log(elecSelling); // line 32 OK
 
+        // Operation & maintenance costs
+        let OMCosts: number = -1 * computeActualPrice(fin.OMCost, fin.inflationRate, i);
+        console.log(OMCosts); // new line 21 OK
+
         // Total PV cost
         let totalCost: number = 0;
         if (i === fin.onduleurReplacementRate) {
             let actualOnduleurCost = computeActualPrice(fin.onduleurCost, fin.inflationRate, i);
-            totalCost = CVAmount[i-1] + elecBuying + elecSelling - actualOnduleurCost;
+            totalCost = OMCosts + CVAmount[i-1] + elecBuying + elecSelling - actualOnduleurCost;
         } else {
-            totalCost = CVAmount[i-1] + elecBuying + elecSelling;
+            totalCost = OMCosts + CVAmount[i-1] + elecBuying + elecSelling;
         }
         //console.log(totalCost); // line 33 OK
 
         let baseCost: number = -u.annualElectricityConsumption * actualElecBuyingPrice - fin.redevanceCost;
         //console.log(baseCost); // line 23 OK
 
-        balance.push(totalCost-baseCost);
+        balance.push(totalCost - baseCost);
 
         netActualValueByYear.push(computeNetPresentValue(fin.discountRate, balance) - (fin.PVCost + fin.meterCost));
         actualReturnTimeByYear.push(netActualValueByYear[i-1] < 0 ? 1 : 0);
