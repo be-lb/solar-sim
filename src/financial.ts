@@ -9,7 +9,6 @@ class Financial {
     onduleurCost: number = constants.ONDULEUR_COST;
     onduleurReplacementRate: number = constants.ONDULEUR_REPLACEMENT_RATE;
     redevanceCost: number = constants.REDEVANCE_COST;
-    OMCost: number = constants.OM_COST;
     inflationRate: number = constants.INFLATION_RATE;
     elecBuyingPrice: number = constants.ELEC_BUYING_PRICE;
     elecSellingPrice: number;
@@ -22,12 +21,27 @@ class Financial {
     PVCost: number;
     VATrate: number;
     annualMaintenanceCost: number;
+    loan: boolean;
+    loanPeriod: number;
+    loanRate: number;
     building: Building;
-    constructor(the_elec_selling_price: number, the_CV_price: number, the_VAT_rate: number, the_annual_maintenance_cost: number) {
+    constructor(
+        the_elec_selling_price: number,
+        the_CV_price: number,
+        the_VAT_rate: number,
+        the_annual_maintenance_cost: number,
+        has_loan: boolean,
+        the_loan_period: number,
+        the_loan_rate: number
+        )
+    {
         this.elecSellingPrice = the_elec_selling_price;
         this.CVPrice = the_CV_price;
         this.VATrate = the_VAT_rate;
         this.annualMaintenanceCost = the_annual_maintenance_cost;
+        this.loan = has_loan;
+        this.loanPeriod = the_loan_period;
+        this.loanRate = the_loan_rate;
     }
     computePVCost () {
         if (this.PVCost === undefined) {
@@ -38,7 +52,7 @@ class Financial {
     }
     computeAnnualMaintenanceCost () {
         if (this.annualMaintenanceCost === -9999) {
-            return this.annualMaintenanceCost = this.PVCost * constants.MAINTENANCE_YEARLY_COST_INDEX;
+            return this.annualMaintenanceCost = this.PVCost * constants.MAINTENANCE_COST_FACTOR;
         } else {
             return this.annualMaintenanceCost;
         }
@@ -197,16 +211,26 @@ const computeFinancialAmortization =
         //console.log(elecSelling); // line 32 OK
 
         // Operation & maintenance costs
-        let OMCosts: number = -1 * computeActualPrice(fin.OMCost, fin.inflationRate, i);
-        console.log(OMCosts); // new line 21 OK
+        let OMCosts: number = -1 * computeActualPrice(fin.annualMaintenanceCost, fin.inflationRate, i);
+        //console.log(OMCosts); // new line 21 OK
+
+        // Loan costs
+        let finance = new Finance();
+        let loanCosts: number = 0;
+        if (fin.loan) {
+            if (i <= fin.loanPeriod){
+                loanCosts = -1 * finance.PMT(fin.loanRate, fin.loanPeriod, -fin.PVCost);
+            }
+        }
+        //console.log(loanCosts); // new line 23
 
         // Total PV cost
         let totalCost: number = 0;
         if (i === fin.onduleurReplacementRate) {
             let actualOnduleurCost = computeActualPrice(fin.onduleurCost, fin.inflationRate, i);
-            totalCost = OMCosts + CVAmount[i-1] + elecBuying + elecSelling - actualOnduleurCost;
+            totalCost = loanCosts + OMCosts + CVAmount[i-1] + elecBuying + elecSelling - actualOnduleurCost;
         } else {
-            totalCost = OMCosts + CVAmount[i-1] + elecBuying + elecSelling;
+            totalCost = loanCosts + OMCosts + CVAmount[i-1] + elecBuying + elecSelling;
         }
         //console.log(totalCost); // line 33 OK
 
@@ -228,7 +252,7 @@ const computeFinancialAmortization =
     //console.log(balance); // line 37 OK
     //console.log(netActualValueByYear); //line 38
     //console.log(actualReturnTimeByYear); //line 42 OK
-    //console.log(marginalActualReturnTimeByYear); //line 44
+    //console.log(marginalActualReturnTimeByYear); //line 44 new line 48
 
     return {
         'selfConsumptionAmount': selfConsumptionAmount,
@@ -322,6 +346,10 @@ const computeActualReturnTime =
     */
 
     let actualReturnTime: number = sum(actualReturnTimeByYear) + marginalActualReturnTimeByYear[sum(actualReturnTimeByYear)];
+
+    if (isNaN(actualReturnTime)) {
+        actualReturnTime = 25; // NaN value occurs when the actualReturnTime would be > than nYears. We consider 25 years as a maximum value.
+    }
 
     return actualReturnTime;
 };

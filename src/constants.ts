@@ -65,7 +65,6 @@ export const METER_COST = 289;
 export const ONDULEUR_COST = 1500;
 export const ONDULEUR_REPLACEMENT_RATE = 15; // year
 export const REDEVANCE_COST = 65; // €
-export const OM_COST = 47; // €
 export const INFLATION_RATE = 0.02 // %
 export const ELEC_BUYING_PRICE = 0.23;
 export const ELEC_INDEX = 0.03;
@@ -76,7 +75,7 @@ export const CV_RATE_HIGH_POWER = 2.4;
 export const CV_TIME = 10;
 export const CV_END_OF_COMPENSATION_YEAR = 2020;
 export const PRODUCTION_YEARLY_LOSS_INDEX = 0.0005;
-export const MAINTENANCE_YEARLY_COST_INDEX = 0.0075;
+export const MAINTENANCE_COST_FACTOR = 0.0075;
 
 /**
 *

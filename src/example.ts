@@ -13,9 +13,7 @@ import {roof, inputs} from './io';
 
 // Example with required parameters only
 let roofs: roof[] = [
-    {'area': 100, 'productivity': 1800, 'tilt': 30, 'truc': 'whatever'},
-    {'area': 20, 'productivity': 800, 'tilt': 30},
-    {'area': 10, 'productivity': 1200, 'tilt': 30}
+    {'area': 30, 'productivity': 950, 'tilt': 30}
 ];
 
 
@@ -28,7 +26,7 @@ let roofs: roof[] = [
 let fullInputs: inputs = {
     roofs: roofs,
     pvTechnology: 'poly',
-    nYears: 10,
+    nYears: 15,
     currentYear: 2018,
     elecSellingPrice: 0.03,
     CVPrice: 85,
@@ -40,7 +38,7 @@ let fullInputs: inputs = {
     annualMaintenanceCost: -9999,
     loanPeriod: 5,
     loanRate: 0.01,
-    loan: false,
+    loan: true,
     energySobriety: true,
     chargeShift: false,
     pvHeater: true,
