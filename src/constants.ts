@@ -111,7 +111,7 @@ export const PV_YIELD : PVYieldObject = {
 
 export const ANNUAL_CONSUMPTION_BASE = 600;
 export const WASHING_MACHINE_FACTOR = 600;
-export const ELECTRIC_WATER_HEATER_FACTOR = 2300;
+export const ELECTRIC_WATER_HEATER_FACTOR = 2336;
 export const ELECTRIC_HEATING_FACTOR = 16500;
 
 export const SELF_PRODUCTION : selfProduction = {

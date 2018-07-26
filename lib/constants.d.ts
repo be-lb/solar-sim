@@ -25,6 +25,6 @@ export declare const LOW_PRODUCTIVITY_LIMIT: number;
 export declare const PV_YIELD: PVYieldObject;
 export declare const ANNUAL_CONSUMPTION_BASE = 600;
 export declare const WASHING_MACHINE_FACTOR = 600;
-export declare const ELECTRIC_WATER_HEATER_FACTOR = 2300;
+export declare const ELECTRIC_WATER_HEATER_FACTOR = 2336;
 export declare const ELECTRIC_HEATING_FACTOR = 16500;
 export declare const SELF_PRODUCTION: selfProduction;

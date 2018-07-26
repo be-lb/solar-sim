@@ -5,11 +5,13 @@ declare class Building {
     production: number;
     power: number;
     pvArea: number;
+    maxPvArea: number;
     roofs: Roof[];
     user: User;
     constructor(the_obstacle_rate: number);
     computeProduction(): number;
     computePower(): number;
     computePVArea(): number;
+    computeMaxPvArea(): number;
 }
 export { Building };

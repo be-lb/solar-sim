@@ -24,8 +24,15 @@ describe('User', function() {
   describe('u.computeAnnualElecConsumption() == 2036', function() {
     it('should return true', function() {
         var b = new building.Building(0.2);
-        var u = new user.User(-9999, true, true, true, true, b);
+        var u = new user.User(2036, true, true, false, true, b);
         expect(u.computeAnnualElecConsumption()).to.be.equal(2036);
+    });
+  });
+  describe('u.computeAnnualElecConsumption() == 4372 (with pv heater)', function() {
+    it('should return true', function() {
+        var b = new building.Building(0.2);
+        var u = new user.User(2036, true, true, true, true, b);
+        expect(u.computeAnnualElecConsumption()).to.be.equal(4372);
     });
   });
 });

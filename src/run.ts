@@ -34,12 +34,14 @@ const solarSim =
         b.computePVArea();
         // Compute the total power and optimize roof power if needed
         b.computePower();
+        // Compute the total power and optimize roof power if needed
+        b.computeMaxPvArea();
         // Compute the total production
         b.computeProduction();
 
         // User information
         let u = new User(inputs.annualConsumptionKWh, inputs.energySobriety, inputs.chargeShift, inputs.pvHeater, inputs.battery, b);
-        //u.computeAnnualElecConsumption();
+        u.computeAnnualElecConsumption();
         u.computeSelfConsumptionRate();
         b.user = u;
 
@@ -75,6 +77,7 @@ const solarSim =
             'selfConsumptionAmountYearN': financialYearN.selfConsumptionAmountYearN,
             'savedCO2emissions': savedCO2emissions,
             'area': b.pvArea,
+            'maxArea': b.maxPvArea,
             'power': b.power,
             'obstacleRate': b.obstacleRate,
             // 'energy': {

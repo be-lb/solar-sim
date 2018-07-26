@@ -7,6 +7,7 @@ class Building {
     production: number;
     power: number;
     pvArea: number;
+    maxPvArea: number;
     roofs: Roof[];
     user: User;
     constructor(the_obstacle_rate: number) {
@@ -56,6 +57,17 @@ class Building {
                 return this.pvArea;
             }
         }
+    };
+    computeMaxPvArea () {
+        /**
+        * Computed the max photovoltaic area (m²) that is installable given the power of the building.
+        * This is equal to `pvArea` unless the MAX_POWER (e.g., 12 kWc) was overpassed.
+        */
+        let maxPvArea: number = 0;
+        for (let r of this.roofs) {
+            maxPvArea = maxPvArea + r.usablePeakPower * (1000 / (1000 * r.yield) * r.setupFactor);
+        }
+        return this.maxPvArea = maxPvArea;
     };
 };
 

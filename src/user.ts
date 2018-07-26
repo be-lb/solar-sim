@@ -27,9 +27,13 @@ class User {
         /**
         * Compute the annual electric consumption, in kWh/year
         */
-        return this.annualElectricityConsumption =
-        2036 // TODO Is it still needed to compute the consumption based on hasPvHeater and hasBattery?
-        ;
+        let annualElectricityConsumption: number = this.annualElectricityConsumption;
+        if (annualElectricityConsumption === 2036) { // default value
+            if (this.hasPvHeater) {
+                annualElectricityConsumption = annualElectricityConsumption + constants.ELECTRIC_WATER_HEATER_FACTOR;
+            }
+        }
+        return this.annualElectricityConsumption = annualElectricityConsumption;
     };
     computeSelfConsumptionRate () {
         /**

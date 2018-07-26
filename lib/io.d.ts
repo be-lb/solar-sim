@@ -34,6 +34,7 @@ interface mainOutputs {
 }
 interface setupOutputs {
     'area': number;
+    'maxArea': number;
     'power': number;
     'obstacleRate': number;
 }
