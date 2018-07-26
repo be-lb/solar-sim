@@ -88,6 +88,11 @@ export const MAINTENANCE_COST_FACTOR = 0.0075;
 */
 export const FLAT_ROOF_TILT : number = 0.05;
 
+/**
+* Low limit for roof productivity (kWh/kWc)
+*/
+export const LOW_PRODUCTIVITY_LIMIT: number = 800
+
 
 /**
 * Mapping of the PV yield given the photovoltaic technology (Polycristallin, Monocristallin, Monocristallin high performance).

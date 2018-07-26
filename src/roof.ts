@@ -56,17 +56,24 @@ class Roof {
         /**
         * @param rawArea - raw area of the roof (m²)
         * @param tilt - tilt of the roof (°)
+        * @param productivity - solar productivity of the roof (kWh/kWc)
         * @param obstacleRate - percentage of obstacle where solar panels cannot be installed
         * Compute a usable area based on the obstacle rate of the building
         */
+        let isAboveProductivityLimit: number;
         if (this.usableArea === undefined) {
+            if (this.productivity < constants.LOW_PRODUCTIVITY_LIMIT) {
+                isAboveProductivityLimit = 0;
+            } else {
+                isAboveProductivityLimit = 1;
+            }
             if (this.tilt < constants.FLAT_ROOF_TILT) { // flat roof
-              return this.usableArea =
-              0.57 * this.rawArea * (1 - this.building.obstacleRate);
-          } else {
-              return this.usableArea =
-              this.rawArea * (1 - this.building.obstacleRate);
-          }
+                return this.usableArea =
+                isAboveProductivityLimit * 0.57 * this.rawArea * (1 - this.building.obstacleRate);
+            } else {
+                return this.usableArea =
+                isAboveProductivityLimit * this.rawArea * (1 - this.building.obstacleRate);
+            }
         } else {
             return this.usableArea;
         }
