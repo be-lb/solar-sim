@@ -13,7 +13,8 @@ import { Roof } from './roof';
 import { User } from './user';
 import { Financial, computeActualAnnualProduction, computeFinancialAmortization, getFinancialYearN, computeActualReturnTime, getInstallationCost } from './financial';
 import { computeSavedCO2Emissions } from './environmental';
-import { inputs, outputs } from './io';
+import { inputs, outputs, thermicOutputs } from './io';
+import { Thermic } from './thermic';
 
 const solarSim =
     (inputs: inputs):
@@ -87,7 +88,40 @@ const solarSim =
             // 'finance': {
             'totalGain25Y': financialYear25.CVAmountYearN + financialYear25.selfConsumptionAmountYearN,
             'returnTime': actualReturnTime,
-        }
-    }
+      }
+}
 
-export { solarSim };
+
+const thermicSolarSim =
+    (inputs: inputs):
+        thermicOutputs => {
+        /**
+        * @param inputs
+        * @return thermicOutputs
+        * Main function for thermic panels
+        */
+
+        let b = new Building(inputs.obstacleRate);
+
+        for (let r of inputs.roofs) {
+            let roof = new Roof(r.area, r.productivity, r.tilt, 'NA', b);
+            b.roofs.push(roof);
+        }
+        console.log(b);
+
+        let t = new Thermic(inputs.thermicHouseholdPerson, inputs.thermicLiterByPersonByDay, inputs.thermicHotWaterProducer, inputs.thermicCost, inputs.thermicAnnualMaintenanceCost, inputs.thermicMaintenanceRate, inputs.thermicGrant)
+        console.log(t);
+
+        //let financialYearN = getFinancialYearN(b, f, inputs.nYears, inputs.currentYear);
+        // gain = financialYearN.gain
+
+        return {
+            'gain': -99999,
+            'productionPriceWithSubsidies': -99999,
+            'productionPriceWithoutSubsidies': -99999,
+            'returnTime': -99999
+        }
+}
+
+
+export { solarSim, thermicSolarSim };

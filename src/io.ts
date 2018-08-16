@@ -6,11 +6,16 @@ interface roof {
     [key: string]: any;
 }
 
-
 export type PVTechnologyEnum =
     | 'poly'
     | 'mono'
     | 'mono_high'
+    ;
+
+export type thermicHotWaterProducerEnum =
+    | 'electric'
+    | 'fuel'
+    | 'gas'
     ;
 
 interface inputs {
@@ -33,6 +38,13 @@ interface inputs {
     'chargeShift': boolean;
     'pvHeater': boolean;
     'battery': boolean;
+    'thermicHouseholdPerson': number;
+    'thermicLiterByPersonByDay': number;
+    'thermicHotWaterProducer': thermicHotWaterProducerEnum;
+    'thermicCost': number;
+    'thermicAnnualMaintenanceCost': number;
+    'thermicMaintenanceRate': number;
+    'thermicGrant': number;
 }
 
 interface mainOutputs {
@@ -69,6 +81,13 @@ interface financeOutputs {
 
 type outputs = mainOutputs & setupOutputs & energyOutputs & financeOutputs;
 
+interface thermicOutputs {
+    'gain': number,
+    'productionPriceWithSubsidies': number,
+    'productionPriceWithoutSubsidies': number,
+    'returnTime': number
+};
+
 const inputsFactory = (
     roofs: roof[], /* required */
     pvTechnology: PVTechnologyEnum = 'poly',  /* required */
@@ -76,12 +95,12 @@ const inputsFactory = (
     currentYear = 2018, /* default */
     elecSellingPrice = 0.03, /* default */
     CVPrice = 85, /* default */
-    pvArea = -9999, /* default */
+    pvArea = -9999, /* computed or inputed */
     annualConsumptionKWh = 2036, /* average according to brugel */
-    installationPrice = -9999, /*default */
+    installationPrice = -9999, /* computed or inputed */
     obstacleRate = 0.2, /*default */
     VATrate = 0.06, /*default */
-    annualMaintenanceCost = -9999, /*default */
+    annualMaintenanceCost = -9999, /* computed or inputed */
     loanPeriod = 5, /*default */
     loanRate = 0.01, /*default */
     loan = false, /*default */
@@ -89,6 +108,13 @@ const inputsFactory = (
     chargeShift = false, /*default */
     pvHeater = false, /*default */
     battery = false, /*default */
+    thermicHouseholdPerson = 5, /*default */
+    thermicLiterByPersonByDay = 30, /*default */
+    thermicHotWaterProducer: thermicHotWaterProducerEnum = 'electric', /*default */
+    thermicCost = -9999, /* computed or inputed */
+    thermicAnnualMaintenanceCost = -9999, /* computed or inputed */
+    thermicMaintenanceRate = 3, /*default */
+    thermicGrant = 2500 /*default */
 ): inputs => {
     /**
     * @param roofs - Array of roof objects
@@ -114,7 +140,14 @@ const inputsFactory = (
         chargeShift: chargeShift,
         pvHeater: pvHeater,
         battery: battery,
+        thermicHouseholdPerson: thermicHouseholdPerson,
+        thermicLiterByPersonByDay: thermicLiterByPersonByDay,
+        thermicHotWaterProducer: thermicHotWaterProducer,
+        thermicCost: thermicCost,
+        thermicAnnualMaintenanceCost: thermicAnnualMaintenanceCost,
+        thermicMaintenanceRate: thermicMaintenanceRate,
+        thermicGrant: thermicGrant
     }
 };
 
-export { inputs, outputs, inputsFactory, roof };
+export { inputs, outputs, thermicOutputs, inputsFactory, roof };

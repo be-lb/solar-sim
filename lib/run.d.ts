@@ -1,3 +1,4 @@
-import { inputs, outputs } from './io';
+import { inputs, outputs, thermicOutputs } from './io';
 declare const solarSim: (inputs: inputs) => outputs;
-export { solarSim };
+declare const thermicSolarSim: (inputs: inputs) => thermicOutputs;
+export { solarSim, thermicSolarSim };

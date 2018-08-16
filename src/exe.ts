@@ -26,6 +26,13 @@ axios.get('../src/data.json')
             chargeShift: false,
             pvHeater: false,
             battery: false,
+            thermicHouseholdPerson: 5,
+            thermicLiterByPersonByDay: 30,
+            thermicHotWaterProducer: 'electric',
+            thermicCost: -9999,
+            thermicAnnualMaintenanceCost: -9999,
+            thermicMaintenanceRate: 3,
+            thermicGrant: 2500
         }
 
         let results = solarSim(input);
