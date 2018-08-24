@@ -14,7 +14,7 @@ import { User } from './user';
 import { Financial, computeActualAnnualProduction, computeFinancialAmortization, getFinancialYearN, computeActualReturnTime, getInstallationCost } from './financial';
 import { computeSavedCO2Emissions } from './environmental';
 import { inputs, outputs, thermicOutputs } from './io';
-import { Thermic } from './thermic';
+import { Thermic, computeThermicGain, computeProductionPrices, computeActualReturnTimeThermic } from './thermic';
 
 const solarSim =
     (inputs: inputs):
@@ -27,7 +27,7 @@ const solarSim =
         let b = new Building(inputs.obstacleRate);
 
         for (let r of inputs.roofs) {
-            let roof = new Roof(r.area, r.productivity, r.tilt, inputs.pvTechnology, b);
+            let roof = new Roof(r.area, r.productivity, r.tilt, r.azimuth, inputs.pvTechnology, b);
             b.roofs.push(roof);
         }
         b.pvArea = inputs.pvArea;
@@ -104,22 +104,28 @@ const thermicSolarSim =
         let b = new Building(inputs.obstacleRate);
 
         for (let r of inputs.roofs) {
-            let roof = new Roof(r.area, r.productivity, r.tilt, 'NA', b);
+            let roof = new Roof(r.area, r.productivity, r.tilt, r.azimuth, 'NA', b);
             b.roofs.push(roof);
         }
-        console.log(b);
 
-        let t = new Thermic(inputs.thermicHouseholdPerson, inputs.thermicLiterByPersonByDay, inputs.thermicHotWaterProducer, inputs.thermicCost, inputs.thermicAnnualMaintenanceCost, inputs.thermicMaintenanceRate, inputs.thermicGrant)
-        console.log(t);
+        let t = new Thermic(inputs.thermicHouseholdPerson, inputs.thermicLiterByPersonByDay, inputs.thermicHotWaterProducer, inputs.thermicCost, inputs.thermicAnnualMaintenanceCost, inputs.thermicMaintenanceRate, inputs.thermicGrant, inputs.VATrate)
+        t.computeCost();
+        t.computeAnnualMaintenanceCost();
+        t.building = b;
+        t.computeSolarProduction();
+        t.computePumpConsumption();
 
-        //let financialYearN = getFinancialYearN(b, f, inputs.nYears, inputs.currentYear);
-        // gain = financialYearN.gain
+        let f = new Financial(-9999, -9999, inputs.VATrate, -9999, true, 3, 0.018);
+
+        let gain = computeThermicGain(t, f, 25);
+        let productionPrices = computeProductionPrices(t, 25);
+        let actualReturnTime = computeActualReturnTimeThermic(t, f, 25);
 
         return {
-            'gain': -99999,
-            'productionPriceWithSubsidies': -99999,
-            'productionPriceWithoutSubsidies': -99999,
-            'returnTime': -99999
+            'gain': gain,
+            'productionPriceWithSubsidies': productionPrices.productionPriceWithSubsidies,
+            'productionPriceWithoutSubsidies': productionPrices.productionPriceWithoutSubsidies,
+            'returnTime': actualReturnTime
         }
 }
 

@@ -28,3 +28,15 @@ export declare const WASHING_MACHINE_FACTOR = 600;
 export declare const ELECTRIC_WATER_HEATER_FACTOR = 2336;
 export declare const ELECTRIC_HEATING_FACTOR = 16500;
 export declare const SELF_PRODUCTION: selfProduction;
+export declare const THERMIC_INSTALLATION_COST = 6000;
+export declare const THERMIC_MAINTENANCE_COST = 100;
+export declare const MAX_LITER_PER_DAY = 210;
+export declare const MIN_THERMIC_AREA = 5;
+interface HotWaterObjects {
+    [key: string]: number;
+}
+export declare const HOT_WATER_PRODUCER_YIELD: HotWaterObjects;
+export declare const HOT_WATER_ENERGY_COST: HotWaterObjects;
+export declare const HOT_WATER_ENERGY_COST_INDEX: HotWaterObjects;
+export declare const THERMIC_PRODUCTION: selfProduction;
+export {};

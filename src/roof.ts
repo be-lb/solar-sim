@@ -10,6 +10,7 @@ class Roof {
     usableArea: number;
     productivity: number;
     tilt: number;
+    azimuth: number;
     rawPeakPower: number;
     usablePeakPower: number;
     technology: string;
@@ -18,10 +19,11 @@ class Roof {
     yield: number;
     building: Building;
     roofProduction: number;
-    constructor(the_raw_area: number, the_productivity: number, the_tilt: number, the_technology:string, b: Building) {
+    constructor(the_raw_area: number, the_productivity: number, the_tilt: number, the_azimuth: number, the_technology:string, b: Building) {
         this.rawArea = the_raw_area;
         this.productivity = the_productivity;
         this.tilt = the_tilt;
+        this.azimuth = the_azimuth;
         this.technology = the_technology;
         this.yield = this.getPVYield();
         this.setupFactor = this.getSetupFactor();

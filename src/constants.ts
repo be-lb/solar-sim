@@ -161,3 +161,110 @@ export const SELF_PRODUCTION : selfProduction = {
         "3": 0.69,
     }
 }
+
+
+/**
+*
+* thermic
+*
+*/
+
+export const THERMIC_INSTALLATION_COST = 6000; /* € */
+export const THERMIC_MAINTENANCE_COST = 100; /* € */
+export const MAX_LITER_PER_DAY = 210; /* L */
+export const MIN_THERMIC_AREA = 5; /* m² */
+
+/**
+* Mapping of the external energy supply yield for the ECS given the external energy source
+*/
+interface HotWaterObjects {
+    [key: string]: number;
+};
+
+export const HOT_WATER_PRODUCER_YIELD : HotWaterObjects = {
+    'gas': 0.70,
+    'fuel': 0.55,
+    'electric' : 0.95
+};
+
+export const HOT_WATER_ENERGY_COST : HotWaterObjects = {
+    'gas': 0.080,
+    'fuel': 0.081,
+    'electric' : 0.267
+};
+
+export const HOT_WATER_ENERGY_COST_INDEX : HotWaterObjects = {
+    'gas': 0.054,
+    'fuel': 0.099,
+    'electric' : 0.04
+};
+
+
+export const THERMIC_PRODUCTION : selfProduction = {
+   "60": {
+      "90": 519,
+      "112.5": 534,
+      "135": 546,
+      "157.5": 553,
+      "180": 555,
+      "202.5": 553,
+      "225": 546,
+      "247.5": 534,
+      "270": 519,
+   },
+   "90": {
+      "90": 742,
+      "112.5": 767,
+      "135": 787,
+      "157.5": 800,
+      "180": 804,
+      "202.5": 800,
+      "225": 787,
+      "247.5": 767,
+      "270": 742,
+   },
+   "120": {
+      "90": 932,
+      "112.5": 968,
+      "135": 997,
+      "157.5": 1015,
+      "180": 1022,
+      "202.5": 1015,
+      "225": 997,
+      "247.5": 968,
+      "270": 932,
+   },
+   "150": {
+      "90": 1097,
+      "112.5": 1145,
+      "135": 1183,
+      "157.5": 1207,
+      "180": 1215,
+      "202.5": 1207,
+      "225": 1183,
+      "247.5": 1145,
+      "270": 1097,
+   },
+   "180": {
+      "90": 1262,
+      "112.5": 1321,
+      "135": 1368,
+      "157.5": 1398,
+      "180": 1408,
+      "202.5": 1398,
+      "225": 1368,
+      "247.5": 1321,
+      "270": 1262,
+   },
+   "210": {
+      "90": 1364,
+      "112.5": 1432,
+      "135": 1487,
+      "157.5": 1522,
+      "180": 1534,
+      "202.5": 1522,
+      "225": 1487,
+      "247.5": 1432,
+      "270": 1364,
+   }
+}

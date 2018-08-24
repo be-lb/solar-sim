@@ -26,7 +26,7 @@ describe('environmental', function() {
     });
     it('should return true - energeticCost', function() {
       var b = new building.Building(0.2);
-      var r = new roof.Roof(30, 950, 30, 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 180, 'poly', b);
       b.roofs = [r];
       b.computeProduction();
       b.computePower();
@@ -37,7 +37,7 @@ describe('environmental', function() {
     });
     it('should return true - panels costs', function() {
       var b = new building.Building(0.2);
-      var r = new roof.Roof(30, 950, 30, 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 180, 'poly', b);
       b.roofs = [r];
       b.computeProduction();
       b.computePower();

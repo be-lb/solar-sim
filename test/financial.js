@@ -53,7 +53,7 @@ describe('Financial', function() {
     });
     it('should return true - selfConsumptionAmount', function() {
       var b = new building.Building(0.2);
-      var r = new roof.Roof(30, 950, 30, 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 180, 'poly', b);
       b.roofs = [r];
       b.computeProduction();
       b.computePower();
@@ -77,7 +77,7 @@ describe('Financial', function() {
     });
     it('should return true - CVAmount', function() {
       var b = new building.Building(0.2);
-      var r = new roof.Roof(30, 950, 30, 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 180, 'poly', b);
       b.roofs = [r];
       b.computeProduction();
       b.computePower();
@@ -99,7 +99,7 @@ describe('Financial', function() {
     });
     it('should return true - balance', function() {
       var b = new building.Building(0.2);
-      var r = new roof.Roof(30, 950, 30, 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 180, 'poly', b);
       b.roofs = [r];
       b.computeProduction();
       b.computePower();
@@ -122,7 +122,7 @@ describe('Financial', function() {
     });
     it('should return true - netActualValueByYear', function() {
       var b = new building.Building(0.2);
-      var r = new roof.Roof(30, 950, 30, 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 180, 'poly', b);
       b.roofs = [r];
       b.computeProduction();
       b.computePower();
@@ -145,7 +145,7 @@ describe('Financial', function() {
     });
     it('should return true - actualReturnTimeByYear', function() {
       var b = new building.Building(0.2);
-      var r = new roof.Roof(30, 950, 30, 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 180, 'poly', b);
       b.roofs = [r];
       b.computeProduction();
       b.computePower();
@@ -169,7 +169,7 @@ describe('Financial', function() {
     });
     it('should return true - marginalActualReturnTimeByYear', function() {
       var b = new building.Building(0.2);
-      var r = new roof.Roof(30, 950, 30, 'poly', b);
+      var r = new roof.Roof(30, 950, 30, 180, 'poly', b);
       b.roofs = [r];
       b.computeProduction();
       b.computePower();

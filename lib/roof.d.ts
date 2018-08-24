@@ -7,6 +7,7 @@ declare class Roof {
     usableArea: number;
     productivity: number;
     tilt: number;
+    azimuth: number;
     rawPeakPower: number;
     usablePeakPower: number;
     technology: string;
@@ -15,7 +16,7 @@ declare class Roof {
     yield: number;
     building: Building;
     roofProduction: number;
-    constructor(the_raw_area: number, the_productivity: number, the_tilt: number, the_technology: string, b: Building);
+    constructor(the_raw_area: number, the_productivity: number, the_tilt: number, the_azimuth: number, the_technology: string, b: Building);
     getSetupFactor(): number;
     getPVYield(): number;
     computeRoofUsableArea(): number;
