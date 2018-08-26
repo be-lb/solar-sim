@@ -114,8 +114,7 @@ const thermicSolarSim =
         t.building = b;
         t.computeSolarProduction();
         t.computePumpConsumption();
-
-        let f = new Financial(-9999, -9999, inputs.VATrate, -9999, true, 3, 0.018);
+        let f = new Financial(-9999, -9999, inputs.VATrate, -9999, inputs.loan, 3, 0.018);
 
         let gain = computeThermicGain(t, f, 25);
         let productionPrices = computeProductionPrices(t, 25);

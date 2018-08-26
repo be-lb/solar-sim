@@ -28,10 +28,15 @@ declare class Thermic {
     computeSolarProduction(): number;
     computePumpConsumption(): number;
 }
+declare const getAzimuthBestRoof: (b: Building) => number;
+interface Balances {
+    [key: string]: number[];
+}
+declare const computeBalances: (t: Thermic, fin: Financial, nYears: number) => Balances;
 declare const computeThermicGain: (t: Thermic, fin: Financial, nYears: number) => number;
 declare const computeActualReturnTimeThermic: (t: Thermic, fin: Financial, nYears: number) => number;
 interface productionPrices {
     [key: string]: number;
 }
 declare const computeProductionPrices: (t: Thermic, nYears: number) => productionPrices;
-export { Thermic, computeThermicGain, computeActualReturnTimeThermic, computeProductionPrices };
+export { Thermic, getAzimuthBestRoof, computeBalances, computeThermicGain, computeActualReturnTimeThermic, computeProductionPrices };

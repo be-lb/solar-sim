@@ -40,7 +40,7 @@ let fullInputs: inputs = {
     annualMaintenanceCost: -9999,
     loanPeriod: 5,
     loanRate: 0.01,
-    loan: true,
+    loan: false,
     energySobriety: true,
     chargeShift: false,
     pvHeater: true,

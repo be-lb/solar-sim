@@ -156,7 +156,7 @@ const computeBalances =
         let actualEnergyBuyingPrice: number = computeActualPrice(t.hotWaterEnergyCost, t.hotWaterEnergyCostIndex, i); // line 3
         hotWaterConsumption.push(-t.netDemand/t.producerYield * actualEnergyBuyingPrice);
         VANminusConsoWithoutSolar.push(computeNetPresentValue(constants.DISCOUNT_RATE, hotWaterConsumption)); // line 26
-        //console.log(VANminusConsoWithoutSolar); // line 26 OK
+        //console.log(VANminusConsoWithoutSolar); // line 26 OK OK
 
         // Costs with thermic solar system
         let maintenanceCosts: number = 0;
@@ -178,11 +178,11 @@ const computeBalances =
         if (i === 1) { grant = t.grant};
 
         let hotWaterProducerCosts: number = -1 * ((t.netDemand - t.solarProduction) / t.producerYield) * actualEnergyBuyingPrice; // line 28
-        //console.log(hotWaterProducerCosts); // line 28 OK
+        //console.log(hotWaterProducerCosts); // line 28 OK OK
         let hotWaterElectricCosts: number = -1 * t.pumpConsumption * actualEnergyBuyingPrice; // line 29
-        //console.log(hotWaterElectricCosts); // line 29 OK
+        //console.log(hotWaterElectricCosts); // line 29 OK OK
         hotWaterConsumptionSolar.push(maintenanceCosts + loanCosts + grant + hotWaterProducerCosts + hotWaterElectricCosts); // line 30
-        //console.log(hotWaterConsumptionSolar); //line 30 OK
+        //console.log(hotWaterConsumptionSolar); //line 30 OK sauf si loan
         VANminusConsoWithSolar.push(computeNetPresentValue(constants.DISCOUNT_RATE, hotWaterConsumptionSolar) + installationCost); // line 32
         //console.log(VANminusConsoWithSolar); // line 32 OK
     }
@@ -192,7 +192,6 @@ const computeBalances =
         'VANminusConsoWithoutSolar': VANminusConsoWithoutSolar
     }
 };
-
 
 const computeThermicGain =
     (t: Thermic, fin: Financial, nYears: number): number => {
@@ -267,4 +266,4 @@ const computeProductionPrices =
     }
 }
 
-export { Thermic, computeThermicGain, computeActualReturnTimeThermic, computeProductionPrices };
+export { Thermic, getAzimuthBestRoof, computeBalances, computeThermicGain, computeActualReturnTimeThermic, computeProductionPrices };
