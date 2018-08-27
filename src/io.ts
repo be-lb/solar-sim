@@ -40,6 +40,7 @@ interface inputs {
     'battery': boolean;
     'thermicHouseholdPerson': number;
     'thermicLiterByPersonByDay': number;
+    'thermicLiterByDay': number;
     'thermicHotWaterProducer': thermicHotWaterProducerEnum;
     'thermicCost': number;
     'thermicAnnualMaintenanceCost': number;
@@ -82,7 +83,10 @@ interface financeOutputs {
 type outputs = mainOutputs & setupOutputs & energyOutputs & financeOutputs;
 
 interface thermicOutputs {
+    'installationCost': number,
+    'grant': number,
     'gain': number,
+    'annualProduction': number,
     'productionPriceWithSubsidies': number,
     'productionPriceWithoutSubsidies': number,
     'returnTime': number
@@ -110,6 +114,7 @@ const inputsFactory = (
     battery = false, /*default */
     thermicHouseholdPerson = 5, /*default */
     thermicLiterByPersonByDay = 30, /*default */
+    thermicLiterByDay = 150, /*default */
     thermicHotWaterProducer: thermicHotWaterProducerEnum = 'electric', /*default */
     thermicCost = -9999, /* computed or inputed */
     thermicAnnualMaintenanceCost = -9999, /* computed or inputed */
@@ -142,6 +147,7 @@ const inputsFactory = (
         battery: battery,
         thermicHouseholdPerson: thermicHouseholdPerson,
         thermicLiterByPersonByDay: thermicLiterByPersonByDay,
+        thermicLiterByDay: thermicLiterByDay,
         thermicHotWaterProducer: thermicHotWaterProducer,
         thermicCost: thermicCost,
         thermicAnnualMaintenanceCost: thermicAnnualMaintenanceCost,

@@ -49,6 +49,7 @@ let fullInputs: inputs = {
     battery: false,
     thermicHouseholdPerson: 5,
     thermicLiterByPersonByDay: 30,
+    thermicLiterByDay: 150,
     thermicHotWaterProducer: 'electric',
     thermicCost: -9999,
     thermicAnnualMaintenanceCost: -9999,

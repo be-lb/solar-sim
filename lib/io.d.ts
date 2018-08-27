@@ -28,6 +28,7 @@ interface inputs {
     'battery': boolean;
     'thermicHouseholdPerson': number;
     'thermicLiterByPersonByDay': number;
+    'thermicLiterByDay': number;
     'thermicHotWaterProducer': thermicHotWaterProducerEnum;
     'thermicCost': number;
     'thermicAnnualMaintenanceCost': number;
@@ -57,10 +58,13 @@ interface financeOutputs {
 }
 declare type outputs = mainOutputs & setupOutputs & energyOutputs & financeOutputs;
 interface thermicOutputs {
+    'installationCost': number;
+    'grant': number;
     'gain': number;
+    'annualProduction': number;
     'productionPriceWithSubsidies': number;
     'productionPriceWithoutSubsidies': number;
     'returnTime': number;
 }
-declare const inputsFactory: (roofs: roof[], pvTechnology?: PVTechnologyEnum, nYears?: number, currentYear?: number, elecSellingPrice?: number, CVPrice?: number, pvArea?: number, annualConsumptionKWh?: number, installationPrice?: number, obstacleRate?: number, VATrate?: number, annualMaintenanceCost?: number, loanPeriod?: number, loanRate?: number, loan?: boolean, energySobriety?: boolean, chargeShift?: boolean, pvHeater?: boolean, battery?: boolean, thermicHouseholdPerson?: number, thermicLiterByPersonByDay?: number, thermicHotWaterProducer?: thermicHotWaterProducerEnum, thermicCost?: number, thermicAnnualMaintenanceCost?: number, thermicMaintenanceRate?: number, thermicGrant?: number) => inputs;
+declare const inputsFactory: (roofs: roof[], pvTechnology?: PVTechnologyEnum, nYears?: number, currentYear?: number, elecSellingPrice?: number, CVPrice?: number, pvArea?: number, annualConsumptionKWh?: number, installationPrice?: number, obstacleRate?: number, VATrate?: number, annualMaintenanceCost?: number, loanPeriod?: number, loanRate?: number, loan?: boolean, energySobriety?: boolean, chargeShift?: boolean, pvHeater?: boolean, battery?: boolean, thermicHouseholdPerson?: number, thermicLiterByPersonByDay?: number, thermicLiterByDay?: number, thermicHotWaterProducer?: thermicHotWaterProducerEnum, thermicCost?: number, thermicAnnualMaintenanceCost?: number, thermicMaintenanceRate?: number, thermicGrant?: number) => inputs;
 export { inputs, outputs, thermicOutputs, inputsFactory, roof };

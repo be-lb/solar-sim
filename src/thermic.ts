@@ -24,6 +24,7 @@ class Thermic {
     constructor(
         the_household_person: number,
         the_liter_by_person_by_day:number,
+        the_liter_by_day: number,
         the_hot_water_producer: string,
         the_cost: number,
         the_annual_maintenance_cost: number,
@@ -33,13 +34,13 @@ class Thermic {
     ){
         this.householdPerson = the_household_person;
         this.literByPersonByDay = the_liter_by_person_by_day;
+        this.literByDay = the_liter_by_day;
         this.hotWaterProducer = the_hot_water_producer;
         this.cost = the_cost;
         this.annualMaintenanceCost = the_annual_maintenance_cost;
         this.maintenanceRate = the_maintenance_rate;
         this.grant = the_grant;
         this.VATrate = the_VAT_rate;
-        this.literByDay = this.computeLiterByDay();
         this.producerYield = this.computeProducerYield();
         this.netDemand = this.computeNetDemand();
         this.hotWaterEnergyCost = this.computeHotWaterEnergyCost();
@@ -60,7 +61,11 @@ class Thermic {
         }
     }
     computeLiterByDay () {
-        return this.literByDay = Math.min(this.householdPerson * this.literByPersonByDay, constants.MAX_LITER_PER_DAY);
+        if (this.literByDay === undefined) {
+            return this.literByDay = Math.min(this.householdPerson * this.literByPersonByDay, constants.MAX_LITER_PER_DAY);
+        } else {
+            return this.literByDay;
+        }
     }
     computeProducerYield () {
         return this.producerYield = constants.HOT_WATER_PRODUCER_YIELD[this.hotWaterProducer];

@@ -52,7 +52,7 @@ const solarSim =
         f.computePVCost();
         f.computeAnnualMaintenanceCost();
         f.computeCVRate();
-        
+
         // 1) Financial results
         // 1.1) Compute results Year N and 25
         let financialYearN = getFinancialYearN(b, f, inputs.nYears, inputs.currentYear);
@@ -108,7 +108,7 @@ const thermicSolarSim =
             b.roofs.push(roof);
         }
 
-        let t = new Thermic(inputs.thermicHouseholdPerson, inputs.thermicLiterByPersonByDay, inputs.thermicHotWaterProducer, inputs.thermicCost, inputs.thermicAnnualMaintenanceCost, inputs.thermicMaintenanceRate, inputs.thermicGrant, inputs.VATrate)
+        let t = new Thermic(inputs.thermicHouseholdPerson, inputs.thermicLiterByPersonByDay, inputs.thermicLiterByDay, inputs.thermicHotWaterProducer, inputs.thermicCost, inputs.thermicAnnualMaintenanceCost, inputs.thermicMaintenanceRate, inputs.thermicGrant, inputs.VATrate)
         t.computeCost();
         t.computeAnnualMaintenanceCost();
         t.building = b;
@@ -121,7 +121,10 @@ const thermicSolarSim =
         let actualReturnTime = computeActualReturnTimeThermic(t, f, 25);
 
         return {
+            'installationCost': t.cost,
+            'grant': t.grant,
             'gain': gain,
+            'annualProduction': t.solarProduction,
             'productionPriceWithSubsidies': productionPrices.productionPriceWithSubsidies,
             'productionPriceWithoutSubsidies': productionPrices.productionPriceWithoutSubsidies,
             'returnTime': actualReturnTime
