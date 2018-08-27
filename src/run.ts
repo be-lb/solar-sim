@@ -52,7 +52,7 @@ const solarSim =
         f.computePVCost();
         f.computeAnnualMaintenanceCost();
         f.computeCVRate();
-        console.log(f)
+        
         // 1) Financial results
         // 1.1) Compute results Year N and 25
         let financialYearN = getFinancialYearN(b, f, inputs.nYears, inputs.currentYear);

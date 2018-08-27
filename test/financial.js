@@ -134,7 +134,8 @@ describe('Financial', function() {
 
       var f = new financial.Financial(0.03, 85, 0.06, 0, false, 5, 0.01);
       f.building = b;
-      f.computePVCost();
+      //f.computePVCost();
+      f.PVCost = 4680;
       f.computeAnnualMaintenanceCost();
       f.computeCVRate();
 
