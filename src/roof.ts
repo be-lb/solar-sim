@@ -104,7 +104,7 @@ class Roof {
     };
     computeRoofProduction () {
         /**
-        * @param productivity - solar productivity (kWh/kWc)
+        * @param productivity - solar productivity (kWh/kWc) by m²?
         * @param PeakPower - peak power of the potential installation (kWc)
         * Compute the production (kWh) of the roof given the peak power and the roof productivity
         */

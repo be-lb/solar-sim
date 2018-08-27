@@ -18,7 +18,7 @@ import {roof, inputs} from './io';
 //     {'area': 300, 'productivity': 50, 'tilt': 30, 'azimuth': 150}
 // ];
 let roofs: roof[] = [
-    {'area': 24, 'productivity': 950, 'tilt': 35, 'azimuth': 110}
+    {'area': 24/0.8, 'productivity': 950, 'tilt': 35, 'azimuth': 110}
 ];
 
 // let inputs = inputsFactory(roofs);
@@ -37,16 +37,16 @@ let fullInputs: inputs = {
     pvArea: -9999,
     annualConsumptionKWh: 2036,
     installationPrice: -9999,
-    obstacleRate: 0.3,
+    obstacleRate: 0.2,
     VATrate: 0.06,
     annualMaintenanceCost: -9999,
     loanPeriod: 5,
     loanRate: 0.01,
     loan: false,
-    energySobriety: true,
+    energySobriety: false,
     chargeShift: false,
-    pvHeater: true,
-    battery: true,
+    pvHeater: false,
+    battery: false,
     thermicHouseholdPerson: 5,
     thermicLiterByPersonByDay: 30,
     thermicHotWaterProducer: 'electric',

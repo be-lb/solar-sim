@@ -181,15 +181,15 @@ describe('Financial', function() {
 
       var f = new financial.Financial(0.03, 85, 0.06, -9999, false, 5, 0.01);
       f.building = b;
-      f.computePVCost();
+      //f.computePVCost();
+      f.PVCost = 4680;
       f.computeAnnualMaintenanceCost();
       f.computeCVRate();
       f.annualMaintenanceCost = 0;
 
       var nYears = 25;
       var currentYear = 2018;
-      //var expected = [3.54, 2.61, 2.37, 1.41, 0.42, 0.60, 1.65, 2.73, 3.84, 4.99, 18.82, 20.02, 21.24, 22.46, 6.09, 20.01, 21.23, 22.45, 23.69, 24.95, 26.21, 27.49, 28.78, 30.08, 31.40];
-      var expected = [3.37, 2.43, 2.13, 1.16, 0.17, 0.86, 1.92, 3.01, 4.13, 5.29, 21.43, 22.63, 23.84, 25.07, 14.24, 24.68, 25.91, 27.16, 28.42, 29.69, 30.97, 32.26, 33.57, 34.88, 36.21];
+      var expected = [3.54, 2.61, 2.37, 1.41, 0.42, 0.60, 1.65, 2.73, 3.84, 4.99, 18.82, 20.02, 21.24, 22.46, 6.09, 20.01, 21.23, 22.45, 23.69, 24.95, 26.21, 27.49, 28.78, 30.08, 31.40];
       expect(financial.computeFinancialAmortization(b, f, nYears, currentYear).marginalActualReturnTimeByYear.map(x => Math.round(x*100)/100)).to.eql(expected);
     });
     it('should return true - actualReturnTime', function() {
