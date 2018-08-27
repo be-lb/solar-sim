@@ -104,6 +104,16 @@ export const PV_YIELD : PVYieldObject = {
 };
 
 /**
+* Mapping of the PV cost given the photovoltaic technology (Polycristallin, Monocristallin, Monocristallin high performance).
+*/
+export const PV_COST : PVYieldObject = {
+    'poly': 1400,
+    'mono': 1500,
+    'mono_high': 1600
+};
+
+
+/**
 *
 * user
 *

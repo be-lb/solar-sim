@@ -23,6 +23,7 @@ export declare const MAINTENANCE_COST_FACTOR = 0.0075;
 export declare const FLAT_ROOF_TILT: number;
 export declare const LOW_PRODUCTIVITY_LIMIT: number;
 export declare const PV_YIELD: PVYieldObject;
+export declare const PV_COST: PVYieldObject;
 export declare const ANNUAL_CONSUMPTION_BASE = 600;
 export declare const WASHING_MACHINE_FACTOR = 600;
 export declare const ELECTRIC_WATER_HEATER_FACTOR = 2336;

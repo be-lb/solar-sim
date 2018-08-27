@@ -12,12 +12,14 @@ import {solarSim, thermicSolarSim} from './run';
 import {roof, inputs} from './io';
 
 // Example with required parameters only
+// let roofs: roof[] = [
+//     {'area': 5, 'productivity': 1050, 'tilt': 30, 'azimuth': 120},
+//     {'area': 70, 'productivity': 1850, 'tilt': 30, 'azimuth': 110},
+//     {'area': 300, 'productivity': 50, 'tilt': 30, 'azimuth': 150}
+// ];
 let roofs: roof[] = [
-    {'area': 5, 'productivity': 1050, 'tilt': 30, 'azimuth': 120},
-    {'area': 70, 'productivity': 1850, 'tilt': 30, 'azimuth': 110},
-    {'area': 300, 'productivity': 50, 'tilt': 30, 'azimuth': 150}
+    {'area': 24, 'productivity': 950, 'tilt': 35, 'azimuth': 110}
 ];
-
 
 // let inputs = inputsFactory(roofs);
 //
@@ -28,7 +30,7 @@ let roofs: roof[] = [
 let fullInputs: inputs = {
     roofs: roofs,
     pvTechnology: 'poly',
-    nYears: 15,
+    nYears: 10,
     currentYear: 2018,
     elecSellingPrice: 0.03,
     CVPrice: 85,

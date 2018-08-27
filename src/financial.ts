@@ -45,7 +45,10 @@ class Financial {
     }
     computePVCost () {
         if (this.PVCost === undefined) {
-            return this.PVCost = this.building.power * 1500 * (1 + this.VATrate)/(1.06);
+            // TODO-check
+            console.log(constants.PV_COST[this.building.roofs[0].technology]);
+            console.log(this.building.power * constants.PV_COST[this.building.roofs[0].technology] * (1 + this.VATrate)/(1.06));
+            return this.PVCost = this.building.power * constants.PV_COST[this.building.roofs[0].technology] * (1 + this.VATrate)/(1.06);
         } else {
             return this.PVCost;
         }
@@ -252,7 +255,7 @@ const computeFinancialAmortization =
     //console.log(balance); // line 37 OK
     //console.log(netActualValueByYear); //line 38
     //console.log(actualReturnTimeByYear); //line 42 OK
-    //console.log(marginalActualReturnTimeByYear); //line 44 new line 48
+    console.log(marginalActualReturnTimeByYear); //line 44 new line 48
 
     return {
         'selfConsumptionAmount': selfConsumptionAmount,
