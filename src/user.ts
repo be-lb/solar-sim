@@ -73,6 +73,11 @@ class User {
             }
         }
 
+        if (userChoiceKey !== <string>'battery' || userChoiceKey !== <string>'pvHeater' || userChoiceKey != <string>'chargeShift' || userChoiceKey != <string>'energySobriety' || userChoiceKey != <string>'default'){
+            userChoiceKey = 'default';
+            console.log('Error in the selfProduction rate selection!')
+        }
+
         let selfProductionRate = constants.SELF_PRODUCTION[userChoiceKey][ratioKey];
         selfProductionRate = selfProductionRate === undefined ? 0.35 : selfProductionRate; // in case there is a problem
 
