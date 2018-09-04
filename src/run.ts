@@ -50,6 +50,7 @@ const solarSim =
         let f = new Financial(inputs.elecSellingPrice, inputs.CVPrice, inputs.VATrate, inputs.annualMaintenanceCost, inputs.loan, inputs.loanPeriod, inputs.loanRate);
         f.building = b;
         f.computePVCost();
+        f.computeOnduleurCost();
         f.computeAnnualMaintenanceCost();
         f.computeCVRate();
 

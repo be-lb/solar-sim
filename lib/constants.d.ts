@@ -6,7 +6,7 @@ export declare const CO2_EMISSIONS_BY_KWH = 0.456;
 export declare const ENERGETIC_COST_FACTOR: EnergeticCostFactor;
 export declare const BREAKDOWN_COST_FACTOR: BreakdownCostFactorByOrigin;
 export declare const METER_COST = 289;
-export declare const ONDULEUR_COST = 1500;
+export declare const ONDULEUR_COST_FACTOR = 250;
 export declare const ONDULEUR_REPLACEMENT_RATE = 15;
 export declare const REDEVANCE_COST = 65;
 export declare const INFLATION_RATE = 0.02;

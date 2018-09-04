@@ -1,8 +1,6 @@
 import { Building } from './building';
 declare class Financial {
     meterCost: number;
-    onduleurCost: number;
-    onduleurReplacementRate: number;
     redevanceCost: number;
     inflationRate: number;
     elecBuyingPrice: number;
@@ -11,6 +9,8 @@ declare class Financial {
     discountRate: number;
     productionYearlyLossIndex: number;
     CVPrice: number;
+    onduleurCost: number;
+    onduleurReplacementRate: number;
     CVRate: number;
     CVTime: number;
     PVCost: number;
@@ -22,6 +22,7 @@ declare class Financial {
     building: Building;
     constructor(the_elec_selling_price: number, the_CV_price: number, the_VAT_rate: number, the_annual_maintenance_cost: number, has_loan: boolean, the_loan_period: number, the_loan_rate: number);
     computePVCost(): number;
+    computeOnduleurCost(): number;
     computeAnnualMaintenanceCost(): number;
     computeCVRate(): 3 | 2.4;
 }

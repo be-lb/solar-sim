@@ -61,8 +61,8 @@ export const BREAKDOWN_COST_FACTOR : BreakdownCostFactorByOrigin = {
 * financial
 *
 */
-export const METER_COST = 289;
-export const ONDULEUR_COST = 1500;
+export const METER_COST = 289; // € TVAC 21%
+export const ONDULEUR_COST_FACTOR = 250; // 250€ TVAC6% par kWc
 export const ONDULEUR_REPLACEMENT_RATE = 15; // year
 export const REDEVANCE_COST = 65; // €
 export const INFLATION_RATE = 0.02 // %
@@ -105,11 +105,12 @@ export const PV_YIELD : PVYieldObject = {
 
 /**
 * Mapping of the PV cost given the photovoltaic technology (Polycristallin, Monocristallin, Monocristallin high performance).
+* Price HTVA €
 */
 export const PV_COST : PVYieldObject = {
-    'poly': 1400,
-    'mono': 1500,
-    'mono_high': 1600
+    'poly': 1400/1.06,
+    'mono': 1500/1.06,
+    'mono_high': 1600/1.06
 };
 
 

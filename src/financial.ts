@@ -6,8 +6,6 @@ import * as constants from './constants';
 
 class Financial {
     meterCost: number = constants.METER_COST;
-    onduleurCost: number = constants.ONDULEUR_COST;
-    onduleurReplacementRate: number = constants.ONDULEUR_REPLACEMENT_RATE;
     redevanceCost: number = constants.REDEVANCE_COST;
     inflationRate: number = constants.INFLATION_RATE;
     elecBuyingPrice: number = constants.ELEC_BUYING_PRICE;
@@ -16,6 +14,8 @@ class Financial {
     discountRate : number = constants.DISCOUNT_RATE;
     productionYearlyLossIndex: number = constants.PRODUCTION_YEARLY_LOSS_INDEX;
     CVPrice : number;
+    onduleurCost: number;
+    onduleurReplacementRate: number = constants.ONDULEUR_REPLACEMENT_RATE;
     CVRate : number;
     CVTime : number = constants.CV_TIME;
     PVCost: number;
@@ -45,9 +45,16 @@ class Financial {
     }
     computePVCost () {
         if (this.PVCost === undefined) {
-            return this.PVCost = this.building.power * constants.PV_COST[this.building.roofs[0].technology] * (1 + this.VATrate)/(1.06);
+            return this.PVCost = this.building.power * constants.PV_COST[this.building.roofs[0].technology] * (1 + this.VATrate);
         } else {
             return this.PVCost;
+        }
+    }
+    computeOnduleurCost () {
+        if (this.onduleurCost === undefined) {
+            return this.onduleurCost = this.building.power * constants.ONDULEUR_COST_FACTOR * (1 + this.VATrate)/1.06;
+        } else {
+            return this.onduleurCost;
         }
     }
     computeAnnualMaintenanceCost () {
