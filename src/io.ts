@@ -86,6 +86,7 @@ interface thermicOutputs {
     'installationCost': number,
     'grant': number,
     'gain': number,
+    'savedCO2emissions': number,
     'annualProduction': number,
     'productionPriceWithSubsidies': number,
     'productionPriceWithoutSubsidies': number,

@@ -39,5 +39,6 @@ interface HotWaterObjects {
 export declare const HOT_WATER_PRODUCER_YIELD: HotWaterObjects;
 export declare const HOT_WATER_ENERGY_COST: HotWaterObjects;
 export declare const HOT_WATER_ENERGY_COST_INDEX: HotWaterObjects;
+export declare const CO2_EMISSIONS_BY_KWH_THERMIC: HotWaterObjects;
 export declare const THERMIC_PRODUCTION: selfProduction;
 export {};

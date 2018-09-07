@@ -206,18 +206,28 @@ const computeThermicGain =
     /**
     * @param thermic - Thermic
     * @param nYears - number of years
-    * Compute the financial gain (€).
+    * Compute the financial gain (€) of the thermic system which is the energy consumption avoided by the presence of solar panel
     */
     let annualGains:number[] = [];
     let gain:number;
     for (let i = 1; i <= nYears; i++) {
         let actualEnergyBuyingPrice: number = computeActualPrice(t.hotWaterEnergyCost, t.hotWaterEnergyCostIndex, i); // line 3
-        let annualGain: number = (t.netDemand - t.solarProduction)/t.producerYield * actualEnergyBuyingPrice;
+        let annualGain: number = t.solarProduction / t.producerYield * actualEnergyBuyingPrice;
         annualGains.push(annualGain);
     }
 
     gain = sum(annualGains);
     return gain;
+}
+
+const computeThermicEnvironmentalGain =
+    (t: Thermic, nYears: number): number => {
+    /**
+    * @param thermic - Thermic
+    * @param nYears - number of years
+    * Compute the environmental gain (T CO2) as a function of the hot water producer
+    */
+    return t.solarProduction * nYears * constants.CO2_EMISSIONS_BY_KWH_THERMIC[t.hotWaterProducer];
 }
 
 const computeActualReturnTimeThermic =
@@ -253,7 +263,7 @@ const computeActualReturnTimeThermic =
     let actualReturnTime: number = sum(actualReturnTimeByYear) + marginalActualReturnTimeByYear[sum(actualReturnTimeByYear)];
 
     if (isNaN(actualReturnTime)) {
-        actualReturnTime = 25; // NaN value occurs when the actualReturnTime would be > than nYears. We consider 25 years as a maximum value.
+        actualReturnTime = 50; // NaN value occurs when the actualReturnTime would be > than nYears. We consider 50 years as a maximum value.
     }
 
     return actualReturnTime;
@@ -279,4 +289,4 @@ const computeProductionPrices =
     }
 }
 
-export { Thermic, getAzimuthBestRoof, computeBalances, computeThermicGain, computeActualReturnTimeThermic, computeProductionPrices };
+export { Thermic, getAzimuthBestRoof, computeBalances, computeThermicGain, computeThermicEnvironmentalGain, computeActualReturnTimeThermic, computeProductionPrices };

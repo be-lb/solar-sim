@@ -210,6 +210,14 @@ export const HOT_WATER_ENERGY_COST_INDEX : HotWaterObjects = {
     'electric' : 0.04
 };
 
+/**
+* CO2 emissions by kWh of electric energy, in kg/kWh, for different energy source
+*/
+export const CO2_EMISSIONS_BY_KWH_THERMIC : HotWaterObjects = {
+    'gas': 0.201,
+    'fuel': 0.263,
+    'electric': 0.456 // NB: should be equal to CO2_EMISSIONS_BY_KWH
+};
 
 export const THERMIC_PRODUCTION : selfProduction = {
    "60": {

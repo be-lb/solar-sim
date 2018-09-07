@@ -34,9 +34,10 @@ interface Balances {
 }
 declare const computeBalances: (t: Thermic, fin: Financial, nYears: number) => Balances;
 declare const computeThermicGain: (t: Thermic, nYears: number) => number;
+declare const computeThermicEnvironmentalGain: (t: Thermic, nYears: number) => number;
 declare const computeActualReturnTimeThermic: (t: Thermic, fin: Financial, nYears: number) => number;
 interface productionPrices {
     [key: string]: number;
 }
 declare const computeProductionPrices: (t: Thermic, nYears: number) => productionPrices;
-export { Thermic, getAzimuthBestRoof, computeBalances, computeThermicGain, computeActualReturnTimeThermic, computeProductionPrices };
+export { Thermic, getAzimuthBestRoof, computeBalances, computeThermicGain, computeThermicEnvironmentalGain, computeActualReturnTimeThermic, computeProductionPrices };
