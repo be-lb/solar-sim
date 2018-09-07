@@ -355,7 +355,7 @@ const computeActualReturnTime =
     let actualReturnTime: number = sum(actualReturnTimeByYear) + marginalActualReturnTimeByYear[sum(actualReturnTimeByYear)];
 
     if (isNaN(actualReturnTime)) {
-        actualReturnTime = 25; // NaN value occurs when the actualReturnTime would be > than nYears. We consider 25 years as a maximum value.
+        actualReturnTime = 50; // NaN value occurs when the actualReturnTime would be > than nYears. We consider 50 years as a maximum value.
     }
 
     return actualReturnTime;

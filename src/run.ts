@@ -60,7 +60,7 @@ const solarSim =
         let financialYear25 = getFinancialYearN(b, f, 25, inputs.currentYear);
 
         // 1.2) Compute actualized results (counted on 25 years)
-        let financialAmortization = computeFinancialAmortization(b, f, 25, inputs.currentYear);
+        let financialAmortization = computeFinancialAmortization(b, f, 50, inputs.currentYear);
         let actualReturnTimeByYear = financialAmortization.actualReturnTimeByYear;
         let marginalActualReturnTimeByYear = financialAmortization.marginalActualReturnTimeByYear;
         let actualReturnTime = computeActualReturnTime(actualReturnTimeByYear, marginalActualReturnTimeByYear);
