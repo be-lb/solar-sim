@@ -80,6 +80,9 @@ class Thermic {
         return this.hotWaterEnergyCostIndex = constants.HOT_WATER_ENERGY_COST_INDEX[this.hotWaterProducer];
     }
     computeSolarProduction () {
+        /*
+        * annual solar production in kWh/an
+        */
         let solarProduction: number = 0;
         let azimuth = getAzimuthBestRoof(this.building);
         if (azimuth === -9999) {
@@ -199,17 +202,22 @@ const computeBalances =
 };
 
 const computeThermicGain =
-    (t: Thermic, fin: Financial, nYears: number): number => {
+    (t: Thermic, nYears: number): number => {
     /**
     * @param thermic - Thermic
-    * @param financial - Financial
     * @param nYears - number of years
     * Compute the financial gain (€).
     */
+    let annualGains:number[] = [];
+    let gain:number;
+    for (let i = 1; i <= nYears; i++) {
+        let actualEnergyBuyingPrice: number = computeActualPrice(t.hotWaterEnergyCost, t.hotWaterEnergyCostIndex, i); // line 3
+        let annualGain: number = (t.netDemand - t.solarProduction)/t.producerYield * actualEnergyBuyingPrice;
+        annualGains.push(annualGain);
+    }
 
-    let balances = computeBalances(t, fin, nYears);
-
-    return balances.VANminusConsoWithSolar[nYears-1] - balances.VANminusConsoWithoutSolar[nYears-1];
+    gain = sum(annualGains);
+    return gain;
 }
 
 const computeActualReturnTimeThermic =

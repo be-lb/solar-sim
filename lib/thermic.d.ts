@@ -33,7 +33,7 @@ interface Balances {
     [key: string]: number[];
 }
 declare const computeBalances: (t: Thermic, fin: Financial, nYears: number) => Balances;
-declare const computeThermicGain: (t: Thermic, fin: Financial, nYears: number) => number;
+declare const computeThermicGain: (t: Thermic, nYears: number) => number;
 declare const computeActualReturnTimeThermic: (t: Thermic, fin: Financial, nYears: number) => number;
 interface productionPrices {
     [key: string]: number;
