@@ -20,6 +20,7 @@ export declare const CV_TIME = 10;
 export declare const CV_END_OF_COMPENSATION_YEAR = 2020;
 export declare const PRODUCTION_YEARLY_LOSS_INDEX = 0.0005;
 export declare const MAINTENANCE_COST_FACTOR = 0.0075;
+export declare const MAX_SOLAR_PRODUCTIVITY: number;
 export declare const FLAT_ROOF_TILT: number;
 export declare const LOW_PRODUCTIVITY_LIMIT: number;
 export declare const PV_YIELD: PVYieldObject;

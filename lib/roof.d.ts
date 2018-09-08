@@ -23,5 +23,6 @@ declare class Roof {
     computeRawPeakPower(): number;
     computeUsablePeakPower(): number;
     computeRoofProduction(): number;
+    setProductivity(the_productivity: number): number;
 }
 export { Roof };

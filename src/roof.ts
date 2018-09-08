@@ -21,7 +21,7 @@ class Roof {
     roofProduction: number;
     constructor(the_raw_area: number, the_productivity: number, the_tilt: number, the_azimuth: number, the_technology:string, b: Building) {
         this.rawArea = the_raw_area;
-        this.productivity = the_productivity;
+        this.productivity = this.setProductivity(the_productivity);
         this.tilt = the_tilt;
         this.azimuth = the_azimuth;
         this.technology = the_technology;
@@ -111,6 +111,13 @@ class Roof {
 
         return this.roofProduction = this.usablePeakPower * this.productivity;
     };
+    setProductivity (the_productivity: number) {
+        /**
+        * Function for avoiding aberrant values for the productivity
+        **/
+
+        return Math.min(the_productivity, constants.MAX_SOLAR_PRODUCTIVITY)
+    }
 };
 
 export { Roof };

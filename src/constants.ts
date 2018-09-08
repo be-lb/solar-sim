@@ -84,6 +84,11 @@ export const MAINTENANCE_COST_FACTOR = 0.0075;
 */
 
 /**
+* Maximal solar productivity for a roof in Bruxelles kWh/m².an
+*/
+export const MAX_SOLAR_PRODUCTIVITY : number = 1300;
+
+/**
 * Inclination (tilt) threshold for flat roof
 */
 export const FLAT_ROOF_TILT : number = 0.05;
