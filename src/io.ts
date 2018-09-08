@@ -95,7 +95,7 @@ interface thermicOutputs {
 
 const inputsFactory = (
     roofs: roof[], /* required */
-    pvTechnology: PVTechnologyEnum = 'poly',  /* required */
+    pvTechnology: PVTechnologyEnum = 'mono',  /* required */
     nYears = 10, /* default */
     currentYear = 2018, /* default */
     elecSellingPrice = 0.03, /* default */
@@ -108,7 +108,7 @@ const inputsFactory = (
     annualMaintenanceCost = -9999, /* computed or inputed */
     loanPeriod = 5, /*default */
     loanRate = 0.01, /*default */
-    loan = true, /*default */
+    loan = false, /*default */
     energySobriety = false, /*default */
     chargeShift = false, /*default */
     pvHeater = false, /*default */
