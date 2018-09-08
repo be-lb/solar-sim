@@ -16,12 +16,16 @@ class Building {
     };
     computeProduction () {
         /**
-        * Compute the total potential production of the building (kWh). Cannot exceed MAX_PRODUCTION.
+        * Compute the total potential production of the building (kWh). Cannot exceed a maximal production.
         */
         let production: number = 0;
         for (let r of this.roofs) {
             production = production + r.roofProduction;
         }
+
+        /* Set a maximal value for the building production */
+        production = Math.min(production, constants.MAX_POWER * constants.MAX_SOLAR_PRODUCTIVITY)
+
         return this.production = production;
     };
     computePower () {
