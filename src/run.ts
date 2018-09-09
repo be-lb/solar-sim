@@ -128,6 +128,7 @@ const thermicSolarSim =
             'gain': gain,
             'savedCO2emissions': savedCO2emissions,
             'annualProduction': t.solarProduction, // in kWh/an
+            'annualConsumption': t.netDemand, // in kWh/an
             'productionPriceWithSubsidies': productionPrices.productionPriceWithSubsidies,
             'productionPriceWithoutSubsidies': productionPrices.productionPriceWithoutSubsidies,
             'returnTime': actualReturnTime
