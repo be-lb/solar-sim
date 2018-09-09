@@ -140,7 +140,7 @@ export const SELF_PRODUCTION : selfProduction = {
         "2.6": 0.39,
         "3": 0.4,
     },
-    "energeticSobriety": {
+    "energySobriety": {
         "0.6": 0.28,
         "1": 0.32,
         "1.4": 0.35,
