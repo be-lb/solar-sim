@@ -64,6 +64,7 @@ interface thermicOutputs {
     'savedCO2emissions': number;
     'annualProduction': number;
     'annualConsumption': number;
+    'autonomyRate': number;
     'productionPriceWithSubsidies': number;
     'productionPriceWithoutSubsidies': number;
     'returnTime': number;
