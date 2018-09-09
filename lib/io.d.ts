@@ -37,8 +37,8 @@ interface inputs {
 }
 interface mainOutputs {
     'installationCost': number;
-    'CVAmountYearN': number;
-    'selfConsumptionAmountYearN': number;
+    'CVAmountYear10': number;
+    'selfConsumptionAmountYear10': number;
     'savedCO2emissions': number;
 }
 interface setupOutputs {
@@ -53,6 +53,8 @@ interface energyOutputs {
     'autonomy': number;
 }
 interface financeOutputs {
+    'CVAmountYear25': number;
+    'selfConsumptionAmountYear25': number;
     'totalGain25Y': number;
     'returnTime': number;
 }

@@ -56,7 +56,7 @@ const solarSim =
 
         // 1) Financial results
         // 1.1) Compute results Year N and 25
-        let financialYearN = getFinancialYearN(b, f, inputs.nYears, inputs.currentYear);
+        let financialYear10 = getFinancialYearN(b, f, 10, inputs.currentYear);
         let financialYear25 = getFinancialYearN(b, f, 25, inputs.currentYear);
 
         // 1.2) Compute actualized results (counted on 25 years)
@@ -69,14 +69,14 @@ const solarSim =
         let installationCost = getInstallationCost(f);
 
         // 2) Environmental results
-        let actualProduction = computeActualAnnualProduction(b.production, f, inputs.nYears);
+        let actualProduction = computeActualAnnualProduction(b.production, f, 10);
         let savedCO2emissions = computeSavedCO2Emissions(actualProduction);
 
         return {
             // 'main' : {
             'installationCost': installationCost,
-            'CVAmountYearN': financialYearN.CVAmountYearN,
-            'selfConsumptionAmountYearN': financialYearN.selfConsumptionAmountYearN,
+            'CVAmountYear10': financialYear10.CVAmountYearN,
+            'selfConsumptionAmountYear10': financialYear10.selfConsumptionAmountYearN,
             'savedCO2emissions': savedCO2emissions,
             'area': b.pvArea,
             'maxArea': b.maxPvArea,
@@ -87,6 +87,8 @@ const solarSim =
             'annualConsumption': u.annualElectricityConsumption,
             'autonomy': u.selfProductionRate,
             // 'finance': {
+            'CVAmountYear25': financialYear25.CVAmountYearN,
+            'selfConsumptionAmountYear25': financialYear25.selfConsumptionAmountYearN,
             'totalGain25Y': financialYear25.CVAmountYearN + financialYear25.selfConsumptionAmountYearN,
             'returnTime': actualReturnTime,
       }
