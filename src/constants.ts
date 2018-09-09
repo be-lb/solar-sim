@@ -91,7 +91,7 @@ export const MAX_SOLAR_PRODUCTIVITY : number = 1300;
 /**
 * Inclination (tilt) threshold for flat roof
 */
-export const FLAT_ROOF_TILT : number = 0.05;
+export const FLAT_ROOF_TILT : number = 5;
 
 /**
 * Low limit for roof productivity (kWh/kWc.m²)
