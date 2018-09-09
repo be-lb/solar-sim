@@ -73,7 +73,7 @@ class User {
             }
         }
 
-        if (userChoiceKey !== <string>'battery' || userChoiceKey !== <string>'pvHeater' || userChoiceKey != <string>'chargeShift' || userChoiceKey != <string>'energySobriety' || userChoiceKey != <string>'default'){
+        if (userChoiceKey !== <string>'battery' && userChoiceKey !== <string>'pvHeater' && userChoiceKey !== <string>'chargeShift' && userChoiceKey !== <string>'energySobriety' && userChoiceKey !== <string>'default'){
             userChoiceKey = 'default';
             console.log('Error in the selfProduction rate selection!')
         }

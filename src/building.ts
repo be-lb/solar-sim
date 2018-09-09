@@ -24,7 +24,10 @@ class Building {
         }
 
         /* Set a maximal value for the building production */
-        production = Math.min(production, constants.MAX_POWER * constants.MAX_SOLAR_PRODUCTIVITY)
+        if (production > constants.MAX_POWER * constants.MAX_SOLAR_PRODUCTIVITY) {
+            production = constants.MAX_POWER * constants.MAX_SOLAR_PRODUCTIVITY;
+            console.log("Warning! Building production too large.")
+        }
 
         return this.production = production;
     };

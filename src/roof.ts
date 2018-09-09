@@ -115,8 +115,12 @@ class Roof {
         /**
         * Function for avoiding aberrant values for the productivity
         **/
-
-        return Math.min(the_productivity, constants.MAX_SOLAR_PRODUCTIVITY)
+        let productivity: number = the_productivity;
+        if (the_productivity > constants.MAX_SOLAR_PRODUCTIVITY) {
+            productivity = constants.MAX_SOLAR_PRODUCTIVITY;
+            console.log("Warning! Roof productivity too large.")
+        }
+        return productivity;
     }
 };
 
