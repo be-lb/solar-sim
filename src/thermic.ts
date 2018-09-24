@@ -216,6 +216,7 @@ const computeThermicGain =
         annualGains.push(annualGain);
     }
 
+    //gain = sum(annualGains) + t.grant;
     gain = sum(annualGains);
     return gain;
 }
