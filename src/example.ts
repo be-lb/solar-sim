@@ -50,7 +50,7 @@ let fullInputs: inputs = {
     thermicHouseholdPerson: 5,
     thermicLiterByPersonByDay: 30,
     thermicLiterByDay: 80,
-    thermicHotWaterProducer: 'gas',
+    thermicHotWaterProducer: 'fuel',
     thermicCost: -9999,
     thermicAnnualMaintenanceCost: -9999,
     thermicMaintenanceRate: 3,

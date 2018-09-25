@@ -210,14 +210,14 @@ const computeThermicGain =
     */
     let annualGains:number[] = [];
     let gain:number;
+
     for (let i = 1; i <= nYears; i++) {
         let actualEnergyBuyingPrice: number = computeActualPrice(t.hotWaterEnergyCost, t.hotWaterEnergyCostIndex, i); // line 3
         let annualGain: number = t.solarProduction / t.producerYield * actualEnergyBuyingPrice;
         annualGains.push(annualGain);
     }
 
-    //gain = sum(annualGains) + t.grant;
-    gain = sum(annualGains);
+    gain = sum(annualGains) + t.grant;
     return gain;
 }
 
