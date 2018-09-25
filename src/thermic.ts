@@ -3,6 +3,9 @@ import { Building } from './building';
 import { Finance } from 'financejs';
 import { sum } from './environmental';
 import * as constants from './constants';
+import * as debug from 'debug';
+
+const logger = debug('solar-sim:thermic');
 
 class Thermic {
     householdPerson: number;
@@ -86,7 +89,7 @@ class Thermic {
         let solarProduction: number = 0;
         let azimuth = getAzimuthBestRoof(this.building);
         if (azimuth === -9999) {
-            console.log('No solar thermic production is possible.')
+            logger(`No solar thermic production is possible because there are no roof with a minimal area and with azimuth between East and West.`);
         } else {
             // get the literByday key
             let keys1 : number[] = Object.keys(constants.THERMIC_PRODUCTION).map(x => Number(x));

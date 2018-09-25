@@ -1,5 +1,8 @@
 import * as constants from './constants';
 import {Building} from './building';
+import * as debug from 'debug';
+
+const logger = debug('solar-sim:user');
 
 export interface selfProduction {
     [key: string]: any;
@@ -74,8 +77,9 @@ class User {
         }
 
         if (userChoiceKey !== <string>'battery' && userChoiceKey !== <string>'pvHeater' && userChoiceKey !== <string>'chargeShift' && userChoiceKey !== <string>'energySobriety' && userChoiceKey !== <string>'default'){
+
+            logger(`Error in the selfProduction rate selection: ${userChoiceKey}`);
             userChoiceKey = 'default';
-            console.log('Error in the selfProduction rate selection!')
         }
 
         let selfProductionRate = constants.SELF_PRODUCTION[userChoiceKey][ratioKey];

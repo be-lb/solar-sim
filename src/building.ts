@@ -1,6 +1,9 @@
 import {Roof} from './roof';
 import {User} from './user';
 import * as constants from './constants';
+import * as debug from 'debug';
+
+const logger = debug('solar-sim:building');
 
 class Building {
     obstacleRate: number;
@@ -25,8 +28,8 @@ class Building {
 
         /* Set a maximal value for the building production */
         if (production > constants.MAX_POWER * constants.MAX_SOLAR_PRODUCTIVITY) {
+            logger(`Warning! Building production too large: ${production}`);
             production = constants.MAX_POWER * constants.MAX_SOLAR_PRODUCTIVITY;
-            console.log("Warning! Building production too large.")
         }
 
         return this.production = production;

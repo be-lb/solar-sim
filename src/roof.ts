@@ -1,5 +1,8 @@
 import {Building} from './building';
 import * as constants from './constants';
+import * as debug from 'debug';
+
+const logger = debug('solar-sim:roof');
 
 export interface PVYieldObject {
     [key: string]: number;
@@ -118,7 +121,8 @@ class Roof {
         let productivity: number = the_productivity;
         if (the_productivity > constants.MAX_SOLAR_PRODUCTIVITY) {
             productivity = constants.MAX_SOLAR_PRODUCTIVITY;
-            console.log("Warning! Roof productivity too large.")
+            logger(`Warning! Roof productivity too large: ${the_productivity} kWh/m²`);
+
         }
         return productivity;
     }

@@ -1,6 +1,6 @@
 {
   "name": "solar-sim",
-  "version": "1.1.17",
+  "version": "1.1.18",
   "description": "simulateur",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/debug": "0.0.30",
+    "debug": "^4.0.1",
     "expect.js": "^0.3.1",
     "mocha": "^5.2.0",
     "typedoc": "^0.11.1",

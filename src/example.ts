@@ -18,7 +18,7 @@ import {roof, inputs} from './io';
 //     {'area': 300, 'productivity': 50, 'tilt': 30, 'azimuth': 150}
 // ];
 let roofs: roof[] = [
-    {'area': 2400/0.8, 'productivity': 950, 'tilt': 35, 'azimuth': 110}
+    {'area': 2400/0.8, 'productivity': 3950, 'tilt': 35, 'azimuth': 110}
 ];
 
 // let inputs = inputsFactory(roofs);
