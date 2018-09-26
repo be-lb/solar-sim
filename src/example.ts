@@ -18,7 +18,24 @@ import {roof, inputs} from './io';
 //     {'area': 300, 'productivity': 50, 'tilt': 30, 'azimuth': 150}
 // ];
 let roofs: roof[] = [
-    {'area': 2400/0.8, 'productivity': 3950, 'tilt': 35, 'azimuth': 110}
+ {
+   "azimuth": 149.4325327827,
+   "productivity": 1945.3562068862,
+   "area": 120.9019349646,
+   "tilt": 27.1570730376
+ },
+ {
+   "azimuth": 36.1854187033,
+   "productivity": 570.1815062421,
+   "area": 1191.5398056349,
+   "tilt": 0.1266373741
+ },
+ {
+   "azimuth": 149.1765317543,
+   "productivity": 521.3345989325,
+   "area": 289.2746173713,
+   "tilt": 25.0726237712
+ }
 ];
 
 // let inputs = inputsFactory(roofs);
