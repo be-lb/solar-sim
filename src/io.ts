@@ -1,4 +1,128 @@
 
+import * as io from 'io-ts';
+
+
+const energeticCostFactorIO = io.interface({
+    Belgium: io.number,
+    Europe: io.number,
+    China: io.number,
+}, 'energeticCostFactorIO')
+
+const costFactorIO = io.interface({
+    panels: io.number,
+    setup: io.number,
+    inverter: io.number,
+    transportBE: io.number,
+    transportEU: io.number,
+    transportBoat: io.number,
+}, 'costFactorIO')
+
+const breakdownCostFactorIO = io.interface({
+    Belgium: costFactorIO,
+    Europe: costFactorIO,
+    China: costFactorIO,
+}, 'breakdownCostFactorIO')
+
+
+const pvTechnoIO = io.interface({
+    poly: io.number,
+    mono: io.number,
+    mono_high: io.number,
+}, 'pvTechnoIO')
+
+
+const selfProdValueIO = io.interface({
+    "0.6": io.number,
+    "1": io.number,
+    "1.4": io.number,
+    "1.8": io.number,
+    "2.2": io.number,
+    "2.6": io.number,
+    "3": io.number,
+}, 'selfProdValueIO')
+
+const selfProductionIO = io.interface({
+    default: selfProdValueIO,
+    energySobriety: selfProdValueIO,
+    chargeShift: selfProdValueIO,
+    pvHeater: selfProdValueIO,
+    battery: selfProdValueIO,
+}, 'selfProductionIO')
+
+
+const thermalTechnoIO = io.interface({
+    gas: io.number,
+    fuel: io.number,
+    electric: io.number,
+}, 'thermalTechnoIO')
+
+
+const thermalProdValueIO = io.interface({
+    "90": io.number,
+    "112.5": io.number,
+    "135": io.number,
+    "157.5": io.number,
+    "180": io.number,
+    "202.5": io.number,
+    "225": io.number,
+    "247.5": io.number,
+    "270": io.number,
+}, 'thermalProdValueIO')
+
+const thermalProductionIO = io.interface({
+    60: thermalProdValueIO,
+    90: thermalProdValueIO,
+    120: thermalProdValueIO,
+    150: thermalProdValueIO,
+    180: thermalProdValueIO,
+    210: thermalProdValueIO,
+}, 'thermalProductionIO')
+
+export const constantsIO = io.interface({
+    max_power: io.number,
+    co2_emissions_by_kwh: io.number,
+    meter_cost: io.number,
+    onduleur_cost_factor: io.number,
+    onduleur_replacement_rate: io.number,
+    redevance_cost: io.number,
+    inflation_rate: io.number,
+    elec_buying_price: io.number,
+    elec_index: io.number,
+    discount_rate: io.number,
+    cv_rate_switch_power: io.number,
+    cv_rate_low_power: io.number,
+    cv_rate_high_power: io.number,
+    cv_time: io.number,
+    cv_end_of_compensation_year: io.number,
+    production_yearly_loss_index: io.number,
+    maintenance_cost_factor: io.number,
+    max_solar_productivity: io.number,
+    flat_roof_tilt: io.number,
+    low_productivity_limit: io.number,
+    annual_consumption_base: io.number,
+    washing_machine_factor: io.number,
+    electric_water_heater_factor: io.number,
+    electric_heating_factor: io.number,
+    thermic_installation_cost: io.number,
+    thermic_maintenance_cost: io.number,
+    max_liter_per_day: io.number,
+    min_thermic_area: io.number,
+
+    energetic_cost_factor: energeticCostFactorIO,
+    breakdown_cost_factor: breakdownCostFactorIO,
+    pv_yield: pvTechnoIO,
+    pv_cost: pvTechnoIO,
+    self_production: selfProductionIO,
+    hot_water_producer_yield: thermalTechnoIO,
+    hot_water_energy_cost: thermalTechnoIO,
+    hot_water_energy_cost_index: thermalTechnoIO,
+    co2_emissions_by_kwh_thermic: thermalTechnoIO,
+    thermic_production: thermalProductionIO,
+}, 'constantsIO')
+
+export type Constants = io.TypeOf<typeof constantsIO>;
+
+
 interface roof {
     'area': number;
     'productivity': number;

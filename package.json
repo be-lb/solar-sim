@@ -19,11 +19,8 @@
     "typedoc": "^0.11.1",
     "typescript": "^2.9.2",
     "webpack": "^4.16.0",
-    "webpack-cli": "^3.0.8"
-  },
-  "dependencies": {
-    "axios": "^0.18.0",
     "financejs": "^4.1.0",
-    "npm": "^6.1.0"
+    "io-ts": "^1.0.0",
+    "webpack-cli": "^3.0.8"
   }
 }
