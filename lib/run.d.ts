@@ -703,7 +703,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
     thermic_production: import("io-ts").InterfaceType<{
         "60": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -713,7 +713,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -723,7 +723,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -734,7 +734,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
         }>, import("io-ts").mixed>;
         "90": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -744,7 +744,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -754,7 +754,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -765,7 +765,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
         }>, import("io-ts").mixed>;
         "120": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -775,7 +775,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -785,7 +785,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -796,7 +796,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
         }>, import("io-ts").mixed>;
         "150": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -806,7 +806,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -816,7 +816,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -827,7 +827,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
         }>, import("io-ts").mixed>;
         "180": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -837,7 +837,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -847,7 +847,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -858,7 +858,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
         }>, import("io-ts").mixed>;
         "210": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -868,7 +868,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -878,7 +878,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -890,7 +890,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
     }, import("io-ts").TypeOfProps<{
         "60": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -900,7 +900,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -910,7 +910,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -921,7 +921,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
         }>, import("io-ts").mixed>;
         "90": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -931,7 +931,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -941,7 +941,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -952,7 +952,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
         }>, import("io-ts").mixed>;
         "120": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -962,7 +962,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -972,7 +972,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -983,7 +983,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
         }>, import("io-ts").mixed>;
         "150": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -993,7 +993,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1003,7 +1003,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1014,7 +1014,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
         }>, import("io-ts").mixed>;
         "180": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1024,7 +1024,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1034,7 +1034,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1045,7 +1045,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
         }>, import("io-ts").mixed>;
         "210": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1055,7 +1055,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1065,7 +1065,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1077,7 +1077,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
     }>, import("io-ts").OutputOfProps<{
         "60": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1087,7 +1087,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1097,7 +1097,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1108,7 +1108,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
         }>, import("io-ts").mixed>;
         "90": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1118,7 +1118,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1128,7 +1128,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1139,7 +1139,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
         }>, import("io-ts").mixed>;
         "120": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1149,7 +1149,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1159,7 +1159,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1170,7 +1170,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
         }>, import("io-ts").mixed>;
         "150": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1180,7 +1180,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1190,7 +1190,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1201,7 +1201,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
         }>, import("io-ts").mixed>;
         "180": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1211,7 +1211,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1221,7 +1221,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1232,7 +1232,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
         }>, import("io-ts").mixed>;
         "210": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1242,7 +1242,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1252,7 +1252,7 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1967,7 +1967,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
     thermic_production: import("io-ts").InterfaceType<{
         "60": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1977,7 +1977,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1987,7 +1987,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -1998,7 +1998,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
         }>, import("io-ts").mixed>;
         "90": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2008,7 +2008,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2018,7 +2018,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2029,7 +2029,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
         }>, import("io-ts").mixed>;
         "120": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2039,7 +2039,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2049,7 +2049,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2060,7 +2060,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
         }>, import("io-ts").mixed>;
         "150": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2070,7 +2070,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2080,7 +2080,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2091,7 +2091,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
         }>, import("io-ts").mixed>;
         "180": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2101,7 +2101,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2111,7 +2111,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2122,7 +2122,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
         }>, import("io-ts").mixed>;
         "210": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2132,7 +2132,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2142,7 +2142,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2154,7 +2154,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
     }, import("io-ts").TypeOfProps<{
         "60": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2164,7 +2164,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2174,7 +2174,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2185,7 +2185,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
         }>, import("io-ts").mixed>;
         "90": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2195,7 +2195,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2205,7 +2205,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2216,7 +2216,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
         }>, import("io-ts").mixed>;
         "120": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2226,7 +2226,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2236,7 +2236,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2247,7 +2247,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
         }>, import("io-ts").mixed>;
         "150": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2257,7 +2257,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2267,7 +2267,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2278,7 +2278,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
         }>, import("io-ts").mixed>;
         "180": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2288,7 +2288,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2298,7 +2298,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2309,7 +2309,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
         }>, import("io-ts").mixed>;
         "210": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2319,7 +2319,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2329,7 +2329,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2341,7 +2341,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
     }>, import("io-ts").OutputOfProps<{
         "60": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2351,7 +2351,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2361,7 +2361,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2372,7 +2372,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
         }>, import("io-ts").mixed>;
         "90": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2382,7 +2382,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2392,7 +2392,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2403,7 +2403,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
         }>, import("io-ts").mixed>;
         "120": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2413,7 +2413,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2423,7 +2423,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2434,7 +2434,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
         }>, import("io-ts").mixed>;
         "150": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2444,7 +2444,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2454,7 +2454,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2465,7 +2465,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
         }>, import("io-ts").mixed>;
         "180": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2475,7 +2475,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2485,7 +2485,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2496,7 +2496,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
         }>, import("io-ts").mixed>;
         "210": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2506,7 +2506,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }, import("io-ts").TypeOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;
@@ -2516,7 +2516,7 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").OutputOfProps<{
             "90": import("io-ts").NumberType;
-            "112.5": import("io-ts").NumberType;
+            '112.5': import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
             "157.5": import("io-ts").NumberType;
             "180": import("io-ts").NumberType;

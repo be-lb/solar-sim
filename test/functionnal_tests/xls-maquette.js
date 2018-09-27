@@ -44,7 +44,7 @@ b.computeProduction();
 
 
 // User information
-var u = new user.User(3500, true, true, true, true, b);
+var u = new user.User(constants, 3500, true, true, true, true, b);
 //u.computeAnnualElecConsumption();
 u.computeSelfConsumptionRate();
 b.user = u;

@@ -12,7 +12,7 @@ import { Building } from './building';
 import { Roof } from './roof';
 import { User } from './user';
 import { Financial, computeActualAnnualProduction, computeFinancialAmortization, getFinancialYearN, computeActualReturnTime, getInstallationCost } from './financial';
-import { computeSavedCO2Emissions } from './environmental';
+import { computeSavedCO2Emissions} from './environmental';
 import { Constants, inputs, outputs, thermicOutputs } from './io';
 import { Thermic, computeThermicGain, computeThermicEnvironmentalGain, computeProductionPrices, computeActualReturnTimeThermic } from './thermic';
 
@@ -24,7 +24,6 @@ const solarSim =
         * @return outputs
         * Main function
         */
-        console.log(constants)
 
         let b = new Building(inputs.obstacleRate, constants.max_power, constants.max_solar_productivity);
 
@@ -49,7 +48,7 @@ const solarSim =
         b.user = u;
 
         // Financial information
-        let f = new Financial(constants,inputs.elecSellingPrice, inputs.CVPrice, inputs.VATrate, inputs.annualMaintenanceCost, inputs.loan, inputs.loanPeriod, inputs.loanRate);
+        let f = new Financial(constants, inputs.elecSellingPrice, inputs.CVPrice, inputs.VATrate, inputs.annualMaintenanceCost, inputs.loan, inputs.loanPeriod, inputs.loanRate);
         f.building = b;
         f.computePVCost();
         f.computeOnduleurCost();
@@ -113,7 +112,7 @@ const thermicSolarSim =
             b.roofs.push(roof);
         }
 
-        let t = new Thermic(constants,inputs.thermicHouseholdPerson, inputs.thermicLiterByPersonByDay, inputs.thermicLiterByDay, inputs.thermicHotWaterProducer, inputs.thermicCost, inputs.thermicAnnualMaintenanceCost, inputs.thermicMaintenanceRate, inputs.thermicGrant, inputs.VATrate)
+        let t = new Thermic(constants, inputs.thermicHouseholdPerson, inputs.thermicLiterByPersonByDay, inputs.thermicLiterByDay, inputs.thermicHotWaterProducer, inputs.thermicCost, inputs.thermicAnnualMaintenanceCost, inputs.thermicMaintenanceRate, inputs.thermicGrant, inputs.VATrate)
         t.computeCost();
         t.computeAnnualMaintenanceCost();
         t.building = b;

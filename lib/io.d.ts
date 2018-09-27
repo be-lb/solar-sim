@@ -681,7 +681,7 @@ export declare type ThermalTechnoInfo = io.TypeOf<typeof thermalTechnoIO>;
 export declare type ThermalTechno = keyof ThermalTechnoInfo;
 declare const thermalProdValueIO: io.InterfaceType<{
     "90": io.NumberType;
-    "112.5": io.NumberType;
+    '112.5': io.NumberType;
     "135": io.NumberType;
     "157.5": io.NumberType;
     "180": io.NumberType;
@@ -691,7 +691,7 @@ declare const thermalProdValueIO: io.InterfaceType<{
     "270": io.NumberType;
 }, io.TypeOfProps<{
     "90": io.NumberType;
-    "112.5": io.NumberType;
+    '112.5': io.NumberType;
     "135": io.NumberType;
     "157.5": io.NumberType;
     "180": io.NumberType;
@@ -701,7 +701,7 @@ declare const thermalProdValueIO: io.InterfaceType<{
     "270": io.NumberType;
 }>, io.OutputOfProps<{
     "90": io.NumberType;
-    "112.5": io.NumberType;
+    '112.5': io.NumberType;
     "135": io.NumberType;
     "157.5": io.NumberType;
     "180": io.NumberType;
@@ -715,7 +715,7 @@ export declare type ThermalProductioValueKey = keyof ThermalProductionValue;
 declare const thermalProductionIO: io.InterfaceType<{
     "60": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -725,7 +725,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -735,7 +735,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -746,7 +746,7 @@ declare const thermalProductionIO: io.InterfaceType<{
     }>, io.mixed>;
     "90": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -756,7 +756,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -766,7 +766,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -777,7 +777,7 @@ declare const thermalProductionIO: io.InterfaceType<{
     }>, io.mixed>;
     "120": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -787,7 +787,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -797,7 +797,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -808,7 +808,7 @@ declare const thermalProductionIO: io.InterfaceType<{
     }>, io.mixed>;
     "150": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -818,7 +818,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -828,7 +828,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -839,7 +839,7 @@ declare const thermalProductionIO: io.InterfaceType<{
     }>, io.mixed>;
     "180": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -849,7 +849,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -859,7 +859,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -870,7 +870,7 @@ declare const thermalProductionIO: io.InterfaceType<{
     }>, io.mixed>;
     "210": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -880,7 +880,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -890,7 +890,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -902,7 +902,7 @@ declare const thermalProductionIO: io.InterfaceType<{
 }, io.TypeOfProps<{
     "60": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -912,7 +912,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -922,7 +922,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -933,7 +933,7 @@ declare const thermalProductionIO: io.InterfaceType<{
     }>, io.mixed>;
     "90": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -943,7 +943,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -953,7 +953,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -964,7 +964,7 @@ declare const thermalProductionIO: io.InterfaceType<{
     }>, io.mixed>;
     "120": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -974,7 +974,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -984,7 +984,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -995,7 +995,7 @@ declare const thermalProductionIO: io.InterfaceType<{
     }>, io.mixed>;
     "150": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1005,7 +1005,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1015,7 +1015,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1026,7 +1026,7 @@ declare const thermalProductionIO: io.InterfaceType<{
     }>, io.mixed>;
     "180": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1036,7 +1036,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1046,7 +1046,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1057,7 +1057,7 @@ declare const thermalProductionIO: io.InterfaceType<{
     }>, io.mixed>;
     "210": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1067,7 +1067,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1077,7 +1077,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1089,7 +1089,7 @@ declare const thermalProductionIO: io.InterfaceType<{
 }>, io.OutputOfProps<{
     "60": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1099,7 +1099,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1109,7 +1109,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1120,7 +1120,7 @@ declare const thermalProductionIO: io.InterfaceType<{
     }>, io.mixed>;
     "90": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1130,7 +1130,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1140,7 +1140,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1151,7 +1151,7 @@ declare const thermalProductionIO: io.InterfaceType<{
     }>, io.mixed>;
     "120": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1161,7 +1161,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1171,7 +1171,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1182,7 +1182,7 @@ declare const thermalProductionIO: io.InterfaceType<{
     }>, io.mixed>;
     "150": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1192,7 +1192,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1202,7 +1202,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1213,7 +1213,7 @@ declare const thermalProductionIO: io.InterfaceType<{
     }>, io.mixed>;
     "180": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1223,7 +1223,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1233,7 +1233,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1244,7 +1244,7 @@ declare const thermalProductionIO: io.InterfaceType<{
     }>, io.mixed>;
     "210": io.InterfaceType<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1254,7 +1254,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }, io.TypeOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1264,7 +1264,7 @@ declare const thermalProductionIO: io.InterfaceType<{
         "270": io.NumberType;
     }>, io.OutputOfProps<{
         "90": io.NumberType;
-        "112.5": io.NumberType;
+        '112.5': io.NumberType;
         "135": io.NumberType;
         "157.5": io.NumberType;
         "180": io.NumberType;
@@ -1980,7 +1980,7 @@ export declare const constantsIO: io.InterfaceType<{
     thermic_production: io.InterfaceType<{
         "60": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -1990,7 +1990,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2000,7 +2000,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2011,7 +2011,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "90": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2021,7 +2021,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2031,7 +2031,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2042,7 +2042,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "120": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2052,7 +2052,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2062,7 +2062,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2073,7 +2073,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "150": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2083,7 +2083,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2093,7 +2093,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2104,7 +2104,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "180": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2114,7 +2114,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2124,7 +2124,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2135,7 +2135,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "210": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2145,7 +2145,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2155,7 +2155,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2167,7 +2167,7 @@ export declare const constantsIO: io.InterfaceType<{
     }, io.TypeOfProps<{
         "60": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2177,7 +2177,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2187,7 +2187,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2198,7 +2198,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "90": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2208,7 +2208,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2218,7 +2218,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2229,7 +2229,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "120": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2239,7 +2239,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2249,7 +2249,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2260,7 +2260,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "150": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2270,7 +2270,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2280,7 +2280,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2291,7 +2291,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "180": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2301,7 +2301,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2311,7 +2311,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2322,7 +2322,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "210": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2332,7 +2332,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2342,7 +2342,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2354,7 +2354,7 @@ export declare const constantsIO: io.InterfaceType<{
     }>, io.OutputOfProps<{
         "60": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2364,7 +2364,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2374,7 +2374,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2385,7 +2385,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "90": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2395,7 +2395,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2405,7 +2405,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2416,7 +2416,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "120": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2426,7 +2426,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2436,7 +2436,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2447,7 +2447,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "150": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2457,7 +2457,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2467,7 +2467,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2478,7 +2478,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "180": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2488,7 +2488,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2498,7 +2498,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2509,7 +2509,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "210": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2519,7 +2519,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -2529,7 +2529,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3243,7 +3243,7 @@ export declare const constantsIO: io.InterfaceType<{
     thermic_production: io.InterfaceType<{
         "60": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3253,7 +3253,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3263,7 +3263,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3274,7 +3274,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "90": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3284,7 +3284,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3294,7 +3294,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3305,7 +3305,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "120": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3315,7 +3315,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3325,7 +3325,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3336,7 +3336,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "150": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3346,7 +3346,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3356,7 +3356,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3367,7 +3367,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "180": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3377,7 +3377,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3387,7 +3387,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3398,7 +3398,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "210": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3408,7 +3408,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3418,7 +3418,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3430,7 +3430,7 @@ export declare const constantsIO: io.InterfaceType<{
     }, io.TypeOfProps<{
         "60": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3440,7 +3440,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3450,7 +3450,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3461,7 +3461,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "90": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3471,7 +3471,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3481,7 +3481,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3492,7 +3492,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "120": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3502,7 +3502,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3512,7 +3512,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3523,7 +3523,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "150": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3533,7 +3533,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3543,7 +3543,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3554,7 +3554,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "180": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3564,7 +3564,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3574,7 +3574,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3585,7 +3585,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "210": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3595,7 +3595,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3605,7 +3605,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3617,7 +3617,7 @@ export declare const constantsIO: io.InterfaceType<{
     }>, io.OutputOfProps<{
         "60": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3627,7 +3627,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3637,7 +3637,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3648,7 +3648,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "90": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3658,7 +3658,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3668,7 +3668,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3679,7 +3679,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "120": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3689,7 +3689,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3699,7 +3699,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3710,7 +3710,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "150": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3720,7 +3720,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3730,7 +3730,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3741,7 +3741,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "180": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3751,7 +3751,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3761,7 +3761,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3772,7 +3772,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "210": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3782,7 +3782,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -3792,7 +3792,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4506,7 +4506,7 @@ export declare const constantsIO: io.InterfaceType<{
     thermic_production: io.InterfaceType<{
         "60": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4516,7 +4516,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4526,7 +4526,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4537,7 +4537,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "90": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4547,7 +4547,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4557,7 +4557,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4568,7 +4568,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "120": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4578,7 +4578,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4588,7 +4588,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4599,7 +4599,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "150": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4609,7 +4609,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4619,7 +4619,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4630,7 +4630,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "180": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4640,7 +4640,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4650,7 +4650,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4661,7 +4661,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "210": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4671,7 +4671,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4681,7 +4681,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4693,7 +4693,7 @@ export declare const constantsIO: io.InterfaceType<{
     }, io.TypeOfProps<{
         "60": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4703,7 +4703,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4713,7 +4713,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4724,7 +4724,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "90": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4734,7 +4734,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4744,7 +4744,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4755,7 +4755,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "120": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4765,7 +4765,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4775,7 +4775,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4786,7 +4786,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "150": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4796,7 +4796,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4806,7 +4806,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4817,7 +4817,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "180": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4827,7 +4827,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4837,7 +4837,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4848,7 +4848,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "210": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4858,7 +4858,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4868,7 +4868,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4880,7 +4880,7 @@ export declare const constantsIO: io.InterfaceType<{
     }>, io.OutputOfProps<{
         "60": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4890,7 +4890,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4900,7 +4900,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4911,7 +4911,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "90": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4921,7 +4921,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4931,7 +4931,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4942,7 +4942,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "120": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4952,7 +4952,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4962,7 +4962,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4973,7 +4973,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "150": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4983,7 +4983,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -4993,7 +4993,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -5004,7 +5004,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "180": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -5014,7 +5014,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -5024,7 +5024,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -5035,7 +5035,7 @@ export declare const constantsIO: io.InterfaceType<{
         }>, io.mixed>;
         "210": io.InterfaceType<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -5045,7 +5045,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }, io.TypeOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;
@@ -5055,7 +5055,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.OutputOfProps<{
             "90": io.NumberType;
-            "112.5": io.NumberType;
+            '112.5': io.NumberType;
             "135": io.NumberType;
             "157.5": io.NumberType;
             "180": io.NumberType;

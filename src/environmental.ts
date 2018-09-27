@@ -45,7 +45,7 @@ const getEnvironmentalCosts =
             'inverter': inverter,
             'transportBE': transportBE,
             'transportEU': transportEU,
-            transportBoat: transportBoat
+            'transportBoat': transportBoat
         }
     }
 
