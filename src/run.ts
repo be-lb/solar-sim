@@ -13,18 +13,20 @@ import { Roof } from './roof';
 import { User } from './user';
 import { Financial, computeActualAnnualProduction, computeFinancialAmortization, getFinancialYearN, computeActualReturnTime, getInstallationCost } from './financial';
 import { computeSavedCO2Emissions } from './environmental';
-import { inputs, outputs, thermicOutputs } from './io';
+import { Constants, inputs, outputs, thermicOutputs } from './io';
 import { Thermic, computeThermicGain, computeThermicEnvironmentalGain, computeProductionPrices, computeActualReturnTimeThermic } from './thermic';
 
 const solarSim =
-    (inputs: inputs):
+    (inputs: inputs, constants: Constants):
         outputs => {
         /**
         * @param inputs
         * @return outputs
         * Main function
         */
-        let b = new Building(inputs.obstacleRate);
+        console.log(constants)
+
+        let b = new Building(inputs.obstacleRate, constants.max_power, constants.max_solar_productivity);
 
         for (let r of inputs.roofs) {
             let roof = new Roof(r.area, r.productivity, r.tilt, r.azimuth, inputs.pvTechnology, b);
@@ -70,7 +72,7 @@ const solarSim =
 
         // 2) Environmental results
         let actualProduction = computeActualAnnualProduction(b.production, f, 10);
-        let savedCO2emissions = computeSavedCO2Emissions(actualProduction);
+        let savedCO2emissions = computeSavedCO2Emissions(actualProduction, constants);
 
         return {
             // 'main' : {

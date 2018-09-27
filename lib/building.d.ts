@@ -8,7 +8,9 @@ declare class Building {
     maxPvArea: number;
     roofs: Roof[];
     user: User;
-    constructor(the_obstacle_rate: number);
+    MAX_POWER: number;
+    MAX_SOLAR_PRODUCTIVITY: number;
+    constructor(the_obstacle_rate: number, the_MAX_POWER: number, the_MAX_SOLAR_PRODUCTIVITY: number);
     computeProduction(): number;
     computePower(): number;
     computePVArea(): number;

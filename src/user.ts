@@ -1,6 +1,7 @@
-import * as constants from './constants';
 import {Building} from './building';
 import * as debug from 'debug';
+import { Constants } from './io';
+
 
 const logger = debug('solar-sim:user');
 

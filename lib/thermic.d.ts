@@ -21,10 +21,10 @@ declare class Thermic {
     computeCost(): number;
     computeAnnualMaintenanceCost(): number;
     computeLiterByDay(): number;
-    computeProducerYield(): number;
+    computeProducerYield(): any;
     computeNetDemand(): number;
-    computeHotWaterEnergyCost(): number;
-    computeHotWaterEnergyCostIndex(): number;
+    computeHotWaterEnergyCost(): any;
+    computeHotWaterEnergyCostIndex(): any;
     computeSolarProduction(): number;
     computePumpConsumption(): number;
 }

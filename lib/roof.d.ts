@@ -18,7 +18,7 @@ declare class Roof {
     roofProduction: number;
     constructor(the_raw_area: number, the_productivity: number, the_tilt: number, the_azimuth: number, the_technology: string, b: Building);
     getSetupFactor(): number;
-    getPVYield(): number;
+    getPVYield(): any;
     computeRoofUsableArea(): number;
     computeRawPeakPower(): number;
     computeUsablePeakPower(): number;

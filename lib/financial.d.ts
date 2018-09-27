@@ -24,7 +24,7 @@ declare class Financial {
     computePVCost(): number;
     computeOnduleurCost(): number;
     computeAnnualMaintenanceCost(): number;
-    computeCVRate(): 3 | 2.4;
+    computeCVRate(): any;
 }
 interface financialBenefit {
     [key: string]: number[];

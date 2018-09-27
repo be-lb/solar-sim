@@ -1,5 +1,5 @@
 import {Building} from './building';
-import * as constants from './constants';
+import { Constants } from './io';
 
 class Environmental {
     origin: string;
@@ -31,7 +31,7 @@ export interface environmentalCosts {
 };
 
 const getEnvironmentalCosts =
-    (environmental:Environmental, building: Building): environmentalCosts => {
+    (environmental:Environmental, building: Building, constants: Constants): environmentalCosts => {
 
     /**
     * @param Environmental
@@ -40,13 +40,13 @@ const getEnvironmentalCosts =
     */
 
     let origin : string = environmental.origin;
-    let energeticCost: number = building.power * constants.ENERGETIC_COST_FACTOR[origin];
-    let panels: number = constants.BREAKDOWN_COST_FACTOR[origin].panels;
-    let setup: number = constants.BREAKDOWN_COST_FACTOR[origin].setup;
-    let inverter: number = constants.BREAKDOWN_COST_FACTOR[origin].inverter;
-    let transportBE: number = constants.BREAKDOWN_COST_FACTOR[origin].transportBE;
-    let transportEU: number = constants.BREAKDOWN_COST_FACTOR[origin].transportEU;
-    let transportBoat: number = constants.BREAKDOWN_COST_FACTOR[origin].transportBoat;
+    let energeticCost: number = building.power * constants.energetic_cost_factor[origin];
+    let panels: number = constants.breakdown_cost_factor[origin].panels;
+    let setup: number = constants.breakdown_cost_factor[origin].setup;
+    let inverter: number = constants.breakdown_cost_factor[origin].inverter;
+    let transportBE: number = constants.breakdown_cost_factor[origin].transportBE;
+    let transportEU: number = constants.breakdown_cost_factor[origin].transportEU;
+    let transportBoat: number = constants.breakdown_cost_factor[origin].transportBoat;
 
     return {
         'energeticCost': energeticCost,
@@ -82,7 +82,7 @@ const computeEnergeticReturn =
     }
 }
 
-const computeSavedCO2Emissions = (actualProduction: number[]): number => {
+const computeSavedCO2Emissions = (actualProduction: number[], constants: Constants): number => {
     /**
     * @param actualProduction Actual annual photovoltaic production, in kWh/year
     * Compute the C02 emissions (kg C02) that are saved on the total life of the photovoltaic installation.
