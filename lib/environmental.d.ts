@@ -1,16 +1,8 @@
 import { Building } from './building';
+import { CostFactorOrigin } from './io';
 declare class Environmental {
-    origin: string;
-    constructor(the_origin: string);
-}
-export interface EnergeticCostFactor {
-    [key: string]: number;
-}
-export interface BreakdownCostFactor {
-    [key: string]: number;
-}
-export interface BreakdownCostFactorByOrigin {
-    [key: string]: BreakdownCostFactor;
+    origin: CostFactorOrigin;
+    constructor(origin: CostFactorOrigin);
 }
 export interface environmentalCosts {
     'energeticCost': number;
@@ -723,7 +715,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
         electric: import("io-ts").NumberType;
     }>, import("io-ts").mixed>;
     thermic_production: import("io-ts").InterfaceType<{
-        60: import("io-ts").InterfaceType<{
+        "60": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -754,7 +746,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        90: import("io-ts").InterfaceType<{
+        "90": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -785,7 +777,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        120: import("io-ts").InterfaceType<{
+        "120": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -816,7 +808,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        150: import("io-ts").InterfaceType<{
+        "150": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -847,7 +839,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        180: import("io-ts").InterfaceType<{
+        "180": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -878,7 +870,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        210: import("io-ts").InterfaceType<{
+        "210": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -910,7 +902,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
     }, import("io-ts").TypeOfProps<{
-        60: import("io-ts").InterfaceType<{
+        "60": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -941,7 +933,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        90: import("io-ts").InterfaceType<{
+        "90": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -972,7 +964,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        120: import("io-ts").InterfaceType<{
+        "120": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -1003,7 +995,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        150: import("io-ts").InterfaceType<{
+        "150": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -1034,7 +1026,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        180: import("io-ts").InterfaceType<{
+        "180": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -1065,7 +1057,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        210: import("io-ts").InterfaceType<{
+        "210": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -1097,7 +1089,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
     }>, import("io-ts").OutputOfProps<{
-        60: import("io-ts").InterfaceType<{
+        "60": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -1128,7 +1120,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        90: import("io-ts").InterfaceType<{
+        "90": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -1159,7 +1151,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        120: import("io-ts").InterfaceType<{
+        "120": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -1190,7 +1182,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        150: import("io-ts").InterfaceType<{
+        "150": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -1221,7 +1213,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        180: import("io-ts").InterfaceType<{
+        "180": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -1252,7 +1244,7 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        210: import("io-ts").InterfaceType<{
+        "210": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -1992,7 +1984,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
         electric: import("io-ts").NumberType;
     }>, import("io-ts").mixed>;
     thermic_production: import("io-ts").InterfaceType<{
-        60: import("io-ts").InterfaceType<{
+        "60": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -2023,7 +2015,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        90: import("io-ts").InterfaceType<{
+        "90": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -2054,7 +2046,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        120: import("io-ts").InterfaceType<{
+        "120": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -2085,7 +2077,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        150: import("io-ts").InterfaceType<{
+        "150": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -2116,7 +2108,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        180: import("io-ts").InterfaceType<{
+        "180": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -2147,7 +2139,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        210: import("io-ts").InterfaceType<{
+        "210": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -2179,7 +2171,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
     }, import("io-ts").TypeOfProps<{
-        60: import("io-ts").InterfaceType<{
+        "60": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -2210,7 +2202,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        90: import("io-ts").InterfaceType<{
+        "90": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -2241,7 +2233,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        120: import("io-ts").InterfaceType<{
+        "120": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -2272,7 +2264,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        150: import("io-ts").InterfaceType<{
+        "150": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -2303,7 +2295,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        180: import("io-ts").InterfaceType<{
+        "180": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -2334,7 +2326,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        210: import("io-ts").InterfaceType<{
+        "210": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -2366,7 +2358,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
     }>, import("io-ts").OutputOfProps<{
-        60: import("io-ts").InterfaceType<{
+        "60": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -2397,7 +2389,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        90: import("io-ts").InterfaceType<{
+        "90": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -2428,7 +2420,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        120: import("io-ts").InterfaceType<{
+        "120": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -2459,7 +2451,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        150: import("io-ts").InterfaceType<{
+        "150": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -2490,7 +2482,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        180: import("io-ts").InterfaceType<{
+        "180": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;
@@ -2521,7 +2513,7 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
             "247.5": import("io-ts").NumberType;
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
-        210: import("io-ts").InterfaceType<{
+        "210": import("io-ts").InterfaceType<{
             "90": import("io-ts").NumberType;
             "112.5": import("io-ts").NumberType;
             "135": import("io-ts").NumberType;

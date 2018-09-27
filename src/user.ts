@@ -1,6 +1,6 @@
-import {Building} from './building';
+import { Building } from './building';
 import * as debug from 'debug';
-import { Constants } from './io';
+import { Constants, SelfProductionChoice, SelfProductionValueKey } from './io';
 
 
 const logger = debug('solar-sim:user');
@@ -19,7 +19,9 @@ class User {
     hasBattery: boolean;
     annualElectricityConsumption: number;
     building: Building;
-    constructor(annual_consumption: number, energy_sobriety: boolean, charge_swift: boolean, pv_heater: boolean, battery: boolean, b: Building) {
+    constructor(
+        private constants: Constants,
+        annual_consumption: number, energy_sobriety: boolean, charge_swift: boolean, pv_heater: boolean, battery: boolean, b: Building) {
         this.annualElectricityConsumption = annual_consumption;
         this.hasEnergySobriety = energy_sobriety;
         this.hasChargeSwift = charge_swift;
@@ -27,19 +29,19 @@ class User {
         this.hasBattery = battery;
         this.building = b;
     }
-    computeAnnualElecConsumption () {
+    computeAnnualElecConsumption() {
         /**
         * Compute the annual electric consumption, in kWh/year
         */
         let annualElectricityConsumption: number = this.annualElectricityConsumption;
         if (annualElectricityConsumption === 2036) { // default value
             if (this.hasPvHeater) {
-                annualElectricityConsumption = annualElectricityConsumption + constants.ELECTRIC_WATER_HEATER_FACTOR;
+                annualElectricityConsumption = annualElectricityConsumption + this.constants.electric_water_heater_factor;
             }
         }
         return this.annualElectricityConsumption = annualElectricityConsumption;
     };
-    computeSelfConsumptionRate () {
+    computeSelfConsumptionRate() {
         /**
         * @param hasEnergySobriety
         * @param hasChargeSwift
@@ -48,8 +50,8 @@ class User {
         * Compute the self consumption rate
         */
 
-        let userChoiceKey: string;
-        if (this.hasBattery){
+        let userChoiceKey: SelfProductionChoice;
+        if (this.hasBattery) {
             userChoiceKey = 'battery';
         } else {
             if (this.hasPvHeater) {
@@ -67,23 +69,23 @@ class User {
             }
         }
 
-        let keys : number[] = Object.keys(constants.SELF_PRODUCTION['default']).map(x => Number(x));
-        let ratio: number = this.building.production/this.annualElectricityConsumption;
-        let diff: number[] = keys.map(x => Math.abs(x - ratio));
-        let ratioKey: number = -1;
+        let keys = Object.keys(this.constants.self_production['default']).map(x => x as SelfProductionValueKey);
+        let ratio: number = this.building.production / this.annualElectricityConsumption;
+        let diff: number[] = keys.map(x => Math.abs(Number(x) - ratio));
+        let ratioKey = keys[0];
         for (let d of diff) {
             if (d === Math.min(...diff)) {
                 ratioKey = keys[diff.indexOf(d)];
             }
         }
 
-        if (userChoiceKey !== <string>'battery' && userChoiceKey !== <string>'pvHeater' && userChoiceKey !== <string>'chargeShift' && userChoiceKey !== <string>'energySobriety' && userChoiceKey !== <string>'default'){
+        if (userChoiceKey !== <string>'battery' && userChoiceKey !== <string>'pvHeater' && userChoiceKey !== <string>'chargeShift' && userChoiceKey !== <string>'energySobriety' && userChoiceKey !== <string>'default') {
 
             logger(`Error in the selfProduction rate selection: ${userChoiceKey}`);
             userChoiceKey = 'default';
         }
 
-        let selfProductionRate = constants.SELF_PRODUCTION[userChoiceKey][ratioKey];
+        let selfProductionRate = this.constants.self_production[userChoiceKey][ratioKey];
         selfProductionRate = selfProductionRate === undefined ? 0.35 : selfProductionRate; // in case there is a problem
 
         return this.selfProductionRate = selfProductionRate;

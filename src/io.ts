@@ -1,4 +1,3 @@
-
 import * as io from 'io-ts';
 
 
@@ -8,21 +7,28 @@ const energeticCostFactorIO = io.interface({
     China: io.number,
 }, 'energeticCostFactorIO')
 
-const costFactorIO = io.interface({
+export type EnergeticCostFactor = io.TypeOf<typeof energeticCostFactorIO>;
+
+const breakdownCostFactorIO = io.interface({
     panels: io.number,
     setup: io.number,
     inverter: io.number,
     transportBE: io.number,
     transportEU: io.number,
     transportBoat: io.number,
-}, 'costFactorIO')
-
-const breakdownCostFactorIO = io.interface({
-    Belgium: costFactorIO,
-    Europe: costFactorIO,
-    China: costFactorIO,
 }, 'breakdownCostFactorIO')
 
+export type BreakdownCostFactor = io.TypeOf<typeof breakdownCostFactorIO>;
+export type CostFactor = keyof BreakdownCostFactor;
+
+const breakdownCostFactorOriginIO = io.interface({
+    Belgium: breakdownCostFactorIO,
+    Europe: breakdownCostFactorIO,
+    China: breakdownCostFactorIO,
+}, 'breakdownCostFactorOriginIO')
+
+export type BreakdownCostFactorOrigin = io.TypeOf<typeof breakdownCostFactorOriginIO>;
+export type CostFactorOrigin = keyof BreakdownCostFactorOrigin;
 
 const pvTechnoIO = io.interface({
     poly: io.number,
@@ -30,6 +36,8 @@ const pvTechnoIO = io.interface({
     mono_high: io.number,
 }, 'pvTechnoIO')
 
+export type PvTechInfo = io.TypeOf<typeof pvTechnoIO>;
+export type PvTech = keyof PvTechInfo;
 
 const selfProdValueIO = io.interface({
     "0.6": io.number,
@@ -41,6 +49,9 @@ const selfProdValueIO = io.interface({
     "3": io.number,
 }, 'selfProdValueIO')
 
+export type SelfProductionValue = io.TypeOf<typeof selfProdValueIO>
+export type SelfProductionValueKey = keyof SelfProductionValue;
+
 const selfProductionIO = io.interface({
     default: selfProdValueIO,
     energySobriety: selfProdValueIO,
@@ -49,6 +60,9 @@ const selfProductionIO = io.interface({
     battery: selfProdValueIO,
 }, 'selfProductionIO')
 
+export type SelfProduction = io.TypeOf<typeof selfProductionIO>;
+export type SelfProductionChoice = keyof SelfProduction;
+
 
 const thermalTechnoIO = io.interface({
     gas: io.number,
@@ -56,10 +70,13 @@ const thermalTechnoIO = io.interface({
     electric: io.number,
 }, 'thermalTechnoIO')
 
+export type ThermalTechnoInfo = io.TypeOf<typeof thermalTechnoIO>;
+export type ThermalTechno = keyof ThermalTechnoInfo;
+
 
 const thermalProdValueIO = io.interface({
     "90": io.number,
-    "112.5": io.number,
+    '112.5': io.number,
     "135": io.number,
     "157.5": io.number,
     "180": io.number,
@@ -69,14 +86,20 @@ const thermalProdValueIO = io.interface({
     "270": io.number,
 }, 'thermalProdValueIO')
 
+export type ThermalProductionValue = io.TypeOf<typeof thermalProdValueIO>;
+export type ThermalProductioValueKey = keyof ThermalProductionValue;
+
 const thermalProductionIO = io.interface({
-    60: thermalProdValueIO,
-    90: thermalProdValueIO,
-    120: thermalProdValueIO,
-    150: thermalProdValueIO,
-    180: thermalProdValueIO,
-    210: thermalProdValueIO,
+    "60": thermalProdValueIO,
+    "90": thermalProdValueIO,
+    "120": thermalProdValueIO,
+    "150": thermalProdValueIO,
+    "180": thermalProdValueIO,
+    "210": thermalProdValueIO,
 }, 'thermalProductionIO')
+
+export type ThermalProduction = io.TypeOf<typeof thermalProductionIO>;
+export type ThermalProductionKey = keyof ThermalProduction;
 
 export const constantsIO = io.interface({
     max_power: io.number,
@@ -109,7 +132,7 @@ export const constantsIO = io.interface({
     min_thermic_area: io.number,
 
     energetic_cost_factor: energeticCostFactorIO,
-    breakdown_cost_factor: breakdownCostFactorIO,
+    breakdown_cost_factor: breakdownCostFactorOriginIO,
     pv_yield: pvTechnoIO,
     pv_cost: pvTechnoIO,
     self_production: selfProductionIO,
@@ -255,34 +278,34 @@ const inputsFactory = (
     * Build the inputs for solarSim with default and required values
     */
     return {
-        roofs: roofs,
+        roofs,
         pvTechnology: pvTechnology,
-        nYears: nYears,
-        currentYear: currentYear,
-        elecSellingPrice: elecSellingPrice,
-        CVPrice: CVPrice,
-        pvArea: pvArea,
-        annualConsumptionKWh: annualConsumptionKWh,
-        installationPrice: installationPrice,
-        obstacleRate: obstacleRate,
-        VATrate: VATrate,
-        annualMaintenanceCost: annualMaintenanceCost,
-        loanPeriod: loanPeriod,
-        loanRate: loanRate,
-        loan: loan,
-        energySobriety: energySobriety,
-        chargeShift: chargeShift,
-        pvHeater: pvHeater,
-        battery: battery,
-        thermicHouseholdPerson: thermicHouseholdPerson,
-        thermicLiterByPersonByDay: thermicLiterByPersonByDay,
-        thermicLiterByDay: thermicLiterByDay,
-        thermicHotWaterProducer: thermicHotWaterProducer,
-        thermicCost: thermicCost,
-        thermicAnnualMaintenanceCost: thermicAnnualMaintenanceCost,
-        thermicMaintenanceRate: thermicMaintenanceRate,
-        thermicGrant: thermicGrant
-    }
+        nYears,
+        currentYear,
+        elecSellingPrice,
+        CVPrice,
+        pvArea,
+        annualConsumptionKWh,
+        installationPrice,
+        obstacleRate,
+        VATrate,
+        annualMaintenanceCost,
+        loanPeriod,
+        loanRate,
+        loan,
+        energySobriety,
+        chargeShift,
+        pvHeater,
+        battery,
+        thermicHouseholdPerson,
+        thermicLiterByPersonByDay,
+        thermicLiterByDay,
+        thermicHotWaterProducer,
+        thermicCost,
+        thermicAnnualMaintenanceCost,
+        thermicMaintenanceRate,
+        thermicGrant
+    };
 };
 
 export { inputs, outputs, thermicOutputs, inputsFactory, roof };

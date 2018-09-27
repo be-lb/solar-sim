@@ -1,6 +1,6 @@
-import {Building} from './building';
-import * as constants from './constants';
+import { Building } from './building';
 import * as debug from 'debug';
+import { Constants, PvTech } from './io';
 
 const logger = debug('solar-sim:roof');
 
@@ -16,13 +16,21 @@ class Roof {
     azimuth: number;
     rawPeakPower: number;
     usablePeakPower: number;
-    technology: string;
+    technology: PvTech;
     setup: string;
     setupFactor: number;
     yield: number;
     building: Building;
     roofProduction: number;
-    constructor(the_raw_area: number, the_productivity: number, the_tilt: number, the_azimuth: number, the_technology:string, b: Building) {
+    constructor(
+        readonly constants: Constants,
+        the_raw_area: number,
+        the_productivity: number,
+        the_tilt: number,
+        the_azimuth: number,
+        the_technology: PvTech,
+        b: Building
+    ) {
         this.rawArea = the_raw_area;
         this.productivity = this.setProductivity(the_productivity);
         this.tilt = the_tilt;
@@ -36,28 +44,28 @@ class Roof {
         this.usablePeakPower = this.computeUsablePeakPower();
         this.roofProduction = this.computeRoofProduction();
     }
-    getSetupFactor () {
+    getSetupFactor() {
         /**
         * @param tilt - roof inclination (°)
         * Function for selecting the setup factor given the roof inclination (tilt)
         */
         if (this.setupFactor === undefined) {
-            return this.setupFactor = this.tilt < constants.FLAT_ROOF_TILT ? 0.5 : 1
+            return this.setupFactor = this.tilt < this.constants.flat_roof_tilt ? 0.5 : 1
         } else {
             return this.setupFactor;
         }
     };
-    getPVYield () {
+    getPVYield() {
         /**
         * Look-up function for selecting the PV yield depending on the technology
         */
         if (this.yield === undefined) {
-            return this.yield = constants.PV_YIELD[this.technology];
+            return this.yield = this.constants.pv_yield[this.technology];
         } else {
             return this.yield;
         }
     };
-    computeRoofUsableArea () {
+    computeRoofUsableArea() {
         /**
         * @param rawArea - raw area of the roof (m²)
         * @param tilt - tilt of the roof (°)
@@ -67,23 +75,23 @@ class Roof {
         */
         let isAboveProductivityLimit: number;
         if (this.usableArea === undefined) {
-            if (this.productivity < constants.LOW_PRODUCTIVITY_LIMIT) {
+            if (this.productivity < this.constants.low_productivity_limit) {
                 isAboveProductivityLimit = 0;
             } else {
                 isAboveProductivityLimit = 1;
             }
-            if (this.tilt < constants.FLAT_ROOF_TILT) { // flat roof
+            if (this.tilt < this.constants.flat_roof_tilt) { // flat roof
                 return this.usableArea =
-                isAboveProductivityLimit * 0.57 * this.rawArea * (1 - this.building.obstacleRate);
+                    isAboveProductivityLimit * 0.57 * this.rawArea * (1 - this.building.obstacleRate);
             } else {
                 return this.usableArea =
-                isAboveProductivityLimit * this.rawArea * (1 - this.building.obstacleRate);
+                    isAboveProductivityLimit * this.rawArea * (1 - this.building.obstacleRate);
             }
         } else {
             return this.usableArea;
         }
     };
-    computeRawPeakPower () {
+    computeRawPeakPower() {
         /**
         * @param rawArea - raw area of the roof (m²)
         * @param setupFactor - type of mounting of the photovoltaic installation
@@ -91,10 +99,10 @@ class Roof {
         * Returns the raw peak power of the roof (kWc)
         */
         return this.rawPeakPower =
-        this.rawArea / (1000 / (1000 * this.yield) * this.setupFactor)
-        ;
+            this.rawArea / (1000 / (1000 * this.yield) * this.setupFactor)
+            ;
     };
-    computeUsablePeakPower () {
+    computeUsablePeakPower() {
         /**
         * @param usableArea - usable area for photovoltaic installation (m²)
         * @param setupFactor - type of mounting of the photovoltaic installation
@@ -102,10 +110,10 @@ class Roof {
         * Returns the usable peak power of the roof (kWc)
         */
         return this.usablePeakPower =
-        this.usableArea / (1000 / (1000 * this.yield) * this.setupFactor)
-        ;
+            this.usableArea / (1000 / (1000 * this.yield) * this.setupFactor)
+            ;
     };
-    computeRoofProduction () {
+    computeRoofProduction() {
         /**
         * @param productivity - solar productivity (kWh/kWc) by m²?
         * @param PeakPower - peak power of the potential installation (kWc)
@@ -114,13 +122,13 @@ class Roof {
 
         return this.roofProduction = this.usablePeakPower * this.productivity;
     };
-    setProductivity (the_productivity: number) {
+    setProductivity(the_productivity: number) {
         /**
         * Function for avoiding aberrant values for the productivity
         **/
         let productivity: number = the_productivity;
-        if (the_productivity > constants.MAX_SOLAR_PRODUCTIVITY) {
-            productivity = constants.MAX_SOLAR_PRODUCTIVITY;
+        if (the_productivity > this.constants.max_solar_productivity) {
+            productivity = this.constants.max_solar_productivity;
             logger(`Warning! Roof productivity too large: ${the_productivity} kWh/m²`);
 
         }

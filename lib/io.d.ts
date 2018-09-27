@@ -1,4 +1,1281 @@
 import * as io from 'io-ts';
+declare const energeticCostFactorIO: io.InterfaceType<{
+    Belgium: io.NumberType;
+    Europe: io.NumberType;
+    China: io.NumberType;
+}, io.TypeOfProps<{
+    Belgium: io.NumberType;
+    Europe: io.NumberType;
+    China: io.NumberType;
+}>, io.OutputOfProps<{
+    Belgium: io.NumberType;
+    Europe: io.NumberType;
+    China: io.NumberType;
+}>, io.mixed>;
+export declare type EnergeticCostFactor = io.TypeOf<typeof energeticCostFactorIO>;
+declare const breakdownCostFactorIO: io.InterfaceType<{
+    panels: io.NumberType;
+    setup: io.NumberType;
+    inverter: io.NumberType;
+    transportBE: io.NumberType;
+    transportEU: io.NumberType;
+    transportBoat: io.NumberType;
+}, io.TypeOfProps<{
+    panels: io.NumberType;
+    setup: io.NumberType;
+    inverter: io.NumberType;
+    transportBE: io.NumberType;
+    transportEU: io.NumberType;
+    transportBoat: io.NumberType;
+}>, io.OutputOfProps<{
+    panels: io.NumberType;
+    setup: io.NumberType;
+    inverter: io.NumberType;
+    transportBE: io.NumberType;
+    transportEU: io.NumberType;
+    transportBoat: io.NumberType;
+}>, io.mixed>;
+export declare type BreakdownCostFactor = io.TypeOf<typeof breakdownCostFactorIO>;
+export declare type CostFactor = keyof BreakdownCostFactor;
+declare const breakdownCostFactorOriginIO: io.InterfaceType<{
+    Belgium: io.InterfaceType<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }, io.TypeOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.OutputOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.mixed>;
+    Europe: io.InterfaceType<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }, io.TypeOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.OutputOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.mixed>;
+    China: io.InterfaceType<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }, io.TypeOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.OutputOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.mixed>;
+}, io.TypeOfProps<{
+    Belgium: io.InterfaceType<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }, io.TypeOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.OutputOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.mixed>;
+    Europe: io.InterfaceType<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }, io.TypeOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.OutputOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.mixed>;
+    China: io.InterfaceType<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }, io.TypeOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.OutputOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.mixed>;
+}>, io.OutputOfProps<{
+    Belgium: io.InterfaceType<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }, io.TypeOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.OutputOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.mixed>;
+    Europe: io.InterfaceType<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }, io.TypeOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.OutputOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.mixed>;
+    China: io.InterfaceType<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }, io.TypeOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.OutputOfProps<{
+        panels: io.NumberType;
+        setup: io.NumberType;
+        inverter: io.NumberType;
+        transportBE: io.NumberType;
+        transportEU: io.NumberType;
+        transportBoat: io.NumberType;
+    }>, io.mixed>;
+}>, io.mixed>;
+export declare type BreakdownCostFactorOrigin = io.TypeOf<typeof breakdownCostFactorOriginIO>;
+export declare type CostFactorOrigin = keyof BreakdownCostFactorOrigin;
+declare const pvTechnoIO: io.InterfaceType<{
+    poly: io.NumberType;
+    mono: io.NumberType;
+    mono_high: io.NumberType;
+}, io.TypeOfProps<{
+    poly: io.NumberType;
+    mono: io.NumberType;
+    mono_high: io.NumberType;
+}>, io.OutputOfProps<{
+    poly: io.NumberType;
+    mono: io.NumberType;
+    mono_high: io.NumberType;
+}>, io.mixed>;
+export declare type PvTechInfo = io.TypeOf<typeof pvTechnoIO>;
+export declare type PvTech = keyof PvTechInfo;
+declare const selfProdValueIO: io.InterfaceType<{
+    "0.6": io.NumberType;
+    "1": io.NumberType;
+    "1.4": io.NumberType;
+    "1.8": io.NumberType;
+    "2.2": io.NumberType;
+    "2.6": io.NumberType;
+    "3": io.NumberType;
+}, io.TypeOfProps<{
+    "0.6": io.NumberType;
+    "1": io.NumberType;
+    "1.4": io.NumberType;
+    "1.8": io.NumberType;
+    "2.2": io.NumberType;
+    "2.6": io.NumberType;
+    "3": io.NumberType;
+}>, io.OutputOfProps<{
+    "0.6": io.NumberType;
+    "1": io.NumberType;
+    "1.4": io.NumberType;
+    "1.8": io.NumberType;
+    "2.2": io.NumberType;
+    "2.6": io.NumberType;
+    "3": io.NumberType;
+}>, io.mixed>;
+export declare type SelfProductionValue = io.TypeOf<typeof selfProdValueIO>;
+export declare type SelfProductionValueKey = keyof SelfProductionValue;
+declare const selfProductionIO: io.InterfaceType<{
+    default: io.InterfaceType<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }, io.TypeOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.OutputOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.mixed>;
+    energySobriety: io.InterfaceType<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }, io.TypeOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.OutputOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.mixed>;
+    chargeShift: io.InterfaceType<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }, io.TypeOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.OutputOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.mixed>;
+    pvHeater: io.InterfaceType<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }, io.TypeOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.OutputOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.mixed>;
+    battery: io.InterfaceType<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }, io.TypeOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.OutputOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.mixed>;
+}, io.TypeOfProps<{
+    default: io.InterfaceType<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }, io.TypeOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.OutputOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.mixed>;
+    energySobriety: io.InterfaceType<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }, io.TypeOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.OutputOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.mixed>;
+    chargeShift: io.InterfaceType<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }, io.TypeOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.OutputOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.mixed>;
+    pvHeater: io.InterfaceType<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }, io.TypeOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.OutputOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.mixed>;
+    battery: io.InterfaceType<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }, io.TypeOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.OutputOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.mixed>;
+}>, io.OutputOfProps<{
+    default: io.InterfaceType<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }, io.TypeOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.OutputOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.mixed>;
+    energySobriety: io.InterfaceType<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }, io.TypeOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.OutputOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.mixed>;
+    chargeShift: io.InterfaceType<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }, io.TypeOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.OutputOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.mixed>;
+    pvHeater: io.InterfaceType<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }, io.TypeOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.OutputOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.mixed>;
+    battery: io.InterfaceType<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }, io.TypeOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.OutputOfProps<{
+        "0.6": io.NumberType;
+        "1": io.NumberType;
+        "1.4": io.NumberType;
+        "1.8": io.NumberType;
+        "2.2": io.NumberType;
+        "2.6": io.NumberType;
+        "3": io.NumberType;
+    }>, io.mixed>;
+}>, io.mixed>;
+export declare type SelfProduction = io.TypeOf<typeof selfProductionIO>;
+export declare type SelfProductionChoice = keyof SelfProduction;
+declare const thermalTechnoIO: io.InterfaceType<{
+    gas: io.NumberType;
+    fuel: io.NumberType;
+    electric: io.NumberType;
+}, io.TypeOfProps<{
+    gas: io.NumberType;
+    fuel: io.NumberType;
+    electric: io.NumberType;
+}>, io.OutputOfProps<{
+    gas: io.NumberType;
+    fuel: io.NumberType;
+    electric: io.NumberType;
+}>, io.mixed>;
+export declare type ThermalTechnoInfo = io.TypeOf<typeof thermalTechnoIO>;
+export declare type ThermalTechno = keyof ThermalTechnoInfo;
+declare const thermalProdValueIO: io.InterfaceType<{
+    "90": io.NumberType;
+    "112.5": io.NumberType;
+    "135": io.NumberType;
+    "157.5": io.NumberType;
+    "180": io.NumberType;
+    "202.5": io.NumberType;
+    "225": io.NumberType;
+    "247.5": io.NumberType;
+    "270": io.NumberType;
+}, io.TypeOfProps<{
+    "90": io.NumberType;
+    "112.5": io.NumberType;
+    "135": io.NumberType;
+    "157.5": io.NumberType;
+    "180": io.NumberType;
+    "202.5": io.NumberType;
+    "225": io.NumberType;
+    "247.5": io.NumberType;
+    "270": io.NumberType;
+}>, io.OutputOfProps<{
+    "90": io.NumberType;
+    "112.5": io.NumberType;
+    "135": io.NumberType;
+    "157.5": io.NumberType;
+    "180": io.NumberType;
+    "202.5": io.NumberType;
+    "225": io.NumberType;
+    "247.5": io.NumberType;
+    "270": io.NumberType;
+}>, io.mixed>;
+export declare type ThermalProductionValue = io.TypeOf<typeof thermalProdValueIO>;
+export declare type ThermalProductioValueKey = keyof ThermalProductionValue;
+declare const thermalProductionIO: io.InterfaceType<{
+    "60": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+    "90": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+    "120": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+    "150": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+    "180": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+    "210": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+}, io.TypeOfProps<{
+    "60": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+    "90": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+    "120": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+    "150": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+    "180": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+    "210": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+}>, io.OutputOfProps<{
+    "60": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+    "90": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+    "120": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+    "150": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+    "180": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+    "210": io.InterfaceType<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }, io.TypeOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.OutputOfProps<{
+        "90": io.NumberType;
+        "112.5": io.NumberType;
+        "135": io.NumberType;
+        "157.5": io.NumberType;
+        "180": io.NumberType;
+        "202.5": io.NumberType;
+        "225": io.NumberType;
+        "247.5": io.NumberType;
+        "270": io.NumberType;
+    }>, io.mixed>;
+}>, io.mixed>;
+export declare type ThermalProduction = io.TypeOf<typeof thermalProductionIO>;
+export declare type ThermalProductionKey = keyof ThermalProduction;
 export declare const constantsIO: io.InterfaceType<{
     max_power: io.NumberType;
     co2_emissions_by_kwh: io.NumberType;
@@ -701,7 +1978,7 @@ export declare const constantsIO: io.InterfaceType<{
         electric: io.NumberType;
     }>, io.mixed>;
     thermic_production: io.InterfaceType<{
-        60: io.InterfaceType<{
+        "60": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -732,7 +2009,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        90: io.InterfaceType<{
+        "90": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -763,7 +2040,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        120: io.InterfaceType<{
+        "120": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -794,7 +2071,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        150: io.InterfaceType<{
+        "150": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -825,7 +2102,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        180: io.InterfaceType<{
+        "180": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -856,7 +2133,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        210: io.InterfaceType<{
+        "210": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -888,7 +2165,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.mixed>;
     }, io.TypeOfProps<{
-        60: io.InterfaceType<{
+        "60": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -919,7 +2196,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        90: io.InterfaceType<{
+        "90": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -950,7 +2227,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        120: io.InterfaceType<{
+        "120": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -981,7 +2258,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        150: io.InterfaceType<{
+        "150": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -1012,7 +2289,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        180: io.InterfaceType<{
+        "180": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -1043,7 +2320,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        210: io.InterfaceType<{
+        "210": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -1075,7 +2352,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.mixed>;
     }>, io.OutputOfProps<{
-        60: io.InterfaceType<{
+        "60": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -1106,7 +2383,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        90: io.InterfaceType<{
+        "90": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -1137,7 +2414,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        120: io.InterfaceType<{
+        "120": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -1168,7 +2445,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        150: io.InterfaceType<{
+        "150": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -1199,7 +2476,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        180: io.InterfaceType<{
+        "180": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -1230,7 +2507,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        210: io.InterfaceType<{
+        "210": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -1964,7 +3241,7 @@ export declare const constantsIO: io.InterfaceType<{
         electric: io.NumberType;
     }>, io.mixed>;
     thermic_production: io.InterfaceType<{
-        60: io.InterfaceType<{
+        "60": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -1995,7 +3272,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        90: io.InterfaceType<{
+        "90": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -2026,7 +3303,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        120: io.InterfaceType<{
+        "120": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -2057,7 +3334,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        150: io.InterfaceType<{
+        "150": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -2088,7 +3365,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        180: io.InterfaceType<{
+        "180": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -2119,7 +3396,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        210: io.InterfaceType<{
+        "210": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -2151,7 +3428,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.mixed>;
     }, io.TypeOfProps<{
-        60: io.InterfaceType<{
+        "60": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -2182,7 +3459,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        90: io.InterfaceType<{
+        "90": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -2213,7 +3490,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        120: io.InterfaceType<{
+        "120": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -2244,7 +3521,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        150: io.InterfaceType<{
+        "150": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -2275,7 +3552,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        180: io.InterfaceType<{
+        "180": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -2306,7 +3583,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        210: io.InterfaceType<{
+        "210": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -2338,7 +3615,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.mixed>;
     }>, io.OutputOfProps<{
-        60: io.InterfaceType<{
+        "60": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -2369,7 +3646,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        90: io.InterfaceType<{
+        "90": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -2400,7 +3677,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        120: io.InterfaceType<{
+        "120": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -2431,7 +3708,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        150: io.InterfaceType<{
+        "150": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -2462,7 +3739,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        180: io.InterfaceType<{
+        "180": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -2493,7 +3770,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        210: io.InterfaceType<{
+        "210": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3227,7 +4504,7 @@ export declare const constantsIO: io.InterfaceType<{
         electric: io.NumberType;
     }>, io.mixed>;
     thermic_production: io.InterfaceType<{
-        60: io.InterfaceType<{
+        "60": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3258,7 +4535,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        90: io.InterfaceType<{
+        "90": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3289,7 +4566,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        120: io.InterfaceType<{
+        "120": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3320,7 +4597,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        150: io.InterfaceType<{
+        "150": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3351,7 +4628,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        180: io.InterfaceType<{
+        "180": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3382,7 +4659,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        210: io.InterfaceType<{
+        "210": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3414,7 +4691,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.mixed>;
     }, io.TypeOfProps<{
-        60: io.InterfaceType<{
+        "60": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3445,7 +4722,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        90: io.InterfaceType<{
+        "90": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3476,7 +4753,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        120: io.InterfaceType<{
+        "120": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3507,7 +4784,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        150: io.InterfaceType<{
+        "150": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3538,7 +4815,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        180: io.InterfaceType<{
+        "180": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3569,7 +4846,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        210: io.InterfaceType<{
+        "210": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3601,7 +4878,7 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.mixed>;
     }>, io.OutputOfProps<{
-        60: io.InterfaceType<{
+        "60": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3632,7 +4909,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        90: io.InterfaceType<{
+        "90": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3663,7 +4940,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        120: io.InterfaceType<{
+        "120": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3694,7 +4971,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        150: io.InterfaceType<{
+        "150": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3725,7 +5002,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        180: io.InterfaceType<{
+        "180": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;
@@ -3756,7 +5033,7 @@ export declare const constantsIO: io.InterfaceType<{
             "247.5": io.NumberType;
             "270": io.NumberType;
         }>, io.mixed>;
-        210: io.InterfaceType<{
+        "210": io.InterfaceType<{
             "90": io.NumberType;
             "112.5": io.NumberType;
             "135": io.NumberType;

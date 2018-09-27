@@ -8,8 +8,8 @@
  *  License in LICENSE file at the root of the repository.
  */
 
-import {solarSim, thermicSolarSim} from './run';
-import {roof, inputs, Constants} from './io';
+import { solarSim, thermicSolarSim } from './run';
+import { roof, inputs, Constants } from './io';
 
 // Example with required parameters only
 // let roofs: roof[] = [
@@ -18,24 +18,24 @@ import {roof, inputs, Constants} from './io';
 //     {'area': 300, 'productivity': 50, 'tilt': 30, 'azimuth': 150}
 // ];
 let roofs: roof[] = [
- {
-   "azimuth": 149.4325327827,
-   "productivity": 1945.3562068862,
-   "area": 120.9019349646,
-   "tilt": 27.1570730376
- },
- {
-   "azimuth": 36.1854187033,
-   "productivity": 570.1815062421,
-   "area": 1191.5398056349,
-   "tilt": 0.1266373741
- },
- {
-   "azimuth": 149.1765317543,
-   "productivity": 521.3345989325,
-   "area": 289.2746173713,
-   "tilt": 25.0726237712
- }
+    {
+        "azimuth": 149.4325327827,
+        "productivity": 1945.3562068862,
+        "area": 120.9019349646,
+        "tilt": 27.1570730376
+    },
+    {
+        "azimuth": 36.1854187033,
+        "productivity": 570.1815062421,
+        "area": 1191.5398056349,
+        "tilt": 0.1266373741
+    },
+    {
+        "azimuth": 149.1765317543,
+        "productivity": 521.3345989325,
+        "area": 289.2746173713,
+        "tilt": 25.0726237712
+    }
 ];
 
 // let inputs = inputsFactory(roofs);
@@ -104,21 +104,21 @@ let constants: Constants = {
     max_liter_per_day: 210,
     min_thermic_area: 5,
 
-    energetic_cost_factor: {'Belgium': 2500, 'Europe': 2600, 'China': 2750},
+    energetic_cost_factor: { 'Belgium': 2500, 'Europe': 2600, 'China': 2750 },
     breakdown_cost_factor: {
-        'Belgium': {'panels': 0.85, 'setup': 0.04, 'inverter': 0.09, 'transportBE': 0.02, 'transportEU': 0, 'transportBoat': 0},
-        'Europe': {'panels': 0.81, 'setup': 0.03, 'inverter': 0.08, 'transportBE': 0.02, 'transportEU': 0.05, 'transportBoat': 0},
-        'China': {'panels': 0.77, 'setup': 0.03, 'inverter': 0.08, 'transportBE': 0.02, 'transportEU': 0.02, 'transportBoat': 0.08},
+        'Belgium': { 'panels': 0.85, 'setup': 0.04, 'inverter': 0.09, 'transportBE': 0.02, 'transportEU': 0, 'transportBoat': 0 },
+        'Europe': { 'panels': 0.81, 'setup': 0.03, 'inverter': 0.08, 'transportBE': 0.02, 'transportEU': 0.05, 'transportBoat': 0 },
+        'China': { 'panels': 0.77, 'setup': 0.03, 'inverter': 0.08, 'transportBE': 0.02, 'transportEU': 0.02, 'transportBoat': 0.08 },
     },
     pv_yield: {
         'poly': 0.13,
         'mono': 0.155,
-        'mono_high' : 0.22
+        'mono_high': 0.22
     },
     pv_cost: {
-        'poly': 1400/1.06,
-        'mono': 1500/1.06,
-        'mono_high': 1600/1.06
+        'poly': 1400 / 1.06,
+        'mono': 1500 / 1.06,
+        'mono_high': 1600 / 1.06
     },
     self_production: {
         "default": {
@@ -170,17 +170,17 @@ let constants: Constants = {
     hot_water_producer_yield: {
         'gas': 0.70,
         'fuel': 0.55,
-        'electric' : 0.95
+        'electric': 0.95
     },
     hot_water_energy_cost: {
         'gas': 0.080,
         'fuel': 0.081,
-        'electric' : 0.267
+        'electric': 0.267
     },
     hot_water_energy_cost_index: {
         'gas': 0.054,
         'fuel': 0.099,
-        'electric' : 0.04
+        'electric': 0.04
     },
     co2_emissions_by_kwh_thermic: {
         'gas': 0.201,
@@ -188,77 +188,77 @@ let constants: Constants = {
         'electric': 0.456 // NB: should be equal to CO2_EMISSIONS_BY_KWH
     },
     thermic_production: {
-       "60": {
-          "90": 519,
-          "112.5": 534,
-          "135": 546,
-          "157.5": 553,
-          "180": 555,
-          "202.5": 553,
-          "225": 546,
-          "247.5": 534,
-          "270": 519,
-       },
-       "90": {
-          "90": 742,
-          "112.5": 767,
-          "135": 787,
-          "157.5": 800,
-          "180": 804,
-          "202.5": 800,
-          "225": 787,
-          "247.5": 767,
-          "270": 742,
-       },
-       "120": {
-          "90": 932,
-          "112.5": 968,
-          "135": 997,
-          "157.5": 1015,
-          "180": 1022,
-          "202.5": 1015,
-          "225": 997,
-          "247.5": 968,
-          "270": 932,
-       },
-       "150": {
-          "90": 1097,
-          "112.5": 1145,
-          "135": 1183,
-          "157.5": 1207,
-          "180": 1215,
-          "202.5": 1207,
-          "225": 1183,
-          "247.5": 1145,
-          "270": 1097,
-       },
-       "180": {
-          "90": 1262,
-          "112.5": 1321,
-          "135": 1368,
-          "157.5": 1398,
-          "180": 1408,
-          "202.5": 1398,
-          "225": 1368,
-          "247.5": 1321,
-          "270": 1262,
-       },
-       "210": {
-          "90": 1364,
-          "112.5": 1432,
-          "135": 1487,
-          "157.5": 1522,
-          "180": 1534,
-          "202.5": 1522,
-          "225": 1487,
-          "247.5": 1432,
-          "270": 1364,
-       }
-    }
-}
+        "60": {
+            "90": 519,
+            "112.5": 534,
+            "135": 546,
+            "157.5": 553,
+            "180": 555,
+            "202.5": 553,
+            "225": 546,
+            "247.5": 534,
+            "270": 519,
+        },
+        "90": {
+            "90": 742,
+            "112.5": 767,
+            "135": 787,
+            "157.5": 800,
+            "180": 804,
+            "202.5": 800,
+            "225": 787,
+            "247.5": 767,
+            "270": 742,
+        },
+        "120": {
+            "90": 932,
+            "112.5": 968,
+            "135": 997,
+            "157.5": 1015,
+            "180": 1022,
+            "202.5": 1015,
+            "225": 997,
+            "247.5": 968,
+            "270": 932,
+        },
+        "150": {
+            "90": 1097,
+            "112.5": 1145,
+            "135": 1183,
+            "157.5": 1207,
+            "180": 1215,
+            "202.5": 1207,
+            "225": 1183,
+            "247.5": 1145,
+            "270": 1097,
+        },
+        "180": {
+            "90": 1262,
+            "112.5": 1321,
+            135: 1368,
+            157.5: 1398,
+            "180": 1408,
+            "202.5": 1398,
+            "225": 1368,
+            "247.5": 1321,
+            "270": 1262,
+        },
+        210: {
+            90: 1364,
+            112.5: 1432,
+            135: 1487,
+            157.5: 1522,
+            180: 1534,
+            202.5: 1522,
+            225: 1487,
+            247.5: 1432,
+            270: 1364,
+        }
+    },
+};
 
-let outputs = solarSim(fullInputs, constants);
+const outputs = solarSim(fullInputs, constants);
 console.log(outputs);
 
-let thermic_outputs = thermicSolarSim(fullInputs);
+const thermic_outputs = thermicSolarSim(fullInputs, constants);
 console.log(thermic_outputs);
