@@ -28,8 +28,8 @@ $ ./node_modules/mocha/bin/mocha
 
 There are also other scripts for testing the simulator:
 
-* `/test/live-testing.js` to test the whole simulator with a full input configuration
-* `/test/xls-maquette.js` to mimic the original xls maquette of the simulator with the same parameters as in the xls file `503_Simulateur_Maquette_20180508.xls`.
+* `/test/functionnal_tests/live-testing.js` to test the whole simulator with a full input configuration
+* `/test/functionnal_tests/xls-maquette.js` to mimic the original xls maquette of the simulator with the same parameters as in the xls file `documentation/maquette_xls/503_Simulateur_Maquette_20180508.xls`.
 
 ## Usage
 
