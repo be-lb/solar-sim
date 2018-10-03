@@ -58,7 +58,7 @@ class Building {
     };
     computePVArea () {
         /**
-        * Compute the total photovoltaic area of the building (m²).
+        * Compute the total potential photovoltaic area of the building (m²).
         */
         let computedPvArea: number = 0;
         for (let r of this.roofs) {
@@ -130,13 +130,13 @@ const optimizeRoofAreas = (b: Building, actualPvArea: number): number  => {
 }
 
 
-const optimizeRoofPowers = (b: Building, actualPower: number): void => {
+const optimizeRoofPowers = (b: Building, potentialPower: number): void => {
     /**
     * Optimize roof power as a function of their productivity. This function is called
     * when the MAX_POWER is reached.
     */
 
-    let computedPower: number = actualPower;
+    let computedPower: number = potentialPower;
     let roofProductivities: number[] = [];
     for (let r of b.roofs) {
         roofProductivities.push(r.productivity);
