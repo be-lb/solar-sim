@@ -75,10 +75,10 @@ $ npm install typedoc --save
 
 ### Make the doc
 ```
-$ typedoc --out docs --mode modules src
+$ typedoc --out gen_docs --mode modules src
 ```
 
-The documentation is available as HTML pages in /docs/.
+The documentation is available as HTML pages in /gen_docs/.
 
 ## Web
 
