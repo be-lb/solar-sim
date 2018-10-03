@@ -12,22 +12,23 @@ import { Building } from './building';
 import { Roof } from './roof';
 import { User } from './user';
 import { Financial, computeActualAnnualProduction, computeFinancialAmortization, getFinancialYearN, computeActualReturnTime, getInstallationCost } from './financial';
-import { computeSavedCO2Emissions } from './environmental';
-import { inputs, outputs, thermicOutputs } from './io';
+import { computeSavedCO2Emissions} from './environmental';
+import { Constants, inputs, outputs, thermicOutputs } from './io';
 import { Thermic, computeThermicGain, computeThermicEnvironmentalGain, computeProductionPrices, computeActualReturnTimeThermic } from './thermic';
 
 const solarSim =
-    (inputs: inputs):
+    (inputs: inputs, constants: Constants):
         outputs => {
         /**
         * @param inputs
         * @return outputs
         * Main function
         */
-        let b = new Building(inputs.obstacleRate);
+
+        let b = new Building(inputs.obstacleRate, constants.max_power, constants.max_solar_productivity);
 
         for (let r of inputs.roofs) {
-            let roof = new Roof(r.area, r.productivity, r.tilt, r.azimuth, inputs.pvTechnology, b);
+            let roof = new Roof(constants, r.area, r.productivity, r.tilt, r.azimuth, inputs.pvTechnology, b);
             b.roofs.push(roof);
         }
         b.pvArea = inputs.pvArea;
@@ -41,13 +42,13 @@ const solarSim =
         b.computeProduction();
 
         // User information
-        let u = new User(inputs.annualConsumptionKWh, inputs.energySobriety, inputs.chargeShift, inputs.pvHeater, inputs.battery, b);
+        let u = new User(constants, inputs.annualConsumptionKWh, inputs.energySobriety, inputs.chargeShift, inputs.pvHeater, inputs.battery, b);
         u.computeAnnualElecConsumption();
         u.computeSelfConsumptionRate();
         b.user = u;
 
         // Financial information
-        let f = new Financial(inputs.elecSellingPrice, inputs.CVPrice, inputs.VATrate, inputs.annualMaintenanceCost, inputs.loan, inputs.loanPeriod, inputs.loanRate);
+        let f = new Financial(constants, inputs.elecSellingPrice, inputs.CVPrice, inputs.VATrate, inputs.annualMaintenanceCost, inputs.loan, inputs.loanPeriod, inputs.loanRate);
         f.building = b;
         f.computePVCost();
         f.computeOnduleurCost();
@@ -70,7 +71,7 @@ const solarSim =
 
         // 2) Environmental results
         let actualProduction = computeActualAnnualProduction(b.production, f, 10);
-        let savedCO2emissions = computeSavedCO2Emissions(actualProduction);
+        let savedCO2emissions = computeSavedCO2Emissions(actualProduction, constants);
 
         return {
             // 'main' : {
@@ -96,7 +97,7 @@ const solarSim =
 
 
 const thermicSolarSim =
-    (inputs: inputs):
+    (inputs: inputs, constants:Constants):
         thermicOutputs => {
         /**
         * @param inputs
@@ -104,20 +105,20 @@ const thermicSolarSim =
         * Main function for thermic panels
         */
 
-        let b = new Building(inputs.obstacleRate);
+        let b = new Building(inputs.obstacleRate, constants.max_power, constants.max_solar_productivity);
 
         for (let r of inputs.roofs) {
-            let roof = new Roof(r.area, r.productivity, r.tilt, r.azimuth, 'NA', b);
+            let roof = new Roof(constants,r.area, r.productivity, r.tilt, r.azimuth, 'mono', b); // FIXME 'mono' here is a place holder, but hoonestly it stinks -pm
             b.roofs.push(roof);
         }
 
-        let t = new Thermic(inputs.thermicHouseholdPerson, inputs.thermicLiterByPersonByDay, inputs.thermicLiterByDay, inputs.thermicHotWaterProducer, inputs.thermicCost, inputs.thermicAnnualMaintenanceCost, inputs.thermicMaintenanceRate, inputs.thermicGrant, inputs.VATrate)
+        let t = new Thermic(constants, inputs.thermicHouseholdPerson, inputs.thermicLiterByPersonByDay, inputs.thermicLiterByDay, inputs.thermicHotWaterProducer, inputs.thermicCost, inputs.thermicAnnualMaintenanceCost, inputs.thermicMaintenanceRate, inputs.thermicGrant, inputs.VATrate)
         t.computeCost();
         t.computeAnnualMaintenanceCost();
         t.building = b;
         t.computeSolarProduction();
         t.computePumpConsumption();
-        let f = new Financial(-9999, -9999, inputs.VATrate, -9999, inputs.loan, 3, 0.018);
+        let f = new Financial(constants, -9999, -9999, inputs.VATrate, -9999, inputs.loan, 3, 0.018);
 
         let gain = computeThermicGain(t, inputs.nYears);
         let productionPrices = computeProductionPrices(t, 25);

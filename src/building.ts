@@ -1,6 +1,5 @@
 import {Roof} from './roof';
 import {User} from './user';
-import * as constants from './constants';
 import * as debug from 'debug';
 
 const logger = debug('solar-sim:building');
@@ -13,9 +12,17 @@ class Building {
     maxPvArea: number;
     roofs: Roof[];
     user: User;
-    constructor(the_obstacle_rate: number) {
+    MAX_POWER: number;
+    MAX_SOLAR_PRODUCTIVITY: number;
+    constructor(
+        the_obstacle_rate: number,
+        the_MAX_POWER: number,
+        the_MAX_SOLAR_PRODUCTIVITY: number
+    ) {
         this.obstacleRate = the_obstacle_rate;
         this.roofs = [];
+        this.MAX_POWER = the_MAX_POWER;
+        this.MAX_SOLAR_PRODUCTIVITY = the_MAX_SOLAR_PRODUCTIVITY;
     };
     computeProduction () {
         /**
@@ -27,9 +34,9 @@ class Building {
         }
 
         /* Set a maximal value for the building production */
-        if (production > constants.MAX_POWER * constants.MAX_SOLAR_PRODUCTIVITY) {
+        if (production > this.MAX_POWER * this.MAX_SOLAR_PRODUCTIVITY) {
             logger(`Warning! Building production too large: ${production}`);
-            production = constants.MAX_POWER * constants.MAX_SOLAR_PRODUCTIVITY;
+            production = this.MAX_POWER * this.MAX_SOLAR_PRODUCTIVITY;
         }
 
         return this.production = production;
@@ -42,9 +49,9 @@ class Building {
         for (let r of this.roofs) {
             power = power + r.usablePeakPower;
         }
-        if (power > constants.MAX_POWER) {
+        if (power > this.MAX_POWER) {
             optimizeRoofPowers(this, power);
-            return this.power = constants.MAX_POWER;
+            return this.power = this.MAX_POWER;
         } else {
             return this.power = power;
         }
@@ -137,9 +144,9 @@ const optimizeRoofPowers = (b: Building, actualPower: number): void => {
     let sortRoofProductivities: number[] = roofProductivities.sort((a, b) => b - a);
 
     let cpt: number = 0;
-    while (constants.MAX_POWER < computedPower && cpt < b.roofs.length && cpt < MAX_ITERATION_WHILE) {
+    while (b.MAX_POWER < computedPower && cpt < b.roofs.length && cpt < MAX_ITERATION_WHILE) {
 
-        let deltaPower: number = computedPower - constants.MAX_POWER;
+        let deltaPower: number = computedPower - b.MAX_POWER;
 
         // adapt the power of the roof [cpt]
         for (let r of b.roofs) {
@@ -147,7 +154,7 @@ const optimizeRoofPowers = (b: Building, actualPower: number): void => {
 
                 // Avoid having all roof rejected because of too high power
                 if (cpt === 1){
-                    r.usablePeakPower = Math.max((r.usablePeakPower - deltaPower), constants.MAX_POWER);
+                    r.usablePeakPower = Math.max((r.usablePeakPower - deltaPower), b.MAX_POWER);
                 } else {
                     r.usablePeakPower = Math.max((r.usablePeakPower - deltaPower), 0);
                 }

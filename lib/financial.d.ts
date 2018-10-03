@@ -1,30 +1,33 @@
 import { Building } from './building';
+import { Constants } from './io';
 declare class Financial {
+    readonly constants: Constants;
     meterCost: number;
     redevanceCost: number;
     inflationRate: number;
     elecBuyingPrice: number;
-    elecSellingPrice: number;
     elecIndex: number;
     discountRate: number;
-    productionYearlyLossIndex: number;
-    CVPrice: number;
-    onduleurCost: number;
     onduleurReplacementRate: number;
-    CVRate: number;
     CVTime: number;
+    productionYearlyLossIndex: number;
+    onduleurCost: number;
+    elecSellingPrice: number;
+    CVPrice: number;
+    CVRate: number;
     PVCost: number;
     VATrate: number;
     annualMaintenanceCost: number;
     loan: boolean;
     loanPeriod: number;
     loanRate: number;
+    cv_end: number;
     building: Building;
-    constructor(the_elec_selling_price: number, the_CV_price: number, the_VAT_rate: number, the_annual_maintenance_cost: number, has_loan: boolean, the_loan_period: number, the_loan_rate: number);
+    constructor(constants: Constants, the_elec_selling_price: number, the_CV_price: number, the_VAT_rate: number, the_annual_maintenance_cost: number, has_loan: boolean, the_loan_period: number, the_loan_rate: number);
     computePVCost(): number;
     computeOnduleurCost(): number;
     computeAnnualMaintenanceCost(): number;
-    computeCVRate(): 3 | 2.4;
+    computeCVRate(): number;
 }
 interface financialBenefit {
     [key: string]: number[];
