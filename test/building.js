@@ -9,6 +9,8 @@ var constants = {
     onduleur_cost_factor: 250,
     onduleur_replacement_rate: 15,
     redevance_cost: 65,
+    pvheater_cost: 1700,
+    battery_cost: 7000,
     inflation_rate: 0.02,
     elec_buying_price: 0.23,
     elec_index: 0.03,

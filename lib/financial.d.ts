@@ -22,10 +22,12 @@ declare class Financial {
     loanPeriod: number;
     loanRate: number;
     cv_end: number;
+    otherCost: number;
     building: Building;
     constructor(constants: Constants, the_elec_selling_price: number, the_CV_price: number, the_VAT_rate: number, the_annual_maintenance_cost: number, has_loan: boolean, the_loan_period: number, the_loan_rate: number);
     computePVCost(): number;
     computeOnduleurCost(): number;
+    computeOtherCost(): number;
     computeAnnualMaintenanceCost(): number;
     computeCVRate(): number;
 }

@@ -51,6 +51,7 @@ const solarSim =
         let f = new Financial(constants, inputs.elecSellingPrice, inputs.CVPrice, inputs.VATrate, inputs.annualMaintenanceCost, inputs.loan, inputs.loanPeriod, inputs.loanRate);
         f.building = b;
         f.computePVCost();
+        f.computeOtherCost();
         f.computeOnduleurCost();
         f.computeAnnualMaintenanceCost();
         f.computeCVRate();
@@ -60,7 +61,7 @@ const solarSim =
         let financialYear10 = getFinancialYearN(b, f, 10, inputs.currentYear);
         let financialYear25 = getFinancialYearN(b, f, 25, inputs.currentYear);
 
-        // 1.2) Compute actualized results (counted on 25 years)
+        // 1.2) Compute actualized results (counted on 50 years)
         let financialAmortization = computeFinancialAmortization(b, f, 50, inputs.currentYear);
         let actualReturnTimeByYear = financialAmortization.actualReturnTimeByYear;
         let marginalActualReturnTimeByYear = financialAmortization.marginalActualReturnTimeByYear;

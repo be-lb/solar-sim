@@ -25,6 +25,7 @@ class Financial {
     loanPeriod: number;
     loanRate: number;
     cv_end: number;
+    otherCost: number;
     building: Building;
     constructor(
         readonly constants: Constants,
@@ -52,7 +53,7 @@ class Financial {
         this.discountRate=constants.discount_rate;
         this.onduleurReplacementRate=constants.onduleur_replacement_rate;
         this.CVTime=constants.cv_time;
-        this.cv_end = constants.cv_end_of_compensation_year;
+        this.cv_end=constants.cv_end_of_compensation_year;
     }
     computePVCost() {
         if (this.PVCost === undefined) {
@@ -67,6 +68,19 @@ class Financial {
         } else {
             return this.onduleurCost;
         }
+    }
+    computeOtherCost() {
+        /**
+        * Add the costs of the pvHeater and/or the battery if present.
+        */
+        let otherCost: number = 0;
+        if (this.building.user.hasPvHeater){
+            otherCost = otherCost + this.constants.pvheater_cost;
+        }
+        if (this.building.user.hasBattery) {
+            otherCost = otherCost + this.constants.battery_cost;
+        }
+        return this.otherCost = otherCost;
     }
     computeAnnualMaintenanceCost() {
         if (this.annualMaintenanceCost === -9999) {
@@ -257,11 +271,11 @@ const computeFinancialAmortization =
 
             balance.push(totalCost - baseCost);
 
-            netActualValueByYear.push(computeNetPresentValue(fin.discountRate, balance) - (fin.PVCost + fin.meterCost));
+            netActualValueByYear.push(computeNetPresentValue(fin.discountRate, balance) - (fin.PVCost + fin.meterCost + fin.otherCost + fin.otherCost + fin.otherCost));
             actualReturnTimeByYear.push(netActualValueByYear[i - 1] < 0 ? 1 : 0);
 
             if (i === 1) {
-                marginalActualReturnTimeByYear.push(Math.abs(- (fin.PVCost + fin.meterCost) / (netActualValueByYear[i - 1] + (fin.PVCost + fin.meterCost))));
+                marginalActualReturnTimeByYear.push(Math.abs(- (fin.PVCost + fin.meterCost + fin.otherCost) / (netActualValueByYear[i - 1] + (fin.PVCost + fin.meterCost + fin.otherCost))));
             } else {
                 marginalActualReturnTimeByYear.push(Math.abs(netActualValueByYear[i - 2] / (netActualValueByYear[i - 1] - netActualValueByYear[i - 2])));
             }
@@ -320,8 +334,8 @@ const computeSimplifiedFinancialAmortization =
         * Returns the production price in €/kWh and the simple return time in years
         */
 
-        const productionPrice: number = (fin.PVCost + fin.meterCost) / nYears / production;
-        const simpleReturnTime: number = (fin.PVCost + fin.meterCost) / (selfConsumptionAmountYear1 + CVAmountYear1);
+        const productionPrice: number = (fin.PVCost + fin.meterCost + fin.otherCost) / nYears / production;
+        const simpleReturnTime: number = (fin.PVCost + fin.meterCost + fin.otherCost) / (selfConsumptionAmountYear1 + CVAmountYear1);
 
         return {
             'productionPrice': productionPrice,
@@ -342,9 +356,9 @@ const computeActualFinancialAmortization =
 
         let finance = new Finance();
         let actualReturnTime: number = sum(actualReturnTimeByYear) + marginalActualReturnTimeByYear[sum(actualReturnTimeByYear)];
-        let netActualValue: number = computeNetPresentValue(fin.discountRate, balance) - (fin.PVCost + fin.meterCost);
-        let returnInternalRate: number = finance.IRR(-(fin.PVCost + fin.meterCost), ...balance) / 100;
-        let modifiedReturnInternalRate: number = MIRR([-(fin.PVCost + fin.meterCost), ...balance], 0.1, fin.discountRate);
+        let netActualValue: number = computeNetPresentValue(fin.discountRate, balance) - (fin.PVCost + fin.meterCost + fin.otherCost);
+        let returnInternalRate: number = finance.IRR(-(fin.PVCost + fin.meterCost + fin.otherCost), ...balance) / 100;
+        let modifiedReturnInternalRate: number = MIRR([-(fin.PVCost + fin.meterCost + fin.otherCost), ...balance], 0.1, fin.discountRate);
 
         return {
             'actualReturnTime': actualReturnTime,
@@ -377,7 +391,7 @@ const getInstallationCost = (fin: Financial): number => {
     * @param fin - Financial
     * Compute the installation cost of the photovoltaic installation.
     */
-    return fin.PVCost + fin.meterCost
+    return fin.PVCost + fin.meterCost + fin.otherCost;
 };
 
 const computeActualPrice = (price: number, index: number, time: number): number => {

@@ -1310,6 +1310,8 @@ export declare const constantsIO: io.InterfaceType<{
     onduleur_cost_factor: io.NumberType;
     onduleur_replacement_rate: io.NumberType;
     redevance_cost: io.NumberType;
+    pvheater_cost: io.NumberType;
+    battery_cost: io.NumberType;
     inflation_rate: io.NumberType;
     elec_buying_price: io.NumberType;
     elec_index: io.NumberType;
@@ -2601,6 +2603,8 @@ export declare const constantsIO: io.InterfaceType<{
     onduleur_cost_factor: io.NumberType;
     onduleur_replacement_rate: io.NumberType;
     redevance_cost: io.NumberType;
+    pvheater_cost: io.NumberType;
+    battery_cost: io.NumberType;
     inflation_rate: io.NumberType;
     elec_buying_price: io.NumberType;
     elec_index: io.NumberType;
@@ -3892,6 +3896,8 @@ export declare const constantsIO: io.InterfaceType<{
     onduleur_cost_factor: io.NumberType;
     onduleur_replacement_rate: io.NumberType;
     redevance_cost: io.NumberType;
+    pvheater_cost: io.NumberType;
+    battery_cost: io.NumberType;
     inflation_rate: io.NumberType;
     elec_buying_price: io.NumberType;
     elec_index: io.NumberType;

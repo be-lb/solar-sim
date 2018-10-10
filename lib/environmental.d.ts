@@ -20,6 +20,8 @@ declare const getEnvironmentalCosts: (environmental: Environmental, building: Bu
     onduleur_cost_factor: import("io-ts").NumberType;
     onduleur_replacement_rate: import("io-ts").NumberType;
     redevance_cost: import("io-ts").NumberType;
+    pvheater_cost: import("io-ts").NumberType;
+    battery_cost: import("io-ts").NumberType;
     inflation_rate: import("io-ts").NumberType;
     elec_buying_price: import("io-ts").NumberType;
     elec_index: import("io-ts").NumberType;
@@ -1317,6 +1319,8 @@ declare const computeSavedCO2Emissions: (actualProduction: number[], constants: 
     onduleur_cost_factor: import("io-ts").NumberType;
     onduleur_replacement_rate: import("io-ts").NumberType;
     redevance_cost: import("io-ts").NumberType;
+    pvheater_cost: import("io-ts").NumberType;
+    battery_cost: import("io-ts").NumberType;
     inflation_rate: import("io-ts").NumberType;
     elec_buying_price: import("io-ts").NumberType;
     elec_index: import("io-ts").NumberType;

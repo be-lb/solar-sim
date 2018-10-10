@@ -13,6 +13,8 @@ var constants = {
     onduleur_cost_factor: 250,
     onduleur_replacement_rate: 15,
     redevance_cost: 65,
+    pvheater_cost: 1700,
+    battery_cost: 7000,
     inflation_rate: 0.02,
     elec_buying_price: 0.23,
     elec_index: 0.03,
@@ -248,6 +250,7 @@ describe('Financial', function() {
       var f = new financial.Financial(constants, 0.03, 85, 0.06, -9999, false, 5, 0.01);
       f.building = b;
       f.computePVCost();
+      f.computeOtherCost();
       f.onduleurCost=1500;
       f.computeAnnualMaintenanceCost();
       f.computeCVRate();
@@ -272,6 +275,7 @@ describe('Financial', function() {
       var f = new financial.Financial(constants, 0.03, 85, 0.06, 0, false, 5, 0.01);
       f.building = b;
       f.computePVCost();
+      f.computeOtherCost();
       f.onduleurCost=1500;
       f.computeAnnualMaintenanceCost();
       f.computeCVRate();
@@ -296,6 +300,7 @@ describe('Financial', function() {
       var f = new financial.Financial(constants, 0.03, 85, 0.06, 0, false, 5, 0.01);
       f.building = b;
       f.computePVCost();
+      f.computeOtherCost();
       f.onduleurCost=1500;
       f.computeAnnualMaintenanceCost();
       f.computeCVRate();
@@ -322,6 +327,7 @@ describe('Financial', function() {
       //f.computePVCost();
       f.onduleurCost=1500;
       f.PVCost = 4680;
+      f.otherCost = 0;
       f.computeAnnualMaintenanceCost();
       f.computeCVRate();
 
@@ -345,6 +351,7 @@ describe('Financial', function() {
       var f = new financial.Financial(constants, 0.03, 85, 0.06, -9999, false, 5, 0.01);
       f.building = b;
       f.computePVCost();
+      f.otherCost=0;
       f.onduleurCost=1500;
       f.computeAnnualMaintenanceCost();
       f.computeCVRate();
@@ -371,6 +378,7 @@ describe('Financial', function() {
       f.building = b;
       //f.computePVCost();
       f.PVCost = 4680;
+      f.otherCost = 0;
       f.onduleurCost=1500;
       f.computeAnnualMaintenanceCost();
       f.computeCVRate();
@@ -384,6 +392,7 @@ describe('Financial', function() {
     it('should return true - actualReturnTime', function() {
       var f = new financial.Financial(constants, 0.03, 85, 0.06, -9999, false, 5, 0.01);
       f.PVCost = 8550;
+      f.otherCost = 0;
       f.onduleurCost=1500;
       var balance = [1774, 1798, 1308, 1318, 1329, 1340, 1351, 1362, 1374, 1387, 459, 473, 487, 501, -1503, 531, 547, 563, 579, 597, 614, 632, 651, 670, 690];
       var actualReturnTimeByYear = [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -393,6 +402,7 @@ describe('Financial', function() {
     it('should return true - netActualValue', function() {
       var f = new financial.Financial(constants, 0.03, 85, 0.06, -9999, false, 5, 0.01);
       f.PVCost = 8550;
+      f.otherCost = 0;
       var balance = [1774, 1798, 1308, 1318, 1329, 1340, 1351, 1362, 1374, 1387, 459, 473, 487, 501, -1503, 531, 547, 563, 579, 597, 614, 632, 651, 670, 690];
       var actualReturnTimeByYear = [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       var marginalActualReturnTimeByYear = [5.18, 4.29, 4.71, 3.82, 2.91, 1.97, 1.00, 0.00, 1.03, 2.09, 9.70, 10.81, 11.93, 13.06, 4.88, 11.41, 12.53, 13.67, 14.82, 15.98, 17.16, 18.34, 19.54, 20.75, 21.97];
@@ -401,6 +411,7 @@ describe('Financial', function() {
     it('should return true - returnInternalRate', function() {
       var f = new financial.Financial(constants, 0.03, 85, 0.06, -9999, false, 5, 0.01);
       f.PVCost = 8550;
+      f.otherCost = 0;
       var balance = [1774, 1798, 1308, 1318, 1329, 1340, 1351, 1362, 1374, 1387, 459, 473, 487, 501, -1503, 531, 547, 563, 579, 597, 614, 632, 651, 670, 690];
       var actualReturnTimeByYear = [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       var marginalActualReturnTimeByYear = [5.18, 4.29, 4.71, 3.82, 2.91, 1.97, 1.00, 0.00, 1.03, 2.09, 9.70, 10.81, 11.93, 13.06, 4.88, 11.41, 12.53, 13.67, 14.82, 15.98, 17.16, 18.34, 19.54, 20.75, 21.97];
@@ -409,6 +420,7 @@ describe('Financial', function() {
     it('should return true - modifiedReturnInternalRate', function() {
       var f = new financial.Financial(constants, 0.03, 85, 0.06, -9999, false, 5, 0.01);
       f.PVCost = 8550;
+      f.otherCost = 0;
       var balance = [1774, 1798, 1308, 1318, 1329, 1340, 1351, 1362, 1374, 1387, 459, 473, 487, 501, -1503, 531, 547, 563, 579, 597, 614, 632, 651, 670, 690];
       var actualReturnTimeByYear = [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       var marginalActualReturnTimeByYear = [5.18, 4.29, 4.71, 3.82, 2.91, 1.97, 1.00, 0.00, 1.03, 2.09, 9.70, 10.81, 11.93, 13.06, 4.88, 11.41, 12.53, 13.67, 14.82, 15.98, 17.16, 18.34, 19.54, 20.75, 21.97];
@@ -422,6 +434,7 @@ describe('Financial', function() {
     it('should return true - productionPrice', function() {
       var f = new financial.Financial(constants, 0.03, 85, 0.06, -9999, false, 5, 0.01);
       f.PVCost = 8550;
+      f.otherCost = 0;
       var nYears = 25;
       var production = 3705;
       var selfConsumptionAmountYear1 = 829;
@@ -431,6 +444,7 @@ describe('Financial', function() {
     it('should return true - simpleReturnTime', function() {
       var f = new financial.Financial(constants, 0.03, 85, 0.06, -9999, false, 5, 0.01);
       f.PVCost = 8550;
+      f.otherCost = 0;
       var nYears = 25;
       var production = 3705;
       var selfConsumptionAmountYear1 = 829;
@@ -445,6 +459,7 @@ describe('Financial', function() {
     it('should return true - getInstallationCost', function() {
       var f = new financial.Financial(constants, 0.03, 85, 0.06, -9999, false, 5, 0.01);
       f.PVCost = 4680;
+      f.otherCost = 0;
       expect(financial.getInstallationCost(f)).to.eql(4969);
     });
   });
