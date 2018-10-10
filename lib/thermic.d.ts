@@ -49,6 +49,8 @@ declare const getAzimuthBestRoof: (constants: import("io-ts").TypeOfProps<{
     production_yearly_loss_index: import("io-ts").NumberType;
     maintenance_cost_factor: import("io-ts").NumberType;
     max_solar_productivity: import("io-ts").NumberType;
+    medium_solar_productivity: import("io-ts").NumberType;
+    max_solar_irradiance: import("io-ts").NumberType;
     flat_roof_tilt: import("io-ts").NumberType;
     low_productivity_limit: import("io-ts").NumberType;
     annual_consumption_base: import("io-ts").NumberType;
@@ -59,6 +61,32 @@ declare const getAzimuthBestRoof: (constants: import("io-ts").TypeOfProps<{
     thermic_maintenance_cost: import("io-ts").NumberType;
     max_liter_per_day: import("io-ts").NumberType;
     min_thermic_area: import("io-ts").NumberType;
+    obstacle_default_rate: import("io-ts").NumberType;
+    obstacle: import("io-ts").InterfaceType<{
+        velux: import("io-ts").NumberType;
+        dormerWindow: import("io-ts").NumberType;
+        flatRoofWindow: import("io-ts").NumberType;
+        chimneySmoke: import("io-ts").NumberType;
+        terraceInUse: import("io-ts").NumberType;
+        lift: import("io-ts").NumberType;
+        existingSolarPannel: import("io-ts").NumberType;
+    }, import("io-ts").TypeOfProps<{
+        velux: import("io-ts").NumberType;
+        dormerWindow: import("io-ts").NumberType;
+        flatRoofWindow: import("io-ts").NumberType;
+        chimneySmoke: import("io-ts").NumberType;
+        terraceInUse: import("io-ts").NumberType;
+        lift: import("io-ts").NumberType;
+        existingSolarPannel: import("io-ts").NumberType;
+    }>, import("io-ts").OutputOfProps<{
+        velux: import("io-ts").NumberType;
+        dormerWindow: import("io-ts").NumberType;
+        flatRoofWindow: import("io-ts").NumberType;
+        chimneySmoke: import("io-ts").NumberType;
+        terraceInUse: import("io-ts").NumberType;
+        lift: import("io-ts").NumberType;
+        existingSolarPannel: import("io-ts").NumberType;
+    }>, import("io-ts").mixed>;
     energetic_cost_factor: import("io-ts").InterfaceType<{
         Belgium: import("io-ts").NumberType;
         Europe: import("io-ts").NumberType;

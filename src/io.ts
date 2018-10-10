@@ -101,6 +101,20 @@ const thermalProductionIO = io.interface({
 export type ThermalProduction = io.TypeOf<typeof thermalProductionIO>;
 export type ThermalProductionKey = keyof ThermalProduction;
 
+export const ObstaclesIO = io.interface({
+    velux: io.number,
+    dormerWindow: io.number,
+    flatRoofWindow: io.number,
+    chimneySmoke: io.number,
+    terraceInUse: io.number,
+    lift: io.number,
+    existingSolarPannel: io.number,
+}, 'ObstaclesIO');
+
+export type Obstacles = io.TypeOf<typeof ObstaclesIO>;
+export type Obstacle = keyof Obstacles;
+
+
 export const constantsIO = io.interface({
     max_power: io.number,
     co2_emissions_by_kwh: io.number,
@@ -120,6 +134,8 @@ export const constantsIO = io.interface({
     production_yearly_loss_index: io.number,
     maintenance_cost_factor: io.number,
     max_solar_productivity: io.number,
+    medium_solar_productivity: io.number,
+    max_solar_irradiance: io.number,
     flat_roof_tilt: io.number,
     low_productivity_limit: io.number,
     annual_consumption_base: io.number,
@@ -130,6 +146,9 @@ export const constantsIO = io.interface({
     thermic_maintenance_cost: io.number,
     max_liter_per_day: io.number,
     min_thermic_area: io.number,
+
+    obstacle_default_rate: io.number,
+    obstacle: ObstaclesIO,
 
     energetic_cost_factor: energeticCostFactorIO,
     breakdown_cost_factor: breakdownCostFactorOriginIO,

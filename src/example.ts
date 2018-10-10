@@ -92,7 +92,9 @@ let constants: Constants = {
     cv_end_of_compensation_year: 2020,
     production_yearly_loss_index: 0.0005,
     maintenance_cost_factor: 0.0075,
-    max_solar_productivity: 1300,
+    max_solar_productivity: 940,
+    max_solar_irradiance: 1300,
+    medium_solar_productivity: 940,
     flat_roof_tilt: 5,
     low_productivity_limit: 800,
     annual_consumption_base: 600,
@@ -103,6 +105,17 @@ let constants: Constants = {
     thermic_maintenance_cost: 100,
     max_liter_per_day: 210,
     min_thermic_area: 5,
+
+    obstacle_default_rate: 0.182,
+    obstacle: {
+        chimneySmoke: 0.7666,
+        velux: 1.205,
+        dormerWindow: 4.267,
+        flatRoofWindow: 1.801,
+        terraceInUse: 14.58,
+        lift: 9.032,
+        existingSolarPannel: 12.18,
+    },
 
     energetic_cost_factor: { 'Belgium': 2500, 'Europe': 2600, 'China': 2750 },
     breakdown_cost_factor: {

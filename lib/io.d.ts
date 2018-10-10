@@ -1276,6 +1276,33 @@ declare const thermalProductionIO: io.InterfaceType<{
 }>, io.mixed>;
 export declare type ThermalProduction = io.TypeOf<typeof thermalProductionIO>;
 export declare type ThermalProductionKey = keyof ThermalProduction;
+export declare const ObstaclesIO: io.InterfaceType<{
+    velux: io.NumberType;
+    dormerWindow: io.NumberType;
+    flatRoofWindow: io.NumberType;
+    chimneySmoke: io.NumberType;
+    terraceInUse: io.NumberType;
+    lift: io.NumberType;
+    existingSolarPannel: io.NumberType;
+}, io.TypeOfProps<{
+    velux: io.NumberType;
+    dormerWindow: io.NumberType;
+    flatRoofWindow: io.NumberType;
+    chimneySmoke: io.NumberType;
+    terraceInUse: io.NumberType;
+    lift: io.NumberType;
+    existingSolarPannel: io.NumberType;
+}>, io.OutputOfProps<{
+    velux: io.NumberType;
+    dormerWindow: io.NumberType;
+    flatRoofWindow: io.NumberType;
+    chimneySmoke: io.NumberType;
+    terraceInUse: io.NumberType;
+    lift: io.NumberType;
+    existingSolarPannel: io.NumberType;
+}>, io.mixed>;
+export declare type Obstacles = io.TypeOf<typeof ObstaclesIO>;
+export declare type Obstacle = keyof Obstacles;
 export declare const constantsIO: io.InterfaceType<{
     max_power: io.NumberType;
     co2_emissions_by_kwh: io.NumberType;
@@ -1295,6 +1322,8 @@ export declare const constantsIO: io.InterfaceType<{
     production_yearly_loss_index: io.NumberType;
     maintenance_cost_factor: io.NumberType;
     max_solar_productivity: io.NumberType;
+    medium_solar_productivity: io.NumberType;
+    max_solar_irradiance: io.NumberType;
     flat_roof_tilt: io.NumberType;
     low_productivity_limit: io.NumberType;
     annual_consumption_base: io.NumberType;
@@ -1305,6 +1334,32 @@ export declare const constantsIO: io.InterfaceType<{
     thermic_maintenance_cost: io.NumberType;
     max_liter_per_day: io.NumberType;
     min_thermic_area: io.NumberType;
+    obstacle_default_rate: io.NumberType;
+    obstacle: io.InterfaceType<{
+        velux: io.NumberType;
+        dormerWindow: io.NumberType;
+        flatRoofWindow: io.NumberType;
+        chimneySmoke: io.NumberType;
+        terraceInUse: io.NumberType;
+        lift: io.NumberType;
+        existingSolarPannel: io.NumberType;
+    }, io.TypeOfProps<{
+        velux: io.NumberType;
+        dormerWindow: io.NumberType;
+        flatRoofWindow: io.NumberType;
+        chimneySmoke: io.NumberType;
+        terraceInUse: io.NumberType;
+        lift: io.NumberType;
+        existingSolarPannel: io.NumberType;
+    }>, io.OutputOfProps<{
+        velux: io.NumberType;
+        dormerWindow: io.NumberType;
+        flatRoofWindow: io.NumberType;
+        chimneySmoke: io.NumberType;
+        terraceInUse: io.NumberType;
+        lift: io.NumberType;
+        existingSolarPannel: io.NumberType;
+    }>, io.mixed>;
     energetic_cost_factor: io.InterfaceType<{
         Belgium: io.NumberType;
         Europe: io.NumberType;
@@ -2558,6 +2613,8 @@ export declare const constantsIO: io.InterfaceType<{
     production_yearly_loss_index: io.NumberType;
     maintenance_cost_factor: io.NumberType;
     max_solar_productivity: io.NumberType;
+    medium_solar_productivity: io.NumberType;
+    max_solar_irradiance: io.NumberType;
     flat_roof_tilt: io.NumberType;
     low_productivity_limit: io.NumberType;
     annual_consumption_base: io.NumberType;
@@ -2568,6 +2625,32 @@ export declare const constantsIO: io.InterfaceType<{
     thermic_maintenance_cost: io.NumberType;
     max_liter_per_day: io.NumberType;
     min_thermic_area: io.NumberType;
+    obstacle_default_rate: io.NumberType;
+    obstacle: io.InterfaceType<{
+        velux: io.NumberType;
+        dormerWindow: io.NumberType;
+        flatRoofWindow: io.NumberType;
+        chimneySmoke: io.NumberType;
+        terraceInUse: io.NumberType;
+        lift: io.NumberType;
+        existingSolarPannel: io.NumberType;
+    }, io.TypeOfProps<{
+        velux: io.NumberType;
+        dormerWindow: io.NumberType;
+        flatRoofWindow: io.NumberType;
+        chimneySmoke: io.NumberType;
+        terraceInUse: io.NumberType;
+        lift: io.NumberType;
+        existingSolarPannel: io.NumberType;
+    }>, io.OutputOfProps<{
+        velux: io.NumberType;
+        dormerWindow: io.NumberType;
+        flatRoofWindow: io.NumberType;
+        chimneySmoke: io.NumberType;
+        terraceInUse: io.NumberType;
+        lift: io.NumberType;
+        existingSolarPannel: io.NumberType;
+    }>, io.mixed>;
     energetic_cost_factor: io.InterfaceType<{
         Belgium: io.NumberType;
         Europe: io.NumberType;
@@ -3821,6 +3904,8 @@ export declare const constantsIO: io.InterfaceType<{
     production_yearly_loss_index: io.NumberType;
     maintenance_cost_factor: io.NumberType;
     max_solar_productivity: io.NumberType;
+    medium_solar_productivity: io.NumberType;
+    max_solar_irradiance: io.NumberType;
     flat_roof_tilt: io.NumberType;
     low_productivity_limit: io.NumberType;
     annual_consumption_base: io.NumberType;
@@ -3831,6 +3916,32 @@ export declare const constantsIO: io.InterfaceType<{
     thermic_maintenance_cost: io.NumberType;
     max_liter_per_day: io.NumberType;
     min_thermic_area: io.NumberType;
+    obstacle_default_rate: io.NumberType;
+    obstacle: io.InterfaceType<{
+        velux: io.NumberType;
+        dormerWindow: io.NumberType;
+        flatRoofWindow: io.NumberType;
+        chimneySmoke: io.NumberType;
+        terraceInUse: io.NumberType;
+        lift: io.NumberType;
+        existingSolarPannel: io.NumberType;
+    }, io.TypeOfProps<{
+        velux: io.NumberType;
+        dormerWindow: io.NumberType;
+        flatRoofWindow: io.NumberType;
+        chimneySmoke: io.NumberType;
+        terraceInUse: io.NumberType;
+        lift: io.NumberType;
+        existingSolarPannel: io.NumberType;
+    }>, io.OutputOfProps<{
+        velux: io.NumberType;
+        dormerWindow: io.NumberType;
+        flatRoofWindow: io.NumberType;
+        chimneySmoke: io.NumberType;
+        terraceInUse: io.NumberType;
+        lift: io.NumberType;
+        existingSolarPannel: io.NumberType;
+    }>, io.mixed>;
     energetic_cost_factor: io.InterfaceType<{
         Belgium: io.NumberType;
         Europe: io.NumberType;
