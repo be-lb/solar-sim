@@ -110,13 +110,13 @@ let constants: Constants = {
 
     obstacle_default_rate: 0.182,
     obstacle: {
-        chimneySmoke: 0.7666,
-        velux: 1.205,
-        dormerWindow: 4.267,
-        flatRoofWindow: 1.801,
-        terraceInUse: 14.58,
-        lift: 9.032,
-        existingSolarPannel: 12.18,
+        chimneySmoke:  0.8719,
+        velux: 1.409,
+        dormerWindow: 5.339,
+        flatRoofWindow: 4.192,
+        terraceInUse: 26.09,
+        lift: 10.93,
+        existingSolarPannel: 36.05,
     },
 
     energetic_cost_factor: { 'Belgium': 2500, 'Europe': 2600, 'China': 2750 },
