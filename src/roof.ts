@@ -82,10 +82,10 @@ class Roof {
             }
             if (this.tilt < this.constants.flat_roof_tilt) { // flat roof
                 return this.usableArea =
-                    isAboveProductivityLimit * 0.57 * this.rawArea * (1 - this.building.obstacleRate);
+                    isAboveProductivityLimit * 0.57 * this.rawArea * (1 - this.building.obstacleRate - this.constants.lost_space_rate);
             } else {
                 return this.usableArea =
-                    isAboveProductivityLimit * this.rawArea * (1 - this.building.obstacleRate);
+                    isAboveProductivityLimit * this.rawArea * (1 - this.building.obstacleRate - this.constants.lost_space_rate);
             }
         } else {
             return this.usableArea;

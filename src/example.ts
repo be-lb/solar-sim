@@ -20,8 +20,8 @@ import { roof, inputs, Constants } from './io';
 let roofs: roof[] = [
     {
         "azimuth": 149.4325327827,
-        "productivity": 1945.3562068862,
-        "area": 120.9019349646,
+        "productivity": 945.3562068862,
+        "area": 80.9019349646,
         "tilt": 27.1570730376
     },
     {
@@ -108,7 +108,7 @@ let constants: Constants = {
     max_liter_per_day: 210,
     min_thermic_area: 5,
 
-    obstacle_default_rate: 0.182,
+    obstacle_default_rate: 0.177,
     obstacle: {
         chimneySmoke:  0.8719,
         velux: 1.409,
@@ -118,6 +118,7 @@ let constants: Constants = {
         lift: 10.93,
         existingSolarPannel: 36.05,
     },
+    lost_space_rate: 0.15,
 
     energetic_cost_factor: { 'Belgium': 2500, 'Europe': 2600, 'China': 2750 },
     breakdown_cost_factor: {

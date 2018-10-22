@@ -43,6 +43,7 @@ var constants = {
     thermic_maintenance_cost: 100,
     max_liter_per_day: 210,
     min_thermic_area: 5,
+    lost_space_rate: 0,
     energetic_cost_factor: { 'Belgium': 2500, 'Europe': 2600, 'China': 2750 },
     breakdown_cost_factor: {
         'Belgium': { 'panels': 0.85, 'setup': 0.04, 'inverter': 0.09, 'transportBE': 0.02, 'transportEU': 0, 'transportBoat': 0 },

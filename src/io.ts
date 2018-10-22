@@ -151,6 +151,7 @@ export const constantsIO = io.interface({
 
     obstacle_default_rate: io.number,
     obstacle: ObstaclesIO,
+    lost_space_rate: io.number,
 
     energetic_cost_factor: energeticCostFactorIO,
     breakdown_cost_factor: breakdownCostFactorOriginIO,

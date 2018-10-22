@@ -89,6 +89,7 @@ declare const getAzimuthBestRoof: (constants: import("io-ts").TypeOfProps<{
         lift: import("io-ts").NumberType;
         existingSolarPannel: import("io-ts").NumberType;
     }>, import("io-ts").mixed>;
+    lost_space_rate: import("io-ts").NumberType;
     energetic_cost_factor: import("io-ts").InterfaceType<{
         Belgium: import("io-ts").NumberType;
         Europe: import("io-ts").NumberType;

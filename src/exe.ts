@@ -37,7 +37,7 @@ let constants: Constants = {
     max_liter_per_day: 210,
     min_thermic_area: 5,
 
-    obstacle_default_rate: 0.182,
+    obstacle_default_rate: 0.177,
     obstacle: {
         chimneySmoke: 0.7666,
         velux: 1.205,
@@ -47,6 +47,7 @@ let constants: Constants = {
         lift: 9.032,
         existingSolarPannel: 12.18,
     },
+    lost_space_rate: 0.15,
 
     energetic_cost_factor: { 'Belgium': 2500, 'Europe': 2600, 'China': 2750 },
     breakdown_cost_factor: {

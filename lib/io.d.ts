@@ -1362,6 +1362,7 @@ export declare const constantsIO: io.InterfaceType<{
         lift: io.NumberType;
         existingSolarPannel: io.NumberType;
     }>, io.mixed>;
+    lost_space_rate: io.NumberType;
     energetic_cost_factor: io.InterfaceType<{
         Belgium: io.NumberType;
         Europe: io.NumberType;
@@ -2655,6 +2656,7 @@ export declare const constantsIO: io.InterfaceType<{
         lift: io.NumberType;
         existingSolarPannel: io.NumberType;
     }>, io.mixed>;
+    lost_space_rate: io.NumberType;
     energetic_cost_factor: io.InterfaceType<{
         Belgium: io.NumberType;
         Europe: io.NumberType;
@@ -3948,6 +3950,7 @@ export declare const constantsIO: io.InterfaceType<{
         lift: io.NumberType;
         existingSolarPannel: io.NumberType;
     }>, io.mixed>;
+    lost_space_rate: io.NumberType;
     energetic_cost_factor: io.InterfaceType<{
         Belgium: io.NumberType;
         Europe: io.NumberType;
