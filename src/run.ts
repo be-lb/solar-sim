@@ -91,7 +91,7 @@ const solarSim =
             // 'finance': {
             'CVAmountYear25': financialYear25.CVAmountYearN,
             'selfConsumptionAmountYear25': financialYear25.selfConsumptionAmountYearN,
-            'totalGain25Y': financialYear25.CVAmountYearN + financialYear25.selfConsumptionAmountYearN,
+            'totalGain25Y': financialYear25.CVAmountYearN + financialYear25.selfConsumptionAmountYearN - installationCost,
             'returnTime': actualReturnTime,
       }
 }
