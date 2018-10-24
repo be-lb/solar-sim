@@ -54,6 +54,7 @@ interface financialYearN {
 declare const computeActualAnnualProduction: (production: number, fin: Financial, nYears: number) => number[];
 declare const computeFinancialBenefit: (building: Building, fin: Financial, nYears: number, currentYear: number) => financialBenefit;
 declare const computeFinancialAmortization: (building: Building, fin: Financial, nYears: number, currentYear: number) => financialAmortization;
+declare const computeLoanCosts: (fin: Financial, nYears: number) => number;
 declare const getFinancialYearN: (building: Building, fin: Financial, nYears: number, currentYear: number) => financialYearN;
 declare const computeSimplifiedFinancialAmortization: (fin: Financial, production: number, selfConsumptionAmountYear1: number, CVAmountYear1: number, nYears: number) => simplifiedFinancialAmortization;
 declare const computeActualFinancialAmortization: (fin: Financial, balance: number[], actualReturnTimeByYear: number[], marginalActualReturnTimeByYear: number[]) => actualFinancialAmortization;
@@ -62,4 +63,4 @@ declare const getInstallationCost: (fin: Financial) => number;
 declare const computeActualPrice: (price: number, index: number, time: number) => number;
 declare const computeNetPresentValue: (discountRate: number, values: number[]) => number;
 export { Financial };
-export { computeActualAnnualProduction, getFinancialYearN, computeFinancialBenefit, computeFinancialAmortization, computeSimplifiedFinancialAmortization, computeActualFinancialAmortization, computeActualReturnTime, computeActualPrice, computeNetPresentValue, getInstallationCost };
+export { computeActualAnnualProduction, getFinancialYearN, computeFinancialBenefit, computeFinancialAmortization, computeSimplifiedFinancialAmortization, computeActualFinancialAmortization, computeActualReturnTime, computeActualPrice, computeNetPresentValue, getInstallationCost, computeLoanCosts };

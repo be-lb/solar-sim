@@ -20,22 +20,16 @@ import { roof, inputs, Constants } from './io';
 let roofs: roof[] = [
     {
         "azimuth": 149.4325327827,
-        "productivity": 945.3562068862,
-        "area": 80.9019349646,
-        "tilt": 27.1570730376
+        "productivity": 639.1895393207744,
+        "area": 47.9019349646,
+        "tilt": 53.65089319048465
     },
     {
         "azimuth": 36.1854187033,
-        "productivity": 570.1815062421,
-        "area": 1191.5398056349,
-        "tilt": 0.1266373741
+        "productivity": 753.8868261850696,
+        "area": 67.5398056349,
+        "tilt": 61.72299138605504
     },
-    {
-        "azimuth": 149.1765317543,
-        "productivity": 521.3345989325,
-        "area": 289.2746173713,
-        "tilt": 25.0726237712
-    }
 ];
 
 // let inputs = inputsFactory(roofs);
@@ -60,8 +54,8 @@ let fullInputs: inputs = {
     loanPeriod: 5,
     loanRate: 0.02,
     loan: false,
-    energySobriety: true,
-    chargeShift: true,
+    energySobriety: false,
+    chargeShift: false,
     pvHeater: false,
     battery: false,
     thermicHouseholdPerson: 5,
@@ -98,7 +92,7 @@ let constants: Constants = {
     max_solar_irradiance: 1300,
     medium_solar_productivity: 940,
     flat_roof_tilt: 5,
-    low_productivity_limit: 800,
+    low_productivity_limit: 722.5,
     annual_consumption_base: 600,
     washing_machine_factor: 600,
     electric_water_heater_factor: 2336,

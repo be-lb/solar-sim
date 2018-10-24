@@ -11,7 +11,7 @@
 import { Building } from './building';
 import { Roof } from './roof';
 import { User } from './user';
-import { Financial, computeActualAnnualProduction, computeFinancialAmortization, getFinancialYearN, computeActualReturnTime, getInstallationCost } from './financial';
+import { Financial, computeActualAnnualProduction, computeFinancialAmortization, getFinancialYearN, computeActualReturnTime, getInstallationCost, computeLoanCosts } from './financial';
 import { computeSavedCO2Emissions} from './environmental';
 import { Constants, inputs, outputs, thermicOutputs } from './io';
 import { Thermic, computeThermicGain, computeThermicEnvironmentalGain, computeProductionPrices, computeActualReturnTimeThermic } from './thermic';
@@ -70,6 +70,15 @@ const solarSim =
         // 1.3) installation costs
         let installationCost = getInstallationCost(f);
 
+        // 1.4) Net gain 25y
+        let loanCosts25 = computeLoanCosts(f, 25);
+        let netGain25: number = 0;
+        if (f.loan) {
+            netGain25 = financialYear25.CVAmountYearN + financialYear25.selfConsumptionAmountYearN - loanCosts25 - f.otherCost;
+        } else {
+            netGain25 = financialYear25.CVAmountYearN + financialYear25.selfConsumptionAmountYearN - installationCost;
+        }
+
         // 2) Environmental results
         let actualProduction = computeActualAnnualProduction(b.production, f, 10);
         let savedCO2emissions = computeSavedCO2Emissions(actualProduction, constants);
@@ -91,7 +100,7 @@ const solarSim =
             // 'finance': {
             'CVAmountYear25': financialYear25.CVAmountYearN,
             'selfConsumptionAmountYear25': financialYear25.selfConsumptionAmountYearN,
-            'totalGain25Y': financialYear25.CVAmountYearN + financialYear25.selfConsumptionAmountYearN - installationCost,
+            'totalGain25Y': netGain25,
             'returnTime': actualReturnTime,
       }
 }

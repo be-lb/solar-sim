@@ -251,10 +251,10 @@ const computeFinancialAmortization =
             let loanCosts: number = 0;
             if (fin.loan) {
                 if (i <= fin.loanPeriod) {
-                    loanCosts = -1 * finance.PMT(fin.loanRate, fin.loanPeriod, -fin.PVCost);
+                    loanCosts = -1 * finance.PMT(fin.loanRate, fin.loanPeriod, -fin.PVCost-fin.meterCost);
                 }
             }
-            //console.log(loanCosts); // new line 23
+            console.log(loanCosts); // new line 23
 
             // Total PV cost
             let totalCost: number = 0;
@@ -271,7 +271,11 @@ const computeFinancialAmortization =
 
             balance.push(totalCost - baseCost);
 
-            netActualValueByYear.push(computeNetPresentValue(fin.discountRate, balance) - (fin.PVCost + fin.meterCost + fin.otherCost + fin.otherCost + fin.otherCost));
+            if (fin.loan){
+                netActualValueByYear.push(computeNetPresentValue(fin.discountRate, balance) - (fin.otherCost));
+            } else {
+                netActualValueByYear.push(computeNetPresentValue(fin.discountRate, balance) - (fin.PVCost + fin.meterCost + fin.otherCost));
+            }
             actualReturnTimeByYear.push(netActualValueByYear[i - 1] < 0 ? 1 : 0);
 
             if (i === 1) {
@@ -295,6 +299,21 @@ const computeFinancialAmortization =
             'marginalActualReturnTimeByYear': marginalActualReturnTimeByYear
         }
     };
+
+
+const computeLoanCosts = (fin: Financial, nYears: number): number => {
+    let loanCosts: number = 0;
+    let finance = new Finance();
+    for (let i = 1; i <= nYears; i++) {
+        if (fin.loan) {
+            if (i <= fin.loanPeriod) {
+                loanCosts = loanCosts + finance.PMT(fin.loanRate, fin.loanPeriod, -fin.PVCost-fin.meterCost);
+            }
+        }
+    }
+    console.log(loanCosts);
+    return loanCosts;
+}
 
 
 const getFinancialYearN =
@@ -391,7 +410,12 @@ const getInstallationCost = (fin: Financial): number => {
     * @param fin - Financial
     * Compute the installation cost of the photovoltaic installation.
     */
-    return fin.PVCost + fin.meterCost + fin.otherCost;
+    if (fin.PVCost === 0) {
+        return 0;
+    } else {
+        return fin.PVCost + fin.meterCost + fin.otherCost;
+    }
+
 };
 
 const computeActualPrice = (price: number, index: number, time: number): number => {
@@ -442,4 +466,4 @@ const MIRR = (values: number[], financeRate: number, discountRate: number): numb
 };
 
 export { Financial };
-export { computeActualAnnualProduction, getFinancialYearN, computeFinancialBenefit, computeFinancialAmortization, computeSimplifiedFinancialAmortization, computeActualFinancialAmortization, computeActualReturnTime, computeActualPrice, computeNetPresentValue, getInstallationCost };
+export { computeActualAnnualProduction, getFinancialYearN, computeFinancialBenefit, computeFinancialAmortization, computeSimplifiedFinancialAmortization, computeActualFinancialAmortization, computeActualReturnTime, computeActualPrice, computeNetPresentValue, getInstallationCost, computeLoanCosts };
