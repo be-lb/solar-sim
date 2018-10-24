@@ -101,13 +101,14 @@ const optimizeRoofAreas = (b: Building, actualPvArea: number): number  => {
     for (let r of b.roofs) {
         roofProductivities.push(r.productivity);
     }
-    let sortRoofProductivities: number[] = roofProductivities.sort((a, b) => b - a);
+    // sort the roof by increasing area
+    let sortRoofProductivities: number[] = roofProductivities.sort((a, b) => a - b);
 
     let cpt: number = 0;
     while (inputArea < computedPvArea && cpt < b.roofs.length && cpt < MAX_ITERATION_WHILE) {
 
         let deltaArea: number = computedPvArea - inputArea;
-        // select the roof by increasing productivity
+        // loop over the roof by increasing area
         for (let r of b.roofs) {
             if (r.productivity === sortRoofProductivities[cpt]) {
                 r.usableArea = Math.max((r.usableArea - deltaArea),0);
@@ -141,20 +142,20 @@ const optimizeRoofPowers = (b: Building, actualPower: number): void => {
     for (let r of b.roofs) {
         roofProductivities.push(r.productivity);
     }
-    let sortRoofProductivities: number[] = roofProductivities.sort((a, b) => b - a);
+    // sort the roof by increasing productivity
+    let sortRoofProductivities: number[] = roofProductivities.sort((a, b) => a - b);
 
     let cpt: number = 0;
+    let gaveTheMaxPower: boolean = false;
     while (b.MAX_POWER < computedPower && cpt < b.roofs.length && cpt < MAX_ITERATION_WHILE) {
-
         let deltaPower: number = computedPower - b.MAX_POWER;
 
-        // adapt the power of the roof [cpt]
+        // loop over the roof by increasing area and adapt its power
         for (let r of b.roofs) {
-            if (r.productivity === sortRoofProductivities[cpt]) {
-
-                // Avoid having all roof rejected because of too high power
-                if (cpt === 1){
-                    r.usablePeakPower = Math.max((r.usablePeakPower - deltaPower), b.MAX_POWER);
+            if (r.productivity === sortRoofProductivities[cpt]) {                
+                if (r.usablePeakPower > b.MAX_POWER && !gaveTheMaxPower){ // Avoid having all roof rejected because of too high power
+                    r.usablePeakPower = b.MAX_POWER;
+                    gaveTheMaxPower = true;
                 } else {
                     r.usablePeakPower = Math.max((r.usablePeakPower - deltaPower), 0);
                 }

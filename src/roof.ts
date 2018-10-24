@@ -49,11 +49,7 @@ class Roof {
         * @param tilt - roof inclination (°)
         * Function for selecting the setup factor given the roof inclination (tilt)
         */
-        if (this.setupFactor === undefined) {
-            return this.setupFactor = this.tilt < this.constants.flat_roof_tilt ? 0.5 : 1
-        } else {
-            return this.setupFactor;
-        }
+        return this.setupFactor = 1;
     };
     getPVYield() {
         /**

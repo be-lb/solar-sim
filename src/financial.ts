@@ -254,7 +254,7 @@ const computeFinancialAmortization =
                     loanCosts = -1 * finance.PMT(fin.loanRate, fin.loanPeriod, -fin.PVCost-fin.meterCost);
                 }
             }
-            console.log(loanCosts); // new line 23
+            //console.log(loanCosts); // new line 23
 
             // Total PV cost
             let totalCost: number = 0;
@@ -311,7 +311,6 @@ const computeLoanCosts = (fin: Financial, nYears: number): number => {
             }
         }
     }
-    console.log(loanCosts);
     return loanCosts;
 }
 
