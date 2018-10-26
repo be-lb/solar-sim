@@ -25,8 +25,9 @@ var constants = {
     max_solar_productivity: 1300,
     flat_roof_tilt: 5,
     low_productivity_limit: 800,
-    annual_consumption_base: 600,
-    washing_machine_factor: 600,
+    energy_sobriety_factor: 0.8,
+    electric_water_heater_factor: 1.4,
+    electric_water_heater_min_consumption: 1000,
     electric_water_heater_factor: 2336,
     electric_heating_factor: 16500,
     thermic_installation_cost: 6000,
@@ -209,15 +210,15 @@ describe('User', function() {
   describe('u.computeAnnualElecConsumption() == 2036', function() {
     it('should return true', function() {
          var b = new building.Building(0.2, constants.max_power, constants.max_solar_productivity);
-        var u = new user.User(constants, 2036, true, true, false, true, b);
+        var u = new user.User(constants, 2036, false, false, false, false, b);
         expect(u.computeAnnualElecConsumption()).to.be.equal(2036);
     });
   });
-  describe('u.computeAnnualElecConsumption() == 4372 (with pv heater)', function() {
+  describe('u.computeAnnualElecConsumption() == 3036 (with pv heater)', function() {
     it('should return true', function() {
          var b = new building.Building(0.2, constants.max_power, constants.max_solar_productivity);
-        var u = new user.User(constants, 2036, true, true, true, true, b);
-        expect(u.computeAnnualElecConsumption()).to.be.equal(4372);
+        var u = new user.User(constants, 2036, false, false, true, false, b);
+        expect(u.computeAnnualElecConsumption()).to.be.equal(3036);
     });
   });
 });

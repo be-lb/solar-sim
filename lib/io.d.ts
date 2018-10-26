@@ -1328,9 +1328,9 @@ export declare const constantsIO: io.InterfaceType<{
     max_solar_irradiance: io.NumberType;
     flat_roof_tilt: io.NumberType;
     low_productivity_limit: io.NumberType;
-    annual_consumption_base: io.NumberType;
-    washing_machine_factor: io.NumberType;
+    energy_sobriety_factor: io.NumberType;
     electric_water_heater_factor: io.NumberType;
+    electric_water_heater_min_consumption: io.NumberType;
     electric_heating_factor: io.NumberType;
     thermic_installation_cost: io.NumberType;
     thermic_maintenance_cost: io.NumberType;
@@ -2622,9 +2622,9 @@ export declare const constantsIO: io.InterfaceType<{
     max_solar_irradiance: io.NumberType;
     flat_roof_tilt: io.NumberType;
     low_productivity_limit: io.NumberType;
-    annual_consumption_base: io.NumberType;
-    washing_machine_factor: io.NumberType;
+    energy_sobriety_factor: io.NumberType;
     electric_water_heater_factor: io.NumberType;
+    electric_water_heater_min_consumption: io.NumberType;
     electric_heating_factor: io.NumberType;
     thermic_installation_cost: io.NumberType;
     thermic_maintenance_cost: io.NumberType;
@@ -3916,9 +3916,9 @@ export declare const constantsIO: io.InterfaceType<{
     max_solar_irradiance: io.NumberType;
     flat_roof_tilt: io.NumberType;
     low_productivity_limit: io.NumberType;
-    annual_consumption_base: io.NumberType;
-    washing_machine_factor: io.NumberType;
+    energy_sobriety_factor: io.NumberType;
     electric_water_heater_factor: io.NumberType;
+    electric_water_heater_min_consumption: io.NumberType;
     electric_heating_factor: io.NumberType;
     thermic_installation_cost: io.NumberType;
     thermic_maintenance_cost: io.NumberType;

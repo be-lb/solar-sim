@@ -24,9 +24,9 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
     max_solar_irradiance: import("io-ts").NumberType;
     flat_roof_tilt: import("io-ts").NumberType;
     low_productivity_limit: import("io-ts").NumberType;
-    annual_consumption_base: import("io-ts").NumberType;
-    washing_machine_factor: import("io-ts").NumberType;
+    energy_sobriety_factor: import("io-ts").NumberType;
     electric_water_heater_factor: import("io-ts").NumberType;
+    electric_water_heater_min_consumption: import("io-ts").NumberType;
     electric_heating_factor: import("io-ts").NumberType;
     thermic_installation_cost: import("io-ts").NumberType;
     thermic_maintenance_cost: import("io-ts").NumberType;
@@ -1319,9 +1319,9 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
     max_solar_irradiance: import("io-ts").NumberType;
     flat_roof_tilt: import("io-ts").NumberType;
     low_productivity_limit: import("io-ts").NumberType;
-    annual_consumption_base: import("io-ts").NumberType;
-    washing_machine_factor: import("io-ts").NumberType;
+    energy_sobriety_factor: import("io-ts").NumberType;
     electric_water_heater_factor: import("io-ts").NumberType;
+    electric_water_heater_min_consumption: import("io-ts").NumberType;
     electric_heating_factor: import("io-ts").NumberType;
     thermic_installation_cost: import("io-ts").NumberType;
     thermic_maintenance_cost: import("io-ts").NumberType;

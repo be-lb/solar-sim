@@ -18,11 +18,13 @@ class User {
     hasPvHeater: boolean;
     hasBattery: boolean;
     annualElectricityConsumption: number;
+    baseAnnualElectricityConsumption: number;
     building: Building;
     constructor(
         private constants: Constants,
         annual_consumption: number, energy_sobriety: boolean, charge_swift: boolean, pv_heater: boolean, battery: boolean, b: Building) {
         this.annualElectricityConsumption = annual_consumption;
+        this.baseAnnualElectricityConsumption = annual_consumption;
         this.hasEnergySobriety = energy_sobriety;
         this.hasChargeSwift = charge_swift;
         this.hasPvHeater = pv_heater;
@@ -34,10 +36,12 @@ class User {
         * Compute the annual electric consumption, in kWh/year
         */
         let annualElectricityConsumption: number = this.annualElectricityConsumption;
-        if (annualElectricityConsumption === 2036) { // default value
-            if (this.hasPvHeater) {
-                annualElectricityConsumption = annualElectricityConsumption + this.constants.electric_water_heater_factor;
-            }
+        if (this.hasEnergySobriety) {
+            annualElectricityConsumption = annualElectricityConsumption * this.constants.energy_sobriety_factor;
+        }
+        if (this.hasPvHeater) {
+            annualElectricityConsumption = annualElectricityConsumption +
+            Math.max(this.constants.electric_water_heater_min_consumption, annualElectricityConsumption * (1 - this.constants.electric_water_heater_factor));
         }
         return this.annualElectricityConsumption = annualElectricityConsumption;
     };
@@ -70,7 +74,8 @@ class User {
         }
 
         let keys = Object.keys(this.constants.self_production['default']).map(x => x as SelfProductionValueKey);
-        let ratio: number = this.building.production / this.annualElectricityConsumption;
+        // Compute the ratio based on the baseAnnualElectricityConsumption
+        let ratio: number = this.building.production / this.baseAnnualElectricityConsumption;
         let diff: number[] = keys.map(x => Math.abs(Number(x) - ratio));
         let ratioKey = keys[0];
         for (let d of diff) {
