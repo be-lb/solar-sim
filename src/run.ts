@@ -71,7 +71,14 @@ const solarSim =
         // 1.3) installation costs
         let installationCost = getInstallationCost(f);
 
-        // 1.4) Net gain 25y
+        // 1.4) Net gain
+        let loanCosts10 = computeLoanCosts(f, 10);
+        let netGain10: number = 0;
+        if (f.loan) {
+            netGain10 = financialYear10.CVAmountYearN + financialYear10.selfConsumptionAmountYearN - loanCosts10 - f.otherCost;
+        } else {
+            netGain10 = financialYear10.CVAmountYearN + financialYear10.selfConsumptionAmountYearN - installationCost;
+        }
         let loanCosts25 = computeLoanCosts(f, 25);
         let netGain25: number = 0;
         if (f.loan) {
@@ -101,6 +108,7 @@ const solarSim =
             // 'finance': {
             'CVAmountYear25': financialYear25.CVAmountYearN,
             'selfConsumptionAmountYear25': financialYear25.selfConsumptionAmountYearN,
+            'totalGain10Y': netGain10,
             'totalGain25Y': netGain25,
             'returnTime': actualReturnTime,
       }

@@ -241,6 +241,7 @@ interface financeOutputs {
     'CVAmountYear25': number,
     'selfConsumptionAmountYear25': number,
     'totalGain25Y': number,
+    'totalGain10Y': number,
     'returnTime': number
 }
 
