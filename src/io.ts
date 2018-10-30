@@ -257,7 +257,8 @@ type outputs = mainOutputs & setupOutputs & energyOutputs & financeOutputs;
 interface thermicOutputs {
     'installationCost': number,
     'grant': number,
-    'gain': number,
+    'thermalGain10': number,
+    'thermalGain25': number,
     'savedCO2emissions': number,
     'annualProduction': number,
     'annualConsumption': number,

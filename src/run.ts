@@ -139,7 +139,8 @@ const thermicSolarSim =
         t.computePumpConsumption();
         let f = new Financial(constants, -9999, -9999, inputs.VATrate, -9999, inputs.loan, 3, 0.018);
 
-        let gain = computeThermicGain(t, inputs.nYears);
+        let gain10 = computeThermicGain(t, 10);
+        let gain25 = computeThermicGain(t, 25);
         let productionPrices = computeProductionPrices(t, 25);
         let actualReturnTime = computeActualReturnTimeThermic(t, f, 50);
 
@@ -147,7 +148,8 @@ const thermicSolarSim =
         return {
             'installationCost': t.cost,
             'grant': t.grant,
-            'gain': gain,
+            'thermalGain10': gain10,
+            'thermalGain25': gain25,
             'savedCO2emissions': savedCO2emissions,
             'annualProduction': t.solarProduction, // in kWh/an
             'annualConsumption': t.netDemand, // in kWh/an
