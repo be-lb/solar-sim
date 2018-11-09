@@ -17,49 +17,22 @@ import { roof, inputs, Constants } from './io';
 //     {'area': 70, 'productivity': 1850, 'tilt': 30, 'azimuth': 110},
 //     {'area': 300, 'productivity': 50, 'tilt': 30, 'azimuth': 150}
 // ];
+// ex. rue des pecheries 40
 let roofs: roof[] = [
     {
-        "azimuth": 226.64372931979185,
-        "irradiance": 1030737.6313046628,
-        "productivity": 832.0663151682604,
-        "tilt": 45.715942499876064,
-        "area": 75.63444978318674,
+        "productivity": 384.0210351342623,
+         "irradiance": 560.2440212569849,
+         "tilt": 45.05483266486062,
+         "azimuth": 357.9678268564494,
+         "area": 61.005878657665946
     },
     {
-        "azimuth": 136.89979573840384,
-        "irradiance": 1604299.3389477243,
-        "productivity": 1295.075874638895,
-        "tilt": 44.753653469108045,
-        "area": 48.19293945427856,
+        "productivity": 866.5838935453914,
+         "irradiance": 1264.2496135834433,
+         "tilt": 45.066495521837346,
+         "azimuth": 177.8251838977078,
+         "area": 54.84724324868495
     },
-    {
-        "azimuth": 316.8702121694432,
-        "irradiance": 928861.0791845283,
-        "productivity": 749.8261361448635,
-        "tilt": 45.42177889268702,
-        "area": 51.885964717689745,
-    },
-    {
-        "azimuth": 46.79341108357369,
-        "irradiance": 1266483.8292450996,
-        "productivity": 1022.3732024669615,
-        "tilt": 87.49675635001802,
-        "area": 14.898711878537437,
-    },
-    {
-        "azimuth": 46.76585555446808,
-        "irradiance": 930939.016047624,
-        "productivity": 751.5035574558909,
-        "tilt": 45.36122939443447,
-        "area": 109.52514071996171,
-    },
-    {
-        "azimuth": 46.79341108357369,
-        "irradiance": 799293.4988399845,
-        "productivity": 645.2322842583342,
-        "tilt": 45.40167784879384,
-        "area": 20.903824548749242,
-    }
 ];
 
 // let inputs = inputsFactory(roofs);
@@ -70,7 +43,7 @@ let roofs: roof[] = [
 // Example with all input parameters with the same roof collection
 let fullInputs: inputs = {
     roofs: roofs,
-    pvTechnology: 'poly',
+    pvTechnology: 'mono',
     nYears: 10,
     currentYear: 2018,
     elecSellingPrice: 0.03,
@@ -78,7 +51,7 @@ let fullInputs: inputs = {
     pvArea: -9999,
     annualConsumptionKWh: 2036,
     installationPrice: -9999,
-    obstacleRate: 0.2,
+    obstacleRate: 0.177,
     VATrate: 0.06,
     annualMaintenanceCost: -9999,
     loanPeriod: 5,
@@ -118,11 +91,11 @@ let constants: Constants = {
     cv_end_of_compensation_year: 2020,
     production_yearly_loss_index: 0.0005,
     maintenance_cost_factor: 0.0075,
-    max_solar_productivity: 940,
-    max_solar_irradiance: 1300,
-    medium_solar_productivity: 940,
+    max_solar_productivity: 900,
+    max_solar_irradiance: 1313,
+    medium_solar_productivity: 800.25,
     flat_roof_tilt: 5,
-    low_productivity_limit: 722.5,
+    low_productivity_limit: 600.5,
     energy_sobriety_factor: 0.8,
     electric_water_heater_factor: 1.4,
     electric_water_heater_min_consumption: 1000,
