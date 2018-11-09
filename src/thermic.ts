@@ -124,20 +124,27 @@ const getAzimuthBestRoof = (constants:Constants, b: Building): number => {
     /**
     * @param Building - Building
     * Get the azimuth value of the roof with higher productivity,
-    * for roofs with a minimal area and with azimuth between East and West.
+    * for roofs with a minimal area and productivity, and with azimuth between
+    * East and West.
     */
     let azimuth: number = -9999;
     let roofProductivities: number[] = [];
 
     for (let r of b.roofs) {
-        if (r.usableArea >= constants.min_thermic_area && r.azimuth > 78.75 && r.azimuth < 281.25) {
+        if (r.usableArea >= constants.min_thermic_area && r.azimuth > 78.75 && r.azimuth < 281.25 && r.productivity > constants.low_productivity_limit) {
             roofProductivities.push(r.productivity);
         }
     }
     for (let r of b.roofs) {
-        if (r.usableArea >= constants.min_thermic_area && r.azimuth > 78.75 && r.azimuth < 281.25) {
-            if (r.productivity === Math.max(...roofProductivities)) {
-                azimuth = r.azimuth;
+        if (r.usableArea >= constants.min_thermic_area && r.productivity > constants.low_productivity_limit) {
+            if (r.tilt < constants.flat_roof_tilt) {
+                azimuth = 180;
+            } else {
+                if (r.azimuth > 78.75 && r.azimuth < 281.25) {
+                    if (r.productivity === Math.max(...roofProductivities)) {
+                        azimuth = r.azimuth;
+                    }
+                }
             }
         }
     }
