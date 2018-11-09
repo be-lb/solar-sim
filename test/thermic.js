@@ -260,9 +260,9 @@ describe('Thermic', function() {
       expect(thermic.computeBalances(t,f,nYears).VANminusConsoWithoutSolar.map(x => Math.round(x/100)*100)).to.eql(expected.map(x => Math.round(x/100)*100));
     });
   });
-  describe('computeThermicGain = 4018 + grant', function() {
+  describe('computeThermicGain = 4018', function() {
     it('should return true', function() {
-       var b = new building.Building(0.2, constants.max_power, constants.max_solar_productivity);
+      var b = new building.Building(0.2, constants.max_power, constants.max_solar_productivity);
       var r = new roof.Roof(constants, 30, 950, 30, 110, 'poly', b);
       b.roofs = [r];
       var t = new thermic.Thermic(constants, 5, 30, 150, 'electric', -9999, -9999, 3, 2500, 0.06);
@@ -273,7 +273,7 @@ describe('Thermic', function() {
       t.computePumpConsumption();
       var nYears = 10;
 
-      var expected = 4018 + t.grant;
+      var expected = 4018
       expect(Math.round(thermic.computeThermicGain(t,nYears))).to.be.equal(expected);
     });
   });
