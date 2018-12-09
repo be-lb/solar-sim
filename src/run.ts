@@ -49,7 +49,7 @@ const solarSim =
         b.user = u;
 
         // Financial information
-        let f = new Financial(constants, inputs.elecSellingPrice, inputs.CVPrice, inputs.VATrate, inputs.annualMaintenanceCost, inputs.loan, inputs.loanPeriod, inputs.loanRate);
+        let f = new Financial(constants, inputs.VATrate, inputs.annualMaintenanceCost, inputs.loan, inputs.loanPeriod, inputs.loanRate);
         f.building = b;
         f.computePVCost();
         f.computeOtherCost();
@@ -137,7 +137,7 @@ const thermicSolarSim =
         t.building = b;
         t.computeSolarProduction();
         t.computePumpConsumption();
-        let f = new Financial(constants, -9999, -9999, inputs.VATrate, -9999, inputs.loan, 3, 0.018);
+        let f = new Financial(constants, inputs.VATrate, -9999, inputs.loan, 3, 0.018);
 
         let gain10 = computeThermicGain(t, 10);
         let gain25 = computeThermicGain(t, 25);

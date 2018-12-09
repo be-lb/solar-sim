@@ -12,6 +12,8 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
     elec_buying_price: import("io-ts").NumberType;
     elec_index: import("io-ts").NumberType;
     discount_rate: import("io-ts").NumberType;
+    elec_selling_price: import("io-ts").NumberType;
+    cv_price: import("io-ts").NumberType;
     cv_rate_switch_power: import("io-ts").NumberType;
     cv_rate_low_power: import("io-ts").NumberType;
     cv_rate_high_power: import("io-ts").NumberType;
@@ -1307,6 +1309,8 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
     elec_buying_price: import("io-ts").NumberType;
     elec_index: import("io-ts").NumberType;
     discount_rate: import("io-ts").NumberType;
+    elec_selling_price: import("io-ts").NumberType;
+    cv_price: import("io-ts").NumberType;
     cv_rate_switch_power: import("io-ts").NumberType;
     cv_rate_low_power: import("io-ts").NumberType;
     cv_rate_high_power: import("io-ts").NumberType;

@@ -19,6 +19,8 @@ var constants = {
     elec_buying_price: 0.23,
     elec_index: 0.03,
     discount_rate: 0.04,
+    elec_selling_price: 0.03,
+    cv_price: 85,
     cv_rate_switch_power: 5,
     cv_rate_low_power: 3,
     cv_rate_high_power: 2.4,
@@ -237,7 +239,7 @@ describe('Thermic', function() {
       t.building = b;
       t.computeSolarProduction();
       t.computePumpConsumption();
-      var f = new financial.Financial(constants, -9999, -9999, 0.06, -9999, false, 3, 0.018);
+      var f = new financial.Financial(constants, 0.06, -9999, false, 3, 0.018);
       var nYears = 25;
 
       var expected = [-4358, -4760, -5262, -5664, -6066, -6563, -6965, -7367, -7858, -8260, -8662, -9148, -9550, -9952, -10433, -10835, -11237, -11714, -12116, -12518, -12991, -13393, -13795, -14263, -14665];
@@ -253,7 +255,7 @@ describe('Thermic', function() {
       t.building = b;
       t.computeSolarProduction();
       t.computePumpConsumption();
-      var f = new financial.Financial(constants, -9999, -9999, 0.06, -9999, false, 3, 0.018);
+      var f = new financial.Financial(constants, 0.06, -9999, false, 3, 0.018);
       var nYears = 25;
 
       var expected = [-715, -1429, -2144, -2859, -3573, -4288, -5003, -5717, -6432, -7147, -7861, -8576, -9291, -10005, -10720, -11435, -12149, -12864, -13579, -14293, -15008, -15723, -16437, -17152, -17867];
@@ -288,7 +290,7 @@ describe('Thermic', function() {
       t.building = b;
       t.computeSolarProduction();
       t.computePumpConsumption();
-      var f = new financial.Financial(constants, -9999, -9999, 0.06, -9999, false, 3, 0.018);
+      var f = new financial.Financial(constants, 0.06, -9999, false, 3, 0.018);
       var nYears = 25;
 
       var expected = 13.8;

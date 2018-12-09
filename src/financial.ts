@@ -29,16 +29,14 @@ class Financial {
     building: Building;
     constructor(
         readonly constants: Constants,
-        the_elec_selling_price: number,
-        the_CV_price: number,
         the_VAT_rate: number,
         the_annual_maintenance_cost: number,
         has_loan: boolean,
         the_loan_period: number,
         the_loan_rate: number
     ) {
-        this.elecSellingPrice = the_elec_selling_price;
-        this.CVPrice = the_CV_price;
+        this.elecSellingPrice = constants.elec_selling_price;
+        this.CVPrice = constants.cv_price;
         this.VATrate = the_VAT_rate;
         this.annualMaintenanceCost = the_annual_maintenance_cost;
         this.loan = has_loan;

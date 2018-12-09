@@ -15,6 +15,8 @@ var constants = {
     elec_buying_price: 0.23,
     elec_index: 0.03,
     discount_rate: 0.04,
+    elec_selling_price: 0.03,
+    cv_price: 85,
     cv_rate_switch_power: 5,
     cv_rate_low_power: 3,
     cv_rate_high_power: 2.4,

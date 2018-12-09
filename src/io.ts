@@ -128,6 +128,8 @@ export const constantsIO = io.interface({
     elec_buying_price: io.number,
     elec_index: io.number,
     discount_rate: io.number,
+    elec_selling_price: io.number,
+    cv_price: io.number,
     cv_rate_switch_power: io.number,
     cv_rate_low_power: io.number,
     cv_rate_high_power: io.number,
@@ -192,8 +194,6 @@ interface inputs {
     'pvTechnology': PVTechnologyEnum;
     'nYears': number;
     'currentYear': number;
-    'elecSellingPrice': number;
-    'CVPrice': number;
     'pvArea': number;
     'annualConsumptionKWh': number;
     'installationPrice': number;
@@ -273,8 +273,6 @@ const inputsFactory = (
     pvTechnology: PVTechnologyEnum = 'mono',  /* required */
     nYears = 10, /* default */
     currentYear = 2018, /* default */
-    elecSellingPrice = 0.03, /* default */
-    CVPrice = 85, /* default */
     pvArea = -9999, /* computed or inputed */
     annualConsumptionKWh = 2036, /* average according to brugel */
     installationPrice = -9999, /* computed or inputed */
@@ -306,8 +304,6 @@ const inputsFactory = (
         pvTechnology: pvTechnology,
         nYears,
         currentYear,
-        elecSellingPrice,
-        CVPrice,
         pvArea,
         annualConsumptionKWh,
         installationPrice,

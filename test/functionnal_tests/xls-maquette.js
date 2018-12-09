@@ -25,6 +25,8 @@ var constants = {
     elec_buying_price: 0.23,
     elec_index: 0.03,
     discount_rate: 0.04,
+    elec_selling_price: 0.03,
+    cv_price: 85,
     cv_rate_switch_power: 5,
     cv_rate_low_power: 3,
     cv_rate_high_power: 2.4,
@@ -254,7 +256,7 @@ u.selfProductionRate = 0.3; // must be hardcoded since the simulator has changed
 b.user = u;
 
 // Financial information
-var f = new financial.Financial(constants, inputs.elecSellingPrice, inputs.CVPrice, inputs.VATrate, inputs.annualMaintenanceCost, inputs.loan, inputs.loanPeriod, inputs.loanRate)
+var f = new financial.Financial(constants, inputs.VATrate, inputs.annualMaintenanceCost, inputs.loan, inputs.loanPeriod, inputs.loanRate)
 f.building = b;
 f.computePVCost();
 f.computeAnnualMaintenanceCost();

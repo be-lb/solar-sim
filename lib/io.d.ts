@@ -1316,6 +1316,8 @@ export declare const constantsIO: io.InterfaceType<{
     elec_buying_price: io.NumberType;
     elec_index: io.NumberType;
     discount_rate: io.NumberType;
+    elec_selling_price: io.NumberType;
+    cv_price: io.NumberType;
     cv_rate_switch_power: io.NumberType;
     cv_rate_low_power: io.NumberType;
     cv_rate_high_power: io.NumberType;
@@ -2610,6 +2612,8 @@ export declare const constantsIO: io.InterfaceType<{
     elec_buying_price: io.NumberType;
     elec_index: io.NumberType;
     discount_rate: io.NumberType;
+    elec_selling_price: io.NumberType;
+    cv_price: io.NumberType;
     cv_rate_switch_power: io.NumberType;
     cv_rate_low_power: io.NumberType;
     cv_rate_high_power: io.NumberType;
@@ -3904,6 +3908,8 @@ export declare const constantsIO: io.InterfaceType<{
     elec_buying_price: io.NumberType;
     elec_index: io.NumberType;
     discount_rate: io.NumberType;
+    elec_selling_price: io.NumberType;
+    cv_price: io.NumberType;
     cv_rate_switch_power: io.NumberType;
     cv_rate_low_power: io.NumberType;
     cv_rate_high_power: io.NumberType;
@@ -5200,8 +5206,6 @@ interface inputs {
     'pvTechnology': PVTechnologyEnum;
     'nYears': number;
     'currentYear': number;
-    'elecSellingPrice': number;
-    'CVPrice': number;
     'pvArea': number;
     'annualConsumptionKWh': number;
     'installationPrice': number;
@@ -5262,5 +5266,5 @@ interface thermicOutputs {
     'productionPriceWithoutSubsidies': number;
     'returnTime': number;
 }
-declare const inputsFactory: (roofs: roof[], pvTechnology?: "poly" | "mono" | "mono_high", nYears?: number, currentYear?: number, elecSellingPrice?: number, CVPrice?: number, pvArea?: number, annualConsumptionKWh?: number, installationPrice?: number, obstacleRate?: number, VATrate?: number, annualMaintenanceCost?: number, loanPeriod?: number, loanRate?: number, loan?: boolean, energySobriety?: boolean, chargeShift?: boolean, pvHeater?: boolean, battery?: boolean, thermicHouseholdPerson?: number, thermicLiterByPersonByDay?: number, thermicLiterByDay?: number, thermicHotWaterProducer?: "gas" | "fuel" | "electric", thermicCost?: number, thermicAnnualMaintenanceCost?: number, thermicMaintenanceRate?: number, thermicGrant?: number) => inputs;
+declare const inputsFactory: (roofs: roof[], pvTechnology?: "poly" | "mono" | "mono_high", nYears?: number, currentYear?: number, pvArea?: number, annualConsumptionKWh?: number, installationPrice?: number, obstacleRate?: number, VATrate?: number, annualMaintenanceCost?: number, loanPeriod?: number, loanRate?: number, loan?: boolean, energySobriety?: boolean, chargeShift?: boolean, pvHeater?: boolean, battery?: boolean, thermicHouseholdPerson?: number, thermicLiterByPersonByDay?: number, thermicLiterByDay?: number, thermicHotWaterProducer?: "gas" | "fuel" | "electric", thermicCost?: number, thermicAnnualMaintenanceCost?: number, thermicMaintenanceRate?: number, thermicGrant?: number) => inputs;
 export { inputs, outputs, thermicOutputs, inputsFactory, roof };
