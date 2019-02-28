@@ -192,6 +192,18 @@ var constants = {
             270: 1364,
         }
     },
+    cv_rate_classes: [
+        {
+            'lower_limit': 0,
+            'upper_limit': 5,
+            'cv_rate': 3,
+        },
+        {
+            'lower_limit': 5,
+            'upper_limit': 9999999999,
+            'cv_rate': 2.4,
+        }
+    ],
 };
 
 describe('Financial', function() {

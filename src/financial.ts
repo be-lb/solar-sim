@@ -88,11 +88,13 @@ class Financial {
         }
     }
     computeCVRate() {
-        if (this.building.power > this.constants.cv_rate_switch_power) {
-            return this.CVRate = this.constants.cv_rate_high_power;
-        } else {
-            return this.CVRate = this.constants.cv_rate_low_power;
+        let cvrate: number = this.constants.cv_rate_classes[this.constants.cv_rate_classes.length - 1].cv_rate; // default value
+        for (let i = 0; i <= this.constants.cv_rate_classes.length - 1; i++) {
+            if (this.building.power > this.constants.cv_rate_classes[i].lower_limit && this.building.power <= this.constants.cv_rate_classes[i].upper_limit) {
+                cvrate = this.constants.cv_rate_classes[i].cv_rate;
+            }
         }
+        return this.CVRate = cvrate;
     }
 };
 

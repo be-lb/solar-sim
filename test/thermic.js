@@ -21,26 +21,46 @@ var constants = {
     discount_rate: 0.04,
     elec_selling_price: 0.03,
     cv_price: 85,
-    cv_rate_switch_power: 5,
-    cv_rate_low_power: 3,
-    cv_rate_high_power: 2.4,
     cv_time: 10,
     cv_end_of_compensation_year: 2020,
     production_yearly_loss_index: 0.0005,
     maintenance_cost_factor: 0.0075,
-    max_solar_productivity: 1300,
+    max_solar_productivity: 900,
+    max_solar_irradiance: 1313,
+    medium_solar_productivity: 800.25,
     flat_roof_tilt: 5,
-    low_productivity_limit: 800,
-    annual_consumption_base: 600,
-    washing_machine_factor: 600,
-    electric_water_heater_factor: 2336,
+    low_productivity_limit: 600.5,
+    energy_sobriety_factor: 0.8,
+    electric_water_heater_factor: 1.4,
+    electric_water_heater_min_consumption: 1000,
     electric_heating_factor: 16500,
     thermic_installation_cost: 6000,
     thermic_maintenance_cost: 100,
     max_liter_per_day: 210,
     min_thermic_area: 5,
-    lost_space_rate: 0,
-
+    cv_rate_classes: [
+        {
+            'lower_limit': 0,
+            'upper_limit': 5,
+            'cv_rate': 2.4,
+        },
+        {
+            'lower_limit': 5,
+            'upper_limit': 9999999999,
+            'cv_rate': 1.8,
+        }
+    ],
+    obstacle_default_rate: 0.177,
+    obstacle: {
+        chimneySmoke: 0.8719,
+        velux: 1.409,
+        dormerWindow: 5.339,
+        flatRoofWindow: 4.192,
+        terraceInUse: 26.09,
+        lift: 10.93,
+        existingSolarPannel: 36.05,
+    },
+    lost_space_rate: 0.15,
     energetic_cost_factor: { 'Belgium': 2500, 'Europe': 2600, 'China': 2750 },
     breakdown_cost_factor: {
         'Belgium': { 'panels': 0.85, 'setup': 0.04, 'inverter': 0.09, 'transportBE': 0.02, 'transportEU': 0, 'transportBoat': 0 },
@@ -122,7 +142,7 @@ var constants = {
     co2_emissions_by_kwh_thermic: {
         'gas': 0.201,
         'fuel': 0.263,
-        'electric': 0.456 // NB: should be equal to CO2_EMISSIONS_BY_KWH
+        'electric': 0.456
     },
     thermic_production: {
         "60": {

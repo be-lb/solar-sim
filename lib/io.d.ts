@@ -1303,6 +1303,21 @@ export declare const ObstaclesIO: io.InterfaceType<{
 }>, io.mixed>;
 export declare type Obstacles = io.TypeOf<typeof ObstaclesIO>;
 export declare type Obstacle = keyof Obstacles;
+declare const cvRateClassesIO: io.InterfaceType<{
+    lower_limit: io.NumberType;
+    upper_limit: io.NumberType;
+    cv_rate: io.NumberType;
+}, io.TypeOfProps<{
+    lower_limit: io.NumberType;
+    upper_limit: io.NumberType;
+    cv_rate: io.NumberType;
+}>, io.OutputOfProps<{
+    lower_limit: io.NumberType;
+    upper_limit: io.NumberType;
+    cv_rate: io.NumberType;
+}>, io.mixed>;
+export declare type cvRateClasses = io.TypeOf<typeof cvRateClassesIO>;
+export declare type cvRateClassesKey = keyof cvRateClasses;
 export declare const constantsIO: io.InterfaceType<{
     max_power: io.NumberType;
     co2_emissions_by_kwh: io.NumberType;
@@ -1318,9 +1333,6 @@ export declare const constantsIO: io.InterfaceType<{
     discount_rate: io.NumberType;
     elec_selling_price: io.NumberType;
     cv_price: io.NumberType;
-    cv_rate_switch_power: io.NumberType;
-    cv_rate_low_power: io.NumberType;
-    cv_rate_high_power: io.NumberType;
     cv_time: io.NumberType;
     cv_end_of_compensation_year: io.NumberType;
     production_yearly_loss_index: io.NumberType;
@@ -2599,6 +2611,27 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.mixed>;
     }>, io.mixed>;
+    cv_rate_classes: io.ArrayType<io.InterfaceType<{
+        lower_limit: io.NumberType;
+        upper_limit: io.NumberType;
+        cv_rate: io.NumberType;
+    }, io.TypeOfProps<{
+        lower_limit: io.NumberType;
+        upper_limit: io.NumberType;
+        cv_rate: io.NumberType;
+    }>, io.OutputOfProps<{
+        lower_limit: io.NumberType;
+        upper_limit: io.NumberType;
+        cv_rate: io.NumberType;
+    }>, io.mixed>, io.TypeOfProps<{
+        lower_limit: io.NumberType;
+        upper_limit: io.NumberType;
+        cv_rate: io.NumberType;
+    }>[], io.OutputOfProps<{
+        lower_limit: io.NumberType;
+        upper_limit: io.NumberType;
+        cv_rate: io.NumberType;
+    }>[], io.mixed>;
 }, io.TypeOfProps<{
     max_power: io.NumberType;
     co2_emissions_by_kwh: io.NumberType;
@@ -2614,9 +2647,6 @@ export declare const constantsIO: io.InterfaceType<{
     discount_rate: io.NumberType;
     elec_selling_price: io.NumberType;
     cv_price: io.NumberType;
-    cv_rate_switch_power: io.NumberType;
-    cv_rate_low_power: io.NumberType;
-    cv_rate_high_power: io.NumberType;
     cv_time: io.NumberType;
     cv_end_of_compensation_year: io.NumberType;
     production_yearly_loss_index: io.NumberType;
@@ -3895,6 +3925,27 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.mixed>;
     }>, io.mixed>;
+    cv_rate_classes: io.ArrayType<io.InterfaceType<{
+        lower_limit: io.NumberType;
+        upper_limit: io.NumberType;
+        cv_rate: io.NumberType;
+    }, io.TypeOfProps<{
+        lower_limit: io.NumberType;
+        upper_limit: io.NumberType;
+        cv_rate: io.NumberType;
+    }>, io.OutputOfProps<{
+        lower_limit: io.NumberType;
+        upper_limit: io.NumberType;
+        cv_rate: io.NumberType;
+    }>, io.mixed>, io.TypeOfProps<{
+        lower_limit: io.NumberType;
+        upper_limit: io.NumberType;
+        cv_rate: io.NumberType;
+    }>[], io.OutputOfProps<{
+        lower_limit: io.NumberType;
+        upper_limit: io.NumberType;
+        cv_rate: io.NumberType;
+    }>[], io.mixed>;
 }>, io.OutputOfProps<{
     max_power: io.NumberType;
     co2_emissions_by_kwh: io.NumberType;
@@ -3910,9 +3961,6 @@ export declare const constantsIO: io.InterfaceType<{
     discount_rate: io.NumberType;
     elec_selling_price: io.NumberType;
     cv_price: io.NumberType;
-    cv_rate_switch_power: io.NumberType;
-    cv_rate_low_power: io.NumberType;
-    cv_rate_high_power: io.NumberType;
     cv_time: io.NumberType;
     cv_end_of_compensation_year: io.NumberType;
     production_yearly_loss_index: io.NumberType;
@@ -5191,6 +5239,27 @@ export declare const constantsIO: io.InterfaceType<{
             "270": io.NumberType;
         }>, io.mixed>;
     }>, io.mixed>;
+    cv_rate_classes: io.ArrayType<io.InterfaceType<{
+        lower_limit: io.NumberType;
+        upper_limit: io.NumberType;
+        cv_rate: io.NumberType;
+    }, io.TypeOfProps<{
+        lower_limit: io.NumberType;
+        upper_limit: io.NumberType;
+        cv_rate: io.NumberType;
+    }>, io.OutputOfProps<{
+        lower_limit: io.NumberType;
+        upper_limit: io.NumberType;
+        cv_rate: io.NumberType;
+    }>, io.mixed>, io.TypeOfProps<{
+        lower_limit: io.NumberType;
+        upper_limit: io.NumberType;
+        cv_rate: io.NumberType;
+    }>[], io.OutputOfProps<{
+        lower_limit: io.NumberType;
+        upper_limit: io.NumberType;
+        cv_rate: io.NumberType;
+    }>[], io.mixed>;
 }>, io.mixed>;
 export declare type Constants = io.TypeOf<typeof constantsIO>;
 interface roof {

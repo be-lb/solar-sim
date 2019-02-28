@@ -18,9 +18,6 @@ let constants: Constants = {
     discount_rate: 0.04,
     elec_selling_price: 0.03,
     cv_price: 85,
-    cv_rate_switch_power: 5,
-    cv_rate_low_power: 2.4,
-    cv_rate_high_power: 1.8,
     cv_time: 10,
     cv_end_of_compensation_year: 2020,
     production_yearly_loss_index: 0.0005,
@@ -38,6 +35,18 @@ let constants: Constants = {
     thermic_maintenance_cost: 100,
     max_liter_per_day: 210,
     min_thermic_area: 5,
+    cv_rate_classes: [
+        {
+            'lower_limit': 0,
+            'upper_limit': 5,
+            'cv_rate': 2.4,
+        },
+        {
+            'lower_limit': 5,
+            'upper_limit': 99999999,
+            'cv_rate': 1.8,
+        }
+    ],
 
     obstacle_default_rate: 0.177,
     obstacle: {

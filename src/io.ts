@@ -114,6 +114,17 @@ export const ObstaclesIO = io.interface({
 export type Obstacles = io.TypeOf<typeof ObstaclesIO>;
 export type Obstacle = keyof Obstacles;
 
+const cvRateClassesIO = io.interface({
+    lower_limit: io.number,
+    upper_limit: io.number,
+    cv_rate: io.number,
+}, 'cvRateClassesIO')
+
+const cvRateClassesIOArray = io.array(cvRateClassesIO, 'cvRateClassesIOArray')
+
+
+export type cvRateClasses = io.TypeOf<typeof cvRateClassesIO>;
+export type cvRateClassesKey = keyof cvRateClasses;
 
 export const constantsIO = io.interface({
     max_power: io.number,
@@ -130,9 +141,6 @@ export const constantsIO = io.interface({
     discount_rate: io.number,
     elec_selling_price: io.number,
     cv_price: io.number,
-    cv_rate_switch_power: io.number,
-    cv_rate_low_power: io.number,
-    cv_rate_high_power: io.number,
     cv_time: io.number,
     cv_end_of_compensation_year: io.number,
     production_yearly_loss_index: io.number,
@@ -165,6 +173,7 @@ export const constantsIO = io.interface({
     hot_water_energy_cost_index: thermalTechnoIO,
     co2_emissions_by_kwh_thermic: thermalTechnoIO,
     thermic_production: thermalProductionIO,
+    cv_rate_classes: cvRateClassesIOArray
 }, 'constantsIO')
 
 export type Constants = io.TypeOf<typeof constantsIO>;

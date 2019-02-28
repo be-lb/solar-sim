@@ -14,9 +14,6 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
     discount_rate: import("io-ts").NumberType;
     elec_selling_price: import("io-ts").NumberType;
     cv_price: import("io-ts").NumberType;
-    cv_rate_switch_power: import("io-ts").NumberType;
-    cv_rate_low_power: import("io-ts").NumberType;
-    cv_rate_high_power: import("io-ts").NumberType;
     cv_time: import("io-ts").NumberType;
     cv_end_of_compensation_year: import("io-ts").NumberType;
     production_yearly_loss_index: import("io-ts").NumberType;
@@ -1295,6 +1292,27 @@ declare const solarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
     }>, import("io-ts").mixed>;
+    cv_rate_classes: import("io-ts").ArrayType<import("io-ts").InterfaceType<{
+        lower_limit: import("io-ts").NumberType;
+        upper_limit: import("io-ts").NumberType;
+        cv_rate: import("io-ts").NumberType;
+    }, import("io-ts").TypeOfProps<{
+        lower_limit: import("io-ts").NumberType;
+        upper_limit: import("io-ts").NumberType;
+        cv_rate: import("io-ts").NumberType;
+    }>, import("io-ts").OutputOfProps<{
+        lower_limit: import("io-ts").NumberType;
+        upper_limit: import("io-ts").NumberType;
+        cv_rate: import("io-ts").NumberType;
+    }>, import("io-ts").mixed>, import("io-ts").TypeOfProps<{
+        lower_limit: import("io-ts").NumberType;
+        upper_limit: import("io-ts").NumberType;
+        cv_rate: import("io-ts").NumberType;
+    }>[], import("io-ts").OutputOfProps<{
+        lower_limit: import("io-ts").NumberType;
+        upper_limit: import("io-ts").NumberType;
+        cv_rate: import("io-ts").NumberType;
+    }>[], import("io-ts").mixed>;
 }>) => outputs;
 declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeOfProps<{
     max_power: import("io-ts").NumberType;
@@ -1311,9 +1329,6 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
     discount_rate: import("io-ts").NumberType;
     elec_selling_price: import("io-ts").NumberType;
     cv_price: import("io-ts").NumberType;
-    cv_rate_switch_power: import("io-ts").NumberType;
-    cv_rate_low_power: import("io-ts").NumberType;
-    cv_rate_high_power: import("io-ts").NumberType;
     cv_time: import("io-ts").NumberType;
     cv_end_of_compensation_year: import("io-ts").NumberType;
     production_yearly_loss_index: import("io-ts").NumberType;
@@ -2592,5 +2607,26 @@ declare const thermicSolarSim: (inputs: inputs, constants: import("io-ts").TypeO
             "270": import("io-ts").NumberType;
         }>, import("io-ts").mixed>;
     }>, import("io-ts").mixed>;
+    cv_rate_classes: import("io-ts").ArrayType<import("io-ts").InterfaceType<{
+        lower_limit: import("io-ts").NumberType;
+        upper_limit: import("io-ts").NumberType;
+        cv_rate: import("io-ts").NumberType;
+    }, import("io-ts").TypeOfProps<{
+        lower_limit: import("io-ts").NumberType;
+        upper_limit: import("io-ts").NumberType;
+        cv_rate: import("io-ts").NumberType;
+    }>, import("io-ts").OutputOfProps<{
+        lower_limit: import("io-ts").NumberType;
+        upper_limit: import("io-ts").NumberType;
+        cv_rate: import("io-ts").NumberType;
+    }>, import("io-ts").mixed>, import("io-ts").TypeOfProps<{
+        lower_limit: import("io-ts").NumberType;
+        upper_limit: import("io-ts").NumberType;
+        cv_rate: import("io-ts").NumberType;
+    }>[], import("io-ts").OutputOfProps<{
+        lower_limit: import("io-ts").NumberType;
+        upper_limit: import("io-ts").NumberType;
+        cv_rate: import("io-ts").NumberType;
+    }>[], import("io-ts").mixed>;
 }>) => thermicOutputs;
 export { solarSim, thermicSolarSim };
