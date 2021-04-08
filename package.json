@@ -13,7 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/debug": "0.0.30",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "debug": "^4.0.1",
     "expect.js": "^0.3.1",
     "io-ts": "^1.0.0",
